@@ -72,7 +72,7 @@ Pengguna umum dapat melihat produk yang tersedia dalam aplikasi dan melakukan fi
 ---
 ## Link Deployment Aplikasi 🔗🚀
 Aplikasi ini di-deploy pada platform Pacil Web Service (pbp.cs.ui.ac.id) dan dapat diakses melalui tautan berikut:\
-[SOVITA: Souvenir Kita APP](https://muhammad-rafli33-souvenirkita.pbp.cs.ui.ac.id/)
+[SOVITA: Souvenir Kita APP](http://muhammad-rafli33-souvenirkita.pbp.cs.ui.ac.id/)
 
 ### ⛅🏝️ Our Souvenirs, Your Unforgettable Memories 🏝️⛅
 ![UltraMiamiMusicGIF](https://github.com/user-attachments/assets/f85c8603-9108-49d6-877b-ff1c62d82cd2)
