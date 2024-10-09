@@ -11,33 +11,37 @@
 
 ---
 ## Deksripsi SOVITA 🏪📚
-   Bali adalah pulau indah nan memesona, tidak afdol kalau tidak membawa oleh-oleh. Namun, banyak orang yang bingung memilih oleh-oleh apa yang kira-kira cocok untuk dibawa pulang. Memperkenalkan **SOVITA**, aplikasi pencari produk oleh-oleh di sekitar daerah Bali. **SOVITA** membantu pengguna-pengguna menemukan oleh-oleh terbaik pada berbagai toko di Bali. Aplikasi kami dilengkapi filter pencarian, dashboard yang terpersonalisasi, rate produk pada toko, dan wishlist.
+   Denpasar merupakan salah satu kota yang berada di bali yang indah nan mempesona, tidak afdol kalau tidak membawa oleh-oleh. Namun, banyak orang yang bingung memilih oleh-oleh apa yang kira-kira cocok untuk dibawa pulang. Memperkenalkan **SOVITA**, aplikasi pencari produk oleh-oleh di sekitar daerah Denpasar. **SOVITA** membantu pengguna-pengguna menemukan oleh-oleh terbaik pada berbagai toko di Denpasar. Aplikasi kami dilengkapi filter pencarian, dashboard yang terpersonalisasi, rate produk pada toko, dan wishlist.
    
 ---
 ## Manfaat SOVITA 🤖⚙️
-* Penyedia informasi kepada para turis yang datang ke Bali terutama Kota Denpasar baik turis domestik maupun mancanegara mengenai bermacam-macam cinderamata atau oleh-oleh yang berasal dari Bali
-* Wadah bagi para penjual cinderamata atau oleh-oleh Bali di Kota Denpasar agar dapat lebih dikenal dan diketahui sehingga membantu penjualan mereka secara signifikan
-* Memudahkan turis yang datang ke Kota Denpasar, Bali, untuk mencari, membandingkan, dan menentukan pilihan yang tepat dari produk-produk cinderamata khas Bali.
-* Memberikan sensasi pengalaman liburan yang maksimal dari produk cinderamata berkualitas khas Bali. Karena cinderamata dapat menjadi kenangan yang tidak dapat terlupakan dari sebuah perjalanan liburan.
+
+* Penyedia informasi kepada para turis yang datang ke Denpasar baik yang turis domestik maupun mancanegara mengenai bermacam-macam cinderamata atau oleh-oleh yang berasal dari Denpasar
+* Wadah bagi para penjual cinderamata atau oleh-oleh Denpasar agar dapat lebih dikenal dan diketahui sehingga membantu penjualan mereka secara signifikan
+* Memudahkan turis yang datang ke Denpasar untuk mencari, membandingkan, dan menentukan pilihan yang tepat dari produk-produk cinderamata khas Denpasar.
+* Memberikan sensasi pengalaman liburan yang maksimal dari produk cinderamata berkualitas khas Denpasar. Karena cinderamata dapat menjadi kenangan yang tidak dapat terlupakan dari sebuah perjalanan liburan.
+
 ---
 ## Modul-modul SOVITA 📢📌
-1. **Dashboard**\
-Laman ini menampilkan produk-produk yang sudah dipersonalisasi. Pada display, terdapat card produk yang bisa di interaksi oleh user.
 
-2. **Laman tambah produk**\
-Laman ini berisi form untuk menambahkan produk. Laman ini hanya bisa diakses oleh admin yang terautentikasi.
+1. **Display Produk**\
+Modul untuk menampilkan produk-produk yang sudah dipersonalisasi. Pada display, terdapat <em>card</em> produk yang bisa di interaksi oleh pengguna.
 
-3. **Search and Filter page**\
-Laman untuk menampilkan berdasarkan keyword dan filter yang diterapkan.
+2. **Review Produk**\
+Modul untuk menambahkan ulasan dan penilaian kepada produk tertentu.
 
-4. **Product page**\
-Laman untuk melihat detil produk seperti nama, harga, deskripsi, dan nama toko. User juga dapat mengulas produk baik dengan nilai rating dan komentar. Lalu pada toko dari produk-produk ini akan ditampilkan juga rating toko.
+3. **Wishlist**\
+Modul untuk menyimpan barang yang sedang sedang menjadi <em>wishlist</em> oleh pengguna.
 
-5. **Laman profil toko**\
-Laman ini menampilkan produk-produk pada toko tersebut dan rating toko.
+4. **Cart**\
+Modul untuk menyimpan produk yang ingin dibeli pengguna.
 
-7. **Wishlist**\
-Laman yang berisi produk yang disimpan sebagai wishlist. Laman ini hanya bisa diakses oleh user  yang terautentikasi.
+5. **Forum**\
+Modul untuk diskusi pengguna mengenai suatu produk
+
+6. **Promo**\
+Modul untuk melakukan CRUD pada promo-promo yang berlaku.
+
 ---
 ## Sumber Initial Dataset Kategori Utama Produk
 * [Toko balil_bali](https://shopee.co.id/tokobali_bali.38?entryPoint=ShopBySearch&searchKeyword=bali&is_from_login=true)
