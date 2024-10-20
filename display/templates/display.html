@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Souvenir Kita</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+        .product-container {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+            width: 100%;
+            max-width: 1200px;
+            min-height: 500px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .product-card {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+            width: 150px;
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+        .product-card:hover {
+            transform: scale(1.05);
+        }
+        h3 {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    {% if not product_entry %}
+        <h3>There are no Product(s) yet here!</h3>
+    {% else %}
+        <div class="product-container">
+            {% for product in product_entry %}
+                <div class="product-card">
+                    <h5>{{ product.name }}</h5>
+                    <h5>{{ product.price }}</h5>
+                    <a href="{% url 'display:view_product' product.id %}" style="text-align: center;">View</a>
+                    <a href="{% url 'display:edit_product' product.id %}" style="text-align: center;">Edit</a>
+                    <a href="{% url 'display:delete_product' product.id %}" style="text-align: center;">Delete</a>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+    <br>
+    <a href="{% url 'display:create_product' %}" style="text-align: center;">
+        <button>Add A New Product Here!</button>
+    </a>
+</body>
+{% endblock content %}
