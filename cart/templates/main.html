@@ -1,8 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
 <h1>Mental Health Tracker</h1>
 
 <h5>NPM: </h5>
 <p>{{ npm }}<p>
-<h5>Name: </h5>
-<p>{{ name }}<p>
-<h5>Class: </h5>
-<p>{{ class }}<p>
+
+<h5>Name:</h5>
+<p>{{ name }}</p>
+
+<h5>Class:</h5>
+<p>{{ class }}</p>
+
+{% if not cart_products %}
+<p>Belum ada data mood pada mental health tracker.</p>
+{% else %}
+<table>
+  <tr>
+    <th>Product Name</th>
+    <th>Price</th>
+  </tr>
+
+  {% for cart_product in cart_products %}
+  <tr>
+    <td>{{cart_product.name}}</td>
+    <td>{{mood_entry.time}}</td>
+    <td>{{mood_entry.feelings}}</td>
+    <td>{{mood_entry.mood_intensity}}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endif %}
+
+<br />
+
+<a href="{% url 'main:create_mood_entry' %}">
+  <button>Add New Mood Entry</button>
+</a>
+
+{% endblock content %}
