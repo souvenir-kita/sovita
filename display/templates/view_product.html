@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h3>{{ product.name }}</h3>
+<h4>Price: {{ product.price }}</h4>
+<h4>Location: {{ product.location }}</h4>
+<h4>Shop: {{ product.shop }}</h4>
+<h4>Description: <pre>{{ product.description }}</pre></h4>
+
+<a href="{% url 'display:display_main' %}" class="btn btn-secondary">Back</a>
+{% endblock %}
