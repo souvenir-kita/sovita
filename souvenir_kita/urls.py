@@ -22,6 +22,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("authentication/", include("authentication.urls")),
     path("forum/", include("forum.urls")),
+    path("promo/",include("promo.urls")),
     path("", include("display.urls")),
     path("", include("cart.urls")),
 ]

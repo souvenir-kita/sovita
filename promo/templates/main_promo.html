@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% block content %}
+<div>
+	<button onclick="showModal()">
+		Add Promo
+	</button>
+</div>
+<div>
+	<div id="promo_cards"></div>
+</div>
+<div style="display: none;" id="modal">
+	<div id="modal_content">
+	  <div> <!--Header-->
+		<p>Tambah Promo</p>
+	  </div>
+	  <div> <!--Body-->
+		<form id="formpromo">
+		  <div>
+			<label for="nama">Nama</label>
+			<input type="text" name="nama" id="nama">
+		  </div>
+		  <div>
+			<label for="kode">Kode</label>
+			<input type="text" name="kode" id="kode">
+		  </div>
+		  <div>
+			<label for="potongan">Potongan</label>
+			<input type="number" step="100" min=0 name="potongan" id="potongan">
+		  </div>
+		  <div>
+			<label for="stock">Stock</label>
+			<input type="number" step="1" min=0 name="stock" id="stock">
+		  </div>
+		  <div>
+			<label for="deskripsi">Deskripsi</label>
+			<textarea name="deskripsi" id="deskripsi"></textarea>
+		  </div>
+		</form>
+	  </div>
+	  <div> <!--footer-->
+		<button type="button" id="cancel" onclick="hideModal()">Cancel</button>
+		<button type="submit" id="submitItem" form="formpromo">Save</button>
+	  </div>
+	</div>  
+  </div>
+  
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+async function get_promo() {
+	return fetch("{% url 'promo:show_json' %}").then((res) => res.json());
+}
+
+async function refreshPromo() {
+	$("#promo_cards").html("");
+	const promos = await get_promo();
+	let htmlString = "";
+	if (promos.length === 0){
+		htmlString = `Belum ada promo`;
+	} else{
+		promos.forEach((promo) => {
+			htmlString += `
+			<div style="background-color: blue; display: inline-flex">
+  <div style="display: flexbox;">
+    <div> <!--Header-->
+      ${promo.fields.nama}
+    </div>
+    <div style="display: inline-flex;"> <!--Header-->
+      <div style="margin-right: 2rem;">Ini untuk gambar</div>
+      <div>${promo.fields.potongan}</div>
+    </div>
+  </div>
+</div>
+			`
+		});
+	}
+	$("#promo_cards").html(htmlString);
+}
+refreshPromo();
+
+function showModal() {
+	$("#modal").css("display","");
+}
+
+function hideModal() {
+	$("#modal").css("display","none")
+}
+
+function addPromo(){
+	fetch("{% url 'promo:add_promo' %}", {
+		method: "POST",
+		body: new FormData(document.querySelector("#formpromo")),
+	})
+	.then(Response => refreshPromo())
+	document.getElementById("formpromo").reset();
+	return false;
+}
+
+document.getElementById("formpromo").addEventListener("submit", (e) => {
+    e.preventDefault();
+    addPromo();
+})      
+
+</script>
+
+
+
+{% endblock content %} 	
