@@ -8,43 +8,61 @@ from django.contrib.auth.decorators import login_required
 from display.models import Product
 
 
+@login_required
 def show_cart(request):
-    cart_products = CartProduct.objects.all()
+    cart_products = CartProduct.objects.filter(cart__user=request.user)
     
     context = {
-        'npm' : '2306123456',
-        'name': 'Pak Bepe',
-        'class': 'PBP E',
-        'cart' : cart_products,
-        'last_login': request.COOKIES['last_login'],
+        'cart': cart_products,
     }
 
-    return render(request, "main.html", context)
+    return render(request, "show_cart.html", context)
 
 def add_product_to_cart(request, id):
-    # Get the product by ID
     product = get_object_or_404(Product, id=id)
     
-    # Get or create the cart for the current user
     cart, created = Cart.objects.get_or_create(user=request.user)
 
-    # Get the amount from the form data
     amount = int(request.POST.get('cart_amount', 1))
 
-    # Get or create the CartProduct entry
     cart_product, created = CartProduct.objects.get_or_create(
         cart=cart,
         product=product,
         defaults={'amount': amount}
     )
 
-    # If the CartProduct already exists, update the amount
     if not created:
         cart_product.amount += amount
         cart_product.save()
 
-    # Redirect or return a response
     return redirect('display:display_main')
+
+@login_required
+def edit_cart_product(request, id):
+    cart_product = get_object_or_404(CartProduct, id=id, cart__user=request.user)
+
+    if request.method == "POST":
+        new_amount = request.POST.get("amount")
+        if new_amount and new_amount.isdigit():
+            cart_product.amount = int(new_amount)
+            cart_product.save()
+            return redirect('cart:show_cart')
+
+        return HttpResponse("Invalid amount", status=400)
+
+    return render(request, "edit_cart_product.html", {'cart_product': cart_product})
+
+@login_required
+def delete_cart_product(request, id):
+    # Retrieve the cart product instance
+    cart_product = get_object_or_404(CartProduct, id=id, cart__user=request.user)
+
+    if request.method == "POST":
+        # Delete the cart product and redirect to the cart
+        cart_product.delete()
+        return redirect('cart:show_cart')
+
+    return render(request, "confirm_delete_cart_product.html", {'cart_product': cart_product})
 
 def show_xml(request):
     data = CartProduct.objects.all()

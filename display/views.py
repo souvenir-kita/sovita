@@ -15,6 +15,7 @@ def display_main(request):
         'location' : 'Denpasar City, Bali.',
         'shop': 'Bali Shop',
         'product_entry' : productEntry,
+        'last_login': request.COOKIES['last_login'],
     }
 
     return render(request, "display.html", context)
