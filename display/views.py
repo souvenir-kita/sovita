@@ -3,7 +3,9 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from display.forms import ProductForm
 from display.models import Product
+from django.contrib.auth.decorators import login_required
 
+@login_required(login_url='authentication:login')
 def display_main(request):
     productEntry = Product.objects.all()
     context = {

@@ -1,8 +1,12 @@
 from django.shortcuts import render, redirect   
 from .forms import ProductForm
-from .models import CartProduct
+from .models import CartProduct, Cart
 from django.http import HttpResponse
 from django.core import serializers
+from django.shortcuts import get_object_or_404, redirect
+from django.contrib.auth.decorators import login_required
+from display.models import Product
+
 
 def show_cart(request):
     cart_products = CartProduct.objects.all()
@@ -11,30 +15,36 @@ def show_cart(request):
         'npm' : '2306123456',
         'name': 'Pak Bepe',
         'class': 'PBP E',
-        'cart' : cart_products
+        'cart' : cart_products,
+        'last_login': request.COOKIES['last_login'],
     }
 
     return render(request, "main.html", context)
 
-def add_product_to_cart(request, product_id):
-    if request.method == 'POST':
-        # Logic to add the product to the cart
-        # Use product_id to find the product and add to the cart
-        # Optionally get the cart_amount from the POST data
-        # cart_amount = request.POST.get('cart_amount')
-        # Perform your add-to-cart logic here
-        return redirect('cart:create_cart.html')  # Redirect after successful addition
-    else:
-        # Handle case if the request method is not POST
-        return redirect('cart:create_cart.html')
-    # form = ProductForm(request.POST or None)
+def add_product_to_cart(request, id):
+    # Get the product by ID
+    product = get_object_or_404(Product, id=id)
+    
+    # Get or create the cart for the current user
+    cart, created = Cart.objects.get_or_create(user=request.user)
 
-    # if form.is_valid() and request.method == "POST":
-    #     form.save()
-    #     return redirect('cart:show_cart')
+    # Get the amount from the form data
+    amount = int(request.POST.get('cart_amount', 1))
 
-    # context = {'form': form}
-    # return render(request, "add_product_to_cart.html", context)
+    # Get or create the CartProduct entry
+    cart_product, created = CartProduct.objects.get_or_create(
+        cart=cart,
+        product=product,
+        defaults={'amount': amount}
+    )
+
+    # If the CartProduct already exists, update the amount
+    if not created:
+        cart_product.amount += amount
+        cart_product.save()
+
+    # Redirect or return a response
+    return redirect('display:display_main')
 
 def show_xml(request):
     data = CartProduct.objects.all()
