@@ -8,5 +8,14 @@
 <h4>Shop: {{ product.shop }}</h4>
 <h4>Description: <pre>{{ product.description }}</pre></h4>
 
+<form action="{% url 'cart:add_product_to_cart' product.id %}" method="POST">
+    {% csrf_token %}
+    <label for="cart_amount">Quantity:</label>
+    <input type="number" name="cart_amount" min="1" required>
+    <button type="submit" class="btn btn-primary">Add to Cart</button>
+</form>
+
 <a href="{% url 'display:display_main' %}" class="btn btn-secondary">Back</a>
+
+
 {% endblock %}
