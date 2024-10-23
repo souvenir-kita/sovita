@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>INI REVIEW PRODUCT</h1>
+<div id="review_entry"></div>
+<script>
+    async function getReviewEntries(){
+        return fetch("{% url 'review:show_json' %}").then((res) => res.json())
+    }
+  </script>
+
+<a href="{% url 'review:create_review' %}">
+  <button>Add New Review Entry</button>
+</a>
+
+{% endblock content %}
+
