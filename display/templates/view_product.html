@@ -11,6 +11,14 @@
         <h4 class="text-lg text-gray-700 mb-2">Description:</h4>
         <pre class="bg-gray-100 p-4 rounded-md">{{ product.description }}</pre>
 
+        <form action="{% url 'cart:add_product_to_cart' product.id %}" method="post">
+            {% csrf_token %}
+            <label for="cart_amount">Amount:</label>
+            <input type="text" name="cart_amount" required>
+            <button type="submit" class="mt-4 inline-block bg-gray-800 text-white font-semibold py-2 px-4 rounded hover:bg-gray-700">Add to Cart</button>
+        </form>
+        <br>
+        
         <a href="{% url 'display:display_main' %}" class="mt-4 inline-block bg-gray-800 text-white font-semibold py-2 px-4 rounded hover:bg-gray-700">Back</a>
     </div>
 </div>
