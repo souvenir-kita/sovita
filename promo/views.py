@@ -4,7 +4,14 @@ from promo.models import Promo
 from django.http import HttpResponse
 from django.core import serializers
 from django.views.decorators.csrf import csrf_exempt
+from django.urls import reverse
 from django.views.decorators.http import require_POST
+from django.http import HttpResponseRedirect
+
+# Yang perlu diimplement:
+# 1. Validasi tanggal, only present/past
+# 2. Kasih pesan kalau kode sudah ada
+
 
 def show_promo(request):
     return render(request, "main_promo.html")
@@ -17,10 +24,11 @@ def add_promo(request):
     potongan = strip_tags(request.POST.get("potongan"))
     deskripsi = strip_tags(request.POST.get("deskripsi"))
     stock = strip_tags(request.POST.get("stock"))
+    tanggal_akhir_berlaku = strip_tags(request.POST.get("tanggal_akhir_berlaku"))
     new_promo = Promo(
         nama=nama, kode=kode,
         potongan=potongan, deskripsi = deskripsi,
-        stock = stock
+        stock = stock, tanggal_akhir_berlaku = tanggal_akhir_berlaku
     )
     new_promo.save()
 
@@ -41,4 +49,16 @@ def show_json(request):
 def show_json_by_id(id):
     data = Promo.objects.filter(pk=id)
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+
+def view_promo_admin(request, id) :
+    promo = Promo.objects.get(pk=id)
+    context = {
+        'promo' : promo,
+    }
+    return render(request, 'view_promo_admin.html', context)
+
+def delete_promo(request, id) : 
+    promo = Promo.objects.get(pk = id)
+    promo.delete()
+    return HttpResponseRedirect(reverse('promo:show_promo'))
 

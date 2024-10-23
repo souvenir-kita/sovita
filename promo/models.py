@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.validators import MinLengthValidator, MinValueValidator
+import datetime
 import uuid
 
 class Promo(models.Model) :
@@ -9,4 +10,4 @@ class Promo(models.Model) :
     potongan = models.DecimalField(max_digits=10, decimal_places=2, validators=[MinValueValidator(0.0)])
     stock = models.IntegerField(validators=[MinValueValidator(0)])
     deskripsi = models.TextField()
-
+    tanggal_akhir_berlaku = models.DateField()

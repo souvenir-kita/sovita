@@ -28,6 +28,10 @@
 			<input type="number" step="100" min=0 name="potongan" id="potongan">
 		  </div>
 		  <div>
+			<label for="tanggal_akhir_berlaku">Tanggal Akhir Berlaku</label>
+			<input type="date"name="tanggal_akhir_berlaku" id="tanggal_akhir_berlaku">
+		  </div>
+		  <div>
 			<label for="stock">Stock</label>
 			<input type="number" step="1" min=0 name="stock" id="stock">
 		  </div>
@@ -62,6 +66,7 @@ async function refreshPromo() {
 	} else{
 		promos.forEach((promo) => {
 			htmlString += `
+			<a href="view_promo_admin/${promo.pk}" style="color:black">
 			<div style="background-color: blue; display: inline-flex">
   <div style="display: flexbox;">
     <div> <!--Header-->
@@ -73,7 +78,7 @@ async function refreshPromo() {
     </div>
   </div>
 </div>
-			`
+</a>`
 		});
 	}
 	$("#promo_cards").html(htmlString);
@@ -95,6 +100,7 @@ function addPromo(){
 	})
 	.then(Response => refreshPromo())
 	document.getElementById("formpromo").reset();
+	hideModal();
 	return false;
 }
 
