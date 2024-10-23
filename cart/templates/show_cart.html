@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>My Cart</h2>
+
+  {% if cart %}
+    <table>
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Price</th>
+          <th>Amount</th>
+          <th>Total Price</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in cart %}
+          <tr>
+            <td>{{ item.product.name }}</td>
+            <td>Rp{{ item.product.price|floatformat:0 }}</td>
+            <td>
+              <div>
+                {{ item.amount }}
+                <a href="{% url 'cart:edit_cart_product' item.id %}"><button>Edit</button></a>
+              </div>
+            </td>
+            <td>Rp{{ item.total_price|floatformat:0 }}</td>
+            <td>
+                <a href="{% url 'cart:delete_cart_product' item.id %}"><button>Delete</button></a>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>Your cart is empty.</p>
+  {% endif %}
+
+  <a href="{% url 'display:display_main' %}" class="btn btn-secondary">Back to Products</a>
+{% endblock %}

@@ -4,6 +4,7 @@ from django.conf.urls.static import static
 from display.views import display_main, create_product, delete_product, view_product, edit_product, create_product_ajax
 from display.views import show_xml, show_json, show_xml_by_id, show_json_by_id
 
+from cart.views import add_product_to_cart, show_cart
 
 app_name = 'display'
 
@@ -13,6 +14,8 @@ urlpatterns = [
     path('delete/<uuid:id>/', delete_product, name='delete_product'),
     path('view/<uuid:id>/', view_product, name="view_product"),
     path('edit/<uuid:id>/', edit_product, name="edit_product"),
+    path('add-cart/<uuid:id>/', add_product_to_cart, name="add_product_to_cart"),
+    path('show-cart/', show_cart, name="show_cart"),
     path('create-product-ajax/', create_product_ajax, name='create_product_ajax'),
     path('xml/', show_xml, name='show_xml'),
     path('json/', show_json, name='show_json'),
