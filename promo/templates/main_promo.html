@@ -14,7 +14,7 @@
 		<p>Tambah Promo</p>
 	  </div>
 	  <div> <!--Body-->
-		<form id="formpromo">
+		<form id="formpromo" action="{% url 'promo:add_promo' %}">
 		  <div>
 			<label for="nama">Nama</label>
 			<input type="text" name="nama" id="nama">
@@ -46,7 +46,7 @@
 		<button type="submit" id="submitItem" form="formpromo">Save</button>
 	  </div>
 	</div>  
-  </div>
+</div>
   
 
 
@@ -93,21 +93,20 @@ function hideModal() {
 	$("#modal").css("display","none")
 }
 
-function addPromo(){
-	fetch("{% url 'promo:add_promo' %}", {
-		method: "POST",
-		body: new FormData(document.querySelector("#formpromo")),
+//https://gawibowo.com/submit-form-dengan-ajax-menggunakan-jquery.htm
+$('#formpromo').submit(function() {
+		$.ajax({
+			type: 'POST',
+			url: $(this).attr('action'),
+			data: $(this).serialize(),
+			success: function(data) {
+				refreshPromo();
+				document.getElementById("formpromo").reset();
+				hideModal();
+			}
+		})
+		return false;
 	})
-	.then(Response => refreshPromo())
-	document.getElementById("formpromo").reset();
-	hideModal();
-	return false;
-}
-
-document.getElementById("formpromo").addEventListener("submit", (e) => {
-    e.preventDefault();
-    addPromo();
-})      
 
 </script>
 

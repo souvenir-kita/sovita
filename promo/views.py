@@ -7,6 +7,8 @@ from django.views.decorators.csrf import csrf_exempt
 from django.urls import reverse
 from django.views.decorators.http import require_POST
 from django.http import HttpResponseRedirect
+from django.http import JsonResponse
+from django.shortcuts import get_object_or_404
 
 # Yang perlu diimplement:
 # 1. Validasi tanggal, only present/past
@@ -62,3 +64,15 @@ def delete_promo(request, id) :
     promo.delete()
     return HttpResponseRedirect(reverse('promo:show_promo'))
 
+def edit_promo(request, pk):
+    promo = get_object_or_404(Promo, pk=pk)
+    if request.method == 'POST':
+        promo.nama = request.POST.get('nama')
+        promo.kode = request.POST.get('kode')
+        promo.potongan = request.POST.get('potongan')
+        promo.tanggal_akhir_berlaku = request.POST.get('tanggal_akhir_berlaku')
+        promo.stock = request.POST.get('stock')
+        promo.deskripsi = request.POST.get('deskripsi')
+        promo.save()
+        return JsonResponse({'success': True})
+    return render(request, 'edit_promo.html', {'promo': promo})

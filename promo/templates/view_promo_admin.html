@@ -19,13 +19,76 @@
 			<div>
 				Stock: {{promo.stock}}
 			</div>
-      <button>e</button>
+      <button onclick="showModal()">e</button>
       <a href="delete/{{ promo.pk }}">
         <button>d</button>
       </a>
+
+<div style="display: none;" id="modal">
+  <div id="modal_content">
+    <div> <!--Header-->
+    <p>Tambah Promo</p>
+    </div>
+    <div> <!--Body-->
+      <form id="formpromo" method="POST" action="{% url 'promo:edit_promo' promo.pk %}">
+      {% csrf_token %}
+      <div>
+      <label for="nama">Nama</label>
+      <input type="text" name="nama" id="nama" value="{{promo.nama}}">
+      </div>
+      <div>
+      <label for="kode">Kode</label>
+      <input type="text" name="kode" id="kode" value="{{promo.kode}}">
+      </div>
+      <div>
+      <label for="potongan">Potongan</label>
+      <input type="number" step="100" min=0 name="potongan" id="potongan" value="{{promo.potongan}}">
+      </div>
+      <div>
+      <label for="tanggal_akhir_berlaku">Tanggal Akhir Berlaku</label>
+      <input type="date"name="tanggal_akhir_berlaku" id="tanggal_akhir_berlaku" value="{{ promo.tanggal_akhir_berlaku|date:'Y-m-d' }}"
+      </div>
+      <div>
+      <label for="stock">Stock</label>
+      <input type="number" step="1" min=0 name="stock" id="stock" value="{{promo.stock}}">
+      </div>
+      <div>
+      <label for="deskripsi">Deskripsi</label>
+      <textarea name="deskripsi" id="deskripsi">{{promo.deskripsi}}</textarea>
+      </div>
+    </form>
+    </div>
+    <div> <!--footer-->
+    <button type="button" id="cancel" onclick="hideModal()">Cancel</button>
+    <button type="submit" id="submitItem" form="formpromo">Save</button>
+    </div>
+  </div>  
+</div>
 </div>
 
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
+function showModal() {
+	$("#modal").css("display","");
+}
+  
+function hideModal() {
+	$("#modal").css("display","none")
+}
+
+
+$('#formpromo').on('submit', function(event){
+    event.preventDefault(); 
+    $.ajax({
+        type: 'POST',
+        url: $(this).attr('action'),
+        data: $(this).serialize(), 
+        success: function(response){
+            hideModal();
+            location.reload(); 
+        }
+    });
+});
 
 </script>
