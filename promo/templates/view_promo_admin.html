@@ -1,3 +1,5 @@
+<a href="/promo/" class="button">back</a>
+
 <div style="width: 20vw;max-width: 20vw;background-color: gainsboro;">
     <div style="background-color: blue; display: inline-flex">
         <div style="display: flexbox;">
@@ -20,9 +22,7 @@
 				Stock: {{promo.stock}}
 			</div>
       <button onclick="showModal()">e</button>
-      <a href="delete/{{ promo.pk }}">
-        <button>d</button>
-      </a>
+      <a href="delete/{{ promo.pk }}" class="button">d</a>
 
 <div style="display: none;" id="modal">
   <div id="modal_content">
@@ -76,7 +76,6 @@ function showModal() {
 function hideModal() {
 	$("#modal").css("display","none")
 }
-
 
 $('#formpromo').on('submit', function(event){
     event.preventDefault(); 
