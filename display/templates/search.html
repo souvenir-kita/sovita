@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'navbar.html' %}
+<div class="pt-24 min-h-screen" style="background: linear-gradient(153deg, #F09027 12.76%, #8CBEAA 71.77%);">
+    <form class="max-w-md mx-auto" method="GET" action="{% url 'display:search' %}">
+        <label for="default-search" class="mb-2 text-sm font-medium text-white sr-only dark:text-white">Search</label>
+        <div class="relative">
+            <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                </svg>
+            </div>
+            <input type="text" id="default-search" name="searched" class="block w-full p-4 ps-10 text-sm text-white border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-[#B25626] dark:border-gray-600 dark:placeholder-white dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search Products..." required />
+            <button type="submit" class="text-white absolute end-2.5 bottom-2.5 bg-[#67BAC6] hover:bg-[#71a7af] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-[#67BAC6]  dark:hover:bg-[#8dcad4] dark:focus:ring-[#88bac2]">Search</button>
+        </div>
+    </form>    
+
+    <div style="margin-top: 20px; text-align: center;">
+        {% if searched %}
+            <h3>You searched for: "{{ searched }}"</h3>
+            {% if products %}
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 w-full max-w-7xl p-5 mt-24">
+                    {% for product in products %}
+                        <div class="border border-gray-300 rounded-lg p-5 shadow-lg hover:scale-105 transition-transform duration-200 text-center flex flex-col justify-between">
+                            <div>
+                                <img src="{{ product.picture.url }}" alt="{{ product.name }}" style="width: 150px; height: 150px; object-fit: contain; border-radius: 8px; margin: 0 auto;">
+                                <h5 class="product-name mb-2 font-semibold mt-4">{{ product.name }}</h5>
+                                <h5 class="mb-4 text-gray-700">Rp{{ product.price }}</h5>
+                            </div>
+                            <div class="flex space-x-4 justify-center">
+                                <a href="{% url 'display:view_product' product.id %}" class="text-blue-500 hover:underline">View</a>
+                                <a href="{% url 'display:edit_product' product.id %}" class="text-blue-500 hover:underline">Edit</a>
+                                <a href="{% url 'display:delete_product' product.id %}" class="text-red-500 hover:underline">Delete</a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <p style="margin-top: 20px;">No results found for "{{ searched }}"</p>
+            {% endif %}
+        {% else %}
+            <p class="text-white">Please enter a search term to find products.</p>
+        {% endif %}
+    </div>
+</div>
+
+
+{% endblock %}

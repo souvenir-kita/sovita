@@ -3,7 +3,7 @@
 {% block content %}
 {% include 'navbar.html' %}
 
-<div class="flex flex-col items-center font-sans">
+<div class="flex flex-col items-center font-sans" style="background: linear-gradient(153deg, #F09027 12.76%, #8CBEAA 71.77%);">
     <div id="product_cards"></div>
     <div id="crudModal" tabindex="-1" aria-hidden="true" class="hidden fixed inset-0 z-50 w-full flex items-center justify-center bg-gray-800 bg-opacity-50 overflow-x-hidden overflow-y-auto transition-opacity duration-300 ease-out">
         <div id="crudModalContent" class="relative bg-white rounded-lg shadow-lg w-5/6 sm:w-3/4 md:w-1/2 lg:w-1/3 mx-4 sm:mx-0 transform scale-95 opacity-0 transition-transform transition-opacity duration-300 ease-out">
@@ -18,7 +18,7 @@
               <span class="sr-only">Close modal</span>
             </button>
           </div>
-          <div class="px-6 py-4 space-y-6 form-style">
+          <div class="px-6 py-4 space-y-6 form-style ">
             <form id="productForm" enctype="multipart/form-data", method="POST">
               <div class="mb-4">
                 <label for="name" class="block text-sm font-medium text-gray-700">Product Name: </label>
@@ -52,10 +52,12 @@
           </div>
         </div>
     </div>
-    <button data-modal-target="crudModal" data-modal-toggle="crudModal" class="btn bg-indigo-700 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-101 mt-4" onclick="showModal();">
+    <button data-modal-target="crudModal" data-modal-toggle="crudModal" class="btn mb-8 bg-indigo-700 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-101 mt-4" onclick="showModal();">
         Add A Product!
     </button>
 </div>
+
+{% include 'footer.html' %}
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {
@@ -91,7 +93,7 @@
         `;
     } else {
         htmlString = `
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 w-full max-w-7xl p-5 mt-24">
+        <div class="justify-center flex flex-wrap items-start gap-5 w-full max-w-7xl p-5 mt-24">
         `;
 
         productEntries.forEach((item) => {
@@ -100,16 +102,16 @@
             const picture = item.fields.picture;
 
             htmlString += `
-            <div class="border border-gray-300 rounded-lg p-5 shadow-lg hover:scale-105 transition-transform duration-200 text-center flex flex-col justify-between">
+            <div class="bg-white bg-opacity-50 border border-gray-300 rounded-lg sm:p-5 p-3 shadow-lg hover:scale-105 transition-transform duration-200 text-center flex flex-col justify-between">
                 <div>
-                    ${picture ? `<img src="/media/${picture}" alt="${name}" style="width: 150px; height: 150px; object-fit: contain; border-radius: 8px; margin: 0 auto;">` : ''}
+                    ${picture ? `<img src="/media/${picture}" alt="${name}" class="md:w-36 md:h-36 w-24 h-24" style="object-fit: cover; border-radius: 8px; margin: 0 auto;">` : ''}
                     <h5 class="product-name mb-2 font-semibold mt-4">${name}</h5>
                     <h5 class="mb-4 text-gray-700">Rp${price}</h5>
                 </div>
-                <div class="flex space-x-4 justify-center">
-                    <a href="/view/${item.pk}" class="text-blue-500 hover:underline">View</a>
-                    <a href="/edit/${item.pk}" class="text-blue-500 hover:underline">Edit</a>
-                    <a href="/delete/${item.pk}" class="text-red-500 hover:underline">Delete</a>
+                <div class="flex md:space-x-4 space-x-2 justify-center">
+                    <a href="/view/${item.pk}" class="text-blue-500 hover:underline text-sm md:text-base">View</a>
+                    <a href="/edit/${item.pk}" class="text-blue-500 hover:underline text-sm md:text-base">Edit</a>
+                    <a href="/delete/${item.pk}" class="text-red-500 hover:underline text-sm md:text-base">Delete</a>
                 </div>
             </div>
             `;

@@ -1,29 +1,42 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
+{% load static %}
 
 {% block meta %}
-    <title>Login</title>
-{% endblock meta %}
+  <title>Login</title>
+{% endblock %}
 
 {% block content %}
+  <div class="min-h-screen bg-cover bg-center" style="background-image: url('{% static 'image/landing_page_bg.png' %}');">
+    <header class="py-2" style="background: linear-gradient(260deg, #C89A45 3.84%, #B5592A 60.95%, #B5592A 102.92%);
+    box-shadow: 0px 6px 27px 0px rgba(0, 0, 0, 0.25);
+    Linear Gradient">
+      <div class="container mx-auto flex items-center">
+        <img src="{% static 'image/logo.png' %}" class="w-36" alt="Logo" />
+      </div>
+    </header>
     <div class="login">
         <h1>Login</h1>
         <form method="POST" action="">
-            {% csrf_token %}
-            <table>
-                {{ form.as_table }}
-                <tr>
-                    <td></td>
-                    <td><input class="btn login_btn" type="submit" value="Login" /></td>
-                </tr>
-            </table>
+          {% csrf_token %}
+          <table>
+            {{ form.as_table }}
+            <tr>
+              <td></td>
+              <td>
+                <input class="btn login_btn" type="submit" value="Login" />
+              </td>
+            </tr>
+          </table>
         </form>
         {% if messages %}
-        <ul>
+          <ul>
             {% for message in messages %}
-            <li>{{ message }}</li>
+              <li>{{ message }}</li>
             {% endfor %}
-        </ul>
-        {% endif %} Don't have an account yet?
+          </ul>
+        {% endif %}Don't have an account yet?
         <a href="{% url 'authentication:register' %}">Register Now</a>
-    </div>
-{% endblock content %}
+      </div>
+  </div>
+  
+{% endblock %}
