@@ -14,8 +14,8 @@
         <form action="{% url 'cart:add_product_to_cart' product.id %}" method="post">
             {% csrf_token %}
             <label for="cart_amount">Amount:</label>
-            <input type="text" name="cart_amount" required>
-            <button type="submit" class="mt-4 inline-block bg-gray-800 text-white font-semibold py-2 px-4 rounded hover:bg-gray-700">Add to Cart</button>
+            <input type="number" name="cart_amount" id="cart_amount" required min="1" value="1" class="border border-gray-700 rounded-md text-center w-20">
+            <button type="submit" class="mt-2 inline-block bg-gray-800 text-white font-semibold py-1 px-2 rounded hover:bg-gray-700 text-xs">Add to Cart</button>
         </form>
         <br>
         
