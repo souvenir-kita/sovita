@@ -1,0 +1,15 @@
+<!-- edit_cart_product.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Edit Cart Product</h2>
+    
+    <form method="post" action="{% url 'cart:edit_cart_product' cart_product.id %}">
+        {% csrf_token %}
+        <label for="amount">Amount:</label>
+        <input type="number" name="amount" id="amount" value="{{ cart_product.amount }}" min="1" required>
+        <button type="submit">Update</button>
+    </form>
+    
+    <a href="{% url 'cart:show_cart' %}">Back to Cart</a>
+{% endblock %}
