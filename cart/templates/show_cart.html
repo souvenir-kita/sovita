@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <div class="flex justify-center items-start min-h-screen py-6" style="background: linear-gradient(153deg, #F09027 12.76%, #8CBEAA 71.77%);">
+  {% include 'navbar.html' %}
+  <div class="flex justify-center items-start min-h-screen pt-16 pb-6" style="background: linear-gradient(153deg, #F09027 12.76%, #8CBEAA 71.77%);">
     <div class="bg-white bg-opacity-70 shadow-md rounded-lg p-6 w-full max-w-2xl">
       <h2 class="text-2xl font-semibold mb-4">My Cart</h2>
 
@@ -12,7 +13,7 @@
               {% for item in cart %}
                 <tr data-item-id="{{ item.id }}">
                   <td class="py-2 px-4 border-b" rowspan="2">
-                    <input type="checkbox" class="cart-checkbox" data-price="{{ item.total_price }}" />
+                    <input type="checkbox" class="cart-checkbox w-5 h-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500 cursor-pointer" data-price="{{ item.total_price }}" />
                   </td>
                   <td class="py-2 px-4 border-b" rowspan="2">
                     <div class="w-36 h-36 overflow-hidden border border-gray-300 rounded-lg">
@@ -68,6 +69,8 @@
       <button class="text-white px-2 py-1 my-2 rounded w-full transition-colors duration-200 ease-in-out" style="background-color: #67BAC6;" onmouseover="this.style.backgroundColor='#8DCAD4'" onmouseout="this.style.backgroundColor='#67BAC6'" onmousedown="this.style.transform='scale(0.95)'" onmouseup="this.style.transform='scale(1)'">Check Out</button>
     </div>
   </div>
+
+  {% include 'footer.html' %}
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
