@@ -41,15 +41,14 @@ def edit_review(request, id):
     if form.is_valid() and request.method == "POST":
         # Simpan form dan kembali ke halaman awal
         form.save()
-        return HttpResponseRedirect(reverse('review:review_page'))
-
+        return HttpResponseRedirect(reverse('review:show_review'))
     context = {'form': form}
     return render(request, "edit_review.html", context)
 
 def delete_review(request, id):
     review = ReviewEntry.objects.get(pk = id)
     review.delete()
-    return HttpResponseRedirect(reverse('review:review_page'))
+    return HttpResponseRedirect(reverse('review:show_review'))
 
 def show_json(request):
     data = ReviewEntry.objects.filter(user=request.user)
