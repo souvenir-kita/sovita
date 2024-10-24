@@ -15,6 +15,14 @@
         
         <pre class="bg-gray-100 p-4 rounded-md" style="white-space: pre-wrap; word-wrap: break-word;">{{ product.description }}</pre>
 
+        <form action="{% url 'cart:add_product_to_cart' product.id %}" method="post">
+            {% csrf_token %}
+            <label for="cart_amount">Amount:</label>
+            <input type="number" name="cart_amount" id="cart_amount" required min="1" value="1" class="border border-gray-700 rounded-md text-center w-20">
+            <button type="submit" class="mt-2 inline-block bg-gray-800 text-white font-semibold py-1 px-2 rounded hover:bg-gray-700 text-xs">Add to Cart</button>
+        </form>
+        <br>
+        
         <a href="{% url 'display:display_main' %}" class="mt-4 inline-block bg-gray-800 text-white font-semibold py-2 px-4 rounded hover:bg-gray-700">Back</a>
     </div>
     <p><iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15778.545695716595!2d115.2110484!3d-8.6308584!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd23f0cfe646759%3A0xa5fa73e7fb9caf23!2sRasa%20Bali%20Shop!5e0!3m2!1sen!2sid!4v1729739290519!5m2!1sen!2sid" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></p>

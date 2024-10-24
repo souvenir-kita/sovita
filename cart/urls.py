@@ -12,4 +12,6 @@ urlpatterns = [
     path('add/<uuid:id>/', add_product_to_cart, name='add_product_to_cart'),
     path('edit/<uuid:id>/', edit_cart_product, name='edit_cart_product'),
     path('delete/<uuid:id>/', delete_cart_product, name='delete_cart_product'),
+    path('inc_amount/<uuid:id>/', inc_amount, name='inc_amount'),
+    path('dec_amount/<uuid:id>/', dec_amount, name='dec_amount'),
 ]
