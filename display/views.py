@@ -93,3 +93,11 @@ def show_xml_by_id(request, id):
 def show_json_by_id(request, id):
     data = Product.objects.filter(pk=id)
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+
+def search(request):
+    searched = request.GET.get('searched', '')
+    if searched:
+        products = Product.objects.filter(name__icontains=searched)
+    else:
+        products = []
+    return render(request, "search.html", {'searched': searched, 'products': products})

@@ -6,6 +6,7 @@ from django.core import serializers
 from django.shortcuts import get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from display.models import Product
+from django.http import JsonResponse
 
 
 @login_required
@@ -54,15 +55,30 @@ def edit_cart_product(request, id):
 
 @login_required
 def delete_cart_product(request, id):
-    # Retrieve the cart product instance
     cart_product = get_object_or_404(CartProduct, id=id, cart__user=request.user)
 
     if request.method == "POST":
-        # Delete the cart product and redirect to the cart
         cart_product.delete()
+        # Check if it's an AJAX request
+        if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
+            return JsonResponse({'success': True})
+        # For regular form submission, redirect
         return redirect('cart:show_cart')
 
     return render(request, "confirm_delete_cart_product.html", {'cart_product': cart_product})
+
+def inc_amount(request, id):
+    cart_item = get_object_or_404(CartProduct, id=id)
+    cart_item.amount += 1
+    cart_item.save()
+    return JsonResponse({'success': True, 'new_amount': cart_item.amount, 'new_total_price': cart_item.amount * cart_item.product.price})
+
+def dec_amount(request, id):
+    cart_item = get_object_or_404(CartProduct, id=id)
+    if cart_item.amount > 1:
+        cart_item.amount -= 1
+        cart_item.save()
+    return JsonResponse({'success': True, 'new_amount': cart_item.amount, 'new_total_price': cart_item.amount * cart_item.product.price})
 
 def show_xml(request):
     data = CartProduct.objects.all()

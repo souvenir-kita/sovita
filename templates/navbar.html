@@ -1,45 +1,41 @@
 {% extends 'base.html' %}
 {% block content %}
-<nav class="bg-[#bfa634] border-gray-200 fixed top-0 left-0 z-40 w-full">
+  <nav class="bg-[#bfa634] border-gray-200 fixed top-0 left-0 z-40 w-full">
     <div class="flex items-center mx-auto max-w-screen-xl p-4">
-        <div class="md:hidden flex items-center ml-auto">
-            <button class="mobile-menu-button">
-                <svg class="w-6 h-6 text-black" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                    <path d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
-            </button>
-        </div>
+      <div class="md:hidden flex items-center ml-auto">
+        <button class="mobile-menu-button">
+          <svg class="w-6 h-6 text-black" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+            <path d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
 
-        <div class="hidden md:flex gap-10 ml-auto">
-            <a href="/" class="text-black text-lg hover:text-gray-700">Home</a>
-            <a href="/" class="text-black text-lg hover:text-gray-700">About</a>
-            <a href="/" class="text-black text-lg hover:text-gray-700">Contact</a>
-            <h1 style="margin-top: 2px;" class="text-black text-l">Welcome!</h1>
-            <a>
-                <button class="text-black text-sm border-radius[15px] py-2 px-4 bg-[rgb(215,215,215)] border-none cursor-pointer transition-transform duration-500 hover:opacity-75">
-                    Logout
-                </button>
-            </a>
-        </div>
+      <div class="hidden md:flex gap-10 ml-auto">
+        <a href="/" class="text-black text-lg hover:text-gray-700">Home</a>
+        <a href="/" class="text-black text-lg hover:text-gray-700">About</a>
+        <a href="{% url 'display:search' %}" class="text-black text-lg hover:text-gray-700">Search</a>
+        <a href="{% url 'cart:show_cart' %}" class="text-black text-lg hover:text-gray-700">Cart</a>
+        <h1 style="margin-top: 2px;" class="text-black text-l">Welcome!</h1>
+        <a><button class="text-black text-sm border-radius[15px] py-2 px-4 bg-[rgb(215,215,215)] border-none cursor-pointer transition-transform duration-500 hover:opacity-75">Logout</button></a>
+      </div>
     </div>
 
     <div class="mobile-menu hidden md:hidden bg-[#bfa634] text-black py-4 px-6">
-        <a href="/" class="block py-2 hover:text-gray-700">Home</a>
-        <a href="/" class="block py-2 hover:text-gray-700">About</a>
-        <a href="/" class="block py-2 hover:text-gray-700">Contact</a>
-        <h1 class="py-2 text-l">Welcome</h1>
-        <a class="block text-center bg-gray-300 hover:bg-gray-400 text-black font-bold py-2 rounded transition duration-300">
-            Logout
-        </a>
+      <a href="/" class="block py-2 hover:text-gray-700">Home</a>
+      <a href="/" class="block py-2 hover:text-gray-700">About</a>
+      <a href="/" class="block py-2 hover:text-gray-700">Contact</a>
+      <a href="{% url 'cart:show_cart' %}" class="block py-2 hover:text-gray-700">Cart</a>
+      <h1 class="py-2 text-l">Welcome</h1>
+      <a class="block text-center bg-gray-300 hover:bg-gray-400 text-black font-bold py-2 rounded transition duration-300">Logout</a>
     </div>
-</nav>
+  </nav>
 
-<script>
-    const btn = document.querySelector("button.mobile-menu-button");
-    const menu = document.querySelector(".mobile-menu");
-
-    btn.addEventListener("click", () => {
-        menu.classList.toggle("hidden");
-    });
-</script>
+  <script>
+    const btn = document.querySelector('button.mobile-menu-button')
+    const menu = document.querySelector('.mobile-menu')
+    
+    btn.addEventListener('click', () => {
+      menu.classList.toggle('hidden')
+    })
+  </script>
 {% endblock %}

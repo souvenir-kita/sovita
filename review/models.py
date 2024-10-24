@@ -6,7 +6,7 @@ import uuid
 
 class ReviewEntry(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    rating = models.FloatField(validators=[MinValueValidator(0.0), MaxValueValidator(5.0)])
+    rating = models.DecimalField(max_digits=3, decimal_places=1, validators=[MinValueValidator(0.0), MaxValueValidator(5.0)])
     description = models.TextField()
     date_create = models.DateField(auto_now_add=True)
     date_update = models.DateField(auto_now=True)

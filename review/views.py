@@ -1,4 +1,4 @@
-from django.shortcuts import render  # Tambahkan import redirect di baris ini
+from django.shortcuts import render, get_object_or_404  # Tambahkan import redirect di baris ini
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from django.core import serializers
@@ -6,28 +6,30 @@ from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
 from django.utils import timezone
+from django.utils.html import strip_tags
 from review.forms import ReviewForm
 from review.models import ReviewEntry
-from django.utils.html import strip_tags
+from display.models import Product
 
-def show_review(request):
+def show_review(request, id):
     context = {
         'name': request.user.username,
+        'id': id
     }
     return render(request, "review_page.html", context)
 
 @csrf_exempt
 @require_POST
-def create_review(request):
+def create_review(request, id):
+    product = Product.objects.get(pk=id)
     rating = strip_tags(request.POST.get("rating"))
     description = strip_tags(request.POST.get("description"))
     date_create = timezone.now()
     user = request.user
-
     new_review = ReviewEntry(
         rating=rating, description=description,
         date_create=date_create,
-        user=user
+        user=user, product=product
     )
     new_review.save()
 
