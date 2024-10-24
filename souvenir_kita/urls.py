@@ -29,3 +29,7 @@ urlpatterns = [
     path("forum/", include("forum.urls")),
     path("review/", include('review.urls')),
 ] 
+    path("promo/",include("promo.urls")),
+    path("", include("display.urls")),
+    path("", include("cart.urls")),
+]
