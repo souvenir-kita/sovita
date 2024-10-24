@@ -11,45 +11,41 @@
 	<div>
 		<div id="promo_cards" class="grid grid-cols-1 md:grid-cols-3 gap-6 px-20 py-10">
 	</div>
-	<div style="display: none;" id="modal">
-		<div id="modal_content">
-		  <div> <!--Header-->
-			<p>Tambah Promo</p>
+	<script src="https://cdn.tailwindcss.com"></script>
+	<div class="fixed inset-0 flex items-center justify-center bg-opacity-50 text-center" id="modal">
+		<div class=" bg-gray-400 rounded-2xl p-4" id="modal_content">
+		  <div style="padding-top: 1;font-size: large;font-weight: bold;" class="pb-2"> <!--Header-->
+			<p class="text-center">Tambah Promo</p>
 		  </div>
 		  <div> <!--Body-->
 			<form id="formpromo" action="{% url 'promo:add_promo' %}">
 			  <div>
-				<label for="nama">Nama</label>
-				<input type="text" name="nama" id="nama">
+				<input type="text" name="nama" id="nama" placeholder="Nama" class="mt-1 mb-1 rounded-lg p-1 text-s">
 			  </div>
 			  <div>
-				<label for="kode">Kode</label>
-				<input type="text" name="kode" id="kode">
+				<input type="text" name="kode" id="kode" placeholder="Kode" class="mt-1 mb-1 rounded-lg p-1 text-s">
 			  </div>
 			  <div>
-				<label for="potongan">Potongan</label>
-				<input type="number" step="100" min=0 name="potongan" id="potongan">
+				<input type="number" step="100" min=0 name="potongan" id="potongan" placeholder="Potongan" class="mt-1 mb-1 rounded-lg p-1 text-s">
+			  </div>
+			  <div class="inline-flex">
+				<p class="pr-2 text-white">Kadaluarsa</p>
+				<input type="date"name="tanggal_akhir_berlaku" id="tanggal_akhir_berlaku" class="w-5" class="mt-1 mb-1 rounded-lg p-1 text-s"> 
+			  </div>
+			  <div> 
+				<input type="number" step="1" min=0 name="stock" id="stock" placeholder="stock" class="mt-1 mb-1 rounded-lg p-1 text-s" >
 			  </div>
 			  <div>
-				<label for="tanggal_akhir_berlaku">Tanggal Akhir Berlaku</label>
-				<input type="date"name="tanggal_akhir_berlaku" id="tanggal_akhir_berlaku">
-			  </div>
-			  <div>
-				<label for="stock">Stock</label>
-				<input type="number" step="1" min=0 name="stock" id="stock">
-			  </div>
-			  <div>
-				<label for="deskripsi">Deskripsi</label>
-				<textarea name="deskripsi" id="deskripsi"></textarea>
+				<textarea name="deskripsi" id="deskripsi" placeholder="deskripsi" class="mt-1 mb-1 rounded-lg p-1 text-s" style="resize: none;width: 100%; " ></textarea>
 			  </div>
 			</form>
 		  </div>
-		  <div> <!--footer-->
-			<button type="button" id="cancel" onclick="hideModal()">Cancel</button>
-			<button type="submit" id="submitItem" form="formpromo">Save</button>
-		  </div>
+		  <div class="flex space-x-2"> <!--footer-->
+			<button type="button" id="cancel" class="bg-red-400 text-xs p-1 rounded-lg w-full" onclick="hideModal()">Cancel</button>
+			<button type="submit" id="submitItem" form="formpromo" class="bg-blue-500 text-xs p-1 rounded-lg w-full">Save</button>
+		</div>
 		</div>  
-	</div>
+	</div>	
 </div>
 
   
@@ -104,10 +100,14 @@ refreshPromo();
 
 function showModal() {
 	$("#modal").css("display","");
+	$("a").css("pointer-event","none")
+	$("html").css("overflow","hidden")
 }
 
 function hideModal() {
 	$("#modal").css("display","none")
+	$("a").css("pointer-event","")
+	$("html").css("overflow","")
 }
 
 //https://gawibowo.com/submit-form-dengan-ajax-menggunakan-jquery.htm

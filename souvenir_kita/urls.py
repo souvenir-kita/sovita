@@ -30,4 +30,4 @@ urlpatterns = [
     path("promo/",include("promo.urls")),
     path("", include("display.urls")),
     path("", include("cart.urls")),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
