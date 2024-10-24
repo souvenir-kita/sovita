@@ -1,13 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>Are you sure you want to delete {{ product.name }}?</h2>
+<div class="max-w-xl mx-auto p-6 bg-white rounded-lg shadow-md mt-16">
+    <h2 class="text-2xl font-bold text-gray-800 mb-4">Are you sure you want to delete <span class="font-semibold">{{ product.name }}</span>?</h2>
 
-<form method="POST">
-    {% csrf_token %}
-    <button type="submit">Confirm Delete</button>
-    
-    <a href="{% url 'display:display_main' %}">Cancel</a>
-</form>
-
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit" class="bg-red-600 text-white font-semibold py-2 px-4 rounded hover:bg-red-500 transition duration-200">Confirm Delete</button>
+        
+        <a href="{% url 'display:display_main' %}" class="bg-gray-600 text-white font-semibold py-2 px-4 rounded hover:bg-gray-500 transition duration-200">Cancel</a>
+    </form>
+</div>
 {% endblock %}

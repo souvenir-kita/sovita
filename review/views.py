@@ -8,6 +8,7 @@ from django.views.decorators.http import require_POST
 from django.utils import timezone
 from review.forms import ReviewForm
 from review.models import ReviewEntry
+from django.utils.html import strip_tags
 
 def show_review(request):
     context = {
@@ -18,8 +19,8 @@ def show_review(request):
 @csrf_exempt
 @require_POST
 def create_review(request):
-    rating = request.POST.get("price")
-    description = request.POST.get("description")
+    rating = strip_tags(request.POST.get("rating"))
+    description = strip_tags(request.POST.get("description"))
     date_create = timezone.now()
     user = request.user
 
