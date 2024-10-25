@@ -3,7 +3,7 @@
 {% block content %}
   <div class="min-h-screen bg-cover bg-center" style="background-image: url('{% static 'image/landing_page_bg.png' %}');">
     <div class="flex items-center">
-      <img src="{% static 'image/logo_panga.png' %}" class="w-80 ml-24" alt="Logo" />
+      <img src="{% static 'image/logo_panga.png' %}" class="w-80 ml-2 md:ml-24" alt="Logo" />
       <a href="#fitur"><h2 class="text-white font-main font-bold text-lg pr-12">Fitur</h2></a>
       <a href="#solusi"><h2 class="text-white font-main font-bold text-lg pr-12">Solusi</h2></a>
       <a href="#tim"><h2 class="text-white font-main font-bold text-lg pr-12">Tim Kami</h2></a>
@@ -19,24 +19,24 @@
     </p>
   </div>
 
-  <div id="fitur" class="bg-white px-36 mb-32">
+  <div id="fitur" class="bg-white px-16 md:px-36 mb-32">
     <div class="flex justify-center items-center">
       <h1 class="font-serif text-black font-bold text-5xl m-16">Fitur</h1>
     </div>
-    <div class="flex justify-center items-center my-10">
-      <img src="{% static 'image/placeholder.png' %}" class="ml-24" alt="Logo" />
+    <div class="flex md:flex-nowrap flex-wrap justify-center items-center my-10">
+      <img src="{% static 'image/placeholder.png' %}" class="ml-24 size-auto" alt="Logo" />
       <div class="p-6">
-        <h2 class="font-bold text-orange-600 py-6 font-main text-3xl">Kelola souvenir yang akan dijual dan promosikan dengan mudah</h2>
+        <h2 class="font-bold text-orange-600 py-6 font-main text-xl md:text-3xl">Kelola souvenir yang akan dijual dan promosikan dengan mudah</h2>
         <ul class="list-disc list-inside pl-5 space-y-2 text-lg text-gray-700">
           <li>Admin CRUD product</li>
           <li>Promo/discount</li>
         </ul>
       </div>
     </div>
-    <div class="flex justify-center items-center my-10">
-      <img src="{% static 'image/placeholder.png' %}" class="ml-24" alt="Logo" />
+    <div class="flex md:flex-nowrap flex-wrap  justify-center items-center my-10">
+      <img src="{% static 'image/placeholder.png' %}" class="ml-24 size-auto" alt="Logo" />
       <div class="p-6">
-        <h2 class="font-bold text-orange-600 pb-6 font-main text-3xl">Cari, lalu simpan atau checkout souvenir impian. Tinggalkan juga review-nya!</h2>
+        <h2 class="font-bold text-orange-600 pb-6 font-main text-xl md:text-3xl">Cari, lalu simpan atau checkout souvenir impian. Tinggalkan juga review-nya!</h2>
         <ul class="list-disc list-inside pl-5 space-y-2 text-lg text-gray-700">
           <li>Forum</li>
           <li>Wishlist</li>
@@ -48,16 +48,16 @@
     </div>
   </div>
 
-  <div id="solusi" class="bg-[#67BAC6] px-36 pb-12">
-    <div class="flex justify-center items-center">
-      <h1 class="font-serif text-black font-bold text-5xl m-16 text-center">Solusi tepat untuk menemukan <br /> souvenir impianmu</h1>
+  <div id="solusi" class="bg-[#67BAC6] px-12 md:px-36 pb-12">
+    <div class="flex full-w justify-center items-center">
+      <h1 class="font-serif text-black font-bold text-5xl my-16 mx-0 text-center">Solusi tepat untuk menemukan <br /> souvenir impianmu</h1>
     </div>
     <div class="flex justify-center items-center">
-      <p class="font-main text-white font-bold text-2xl mx-16 mb-16 text-center">SOVITA, aplikasi pencari oleh-oleh terbaik di Denpasar, Bali. SOVITA hadir untuk membantu wisatawan domestik maupun mancanegara menemukan berbagai cinderamata khas Denpasar yang indah dan mempesona. Dengan fitur pencarian yang lengkap, filter produk, dashboard terpersonalisasi, ulasan produk, dan wishlist, SOVITA memudahkan Anda dalam mencari, membandingkan, dan menentukan pilihan oleh-oleh yang tepat dari berbagai toko di Denpasar. Tak hanya menjadi sumber informasi bagi para turis, SOVITA juga membantu para penjual cinderamata lokal untuk memperluas jangkauan mereka. Nikmati pengalaman liburan yang tak terlupakan dengan menemukan cinderamata berkualitas khas Denpasar yang akan selalu mengingatkan Anda pada momen indah di Bali.</p>
+      <p class="font-main text-white font-bold text-2xl m-0 mb-8 text-center">SOVITA, aplikasi pencari oleh-oleh terbaik di Denpasar, Bali. SOVITA hadir untuk membantu wisatawan domestik maupun mancanegara menemukan berbagai cinderamata khas Denpasar yang indah dan mempesona. Dengan fitur pencarian yang lengkap, filter produk, dashboard terpersonalisasi, ulasan produk, dan wishlist, SOVITA memudahkan Anda dalam mencari, membandingkan, dan menentukan pilihan oleh-oleh yang tepat dari berbagai toko di Denpasar. Tak hanya menjadi sumber informasi bagi para turis, SOVITA juga membantu para penjual cinderamata lokal untuk memperluas jangkauan mereka. Nikmati pengalaman liburan yang tak terlupakan dengan menemukan cinderamata berkualitas khas Denpasar yang akan selalu mengingatkan Anda pada momen indah di Bali.</p>
     </div>
   </div>
 
-  <div id="tim" class="bg-white px-36 pb-12">
+  <div id="tim" class="bg-white px-12 md:px-36 pb-12">
     <div class="flex justify-center items-center">
       <h1 class="font-serif text-black font-bold text-5xl m-16 text-center">Tim Kami</h1>
     </div>
