@@ -2,12 +2,103 @@
 {% load static %}
 {% block content %}
   <div class="min-h-screen bg-cover bg-center" style="background-image: url('{% static 'image/landing_page_bg.png' %}');">
-    <header class="py-2" style="background: linear-gradient(260deg, #C89A45 3.84%, #B5592A 60.95%, #B5592A 102.92%);
-    box-shadow: 0px 6px 27px 0px rgba(0, 0, 0, 0.25);
-    Linear Gradient">
-      <div class="container mx-auto flex items-center">
-        <img src="{% static 'image/logo.png' %}" class="w-36" alt="Logo" />
-      </div>
-    </header>
+    <div class="flex items-center">
+      <img src="{% static 'image/logo_panga.png' %}" class="w-80 ml-24" alt="Logo" />
+      <a href="#fitur"><h2 class="text-white font-main font-bold text-lg pr-12">Fitur</h2></a>
+      <a href="#solusi"><h2 class="text-white font-main font-bold text-lg pr-12">Solusi</h2></a>
+      <a href="#tim"><h2 class="text-white font-main font-bold text-lg pr-12">Tim Kami</h2></a>
+    </div>
+
+    <h1 class="font-serif text-white font-bold text-5xl pl-36">Our Souvenirs,</h1>
+    <h1 class="font-serif text-white font-bold text-5xl pt-6 pl-36">Your Unforgettable Memories!</h1>
+    <p class="font-sans font-bold text-white text-xl pt-12 pl-36" style="padding-right: 35%;">Memperkenalkan SOVITA, aplikasi pencari produk oleh-oleh di sekitar daerah Denpasar. SOVITA membantu para pengunjung menemukan oleh-oleh terbaik pada berbagai toko di Denpasar.</p>
+    <a href="{% url 'authentication:login' %}"><button class="text-white font-main px-12 pt-1 pb-2 mt-12 mx-36 rounded transition-colors duration-200 ease-in-out text-xl font-bold" style="background-color: #67BAC6;" onmouseover="this.style.backgroundColor='#8DCAD4'" onmouseout="this.style.backgroundColor='#67BAC6'" onmousedown="this.style.transform='scale(0.95)'" onmouseup="this.style.transform='scale(1)'">Login</button></a>
+    <p class="font-main text-white mx-36 py-2">
+      Belum punya akun?
+      <a href="{% url 'authentication:register' %}" class="text-[#67BAC6] hover:underline">Daftar</a>
+    </p>
   </div>
+
+  <div id="fitur" class="bg-white px-36 mb-32">
+    <div class="flex justify-center items-center">
+      <h1 class="font-serif text-black font-bold text-5xl m-16">Fitur</h1>
+    </div>
+    <div class="flex justify-center items-center my-10">
+      <img src="{% static 'image/placeholder.png' %}" class="ml-24" alt="Logo" />
+      <div class="p-6">
+        <h2 class="font-bold text-orange-600 py-6 font-main text-3xl">Kelola souvenir yang akan dijual dan promosikan dengan mudah</h2>
+        <ul class="list-disc list-inside pl-5 space-y-2 text-lg text-gray-700">
+          <li>Admin CRUD product</li>
+          <li>Promo/discount</li>
+        </ul>
+      </div>
+    </div>
+    <div class="flex justify-center items-center my-10">
+      <img src="{% static 'image/placeholder.png' %}" class="ml-24" alt="Logo" />
+      <div class="p-6">
+        <h2 class="font-bold text-orange-600 pb-6 font-main text-3xl">Cari, lalu simpan atau checkout souvenir impian. Tinggalkan juga review-nya!</h2>
+        <ul class="list-disc list-inside pl-5 space-y-2 text-lg text-gray-700">
+          <li>Forum</li>
+          <li>Wishlist</li>
+          <li>Cart</li>
+          <li>Search Bar</li>
+          <li>Review</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div id="solusi" class="bg-[#67BAC6] px-36 pb-12">
+    <div class="flex justify-center items-center">
+      <h1 class="font-serif text-black font-bold text-5xl m-16 text-center">Solusi tepat untuk menemukan <br /> souvenir impianmu</h1>
+    </div>
+    <div class="flex justify-center items-center">
+      <p class="font-main text-white font-bold text-2xl mx-16 mb-16 text-center">SOVITA, aplikasi pencari oleh-oleh terbaik di Denpasar, Bali. SOVITA hadir untuk membantu wisatawan domestik maupun mancanegara menemukan berbagai cinderamata khas Denpasar yang indah dan mempesona. Dengan fitur pencarian yang lengkap, filter produk, dashboard terpersonalisasi, ulasan produk, dan wishlist, SOVITA memudahkan Anda dalam mencari, membandingkan, dan menentukan pilihan oleh-oleh yang tepat dari berbagai toko di Denpasar. Tak hanya menjadi sumber informasi bagi para turis, SOVITA juga membantu para penjual cinderamata lokal untuk memperluas jangkauan mereka. Nikmati pengalaman liburan yang tak terlupakan dengan menemukan cinderamata berkualitas khas Denpasar yang akan selalu mengingatkan Anda pada momen indah di Bali.</p>
+    </div>
+  </div>
+
+  <div id="tim" class="bg-white px-36 pb-12">
+    <div class="flex justify-center items-center">
+      <h1 class="font-serif text-black font-bold text-5xl m-16 text-center">Tim Kami</h1>
+    </div>
+    <div class="grid grid-cols-3 gap-8">
+      <!-- Person 1 -->
+      <div class="flex flex-col items-center">
+        <img src="{% static 'image/placeholder.png' %}" alt="Person 1" class="w-32 h-32 rounded-full" />
+        <h2 class="mt-4 font-bold text-xl">Nama 1</h2>
+        <p class="text-gray-500">Posisi 1</p>
+      </div>
+      <!-- Person 2 -->
+      <div class="flex flex-col items-center">
+        <img src="{% static 'image/placeholder.png' %}" alt="Person 2" class="w-32 h-32 rounded-full" />
+        <h2 class="mt-4 font-bold text-xl">Nama 2</h2>
+        <p class="text-gray-500">Posisi 2</p>
+      </div>
+      <!-- Person 3 -->
+      <div class="flex flex-col items-center">
+        <img src="{% static 'image/placeholder.png' %}" alt="Person 3" class="w-32 h-32 rounded-full" />
+        <h2 class="mt-4 font-bold text-xl">Nama 3</h2>
+        <p class="text-gray-500">Posisi 3</p>
+      </div>
+      <!-- Person 4 -->
+      <div class="flex flex-col items-center">
+        <img src="{% static 'image/placeholder.png' %}" alt="Person 4" class="w-32 h-32 rounded-full" />
+        <h2 class="mt-4 font-bold text-xl">Nama 4</h2>
+        <p class="text-gray-500">Posisi 4</p>
+      </div>
+      <!-- Person 5 -->
+      <div class="flex flex-col items-center">
+        <img src="{% static 'image/placeholder.png' %}" alt="Person 5" class="w-32 h-32 rounded-full" />
+        <h2 class="mt-4 font-bold text-xl">Nama 5</h2>
+        <p class="text-gray-500">Posisi 5</p>
+      </div>
+      <!-- Person 6 -->
+      <div class="flex flex-col items-center">
+        <img src="{% static 'image/placeholder.png' %}" alt="Person 6" class="w-32 h-32 rounded-full" />
+        <h2 class="mt-4 font-bold text-xl">Nama 6</h2>
+        <p class="text-gray-500">Posisi 6</p>
+      </div>
+    </div>
+  </div>
+  {% include 'footer.html' %}
 {% endblock %}
