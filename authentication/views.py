@@ -6,6 +6,8 @@ import datetime
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 
+def landing_page(request):
+    return render(request, 'landing_page.html')
 
 def register(request):
     form = UserCreationForm()
