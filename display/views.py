@@ -38,11 +38,11 @@ def create_product_ajax(request):
     description = request.POST.get("description")
     picture = request.FILES.get("picture")
     location = request.POST.get("location")
-    shop = request.POST.get("shop")
+    category = request.POST.get("category")
 
     new_product = Product(
         name = name, price = price, description = description,
-        picture = picture, location = location, shop = shop,
+        picture = picture,  category = category, location = location,
     )
     new_product.save()
 
