@@ -2,7 +2,7 @@
 
 {% block content %}
 <div style="background: linear-gradient(153deg, #F09027 12.76%, #8CBEAA 71.77%);" class="min-h-screen flex items-center justify-center">
-    <div class="max-w-xl mx-auto p-6 bg-white rounded-lg shadow-md">
+    <div class="max-w-xl mx-auto p-6 bg-white rounded-lg shadow-md" style="background: rgba(255, 255, 255, 0.3); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 8px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);">
         <h2 class="text-2xl font-bold text-gray-800 mb-4">Are you sure you want to delete <span class="font-semibold">{{ product.name }}</span>?</h2>
         <form method="POST">
             {% csrf_token %}

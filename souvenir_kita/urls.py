@@ -27,4 +27,4 @@ urlpatterns = [
     path("authentication/", include("authentication.urls")),
     path("forum/", include("forum.urls")),
     path("adminview/", include("adminview.urls")),
-]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

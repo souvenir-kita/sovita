@@ -5,7 +5,7 @@ from django.http import HttpResponse
 from django.core import serializers
 from django.shortcuts import get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
-from display.models import Product
+from adminview.models import Product
 from django.http import JsonResponse
 
 

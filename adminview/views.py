@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from adminview.decorators import admin_required
 from adminview.models import Product
 from adminview.forms import ProductForm
 from django.http import HttpResponseRedirect, HttpResponse
@@ -7,6 +8,7 @@ from django.core import serializers
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
 
+@admin_required
 def show_admin(request):
     productEntry = Product.objects.all()
     context = {
@@ -15,6 +17,7 @@ def show_admin(request):
     }
     return render(request, "main.html", context)
 
+@admin_required
 def create_product(request):
     form = ProductForm(request.POST or None, request.FILES or None)
 
@@ -25,6 +28,7 @@ def create_product(request):
     context = {'form': form}
     return render(request, "create_product_admin.html", context)
 
+@admin_required
 def edit_product(request, id):
     product = get_object_or_404(Product, id=id)
     form = ProductForm(request.POST or None, request.FILES or None, instance=product)
@@ -37,6 +41,7 @@ def edit_product(request, id):
             form = ProductForm(instance=product)
     return render(request, "edit_product_admin.html", {'form': form})
 
+@admin_required
 def delete_product(request, id):
     product = get_object_or_404(Product, id=id)
     if request.method == "POST":
@@ -55,16 +60,19 @@ def show_json(request):
     data = Product.objects.all()
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
 
+@admin_required
 def show_xml_by_id(request, id):
     data = Product.objects.filter(pk=id)
     return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
 
+@admin_required
 def show_json_by_id(request, id):
     data = Product.objects.filter(pk=id)
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
 
 @csrf_exempt
 @require_POST
+@admin_required
 def create_product_ajax(request):
     name = request.POST.get("name")
     price = request.POST.get("price")
