@@ -52,6 +52,19 @@
                                     <button type="submit"class="bg-[#f09027] hover:bg-[#b85c2c] text-white font-bold py-2 px-6 rounded-lg transition duration-300 ease-in-out transform hover:scale-105"> Add To Cart</button>
                                     </div>
                             </form>
+                            {% if is_wishlisted %}
+                            <button id="wishlist-toggle" 
+                                    class="bg-gradient-to-r from-pink-500 to-red-500 text-white font-bold py-2 px-4 rounded-full shadow-lg transition transform hover:scale-105"
+                                    onclick="toggleWishlist('{{ product.id }}')">
+                                Remove from Wishlist
+                            </button>
+                            {% else %}
+                            <button id="wishlist-toggle" 
+                                    class="bg-gradient-to-r from-yellow-400 to-orange-500 text-white font-bold py-2 px-4 rounded-full shadow-lg transition transform hover:scale-105"
+                                    onclick="toggleWishlist('{{ product.id }}')">
+                                Add to Wishlist
+                            </button>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
@@ -78,7 +91,43 @@
         </div>
     </div>
 </div>
+<script>
+    function toggleWishlist(productId) {
+        const wishlistButton = document.getElementById('wishlist-toggle');
+        const currentlyInWishlist = wishlistButton.textContent.includes('Remove');
+        if (currentlyInWishlist) {
+            wishlistButton.classList.remove('bg-gradient-to-r', 'from-pink-500', 'to-red-500');
+            wishlistButton.classList.add('bg-gradient-to-r', 'from-yellow-400', 'to-orange-500');
+            wishlistButton.textContent = 'Add to Wishlist';
+        } else {
+            wishlistButton.classList.remove('bg-gradient-to-r', 'from-yellow-400', 'to-orange-500');
+            wishlistButton.classList.add('bg-gradient-to-r', 'from-pink-500', 'to-red-500');
+            wishlistButton.textContent = 'Remove from Wishlist';
+        }
+        fetch(`/wishlist/toggle/${productId}/`, {
+            method: 'POST',
+            headers: {
+                'X-CSRFToken': '{{ csrf_token }}',
+                'Content-Type': 'application/json',
+            },
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status !== 'success') {
+                if (currentlyInWishlist) {
+                    wishlistButton.classList.remove('bg-gradient-to-r', 'from-yellow-400', 'to-orange-500');
+                    wishlistButton.classList.add('bg-gradient-to-r', 'from-pink-500', 'to-red-500');
+                    wishlistButton.textContent = 'Remove from Wishlist';
+                } else {
+                    wishlistButton.classList.remove('bg-gradient-to-r', 'from-pink-500', 'to-red-500');
+                    wishlistButton.classList.add('bg-gradient-to-r', 'from-yellow-400', 'to-orange-500');
+                    wishlistButton.textContent = 'Add to Wishlist';
+                }
+                console.error('Failed to toggle wishlist status');
+            }
+        })
+    }
+</script>
 
 {% include 'footer.html' %}
-
 {% endblock %}
