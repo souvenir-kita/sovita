@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "display",  # Arzaka
     "cart",
     "wishlist",
+    "adminview",
 ]
 
 MIDDLEWARE = [
