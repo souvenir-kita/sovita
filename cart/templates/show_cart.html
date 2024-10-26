@@ -11,38 +11,51 @@
           <table class="min-w-full border bg-white bg-opacity-50 border-gray-200 rounded-lg">
             <tbody>
               {% for item in cart %}
-              <tr data-item-id="{{ item.id }}">
-                <td class="p-2 border-b">
-                  <input type="checkbox" class="cart-checkbox w-5 h-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500 cursor-pointer" data-price="{{ item.total_price }}" />
-                </td>
-                <td class="px-4 py-1 border-b">
-                  <div class="md:w-24 md:h-24 w-16 h-16 overflow-hidden border border-gray-300 rounded-lg">
-                    <img src="/media/{{ item.product.picture }}" alt="{{ item.product.name }}" class="w-full h-full object-cover" />
-                  </div>
-                </td>
-                <td class="py-2 border-b w-full pr-4">
-                  <div class="flex justify-between">
-                    <div class="flex flex-col items-start">
-                      <span class="font-semibold">{{ item.product.name }}</span>
-                      <span class="text-gray-500">Rp{{ item.product.price|floatformat:0 }}</span>
+                <tr data-item-id="{{ item.id }}">
+                  <td class="p-2 border-b">
+                    <input type="checkbox" class="cart-checkbox w-5 h-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500 cursor-pointer" data-price="{{ item.total_price }}" />
+                  </td>
+                  <td class="px-4 py-1 border-b">
+                    <div class="md:w-24 md:h-24 w-16 h-16 overflow-hidden border border-gray-300 rounded-lg">
+                      <img src="/media/{{ item.product.picture }}" alt="{{ item.product.name }}" class="w-full h-full object-cover" />
                     </div>
-                    <div class="items-end text-right">
-                      <div class="text-lg font-bold">
-                        Rp<span class="item-total-price">{{ item.total_price|floatformat:0 }}</span>
+                  </td>
+                  <td class="py-2 border-b w-full pr-4">
+                    <div class="flex justify-between">
+                      <div class="flex flex-col items-start">
+                        <span class="font-semibold">{{ item.product.name }}</span>
+                        <span class="text-gray-500">Rp{{ item.product.price|floatformat:0 }}</span>
+                      </div>
+                      <div class="items-end text-right">
+                        <div class="text-lg font-bold">
+                          Rp<span class="item-total-price">{{ item.total_price|floatformat:0 }}</span>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div class="flex items-center justify-end">
-                    <div class="mr-2">
-                      <button class="text-white bg-red-500 px-2 py-1 my-2 rounded transition-colors duration-200 ease-in-out delete" onmousedown="this.style.transform='scale(0.95)'" onmouseup="this.style.transform='scale(1)'" data-item-id="{{ item.id }}">Delete</button>
+                    <div class="flex items-center justify-end ">
+                      <div class="bg-[#c1eaec] text-gray-600 rounded-lg p-1 mr-2">
+                        {% if item.note %}
+                          <p id="noteDisplay" class="whitespace-pre-wrap">"{{ item.note|wordwrap:50 }}"</p>
+                        {% endif %}
+                      </div>
+                      <div class="mr-2">
+                        <button type="button" class="text-white bg-[#67BAC6] px-2 py-1 my-2 rounded transition-colors duration-200 ease-in-out add-note {% if item.note %}has-note{% endif %}" data-item-id="{{ item.id }}" data-note="{{ item.note|default:'' }}">
+                          {% if item.note %}
+                            Edit note
+                          {% else %}
+                            Add note
+                          {% endif %}
+                        </button>
+                      </div>
+                      <div class="mr-2">
+                        <button class="text-white bg-red-500 px-2 py-1 my-2 rounded transition-colors duration-200 ease-in-out delete" onmousedown="this.style.transform='scale(0.95)'" onmouseup="this.style.transform='scale(1)'" data-item-id="{{ item.id }}">Delete</button>
+                      </div>
+                      <button class="bg-gray-300 text-black px-2 py-1 rounded mr-2 decrement" data-item-id="{{ item.id }}">-</button>
+                      <span class="item-amount">{{ item.amount }}</span>
+                      <button class="bg-gray-300 text-black px-2 py-1 rounded ml-2 increment" data-item-id="{{ item.id }}">+</button>
                     </div>
-                    <button class="bg-gray-300 text-black px-2 py-1 rounded mr-2 decrement" data-item-id="{{ item.id }}">-</button>
-                    <span class="item-amount">{{ item.amount }}</span>
-                    <button class="bg-gray-300 text-black px-2 py-1 rounded ml-2 increment" data-item-id="{{ item.id }}">+</button>
-                  </div>
-                </td>
-              </tr>
-              
+                  </td>
+                </tr>
               {% endfor %}
             </tbody>
           </table>
@@ -66,7 +79,21 @@
     </div>
   </div>
 
-  <div class="align"></div>
+  <div id="noteModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center">
+    <div class="bg-white rounded-lg p-6 w-full max-w-md mx-4">
+      <h3 class="text-lg font-semibold mb-4">Add/Edit Note</h3>
+      <div class="mb-4">
+        <textarea id="noteText" class="w-full border-2 border-gray-300 rounded-lg p-2 focus:border-cyan-500 focus:ring-0" maxlength="144" rows="3" placeholder="Add your note here (max 144 characters)"></textarea>
+        <div class="text-right text-sm text-gray-500">
+          <span id="charCount">0</span>/144
+        </div>
+      </div>
+      <div class="flex justify-end space-x-2">
+        <button id="cancelNote" class="px-4 py-2 bg-gray-200 rounded-lg hover:bg-gray-300 transition-colors duration-200">Cancel</button>
+        <button id="saveNote" class="px-4 py-2 bg-cyan-500 text-white rounded-lg hover:bg-cyan-600 transition-colors duration-200">Save</button>
+      </div>
+    </div>
+  </div>
 
   {% include 'footer.html' %}
 
@@ -95,7 +122,7 @@
               const itemRow = document.querySelector(`tr[data-item-id="${itemId}"]`)
               const amountElement = itemRow.querySelector('.item-amount')
               const totalPriceElement = itemRow.querySelector('.item-total-price')
-              
+    
               // Update the amount and total price
               if (amountElement) {
                 amountElement.textContent = data.new_amount
@@ -137,7 +164,7 @@
               if (itemRow) {
                 itemRow.remove()
                 updateTotalPrice()
-                
+    
                 // Check if cart is empty
                 const remainingItems = document.querySelectorAll('tr[data-item-id]')
                 if (remainingItems.length === 0) {
@@ -193,6 +220,105 @@
     
       checkboxes.forEach((checkbox) => {
         checkbox.addEventListener('change', updateTotalPrice)
+      })
+    })
+    document.addEventListener('DOMContentLoaded', function () {
+      const noteModal = document.getElementById('noteModal')
+      const noteText = document.getElementById('noteText')
+      const charCount = document.getElementById('charCount')
+      const cancelNote = document.getElementById('cancelNote')
+      const saveNote = document.getElementById('saveNote')
+      const noteDisplay = document.getElementById('noteDisplay')
+      
+      let currentItemId = null
+    
+      // Add note button click handler
+      document.querySelectorAll('.add-note').forEach((button) => {
+        button.addEventListener('click', function (e) {
+          e.preventDefault() // Prevent any form submission
+          e.stopPropagation() // Stop event bubbling
+    
+          currentItemId = this.dataset.itemId
+          const existingNote = this.dataset.note || ''
+    
+          noteText.value = existingNote
+          charCount.textContent = existingNote.length
+          
+          noteModal.classList.remove('hidden')
+          noteModal.classList.add('flex')
+        })
+      })
+    
+      // Character counter
+      noteText.addEventListener('input', function () {
+        const length = this.value.length
+        charCount.textContent = length
+    
+        if (length >= 144) {
+          this.value = this.value.substring(0, 144)
+        }
+      })
+    
+      // Cancel button
+      cancelNote.addEventListener('click', function () {
+        noteModal.classList.remove('flex')
+        noteModal.classList.add('hidden')
+        noteText.value = ''
+        currentItemId = null
+      })
+    
+      // Close modal when clicking outside
+      noteModal.addEventListener('click', function (e) {
+        if (e.target === noteModal) {
+          noteModal.classList.remove('flex')
+          noteModal.classList.add('hidden')
+          noteText.value = ''
+          currentItemId = null
+        }
+      })
+    
+      // Save note
+      saveNote.addEventListener('click', function () {
+        if (!currentItemId) return
+    
+        fetch(`/cart/update_note/${currentItemId}/`, {
+          method: 'POST',
+          headers: {
+            'X-CSRFToken': '{{ csrf_token }}',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            note: noteText.value
+          })
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.success) {
+              const itemRow = document.querySelector(`tr[data-item-id="${currentItemId}"]`)
+              itemRow.dataset.note = noteText.value
+    
+              // Update button text/style to show note exists
+              const noteButton = itemRow.querySelector('.add-note')
+              if (noteText.value) {
+                noteButton.textContent = 'Edit note'
+                noteButton.classList.add('has-note')
+              } else {
+                noteButton.textContent = 'Add note'
+                noteButton.classList.remove('has-note')
+              }
+    
+              // Close modal
+              noteModal.classList.remove('flex')
+              noteModal.classList.add('hidden')
+              noteDisplay.textContent = `"${noteText.value}"`;
+              noteText.value = ''
+              currentItemId = null
+            }
+          })
+          .catch((error) => {
+            console.error('Error:', error)
+            alert('Failed to save note. Please try again.')
+          })
       })
     })
   </script>
