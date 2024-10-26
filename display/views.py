@@ -4,15 +4,26 @@ from adminview.models import Product
 from django.contrib.auth.decorators import login_required
 from django.core import serializers
 
-@login_required(login_url='authentication:login')
+# @login_required(login_url='authentication:login')
 def display_main(request):
     productEntry = Product.objects.all()
+    
+    # Check if the user is authenticated
+    if request.user.is_authenticated:
+        last_login = request.COOKIES.get('last_login')  # Get the cookie if it exists
+    else:
+        last_login = None  # Or you can simply omit this if not authenticated
+
     context = {
-        'product_entry' : productEntry,
-        'last_login': request.COOKIES['last_login'],
+        'product_entry': productEntry,
+        'last_login': last_login,  # Set to None if the user is not authenticated
+        'name': request.user.username
     }
 
     return render(request, "display.html", context)
+
+def to_landing(request):
+    return render(request, 'landing_page.html')
 
 def view_product(request, id):
     product = get_object_or_404(Product, id=id)

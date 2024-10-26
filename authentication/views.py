@@ -9,8 +9,6 @@ from django.contrib.auth.models import User
 from .forms import CustomUserCreationForm
 from .models import UserProfile
 
-def landing_page(request):
-    return render(request, 'landing_page.html')
 
 def register(request):
     form = CustomUserCreationForm()
