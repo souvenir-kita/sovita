@@ -28,8 +28,12 @@ box-shadow: 0px 6px 27px 0px rgba(0, 0, 0, 0.25);">
           {% endif %}
           <a href="{% url 'display:search' %}" class="text-white text-lg hover:text-cyan-200">Search</a>
           <a href="{% url 'cart:show_cart' %}" class="text-white text-lg hover:text-cyan-200">Cart</a>
-          <h1 style="margin-top: 2px;" class="text-white text-l">Welcome {{user_name}}!</h1>
-          <a href="{% url 'authentication:logout' %}"><button class="text-black text-sm rounded-lg py-2 px-4 bg-[rgb(215,215,215)] border-none cursor-pointer transition-transform duration-500 hover:opacity-75">Logout</button></a>
+          {% if user_role %}
+            <h1 style="margin-top: 2px;" class="text-white text-l">Welcome {{ user_name }}!</h1>
+            <a href="{% url 'authentication:logout' %}"><button class="text-black text-sm rounded-lg py-2 px-4 bg-[rgb(215,215,215)] border-none cursor-pointer transition-transform duration-500 hover:opacity-75">Logout</button></a>
+          {% else %}
+            <a href="{% url 'authentication:login' %}"><button class="text-black text-sm rounded-lg py-2 px-4 bg-[rgb(215,215,215)] border-none cursor-pointer transition-transform duration-500 hover:opacity-75">Login</button></a>
+          {% endif %}
         </div>
       </div>
     </div>

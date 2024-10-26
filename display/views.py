@@ -22,6 +22,9 @@ def display_main(request):
 
     return render(request, "display.html", context)
 
+def to_landing(request):
+    return render(request, 'landing_page.html')
+
 def view_product(request, id):
     product = get_object_or_404(Product, id=id)
     context = {
