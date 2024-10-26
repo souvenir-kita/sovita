@@ -1,11 +1,15 @@
 from django.forms import ModelForm
 from review.models import ReviewEntry
 from django.utils.html import strip_tags
+from django import forms
 
 class ReviewForm(ModelForm):
     class Meta:
         model = ReviewEntry
-        fields = ["rating", "description"]
+        fields = ["rating", "description", "date_create"]
+        widgets = {
+            'date_create': forms.DateTimeInput(attrs={'type': 'datetime-local'}),
+        }
 
     def clean_rating(self):
         rating = self.cleaned_data["rating"]
