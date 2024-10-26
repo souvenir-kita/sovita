@@ -1,52 +1,245 @@
 {% extends "base.html" %}
-
 {% block meta %}
     <title>FORUM</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-{% endblock %}
-
+{% endblock meta %}
 {% block content %}
-    <div class="container">
-        <div class="w-50 mx-auto">
-            <div class="card mb-4">
-                <div class="card-header d-flex justify-content-between align-items-center">
-                    <div>Post by {{ post.user }}</div>
-                    <div class="dropdown">
-                        <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{% url 'forum:edit_forum_post' post.product.pk post.pk %}">Edit</a></li>
-                            <li><a class="dropdown-item" href="{% url 'forum:delete_forum_post' post.product.pk post.pk %}">Delete</a></li>
-                        </ul>
-                    </div>  
+    <div class="w-full max-w-screen-md px-4 mx-auto">
+        <div class="flex flex-col min-h-screen py-4 space-y-4">
+            <div class="p-4 bg-white border border-gray-300 rounded-md">
+                <h6 class="flex items-center mb-2 text-xs text-gray-500">
+                    <span>Posted by {{ post.user }}</span>
+                    <span class="mx-1">•</span>
+                    <span>{{ post.created_at|date:"d-m-Y" }}</span>
+                </h6>
+                <div class="mb-4 space-y-2">
+                    <h3 class="text-lg font-semibold">{{ post.title }}</h3>
+                    <p class="text-sm text-gray-800">{{ post.content }}</p>
                 </div>
-                <div class="card-body">
-                    <h5 class="card-title">{{ post.title }}</h5>
-                    <p class="card-text">{{ post.content }}</p>   
-                </div>
+                <form id="post-reply-form" action="" method="post" class="space-y-3">
+                    <div>
+                        <label for="content" class="sr-only">Reply</label>
+                        <textarea id="content"
+                                  name="content"
+                                  placeholder="Add a comment"
+                                  rows="3"
+                                  class="block w-full px-4 py-3 text-sm border border-gray-200 rounded-lg focus:border-blue-200 focus:ring-blue-200 disabled:opacity-50 disabled:pointer-events-none"></textarea>
+                    </div>
+                    <button type="submit"
+                            class="w-full px-3 py-1.5 text-base font-medium text-white bg-blue-500 border border-transparent rounded-md shadow-sm hover:bg-blue-700">
+                        Reply
+                    </button>
+                </form>
             </div>
-            <div class="replies mb-4">
-                <a href="{% url 'forum:forum_posts' post.product.pk %}" class="btn btn-success w-100 mb-3">Back to discussion</a>
-                <a href="{% url 'forum:create_forum_post_reply' post.product.pk post.pk %}" class="btn btn-primary w-100 mb-3">Reply this post</a>
+            <div id="replies" class="space-y-3">
                 {% for reply in replies %}
-                    <div class="card my-3">
-                        <div class="card-header d-flex justify-content-between align-items-center">
-                            <div>Reply by {{ reply.user }}</div>
-                            <div class="dropdown">
-                                <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="{% url 'forum:edit_forum_post_reply' post.product.pk post.pk reply.pk %}">Edit</a></li>
-                                    <li><a class="dropdown-item" href="{% url 'forum:delete_forum_post_reply' post.product.pk post.pk reply.pk %}">Delete</a></li>
+                    <div class="space-y-2.5 p-4 border border-gray-200 rounded-md post-reply-card"
+                         data-reply-id="{{ reply.id }}">
+                        <h6 class="flex items-center text-xs text-gray-500">
+                            <span class="font-bold text-black">{{ reply.user }}</span>
+                            <span class="mx-1">•</span>
+                            <span>{{ reply.created_at|date:"d-m-Y" }}</span>
+                            <div class="relative ml-auto">
+                                <button class="inline-flex items-center px-2 py-2 text-gray-700 dropdown-button hover:bg-gray-300 focus:outline-none"
+                                        aria-haspopup="true"
+                                        aria-expanded="false">
+                                    <svg class="w-3 h-3 text-gray-600"
+                                         xmlns="http://www.w3.org/2000/svg"
+                                         fill="none"
+                                         viewBox="0 0 24 24"
+                                         stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </button>
+                                <ul class="absolute right-0 z-10 hidden w-40 mt-2 bg-white rounded-md shadow-lg dropdown-menu">
+                                    <li>
+                                        <button class="block w-full px-4 py-2 text-sm text-left text-gray-700 dropdown-item edit-reply-btn hover:bg-gray-100">
+                                            Edit
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button class="block w-full px-4 py-2 text-sm text-left text-gray-700 dropdown-item hover:bg-gray-100 delete-reply-btn">
+                                            Delete
+                                        </button>
+                                    </li>
                                 </ul>
                             </div>
-                        </div>
-                        <div class="card-body">
-                            <p class="card-text">{{ reply.content }}</p>      
-                        </div>
+                        </h6>
+                        <p class="text-gray-800 post-reply-card-content">{{ reply.content }}</p>
                     </div>
                 {% endfor %}
             </div>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <div id="edit-reply-modal"
+         class="hidden fixed inset-0 z-[80] overflow-y-auto flex items-center justify-center"
+         role="dialog">
+        <!-- Backdrop -->
+        <div class="fixed inset-0 bg-black bg-opacity-65"></div>
+        <!-- Modal Content -->
+        <div class="relative z-10 w-full max-w-lg mx-4 bg-white shadow-lg rounded-xl">
+            <div class="flex items-center justify-between p-4 border-b">
+                <h3 class="font-bold text-gray-800">Edit Reply</h3>
+                <button type="button"
+                        class="text-gray-400 hover:text-gray-600"
+                        id="edit-reply-modal-close-btn">
+                    <span class="sr-only">Close</span>
+                    <svg class="w-6 h-6"
+                         xmlns="http://www.w3.org/2000/svg"
+                         fill="none"
+                         viewBox="0 0 24 24"
+                         stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 6L6 18M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <div class="p-4">
+                <form id="edit-reply-form">
+                    <div class="mb-4">
+                        <label for="rep_content" class="block text-sm font-medium text-gray-700">Reply</label>
+                        <textarea id="rep_content"
+                                  name="content"
+                                  rows="4"
+                                  required
+                                  class="block w-full p-2 mt-1 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-300"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="flex items-center justify-end p-4 border-t">
+                <button type="submit"
+                        form="edit-reply-form"
+                        class="px-3 py-2 ml-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:outline-none focus:bg-blue-700">
+                    Save
+                </button>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Dropdown functionality
+        document.querySelectorAll('.dropdown-button').forEach(button => {
+            button.addEventListener('click', function(event) {
+                event.stopPropagation();
+                const dropdownMenu = this.nextElementSibling;
+                dropdownMenu.classList.toggle('hidden');
+            });
+        });
+        document.querySelectorAll('.dropdown-item').forEach(link => {
+            link.addEventListener('click', function(event) {
+            // Close the dropdown menu
+            const dropdownMenu = this.closest('.dropdown-menu');
+            dropdownMenu.classList.add('hidden');
+            event.stopPropagation(); // Prevent event bubbling
+        });
+    });
+    </script>
+    <script>
+        const postReplyCard = document.querySelectorAll(".post-reply-card");
+
+        // Create Ajax Request
+        const replyForm = document.querySelector("#post-reply-form");
+        replyForm.addEventListener("submit", async function (e) {
+            e.preventDefault();
+            const response = await fetch('/forum/{{ post.product.id }}/{{ post.id }}/create', {
+                method: "POST",
+                body: new FormData(replyForm),
+            });
+            const json = await response.json();
+            if (json.status == "success") {
+                const reply = json.data
+                const repliesDiv = document.querySelector("#replies");
+                repliesDiv.innerHTML += `
+                    <div class="space-y-2.5 p-4 border border-gray-200 rounded-md post-reply-card" data-reply-id="${reply.id}">
+                        <h6 class="flex items-center text-xs text-gray-500">
+                            <span class="font-bold text-black">${reply.user}</span>
+                            <span class="mx-1">•</span>
+                            <span>${new Intl.DateTimeFormat('en-GB').format(new Date(reply.created_at))}</span>
+                            <div class="relative ml-auto">
+                                <button class="inline-flex items-center px-2 py-2 text-gray-700 dropdown-button hover:bg-gray-300 focus:outline-none" aria-haspopup="true" aria-expanded="false">
+                                    <svg class="w-3 h-3 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </button>
+                                <ul class="absolute right-0 z-10 hidden w-40 mt-2 bg-white rounded-md shadow-lg dropdown-menu">
+                                    <li>
+                                        <button class="block w-full px-4 py-2 text-sm text-left text-gray-700 dropdown-item edit-reply-btn hover:bg-gray-100">Edit</button>
+                                    </li>
+                                    <li>
+                                        <button class="block w-full px-4 py-2 text-sm text-left text-gray-700 dropdown-item hover:bg-gray-100 delete-reply-btn">Delete</button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </h6>
+                        <p class="text-gray-800 post-reply-card-content">${reply.content}</p>
+                    </div>
+                `;
+                replyForm.reset();
+            } else {
+                console.log("error happened", json.messages);
+            }
+        });
+        
+        // Edit Modal
+        const editReplyModal = document.querySelector("#edit-reply-modal");
+        const closeBtnModal = editReplyModal.querySelector("#edit-reply-modal-close-btn");
+        const editReplyForm = document.querySelector("#edit-reply-form");
+        
+        // Open Edit Modal Trigger
+        postReplyCard.forEach((card) => {
+            const replyId = card.getAttribute("data-reply-id");
+            const editReplyBtn = card.querySelector(".edit-reply-btn");
+            const replyContent = card.querySelector(".post-reply-card-content");
+            console.log(replyContent.textContent);
+            editReplyBtn.addEventListener("click", function (e) {
+                e.preventDefault();
+                editReplyModal.classList.remove("hidden");
+                editReplyModal.setAttribute("data-reply-id", replyId);
+                editReplyForm.querySelector("textarea[name='content']").value = replyContent.textContent;
+            });
+        });
+        // Close Edit Modal Trigger
+        closeBtnModal.addEventListener("click", function (e) {
+            e.preventDefault();
+            editReplyModal.classList.add("hidden");
+            editReplyModal.removeAttribute("data-reply-id");
+            editReplyForm.reset();
+        });
+        // Edit Ajax Request
+        editReplyForm.addEventListener("submit", async function (e) {
+            e.preventDefault()
+            const editReplyModal = document.querySelector("#edit-reply-modal");
+            const replyId = editReplyModal.getAttribute("data-reply-id");
+            console.log(replyId);
+            const response = await fetch(`/forum/{{ post.product.id }}/{{ post.id }}/edit/${replyId}`, {
+                method: "POST",
+                body: new FormData(editReplyForm),
+            });
+            const json = await response.json();
+            if (json.status == "success") {
+                const reply = json.data;
+                const replyDiv = document.querySelector(`[data-reply-id='${replyId}'] .post-reply-card-content`);
+                replyDiv.innerHTML = reply.content;
+                editReplyForm.reset();
+                editReplyModal.classList.add("hidden");
+            } else {
+                console.log("error happened", json.messages)
+            }
+        });
+        
+        // DELETE Ajax Request
+        postReplyCard.forEach((card) => {
+            const replyId = card.getAttribute("data-reply-id");
+            const deleteReplyBtn = card.querySelector(".delete-reply-btn");
+            deleteReplyBtn.addEventListener("click", async function (e) {
+                e.preventDefault();
+                const response = await fetch(`/forum/{{ post.product.id }}/{{ post.id }}/delete/${replyId}`, {
+                    method: "DELETE",
+                });
+                const json = await response.json();
+                if (json.status == "success") {
+                    card.remove();
+                } else {
+                    console.log("error happened", json.messages)
+                }
+            });
+        });
+    </script>
 {% endblock content %}
