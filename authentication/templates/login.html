@@ -38,8 +38,12 @@
         </ul>
       {% endif %}
       <p class="text-center font-main mt-6 text-gray-800">
-        Don't have an account yet?
-        <a href="{% url 'authentication:register' %}" class="text-[#67BAC6] hover:underline">Register Now</a>
+        Belum punya akun?
+        <a href="{% url 'authentication:register' %}" class="text-[#67BAC6] hover:underline">Daftar sekarang</a>
+      </p>
+      <p class="text-center font-main text-gray-800">
+        Saya ingin lihat-lihat saja.
+        <a href="{% url 'display:display_main' %}" class="text-[#67BAC6] hover:underline">Masuk tanpa akun</a>
       </p>
     </div>
   </div>
