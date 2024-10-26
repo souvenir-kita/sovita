@@ -1,10 +1,10 @@
 from django.forms.models import model_to_dict
-from django.http import HttpResponse, JsonResponse
+from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_http_methods
 
-from display.models import Product
+from adminview.models import Product
 from forum.forms import PostForm, ReplyForm
 from forum.models import Post, Reply
 
