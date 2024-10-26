@@ -1,0 +1,24 @@
+{% extends 'base.html' %} 
+{% block content %}
+
+<div class="flex justify-center items-center h-screen mt-6">
+    <div class="p-5 bg-[#cccccc] max-w-xl text-center rounded-2xl shadow-lg">
+        <h3 class="text-2xl font-bold mb-6 text-center">Edit Product!</h3>
+        <div class="flex justify-center">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <table>
+                    {{ form.as_table }}
+                    <tr>
+                        <td></td>
+                        <td>
+                            <input type="submit" value="Edit Product" class="mt-4 bg-white border-none px-5 py-2.5 rounded cursor-pointer transition-colors duration-300 hover:bg-gray-300" />
+                        </td> 
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
