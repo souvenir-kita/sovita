@@ -2,8 +2,7 @@
 {% load static %}
 {% block content %}
   <nav class="border-gray-200 fixed top-0 left-0 z-40 w-full shadow-xl" style="background: linear-gradient(260deg, #C89A45 3.84%, #B5592A 60.95%, #B5592A 102.92%);
-box-shadow: 0px 6px 27px 0px rgba(0, 0, 0, 0.25);
-Linear Gradient">
+box-shadow: 0px 6px 27px 0px rgba(0, 0, 0, 0.25);">
     <div class="flex items-center mx-auto max-w-screen-xl p-2">
       <div class="md:hidden flex items-center justify-between ml-auto w-full">
         <div class="flex items-center">
@@ -24,7 +23,7 @@ Linear Gradient">
         </div>
         <div class="flex gap-10 items-center">
           <a href="/" class="text-white text-lg hover:text-cyan-200">Home</a>
-          <a href="/" class="text-white text-lg hover:text-cyan-200">About</a>
+          <a href="{% url 'adminview:show_admin' %}" class="text-white text-lg hover:text-cyan-200">Admin</a>
           <a href="{% url 'display:search' %}" class="text-white text-lg hover:text-cyan-200">Search</a>
           <a href="{% url 'cart:show_cart' %}" class="text-white text-lg hover:text-cyan-200">Cart</a>
           <h1 style="margin-top: 2px;" class="text-white text-l">Welcome!</h1>
@@ -33,9 +32,7 @@ Linear Gradient">
       </div>
     </div>
 
-    <div class="mobile-menu hidden md:hidden text-white py-4 px-6" style="background: linear-gradient(92deg, #8CBEAA 15.37%, #73D28C 79.06%);
-Linear Gradient 
-">
+    <div class="mobile-menu hidden md:hidden text-white py-4 px-6" style="background: linear-gradient(92deg, #8CBEAA 15.37%, #73D28C 79.06%);">
       <a href="/" class="block py-2 hover:text-gray-700">Home</a>
       <a href="/" class="block py-2 hover:text-gray-700">About</a>
       <a href="/" class="block py-2 hover:text-gray-700">Contact</a>
@@ -54,5 +51,4 @@ Linear Gradient
     btn.addEventListener('click', () => {
       menu.classList.toggle('hidden')
     })
-  </script>
-{% endblock %}
+  </script>{% endblock %}
