@@ -21,10 +21,46 @@
             <input type="number" name="cart_amount" id="cart_amount" required min="1" value="1" class="border border-gray-700 rounded-md text-center w-20">
             <button type="submit" class="mt-2 inline-block bg-gray-800 text-white font-semibold py-1 px-2 rounded hover:bg-gray-700 text-xs">Add to Cart</button>
         </form>
+        <button id="wishlist-toggle" class="btn {% if product.id in user_wishlist_ids %}btn-danger{% else %}btn-primary{% endif %}"
+        onclick="toggleWishlist('{{ product.id }}')">
+            {% if product.id in user_wishlist_ids %}Remove from Wishlist{% else %}Add to Wishlist{% endif %}
+        </button>
         <br>
         
         <a href="{% url 'display:display_main' %}" class="mt-4 inline-block bg-gray-800 text-white font-semibold py-2 px-4 rounded hover:bg-gray-700">Back</a>
     </div>
     <p style="margin-right: 50px;"><iframe src="{{ product.location }}" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></p>
 </div>
+<script>
+    function toggleWishlist(productId) {
+        // Construct the URL directly with the productId
+        const url = `/wishlist/toggle/${productId}/`
+        
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'X-CSRFToken': '{{ csrf_token }}', // CSRF token for security
+                'Content-Type': 'application/json'
+            },
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                const button = document.getElementById('wishlist-toggle');
+                if (data.action === 'added') {
+                    button.classList.remove('btn-primary');
+                    button.classList.add('btn-danger');
+                    button.textContent = 'Remove from Wishlist';
+                } else {
+                    button.classList.remove('btn-danger');
+                    button.classList.add('btn-primary');
+                    button.textContent = 'Add to Wishlist';
+                }
+            } else {
+                console.error('Failed to toggle wishlist');
+            }
+        })
+        .catch(error => console.error('Error:', error));
+    }
+</script>
 {% endblock %}

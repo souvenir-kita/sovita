@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% include "navbar.html" %}
+<div class="flex justify-center items-start min-h-screen pt-20 pb-6 px-20" style="background: linear-gradient(153deg, #F09027 12.76%, #8CBEAA 71.77%);">
+<div class="bg-white bg-opacity-70 shadow-md rounded-lg p-6 w-full ml-5">
+<h2>Your Wishlist</h2>
+
+{% if wishlist_items %}
+    <ul>
+        {% for item in wishlist_items %}
+            <li>
+                <a href="{% url 'product_detail' item.product.id %}">{{ item.product.name }}</a>
+                <p>{{ item.product.description }}</p>
+                <a href="{% url 'toggle_wishlist' item.product.id %}">Remove from Wishlist</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Your wishlist is empty.</p>
+{% endif %}
+
+{% endblock %}
