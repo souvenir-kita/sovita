@@ -52,6 +52,7 @@ def view_product(request, id):
     product = get_object_or_404(Product, id=id)
     context = {
                 'product' : product,
+                'is_wishlisted' : product.id in request.user.wishlists.values_list('product_id', flat=True)
     }
     return render(request, 'view_product.html', context)
 
