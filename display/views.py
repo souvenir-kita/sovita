@@ -37,10 +37,15 @@ def profile_view(request):
 
 def view_product(request, id):
     product = get_object_or_404(Product, id=id)
+    if request.user.is_authenticated:
+        is_wishlisted = product.id in request.user.wishlists.values_list('product_id', flat=True)
+    else:
+        is_wishlisted = False
     context = {
-                'product' : product,
-                'is_wishlisted' : product.id in request.user.wishlists.values_list('product_id', flat=True)
+        'product': product,
+        'is_wishlisted': is_wishlisted
     }
+
     return render(request, 'view_product.html', context)
 
 def show_xml(request):
