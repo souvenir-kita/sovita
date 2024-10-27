@@ -7,23 +7,23 @@
       <div class="flex justify-between mb-3">
         <h2 class="text-2xl font-semibold mb-4">My Cart</h2>
         <div class="mb-6 flex flex-col md:flex-row gap-4">
-          <form method="get" class="flex-1 flex flex-col md:flex-row gap-4">
+          <form method="get" class="flex-1 flex flex-col md:flex-row gap-4" action="{% url 'cart:show_cart' %}">
             <!-- Sort Dropdown -->
             <div class="flex gap-2">
-              <select name="sort" class="px-4 py-2 border rounded-lg focus:ring-2 focus:ring-cyan-500">
-                <option value="alphabet_asc">Sort by Alphabet: A-Z</option>
-                <option value="alphabet_dsc">Sort by Alphabet: Z-A</option>
+              <select name="sort" class="px-4 py-2 border rounded-lg focus:ring-2 focus:ring-cyan-500" onchange="this.form.submit()">
+                <option value="alphabet_asc" {% if current_sort == 'alphabet_asc' %}selected{% endif %}>Sort by Alphabet: A-Z</option>
+                <option value="alphabet_dsc" {% if current_sort == 'alphabet_dsc' %}selected{% endif %}>Sort by Alphabet: Z-A</option>
               </select>
             </div>
           </form>
         </div>
       </div>
 
-      {% if cart %}
+      {% if cart_products %}
         <form id="cartForm">
           <table class="min-w-full border bg-white bg-opacity-50 border-gray-200 rounded-lg">
             <tbody>
-              {% for item in cart %}
+              {% for item in cart_products %}
                 <tr data-item-id="{{ item.id }}">
                   <td class="p-2 border-b">
                     <input type="checkbox" class="cart-checkbox w-5 h-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500 cursor-pointer" data-price="{{ item.total_price }}" />

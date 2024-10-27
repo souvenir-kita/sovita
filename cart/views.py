@@ -10,13 +10,32 @@ from django.http import JsonResponse
 from django.views.decorators.http import require_POST
 import json
 from django.db.models import Q
+from django.template.loader import render_to_string
 
 @login_required
 def show_cart(request):
-    cart_products = CartProduct.objects.filter(cart__user=request.user)
+    sort = request.GET.get('sort', 'alphabet_asc')
+    
+    # Get the cart for the current user
+    cart = Cart.objects.filter(user=request.user).first()
+    
+    if not cart:
+        # If no cart exists for the user, return an empty context
+        cart_products = CartProduct.objects.none()
+    else:
+        # Get the cart products related to this cart
+        cart_products = CartProduct.objects.filter(cart=cart)
+        
+        # Apply sorting based on the product's name
+        if sort == 'alphabet_asc':
+            cart_products = cart_products.order_by('product__name')
+        elif sort == 'alphabet_dsc':
+            cart_products = cart_products.order_by('-product__name')
     
     context = {
-        'cart': cart_products,
+        'cart': cart,
+        'cart_products': cart_products,
+        'current_sort': sort,
     }
 
     return render(request, "show_cart.html", context)
@@ -130,3 +149,32 @@ def show_xml_by_id(request, id):
 def show_json_by_id(request, id):
     data = CartProduct.objects.filter(pk=id)
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+
+@require_POST
+def sort_cart(request):
+    try:
+        data = json.loads(request.body)
+        sort_option = data.get('sort')
+        
+        # Get cart items for the current user
+        cart = Cart.objects.filter(user=request.user)
+        
+        # Apply sorting
+        if sort_option == 'alphabet_asc':
+            cart = cart.order_by('product__name')
+        elif sort_option == 'alphabet_dsc':
+            cart = cart.order_by('-product__name')
+            
+        # Render the cart items template
+        html = render_to_string('cart/_cart_items.html', {
+            'cart': cart,
+            'csrf_token': request.CSRF_token(),  # Pass CSRF token to template
+        }, request=request)
+        
+        # Return the HTML directly
+        return HttpResponse(html)
+        
+    except json.JSONDecodeError:
+        return JsonResponse({'error': 'Invalid JSON data'}, status=400)
+    except Exception as e:
+        return JsonResponse({'error': str(e)}, status=400)
