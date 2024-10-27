@@ -9,9 +9,10 @@ import json
 User = get_user_model()
 
 class mainTest(TestCase):
-    def test_main_url_is_exist(self):
-        response = Client().get('')
+    def test_cart_url_is_exist(self):
+        response = self.client.get(reverse('cart:show_cart'))
         self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'show_cart.html')
 
     def setUp(self):
         self.client = Client()
