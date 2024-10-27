@@ -12,7 +12,7 @@
 		<div id="promo_cards" class="grid grid-cols-1 md:grid-cols-3 gap-6 px-20 py-10">
 	</div>
 	<script src="https://cdn.tailwindcss.com"></script>
-	<div class="fixed inset-0 flex items-center justify-center bg-opacity-50 text-center" id="modal">
+	<div class="fixed inset-0 flex items-center justify-center bg-opacity-50 text-center" style="display: none;" id="modal">
 		<div class=" bg-gray-400 rounded-2xl p-4" id="modal_content">
 		  <div style="padding-top: 1;font-size: large;font-weight: bold;" class="pb-2"> <!--Header-->
 			<p class="text-center">Tambah Promo</p>
@@ -66,7 +66,7 @@ async function refreshPromo() {
         $("#promo_cards").html('<div class="col-span-full text-center">Belum ada promo</div>');
     } else {
         promos.forEach((promo) => {
-            const potonganValue = promo.fields.potongan / 1000;
+            let potonganValue = promo.fields.potongan / 1000;
             let bgColor;
             let textColor = 'text-white';
 
@@ -77,6 +77,21 @@ async function refreshPromo() {
             } else {
                 bgColor = "bg-[#9812FF]";
             }
+			let sufiks = "";
+			let potongan;
+			if (potonganValue >= 1000){
+				sufiks = "jt"
+				potonganValue = parseFloat(promo.fields.potongan) /1000000;
+				potongan = Number.isInteger(potonganValue) ? 
+                       potonganValue.toFixed(0) + sufiks : 
+                       potonganValue.toFixed(2) + sufiks;
+			} else if(potonganValue >= 1){
+				sufiks = "k"
+				potongan = Number.isInteger(potonganValue) ? 
+                       potonganValue.toFixed(0) + sufiks : 
+                       potonganValue.toFixed(1) + sufiks;
+			}
+			
 
             htmlString += `
             <a href="view_promo_admin/${promo.pk}" class="block no-underline text-black transition-transform hover:scale-105">
@@ -87,7 +102,7 @@ async function refreshPromo() {
                         <div class="text-base md:text-lg lg:text-xl">Valid hingga ${promo.fields.tanggal_akhir_berlaku}</div>
                     </div>
                     <div class="flex-[2] ${bgColor} rounded-r-2xl flex items-center justify-center text-3xl md:text-4xl lg:text-5xl ${textColor}">
-                        ${potonganValue.toFixed(0)}k
+                        ${potongan}
                     </div>
                 </div>
             </a>`;

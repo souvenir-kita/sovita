@@ -1,91 +1,105 @@
 <a href="/promo/" class="button">back</a>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Mouse+Memoirs&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<div style="width: 20vw;max-width: 20vw;background-color: gainsboro;">
-    <div style="background-color: blue; display: inline-flex">
-        <div style="display: flexbox;">
-          <div> <!--Header-->
-            {{promo.nama}}
+<div class="fixed inset-0 flex flex-col items-center justify-center bg-gray-100">
+  <div class="bg-gray-200 rounded-2xl p-6 w-full max-w-2xl mx-4">
+    <form action="{% url 'promo:edit_promo' promo.pk %}" id="formpromo">
+    {% csrf_token %}
+      <div class="flex bg-[#FFF0F0] rounded-2xl font-['Mouse_Memoirs'] overflow-hidden mb-6">
+          <div class="flex-1 p-6 space-y-4">
+              <input type="text" class="w-full text-2xl text-center bg-[#FFF0F0] border-b border-gray-300 focus:outline-none" placeholder="Nama" maxlength="20" value="{{promo.nama}}" name="nama" id="nama" readonly>
+              <input type="text" class="w-full text-xl text-center bg-[#FFF0F0] border-b border-gray-300 focus:outline-none" placeholder="Kode" maxlength="20" value="{{promo.kode}}" name="kode" id="kode" readonly>
+              <input type="date" class="w-full text-xl text-center bg-[#FFF0F0] border-b border-gray-300 focus:outline-none focus:border-blue-500" value='{{promo.tanggal_akhir_berlaku|date:"Y-m-d" }}' name="tanggal_akhir_berlaku" id="tanggal_akhir_berlaku" readonly>
           </div>
-          <div style="display: inline-flex;"> <!--Header-->
-            <div style="margin-right: 2vh;">Ini untuk gambar</div>
-            <div>
-              <div>{{promo.potongan}}</div>
-              <div>{{promo.tanggal_akhir_berlaku}}</div>
-            </div>
+          
+          <div class="flex-1 bg-blue-500 p-6 flex items-center justify-center">
+              <input type="number" class="w-full text-2xl text-center bg-transparent text-white placeholder-white/70 focus:outline-none" placeholder="Potongan" maxlength="20" value="{{promo.potongan}}" name="potongan" id="potongan" readonly>
           </div>
+      </div>
+
+      <div class="space-y-4">
+          <div class="flex items-center space-x-4">
+              <label class="text-lg min-w-20">Stock</label>
+              <input type="number" class="flex-1 p-2 rounded border focus:outline-none focus:border-blue-500" value="{{promo.stock}}" name="stock" id="stock" readonly>
+          </div>
+          
+          <div class="flex items-start space-x-4">
+              <label class="text-lg min-w-20">Deskripsi</label>
+              <textarea class="flex-1 p-2 rounded border h-32 focus:outline-none focus:border-blue-500"placeholder="Masukkan deskripsi produk" name="deskripsi" id="deskripsi" readonly>{{promo.deskripsi}}</textarea>
+          </div>
+      </div>
+      <div class="flex justify-center mt-4">
+        <div class="m-1">
+            <button class="w-24 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600" id="edit" onclick="editMode()" type="button">Edit</button>
+            <button class="w-24 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600" style="display:none;" id="cancel" onclick="cancelEdit()" type="button">Cancel</button>
         </div>
-      </div>
-      <div>
-        {{promo.deskripsi}}
-      </div>
-			<div>
-				Stock: {{promo.stock}}
-			</div>
-      <button onclick="showModal()">e</button>
-      <a href="delete/{{ promo.pk }}" class="button">d</a>
-
-<div style="display: none;" id="modal">
-  <div id="modal_content">
-    <div> <!--Header-->
-    <p>Tambah Promo</p>
+        <div class="m-1">
+            <button class="w-24 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600" id="delete">Delete</button type="button">
+            <button class="w-24 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600" style="display:none;" id="save" type="submit" form="formpromo">Save</button>
+        </div>
     </div>
-    <div> <!--Body-->
-      <form id="formpromo" method="POST" action="{% url 'promo:edit_promo' promo.pk %}">
-      {% csrf_token %}
-      <div>
-      <label for="nama">Nama</label>
-      <input type="text" name="nama" id="nama" value="{{promo.nama}}">
-      </div>
-      <div>
-      <label for="kode">Kode</label>
-      <input type="text" name="kode" id="kode" value="{{promo.kode}}">
-      </div>
-      <div>
-      <label for="potongan">Potongan</label>
-      <input type="number" step="100" min=0 name="potongan" id="potongan" value="{{promo.potongan}}">
-      </div>
-      <div>
-      <label for="tanggal_akhir_berlaku">Tanggal Akhir Berlaku</label>
-      <input type="date"name="tanggal_akhir_berlaku" id="tanggal_akhir_berlaku" value="{{ promo.tanggal_akhir_berlaku|date:'Y-m-d' }}"
-      </div>
-      <div>
-      <label for="stock">Stock</label>
-      <input type="number" step="1" min=0 name="stock" id="stock" value="{{promo.stock}}">
-      </div>
-      <div>
-      <label for="deskripsi">Deskripsi</label>
-      <textarea name="deskripsi" id="deskripsi">{{promo.deskripsi}}</textarea>
-      </div>
     </form>
-    </div>
-    <div> <!--footer-->
-    <button type="button" id="cancel" onclick="hideModal()">Cancel</button>
-    <button type="submit" id="submitItem" form="formpromo">Save</button>
-    </div>
-  </div>  
-</div>
+  </div>
 </div>
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
-function showModal() {
-	$("#modal").css("display","");
+function editMode() {
+    event.preventDefault();
+	$("#edit").hide();
+    $("#delete").hide();
+    $("#cancel").show();
+    $("#save").show();
+    $("#nama").prop("readonly", false);
+    $("#kode").prop("readonly", false);
+    $("#tanggal_akhir_berlaku").prop("readonly", false);
+    $("#stock").prop("readonly", false);
+    $("#potongan").prop("readonly", false);
+    $("#deskripsi").prop("readonly", false);
 }
   
-function hideModal() {
-	$("#modal").css("display","none")
+function cancelEdit() {
+    $("#edit").show();
+    $("#delete").show();
+    $("#cancel").hide();
+    $("#save").hide();
+    $("#nama").prop("readonly", true);
+    $("#kode").prop("readonly", true);
+    $("#tanggal_akhir_berlaku").prop("readonly", true);
+    $("#stock").prop("readonly", true);
+    $("#potongan").prop("readonly", true);
+    $("#deskripsi").prop("readonly", true);
+
+    $("#nama").val("{{promo.nama}}");
+    $("#kode").prop("{{promo.kode}}");
+    $("#tanggal_akhir_berlaku").val("{{promo.tanggal_akhir_berlaku|date:'Y-m-d' }}");
+    $("#stock").val("{{promo.stock}}");
+    $("#potongan").val("{{promo.potongan}}");
+    $("#deskripsi").val("{{promo.deskripsi}}");
 }
 
 $('#formpromo').on('submit', function(event){
     event.preventDefault(); 
+
     $.ajax({
         type: 'POST',
         url: $(this).attr('action'),
         data: $(this).serialize(), 
-        success: function(response){
-            hideModal();
-            location.reload(); 
+        success: function(response){    
+            $("#edit").show();
+            $("#delete").show();
+            $("#cancel").hide();
+            $("#save").hide();
+            $("#nama").prop("readonly", true);
+            $("#kode").prop("readonly", true);
+            $("#tanggal_akhir_berlaku").prop("readonly", true);
+            $("#stock").prop("readonly", true);
+            $("#potongan").prop("readonly", true);
+            $("#deskripsi").prop("readonly", true);
+            location.reload()
         }
     });
 });
