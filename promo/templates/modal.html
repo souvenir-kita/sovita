@@ -1,0 +1,35 @@
+<script src="https://cdn.tailwindcss.com"></script>
+<div class="fixed inset-0 flex items-center justify-center bg-opacity-50 text-center" id="modal">
+    <div class=" bg-gray-400 rounded-2xl p-4" id="modal_content">
+      <div style="font-size: large;font-weight: bold;"> <!--Header-->
+        <p class="text-center pb-8">Tambah Promo</p>
+      </div>
+      <div> <!--Body-->
+        <form id="formpromo" action="{% url 'promo:add_promo' %}">
+          <div>
+            <input type="text" name="nama" id="nama" placeholder="Nama" class="mt-1 mb-1 rounded-lg p-1 text-s p-">
+          </div>
+          <div>
+            <input type="text" name="kode" id="kode" placeholder="Kode" class="mt-1 mb-1 rounded-lg p-1 text-s">
+          </div>
+          <div>
+            <input type="number" step="100" min=0 name="potongan" id="potongan" placeholder="Potongan" class="mt-1 mb-1 rounded-lg p-1 text-s">
+          </div>
+            <div class="inline-flex">
+              <p class="pr-2 text-white">Kadaluarsa</p>
+              <input type="date"name="tanggal_akhir_berlaku" id="tanggal_akhir_berlaku" class="w-5" class="mt-1 mb-1 rounded-lg p-1 text-s"> 
+            </div>
+            <div> 
+              <input type="range" step="1" min=0 name="stock" id="stock" placeholder="stock" class="mt-1 mb-1 rounded-lg p-1 text-s" >
+            </div>
+          <div>
+            <textarea name="deskripsi" id="deskripsi" placeholder="deskripsi" class="mt-1 mb-1 rounded-lg p-1 text-s" style="resize: none;width: 100%; " ></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="flex space-x-2"> <!--footer-->
+        <button type="button" id="cancel" class="bg-red-400 text-xs p-1 rounded-lg w-full">Cancel</button>
+        <button type="submit" id="submitItem" form="formpromo" class="bg-blue-500 text-xs p-1 rounded-lg w-full">Save</button>
+    </div>
+    </div>  
+</div>
