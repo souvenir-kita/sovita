@@ -87,3 +87,7 @@ def edit_promo(request, pk):
         promo.save()
         return JsonResponse({'success': True})
     return render(request, 'edit_promo.html', {'promo': promo})
+
+def show_json_by_kode(request, kode):
+    data = Promo.objects.filter(kode=kode)
+    return HttpResponse(serializers.serialize("json", data), content_type="application/json")
