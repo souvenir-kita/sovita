@@ -1,25 +1,33 @@
-from django.forms.models import model_to_dict
-from django.http import HttpResponse, JsonResponse
+from django.contrib.auth.decorators import login_required
+from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_http_methods
 
-from display.models import Product
-from forum.forms import PostForm, ReplyForm
+from adminview.models import Product
+from forum.forms import PostForm
 from forum.models import Post, Reply
 
 
 def get_forum_posts(request, product_id):
+    product = Product.objects.get(pk=product_id)
     posts = Post.objects.filter(product=product_id)
-    return render(request, "forum_posts.html", {"product_id": product_id, "posts": posts})
+    return render(
+        request,
+        "forum_posts.html",
+        {"user": request.user, "product": product, "posts": posts},
+    )
 
 
 def get_forum_post(request, product_id, post_id):
     post = Post.objects.get(pk=post_id)
     replies = Reply.objects.filter(post=post_id)
-    return render(request, "forum_post.html", {"post": post, "replies": replies})
+    return render(
+        request, "forum_post.html", {"user": request.user, "post": post, "replies": replies}
+    )
 
 
+@login_required(login_url="authentication:login")
 def create_forum_post(request, product_id):
     post_form = PostForm(request.POST or None)
     if post_form.is_valid() and request.method == "POST":
@@ -31,6 +39,7 @@ def create_forum_post(request, product_id):
     return render(request, "create_forum_post.html", {"form": post_form})
 
 
+@login_required(login_url="authentication:login")
 def update_forum_post(request, product_id, post_id):
     post = get_object_or_404(Post, pk=post_id)
     post_form = PostForm(request.POST or None, instance=post)
@@ -40,6 +49,7 @@ def update_forum_post(request, product_id, post_id):
     return render(request, "edit_forum_post.html", {"form": post_form})
 
 
+@login_required(login_url="authentication:login")
 def delete_forum_post(request, product_id, post_id):
     get_object_or_404(Post, pk=post_id).delete()
     return redirect("forum:forum_posts", product_id=product_id)
@@ -47,6 +57,7 @@ def delete_forum_post(request, product_id, post_id):
 
 @csrf_exempt
 @require_http_methods(["POST"])
+@login_required(login_url="authentication:login")
 def create_forum_post_reply(request, product_id, post_id):
     post = get_object_or_404(Post, pk=post_id)
     reply = Reply(content=request.POST.get("content"), user=request.user, post=post)
@@ -78,6 +89,7 @@ def create_forum_post_reply(request, product_id, post_id):
 
 @csrf_exempt
 @require_http_methods(["POST"])
+@login_required(login_url="authentication:login")
 def update_forum_post_reply(request, product_id, post_id, reply_id):
     reply = get_object_or_404(Reply, pk=reply_id)
     reply.content = request.POST.get("content")
@@ -109,6 +121,7 @@ def update_forum_post_reply(request, product_id, post_id, reply_id):
 
 @csrf_exempt
 @require_http_methods(["DELETE"])
+@login_required(login_url="authentication:login")
 def delete_forum_post_reply(request, product_id, post_id, reply_id):
     reply = get_object_or_404(Reply, pk=reply_id)
     try:

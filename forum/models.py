@@ -3,7 +3,7 @@ import uuid
 from django.contrib.auth.models import User
 from django.db import models
 
-from display.models import Product
+from adminview.models import Product
 
 
 class Post(models.Model):
