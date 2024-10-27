@@ -1,0 +1,47 @@
+{% for item in cart %}
+  <tr data-item-id="{{ item.id }}">
+    <td class="p-2 border-b">
+      <input type="checkbox" class="cart-checkbox w-5 h-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500 cursor-pointer" data-price="{{ item.total_price }}" />
+    </td>
+    <td class="px-4 py-1 border-b">
+      <div class="md:w-24 md:h-24 w-16 h-16 overflow-hidden border border-gray-300 rounded-lg">
+        <img src="/media/{{ item.product.picture }}" alt="{{ item.product.name }}" class="w-full h-full object-cover" />
+      </div>
+    </td>
+    <td class="py-2 border-b w-full pr-4">
+      <div class="flex justify-between">
+        <div class="flex flex-col items-start">
+          <span class="font-semibold">{{ item.product.name }}</span>
+          <span class="text-gray-500">Rp{{ item.product.price|floatformat:0 }}</span>
+        </div>
+        <div class="items-end text-right">
+          <div class="text-lg font-bold">
+            Rp<span class="item-total-price">{{ item.total_price|floatformat:0 }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="flex items-center justify-end">
+        <div class="bg-[#c1eaec] text-gray-600 rounded-lg p-1 mr-2">
+          {% if item.note %}
+            <p id="noteDisplay" class="whitespace-pre-wrap">"{{ item.note|wordwrap:50 }}"</p>
+          {% endif %}
+        </div>
+        <div class="mr-2">
+          <button type="button" class="text-white bg-[#67BAC6] px-2 py-1 my-2 rounded transition-colors duration-200 ease-in-out add-note {% if item.note %}has-note{% endif %}" data-item-id="{{ item.id }}" data-note="{{ item.note|default:'' }}">
+            {% if item.note %}
+              Edit note
+            {% else %}
+              Add note
+            {% endif %}
+          </button>
+        </div>
+        <div class="mr-2">
+          <button class="text-white bg-red-500 px-2 py-1 my-2 rounded transition-colors duration-200 ease-in-out delete" onmousedown="this.style.transform='scale(0.95)'" onmouseup="this.style.transform='scale(1)'" data-item-id="{{ item.id }}">Delete</button>
+        </div>
+        <button class="bg-gray-300 text-black px-2 py-1 rounded mr-2 decrement" data-item-id="{{ item.id }}">-</button>
+        <span class="item-amount">{{ item.amount }}</span>
+        <button class="bg-gray-300 text-black px-2 py-1 rounded ml-2 increment" data-item-id="{{ item.id }}">+</button>
+      </div>
+    </td>
+  </tr>
+{% endfor %}

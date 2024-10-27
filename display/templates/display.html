@@ -5,18 +5,18 @@
 
 <div class="flex flex-col items-center font-sans" style="background: linear-gradient(153deg, #F09027 12.76%, #8CBEAA 71.77%);">
     <div id="product_cards"></div>
-    <div class="flex flex-col md:flex-row justify-end mt-4 w-full max-w-7xl p-5">
-      <div class="flex space-x-4 md:space-x-8" style="margin-right: 375px;">
-          <select id="sortDropdown" class="text-white font-bold py-2 px-4 rounded-lg transition duration-300 ease-in-out transform bg-[#f09027] hover:bg-[#b85c2c] hover:scale-101 mt-4">
-              <option value="ascending">Sort by Price: Ascending</option>
-              <option value="descending">Sort by Price: Descending</option>
-              <option value="atoz">Sort by Alphabet: A - Z</option>
-              <option value="ztoa">Sort by Alphabet: Z - A</option>
-              <option value="newtoold">Sort by Time: Newest - Oldest</option>
-              <option value="oldtonew">Sort by Time: Oldest - Newest</option>
+    <div class="flex flex-col md:flex-row justify-center mt-4 w-full max-w-7xl p-5">
+      <div class="flex space-x-4 md:space-x-8">
+          <select id="sortDropdown" class="bg-[#b85c2c] text-white font-bold py-2 px-4 rounded-lg transition duration-300 ease-in-out transform hover:bg-[#b85c2c] hover:scale-101 mt-4">
+              <option value="ascending">Urut berdasarkan harga: Naik</option>
+              <option value="descending">Urut berdasarkan harga: Turun</option>
+              <option value="atoz">Urut berdasarkan alfabet: Naik</option>
+              <option value="ztoa">Urut berdasarkan alfabet: Turun</option>
+              <option value="newtoold">Urut berdasarkan waktu: Naik</option>
+              <option value="oldtonew">Urut berdasarkan waktu: Turun</option>
           </select>
-          <select id="categoryDropdown" class="text-white font-bold py-2 px-4 rounded-lg transition duration-300 ease-in-out transform bg-[#f09027] hover:bg-[#b85c2c] hover:scale-101 mt-4">
-              <option value="all">All Categories</option>
+          <select id="categoryDropdown" class="bg-[#b85c2c] text-white font-bold py-2 px-4 rounded-lg transition duration-300 ease-in-out transform hover:bg-[#b85c2c] hover:scale-101 mt-4">
+              <option value="all">Semua kategori</option>
               <option value="FnB">FnB</option>
               <option value="Dekorasi">Dekorasi</option>
               <option value="Pakaian/Kain">Pakaian/Kain</option>
@@ -93,17 +93,13 @@
       if (filteredEntries.length === 0) {
         htmlString = `
         <div class="flex items-center justify-center mt-24 space-x-4 ml-8">
-            <img src="{% static 'image/noprod.png' %}" alt="No Products Available" class="w-60 h-80">
-            <div class="text-white text-center">
-                <p class="text-lg font-semibold">There are no products yet!</p>
-                <p class="text-sm">Please come back later.</p>
-            </div>
+            <img src="{% static 'image/barong.png' %}" alt="No Products Available" class="w-160">
         </div>
       `;
 
       } else {
           htmlString = `
-          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 w-full max-w-7xl p-5 mt-24">
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 w-full max-w-7xl p-5 mt-24 justify-start">
           `;
           filteredEntries.forEach((item) => {
               const name = item.fields.name;
@@ -118,7 +114,7 @@
                       <h5 class="mb-4 text-gray-700">Rp${price}</h5>
                   </div>
                   <div class="flex md:space-x-4 space-x-2 justify-center">
-                      <a href="/view/${item.pk}" class="text-blue-500 hover:underline text-sm md:text-base">Details</a>
+                      <a href="/view/${item.pk}" class="text-blue-500 hover:underline text-sm md:text-base">Detil</a>
                   </div>
               </div>
               `;

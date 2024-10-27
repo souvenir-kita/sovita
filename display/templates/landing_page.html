@@ -16,6 +16,8 @@
     <p class="font-main text-white mx-36 py-2">
       Belum punya akun?
       <a href="{% url 'authentication:register' %}" class="text-[#67BAC6] hover:underline">Daftar</a>
+      atau
+      <a href="{% url 'display:display_main' %}" class="text-[#67BAC6] hover:underline pt-2">masuk tanpa akun</a>
     </p>
   </div>
 
@@ -33,7 +35,7 @@
         </ul>
       </div>
     </div>
-    <div class="flex md:flex-nowrap flex-wrap  justify-center items-center my-10">
+    <div class="flex md:flex-nowrap flex-wrap justify-center items-center my-10">
       <img src="{% static 'image/placeholder.png' %}" class="ml-24 size-auto" alt="Logo" />
       <div class="p-6">
         <h2 class="font-bold text-orange-600 pb-6 font-main text-xl md:text-3xl">Cari, lalu simpan atau checkout souvenir impian. Tinggalkan juga review-nya!</h2>

@@ -43,6 +43,9 @@ INSTALLED_APPS = [
     "forum",  # Wisnu
     "display",  # Arzaka
     "cart",
+    "review", #Zufar
+    "promo", #rafli
+    "wishlist", # Reyhan
     "adminview", #Arzaka
 ]
 
@@ -147,3 +150,4 @@ else:
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+CSRF_TRUSTED_ORIGINS = ["http://localhost","http://127.0.0.1","http://http://muhammad-rafli33-souvenirkita.pbp.cs.ui.ac.id/", "https://http://muhammad-rafli33-souvenirkita.pbp.cs.ui.ac.id/"]

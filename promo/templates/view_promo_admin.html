@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'navbar.html' %}
+<a href="/promo/" class="button">back</a>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Mouse+Memoirs&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<div class=" overflow-x-hidden px-4 md:px-8 pb-8 pt-24 fixed inset-0 flex flex-col items-center justify-center" style="background: linear-gradient(153deg, #F09027 12.76%, #8CBEAA 71.77%);">
+  <div class=" rounded-2xl p-6 w-full max-w-2xl mx-4  bg-white bg-opacity-50">
+    <form action="{% url 'promo:edit_promo' promo.pk %}" id="formpromo">
+    {% csrf_token %}
+      <div class="flex bg-[#FFF0F0] rounded-2xl font-['Mouse_Memoirs'] overflow-hidden mb-6">
+          <div class="flex-1 p-6 space-y-4">
+            <div class="flex">
+                <p class="text-lg">Nama</p>
+                <input type="text" class="w-full text-2xl text-center bg-[#FFF0F0] border-b border-gray-300 focus:outline-none" placeholder="Nama" maxlength="20" value="{{promo.nama}}" name="nama" id="nama" readonly>
+            </div>
+            <div class="flex">
+                <p class="text-lg">Kode</p>
+                <input type="text" class="w-full text-xl text-center bg-[#FFF0F0] border-b border-gray-300 focus:outline-none" placeholder="Kode" maxlength="20" value="{{promo.kode}}" name="kode" id="kode" readonly>
+            </div>
+            <div class="flex">
+                <p class="text-lg">Kadaluarsa</p>
+                <input type="date" class="w-full text-xl text-center bg-[#FFF0F0] border-b border-gray-300 focus:outline-none" value='{{promo.tanggal_akhir_berlaku|date:"Y-m-d" }}' name="tanggal_akhir_berlaku" id="tanggal_akhir_berlaku" readonly>
+            </div>
+          </div>
+          
+          <div class="bg-blue-500 p-6 flex items-center justify-center">
+              <input type="number" class="w-full text-2xl text-center bg-transparent text-white placeholder-white/70 focus:outline-none" placeholder="Potongan" maxlength="20" value="{{promo.potongan}}" name="potongan" id="potongan" readonly>
+          </div>
+      </div>
+
+      <div class="space-y-4">
+          <div class="flex items-center space-x-4">
+              <label class="text-lg min-w-20 font-semibold" ">Stok</label>
+              <input type="number" class="flex-1 p-2 rounded border focus:outline-none focus:border-blue-500 bg-opacity-10" value="{{promo.stock}}" name="stock" id="stock" readonly>
+          </div>
+          
+          <div class="flex items-start space-x-4">
+              <label class="text-lg min-w-20 font-semibold">Deskripsi</label>
+              <textarea class="flex-1 p-2 rounded border h-32 focus:outline-none focus:border-blue-500 bg-opacity-10"placeholder="Masukkan deskripsi produk" name="deskripsi" id="deskripsi" readonly>{{promo.deskripsi}}</textarea>
+          </div>
+      </div>
+      <div class="flex justify-center mt-4">
+        <div class="m-1">
+            <button class="w-24 px-4 py-2 bg-[#B5592A] text-white rounded hover:bg-[#9b4e27]" id="edit" onclick="editMode()" type="button">Edit</button>
+            <button class="w-24 px-4 py-2 bg-[#4c3013] text-white rounded hover:hover:bg-[#201508]" style="display:none;" id="cancel" onclick="cancelEdit()" type="button">Cancel</button>
+        </div>
+        <div class="m-1">
+            <a href="{% url 'promo:delete_promo' promo.pk %}">
+                <button class="w-24 px-4 py-2 bg-[#4c3013] text-white rounded hover:bg-[#201508]" id="delete" type="button">Hapus</button>
+            </a>
+            <button class="w-24 px-4 py-2 bg-[#B5592A] text-white rounded hover:bg-[#9b4e27]" style="display:none;" id="save" type="submit" form="formpromo">Simpan</button>
+        </div>
+    </div>
+    </form>
+  </div>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+let nama = $("#nama").val();
+let kode = $("#kode").val();
+let potongan = $("#potongan").val();
+let tanggal_akhir_berlaku =  $("#tanggal_akhir_berlaku").val();
+let stock = $("#stock").val();
+let deskripsi= $("#deskripsi").val();
+
+function editMode() {
+    event.preventDefault();
+	$("#edit").hide();
+    $("#delete").hide();
+    $("#cancel").show();
+    $("#save").show();
+    $("#nama").prop("readonly", false);
+    $("#kode").prop("readonly", false);
+    $("#tanggal_akhir_berlaku").prop("readonly", false);
+    $("#stock").prop("readonly", false);
+    $("#potongan").prop("readonly", false);
+    $("#deskripsi").prop("readonly", false);
+}
+  
+function cancelEdit() {
+    $("#edit").show();
+    $("#delete").show();
+    $("#cancel").hide();
+    $("#save").hide();
+    $("#nama").prop("readonly", true);
+    $("#kode").prop("readonly", true);
+    $("#tanggal_akhir_berlaku").prop("readonly", true);
+    $("#stock").prop("readonly", true);
+    $("#potongan").prop("readonly", true);
+    $("#deskripsi").prop("readonly", true);
+
+    $("#nama").val(nama);
+    $("#kode").prop(kode);
+    $("#tanggal_akhir_berlaku").val(tanggal_akhir_berlaku);
+    $("#stock").val(stock);
+    $("#potongan").val(potongan);
+    $("#deskripsi").val(deskripsi);
+}
+
+$('#formpromo').on('submit', function(event){
+    event.preventDefault(); 
+
+    $.ajax({
+        type: 'POST',
+        url: $(this).attr('action'),
+        data: $(this).serialize(), 
+        success: function(response){   
+            console.log("TEST") 
+            $("#edit").show();
+            $("#delete").show();
+            $("#cancel").hide();
+            $("#save").hide();
+            $("#nama").prop("readonly", true);
+            $("#kode").prop("readonly", true);
+            $("#tanggal_akhir_berlaku").prop("readonly", true);
+            $("#stock").prop("readonly", true);
+            $("#potongan").prop("readonly", true);
+            $("#deskripsi").prop("readonly", true);
+            nama = $("#nama").val();
+            kode = $("#kode").val();
+            potongan = $("#potongan").val();
+            tanggal_akhir_berlaku =  $("#tanggal_akhir_berlaku").val();
+            stock = $("#stock").val();
+            deskripsi= $("#deskripsi").val();
+        }
+    });
+});
+
+</script>
+{% endblock %}
