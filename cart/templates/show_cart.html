@@ -241,22 +241,26 @@
       const charCount = document.getElementById('charCount')
       const cancelNote = document.getElementById('cancelNote')
       const saveNote = document.getElementById('saveNote')
-      const noteDisplay = document.getElementById('noteDisplay')
-    
+      
       let currentItemId = null
+      let currentRow = null
     
       // Add note button click handler
       document.querySelectorAll('.add-note').forEach((button) => {
         button.addEventListener('click', function (e) {
-          e.preventDefault() // Prevent any form submission
-          e.stopPropagation() // Stop event bubbling
+          e.preventDefault()
+          e.stopPropagation()
     
-          currentItemId = this.dataset.itemId
-          const existingNote = this.dataset.note || ''
+          // Store references
+          currentItemId = this.getAttribute('data-item-id')
+          currentRow = this.closest('tr')
+          
+          // Set existing note if any
+          const existingNote = this.getAttribute('data-note')
+          noteText.value = existingNote || ''
+          charCount.textContent = noteText.value.length
     
-          noteText.value = existingNote
-          charCount.textContent = existingNote.length
-    
+          // Show modal
           noteModal.classList.remove('hidden')
           noteModal.classList.add('flex')
         })
@@ -273,26 +277,20 @@
       })
     
       // Cancel button
-      cancelNote.addEventListener('click', function () {
-        noteModal.classList.remove('flex')
-        noteModal.classList.add('hidden')
-        noteText.value = ''
-        currentItemId = null
+      cancelNote.addEventListener('click', function() {
+        closeModal()
       })
     
       // Close modal when clicking outside
       noteModal.addEventListener('click', function (e) {
         if (e.target === noteModal) {
-          noteModal.classList.remove('flex')
-          noteModal.classList.add('hidden')
-          noteText.value = ''
-          currentItemId = null
+          closeModal()
         }
       })
     
       // Save note
       saveNote.addEventListener('click', function () {
-        if (!currentItemId) return
+        if (!currentItemId || !currentRow) return
     
         fetch(`/cart/update_note/${currentItemId}/`, {
           method: 'POST',
@@ -307,12 +305,13 @@
           .then((response) => response.json())
           .then((data) => {
             if (data.success) {
-              const itemRow = document.querySelector(`tr[data-item-id="${currentItemId}"]`)
-              itemRow.dataset.note = noteText.value
-    
-              // Update button text/style to show note exists
-              const noteButton = itemRow.querySelector('.add-note')
-              if (noteText.value) {
+              // Get the note button and note display elements
+              const noteButton = currentRow.querySelector('.add-note')
+              const noteDisplayContainer = currentRow.querySelector('.bg-\\[\\#c1eaec\\]')
+              
+              // Update note button
+              noteButton.setAttribute('data-note', noteText.value)
+              if (noteText.value.trim()) {
                 noteButton.textContent = 'Edit note'
                 noteButton.classList.add('has-note')
               } else {
@@ -320,18 +319,46 @@
                 noteButton.classList.remove('has-note')
               }
     
-              // Close modal
-              noteModal.classList.remove('flex')
-              noteModal.classList.add('hidden')
-              noteDisplay.textContent = `"${noteText.value}"`
-              noteText.value = ''
-              currentItemId = null
+              // Update note display
+              if (noteDisplayContainer) {
+                const noteDisplay = noteDisplayContainer.querySelector('p')
+                if (noteText.value.trim()) {
+                  if (noteDisplay) {
+                    noteDisplay.textContent = `"${noteText.value}"`
+                  } else {
+                    const newNoteDisplay = document.createElement('p')
+                    newNoteDisplay.className = 'whitespace-pre-wrap'
+                    newNoteDisplay.textContent = `"${noteText.value}"`
+                    noteDisplayContainer.appendChild(newNoteDisplay)
+                  }
+                  noteDisplayContainer.style.display = 'block'
+                } else {
+                  noteDisplayContainer.style.display = 'none'
+                }
+              }
+    
+              closeModal()
             }
           })
           .catch((error) => {
             console.error('Error:', error)
             alert('Failed to save note. Please try again.')
           })
+      })
+    
+      function closeModal() {
+        noteModal.classList.remove('flex')
+        noteModal.classList.add('hidden')
+        noteText.value = ''
+        currentItemId = null
+        currentRow = null
+      }
+    
+      // Escape key to close modal
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && !noteModal.classList.contains('hidden')) {
+          closeModal()
+        }
       })
     })
   </script>
