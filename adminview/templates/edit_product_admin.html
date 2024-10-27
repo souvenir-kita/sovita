@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% include 'navbar.html' %}
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(153deg, #F09027 12.76%, #8CBEAA 71.77%);
+        color: black;
+    }
+    .background {
+        min-height: 100vh; 
+        display: flex;
+        flex-direction: column; 
+        align-items: center; 
+        justify-content: center; 
+        overflow: hidden; 
+    }
+    .main-container {
+        padding: 20px;
+        background-color: white;
+        max-width: 800px;
+        text-align: center;
+        border-radius: 25px;
+        margin: 20px;
+        margin-top: 100px;
+        margin-bottom: 100px;
+    }
+    .forms {
+        display: flex;
+        justify-content: center; 
+        margin-top: 20px;
+    }
+    td {
+        padding-top: 10px;
+        padding-left: 20px;
+        color: black;
+    }
+    input[type="text"], 
+    input[type="number"], 
+    input[type="url"],
+    input[type="file"],
+    textarea,
+    select {
+        color: black;
+        background-color: white; 
+        padding: 8px; 
+        border-radius: 5px;
+        border: 1px solid #ccc; 
+        width: 100%;
+    }
+    input[type="text"]:focus, 
+    input[type="number"]:focus, 
+    input[type="url"]:focus,
+    textarea:focus,
+    select:focus {
+        border-color: #4CAF50;
+        outline: none; 
+    }
+    input[type="submit"] {
+        color: antiquewhite;
+        background-color: #f67b38;
+        border: none;
+        padding: 10px 20px; 
+        border-radius: 5px; 
+        cursor: pointer;
+        transition: background-color 0.3s;
+        margin-right: 100px;
+    }
+    input[type="submit"]:hover {
+        background-color: #aa572b; 
+    }
+    h3 {
+        margin-bottom: 20px;
+    }
+</style>
+
+<div class="background">
+    <div class="main-container" style="background: rgba(255, 255, 255, 0.3); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 8px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);">
+        <h3>Edit Product</h3>
+        <hr>
+        <div class="forms">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <table>
+                    <tr>
+                        <td><label for="id_name">Name:</label></td>
+                        <td>{{ form.name }}</td>
+                    </tr>
+                    <tr>
+                        <td><label for="id_price">Price:</label></td>
+                        <td>{{ form.price }}</td>
+                    </tr>
+                    <tr>
+                        <td><label for="id_description">Description:</label></td>
+                        <td>{{ form.description }}</td>
+                    </tr>
+                    <tr>
+                        <td><label for="id_picture">Picture:</label></td>
+                        <td>{{ form.picture }}</td>
+                    </tr>
+                    <tr>
+                        <td><label for="id_category">Category:</label></td>
+                        <td>{{ form.category }}</td>
+                    </tr>
+                    <tr>
+                        <td><label for="id_location">Location:</label></td>
+                        <td>{{ form.location }}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <input type="submit" value="Edit Product"/>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

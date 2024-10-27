@@ -5,9 +5,10 @@ from django.http import HttpResponse
 from django.core import serializers
 from django.shortcuts import get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
-from display.models import Product
+from adminview.models import Product
 from django.http import JsonResponse
-
+from django.views.decorators.http import require_POST
+import json
 
 @login_required
 def show_cart(request):
@@ -66,6 +67,39 @@ def delete_cart_product(request, id):
         return redirect('cart:show_cart')
 
     return render(request, "confirm_delete_cart_product.html", {'cart_product': cart_product})
+
+
+
+@require_POST
+def update_note(request, id):
+    try:
+        cart_product = CartProduct.objects.get(id=id, cart__user=request.user)
+        data = json.loads(request.body)
+        note = data.get('note', '').strip()
+        
+        if len(note) > 144:
+            return JsonResponse({
+                'success': False,
+                'error': 'Note is too long (maximum 144 characters)'
+            }, status=400)
+            
+        cart_product.note = note
+        cart_product.save()
+        
+        return JsonResponse({
+            'success': True,
+            'note': note
+        })
+    except CartProduct.DoesNotExist:
+        return JsonResponse({
+            'success': False,
+            'error': 'Cart item not found'
+        }, status=404)
+    except Exception as e:
+        return JsonResponse({
+            'success': False,
+            'error': str(e)
+        }, status=500)
 
 def inc_amount(request, id):
     cart_item = get_object_or_404(CartProduct, id=id)

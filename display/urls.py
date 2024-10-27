@@ -1,22 +1,19 @@
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-from display.views import display_main, create_product, delete_product, view_product, edit_product, create_product_ajax
-from display.views import show_xml, show_json, show_xml_by_id, show_json_by_id, search
+from display.views import display_main, view_product
+from display.views import show_xml, show_json, show_xml_by_id, show_json_by_id, search, to_landing
 
 from cart.views import add_product_to_cart, show_cart
 
 app_name = 'display'
 
 urlpatterns = [
-    path('', display_main, name='display_main'),
-    # path('create-product/', create_product, name='create_product'),
-    path('delete/<uuid:id>/', delete_product, name='delete_product'),
+    path('', to_landing, name='to_landing'),
+    path('main/', display_main, name='display_main'),
     path('view/<uuid:id>/', view_product, name="view_product"),
-    path('edit/<uuid:id>/', edit_product, name="edit_product"),
     path('add-cart/<uuid:id>/', add_product_to_cart, name="add_product_to_cart"),
     path('show-cart/', show_cart, name="show_cart"),
-    path('create-product-ajax/', create_product_ajax, name='create_product_ajax'),
     path('xml/', show_xml, name='show_xml'),
     path('json/', show_json, name='show_json'),
     path('xml/<str:id>/', show_xml_by_id, name='show_xml_by_id'),
