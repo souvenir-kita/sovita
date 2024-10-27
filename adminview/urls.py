@@ -1,11 +1,10 @@
 from django.urls import path
-from adminview.views import show_admin, create_product, edit_product, delete_product, show_xml, show_json, show_xml_by_id, show_json_by_id, create_product_ajax
+from adminview.views import show_admin, edit_product, delete_product, show_xml, show_json, show_xml_by_id, show_json_by_id, create_product_ajax
 
 app_name = 'adminview'
 
 urlpatterns = [
     path('', show_admin, name="show_admin"),
-    path('create/', create_product, name="create_product"),
     path('edit/<uuid:id>/', edit_product, name="edit_product"),
     path('delete/<uuid:id>/', delete_product, name="delete_product"),
     path('xml/', show_xml, name='show_xml'),

@@ -18,17 +18,6 @@ def show_admin(request):
     return render(request, "main.html", context)
 
 @admin_required
-def create_product(request):
-    form = ProductForm(request.POST or None, request.FILES or None)
-
-    if form.is_valid() and request.method == "POST":
-        form.save()
-        return redirect('adminview:show_admin')
-
-    context = {'form': form}
-    return render(request, "create_product_admin.html", context)
-
-@admin_required
 def edit_product(request, id):
     product = get_object_or_404(Product, id=id)
     form = ProductForm(request.POST or None, request.FILES or None, instance=product)

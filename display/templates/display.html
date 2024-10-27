@@ -7,7 +7,7 @@
     <div id="product_cards"></div>
     <div class="flex flex-col md:flex-row justify-end mt-4 w-full max-w-7xl p-5">
       <div class="flex space-x-4 md:space-x-8" style="margin-right: 375px;">
-          <select id="sortDropdown" class="bg-[#b85c2c] text-white font-bold py-2 px-4 rounded-lg transition duration-300 ease-in-out transform hover:bg-[#b85c2c] hover:scale-101 mt-4">
+          <select id="sortDropdown" class="text-white font-bold py-2 px-4 rounded-lg transition duration-300 ease-in-out transform bg-[#f09027] hover:bg-[#b85c2c] hover:scale-101 mt-4">
               <option value="ascending">Sort by Price: Ascending</option>
               <option value="descending">Sort by Price: Descending</option>
               <option value="atoz">Sort by Alphabet: A - Z</option>
@@ -15,7 +15,7 @@
               <option value="newtoold">Sort by Time: Newest - Oldest</option>
               <option value="oldtonew">Sort by Time: Oldest - Newest</option>
           </select>
-          <select id="categoryDropdown" class="bg-[#b85c2c] text-white font-bold py-2 px-4 rounded-lg transition duration-300 ease-in-out transform hover:bg-[#b85c2c] hover:scale-101 mt-4">
+          <select id="categoryDropdown" class="text-white font-bold py-2 px-4 rounded-lg transition duration-300 ease-in-out transform bg-[#f09027] hover:bg-[#b85c2c] hover:scale-101 mt-4">
               <option value="all">All Categories</option>
               <option value="FnB">FnB</option>
               <option value="Dekorasi">Dekorasi</option>
@@ -89,9 +89,6 @@
             return new Date(a.fields.date_created) - new Date(b.fields.date_created);
         }
       });
-      
-      console.log("panjangnya adalah ");
-      console.log(filteredEntries.length);
 
       if (filteredEntries.length === 0) {
         htmlString = `
