@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from adminview.models import Product
 from django.contrib.auth.decorators import login_required
 from django.core import serializers
+from authentication.models import UserProfile
 
 # @login_required(login_url='authentication:login')
 def display_main(request):
@@ -25,10 +26,20 @@ def display_main(request):
 def to_landing(request):
     return render(request, 'landing_page.html')
 
+@login_required
+def profile_view(request):
+    # Get the user's profile
+    profile = UserProfile.objects.get(user=request.user)
+    context = {
+        'profile': profile
+    }
+    return render(request, 'profile_page.html', context)
+
 def view_product(request, id):
     product = get_object_or_404(Product, id=id)
     context = {
                 'product' : product,
+                'is_wishlisted' : product.id in request.user.wishlists.values_list('product_id', flat=True)
     }
     return render(request, 'view_product.html', context)
 

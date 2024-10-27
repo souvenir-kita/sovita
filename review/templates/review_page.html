@@ -1,49 +1,59 @@
 {% extends 'base.html' %}
 {% block content %}
 {% include 'navbar.html' %}
-
-
-<div class="container mx-4 my-4">
-    <div class="mb-4">
-        <button onclick="showReviewModal()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" style="margin-top: 50px;">
-            Add Review
-        </button>
-    </div>
-    <div>
-        <select id="ratingDropDown">
-            <option value="allstar">Semua</option>
-            <option value="onestar">Bintang 1</option>
-            <option value="twostar">Bintang 2</option>
-            <option value="threestar">Bintang 3</option>
-            <option value="fourstar">Bintang 4</option>
-            <option value="fivestar">Bintang 5</option>
-        </select>
-    </div>
-    <div id="review_entry" class="space-y-4"></div>
-    <!-- Modal -->
-    <div id="ReviewModal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center">
-        <div id="ReviewModalContent" class="bg-white p-6 rounded-lg shadow-lg">
-            <form id="ReviewId" method="POST">
-                {% csrf_token %}
-                <div class="mb-4">
-                    <label for="rating" class="block text-gray-700 text-sm font-bold mb-2">Rating</label>
-                    <input type="number" name="rating" id="rating" min="1" max="5" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-                </div>
-                <div class="mb-4">
-                    <label for="description" class="block text-gray-700 text-sm font-bold mb-2">Description</label>
-                    <textarea name="description" id="description" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></textarea>
-                </div>
-                <div class="flex justify-end space-x-2">
-                    <button type="button" id="cancelButton" onclick="hideReviewModal()" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">Back</button>
-                    <button type="submit" id="submitReview" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Add</button>
-                </div>
-            </form>
+<div class="flex flex-col items-center font-sans" style="background: linear-gradient(153deg, #F09027 12.76%, #8CBEAA 71.77%);">
+    <div class="container mx-3 my-20 relative">
+        <!-- Judul Ulasan Produk -->
+        <div class="flex justify-center mb-6">
+            <h1 class="text-white font-bold text-2xl">Ulasan Produk</h1>
         </div>
-    </div>    
+
+        <!-- Container untuk memusatkan Filter dan Tambah Ulasan -->
+        <div class="flex justify-center space-x-4 my-4 mt-6"> <!-- Flex container dengan margin top -->
+            <div>
+                <h2 class="text-white font-bold py-2 px-4 rounded">Filter dari Rating</h2>
+                <select id="ratingDropDown" class="bg-orange-500 text-white font-bold py-2 px-4 rounded" style="border-radius: 8px;">
+                    <option value="allstar">Semua Ulasan</option>
+                    <option value="onestar">⭐</option>
+                    <option value="twostar">⭐⭐</option>
+                    <option value="threestar">⭐⭐⭐</option>
+                    <option value="fourstar">⭐⭐⭐⭐</option>
+                    <option value="fivestar">⭐⭐⭐⭐⭐</option>
+                </select>
+            </div>
+            {% if user.is_authenticated and not user.userprofile.role == 'admin' %}
+            <button onclick="showReviewModal()" class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-1 px-2 text-sm rounded" style="padding: 1px;">
+                Tambah Ulasan
+            </button>
+            {% endif %}
+        </div>
+
+        <div id="review_entry" class="space-y-4"></div>
+
+        <!-- Modal -->
+        <div id="ReviewModal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center">
+            <div id="ReviewModalContent" class="bg-white p-6 rounded-lg shadow-lg max-w-3xl w-full">
+                <form id="ReviewId" method="POST">
+                    {% csrf_token %}
+                    <div class="mb-4">
+                        <label for="rating" class="block text-sm font-medium text-gray-700">Rating</label>
+                        <input type="number" name="rating" id="rating" min="1" max="5" class="mt-1 block w-full border border-gray-300 rounded-md p-2 hover:border-indigo-700" placeholder="Enter your rating (1 to 5)" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="description" class="block text-gray-700 text-sm font-bold mb-2">Description</label>
+                        <textarea name="description" id="description" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></textarea>
+                    </div>
+                    <div class="flex justify-end space-x-2">
+                        <button type="button" id="cancelButton" onclick="hideReviewModal()" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">Back</button>
+                        <button type="submit" id="submitReview" class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded">Add</button>
+                    </div>
+                </form>
+            </div>
+        </div>    
+    </div>
 </div>
 
 <script>
-    // Event listener untuk dropdown filter rating
     document.getElementById("ratingDropDown").addEventListener("change", function() {
         refreshReviewEntries();
     });
@@ -56,56 +66,56 @@
     }
 
     async function refreshReviewEntries() {
-    const reviewContainer = document.getElementById('review_entry');
-    reviewContainer.innerHTML = "";
-    const currentUsername = "{{ user.username }}"; // Ambil username user yang login
+        const reviewContainer = document.getElementById('review_entry');
+        reviewContainer.innerHTML = "";
 
-    const reviews = await getReviewEntries();
-    const ratingOption = document.getElementById("ratingDropDown").value;
+        const currentUsername = "{{ user.username }}";
+        const reviews = await getReviewEntries();
+        const ratingOption = document.getElementById("ratingDropDown").value;
 
-    // Urutkan reviews berdasarkan date_create (dari yang terbaru)
-    reviews.sort((a, b) => new Date(b.fields.date_create) - new Date(a.fields.date_create));
+        reviews.sort((a, b) => new Date(b.fields.date_create) - new Date(a.fields.date_create));
 
-    // Filter reviews berdasarkan rating yang dipilih
-    const filteredReviews = reviews.filter((item) => {
-        const rating = item.fields.rating;
-        switch (ratingOption) {
-            case "onestar": return rating === 1;
-            case "twostar": return rating === 2;
-            case "threestar": return rating === 3;
-            case "fourstar": return rating === 4;
-            case "fivestar": return rating === 5;
-            case "allstar": return true; // Tampilkan semua review
-            default: return true; // "Semua Rating" menampilkan semua review
-        }
-    });
+        const filteredReviews = reviews.filter((item) => {
+            const rating = item.fields.rating;
+            switch (ratingOption) {
+                case "onestar": return rating === 1;
+                case "twostar": return rating === 2;
+                case "threestar": return rating === 3;
+                case "fourstar": return rating === 4;
+                case "fivestar": return rating === 5;
+                case "allstar": return true;
+                default: return true;
+            }
+        });
 
-    // Tampilkan review setelah difilter
-    if (filteredReviews.length === 0) {
-        reviewContainer.innerHTML = `<p>No reviews available for this rating.</p>`;
-    } else {
-        filteredReviews.forEach(item => {
-            // Cek apakah review ini milik user yang sedang login
-            const isOwner = item.fields.user.username === currentUsername;
-            
-            // Buat button edit dan delete hanya jika user adalah pemilik review
-            const actionButtons = isOwner ? `
-                <a href="/review/edit-review/${item.pk}" class="bg-yellow-500 hover:bg-yellow-600 text-white rounded-full p-2 transition duration-300 shadow-md">Edit</a>
-                <a href="/review/delete-review/${item.pk}" class="bg-red-500 hover:bg-red-600 text-white rounded-full p-2 transition duration-300 shadow-md">Delete</a>
-            ` : '';
-
-            reviewContainer.innerHTML += `
-                <div>
-                    <h1>${item.fields.user.username}</h1>
-                    <h3>Rating: ${"⭐".repeat(item.fields.rating)}</h3>
-                    <p>${item.fields.description}</p>
-                    <h4>Date: ${item.fields.date_create}</h4>
-                    ${actionButtons}
+        if (filteredReviews.length === 0) {
+            reviewContainer.innerHTML = `
+                <div class="flex justify-center items-center h-[300px]">
+                    <p class="text-gray-500 text-lg">Tidak ada ulasan yang tersedia.</p>
                 </div>
             `;
-        });
+        } else {
+            filteredReviews.forEach(item => {
+                const isOwner = item.fields.user.username === currentUsername;
+                const actionButtons = isOwner ? `
+                    <a href="/review/edit-review/${item.pk}" class="bg-yellow-500 hover:bg-yellow-600 text-white p-1 transition duration-300 shadow-md">Edit</a>
+                    <a href="/review/delete-review/${item.pk}" class="bg-red-500 hover:bg-red-600 text-white p-1 transition duration-300 shadow-md">Delete</a>
+                ` : '';
+
+                reviewContainer.innerHTML += `
+                    <div class="p-4 rounded-lg shadow-md space-y-1 max-w-md mx-auto" style="background: rgba(255, 255, 255, 0.6); backdrop-filter: blur(5px); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 8px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);">
+                        <h1 class="text-lg font-semibold">${item.fields.user.username}</h1>
+                        <h3 class="text-yellow-500">Rating: ${"⭐".repeat(item.fields.rating)}</h3>
+                        <p>Komentar: ${item.fields.description}</p>
+                        <h4 class="text-gray-500 text-sm">Dibuat: ${item.fields.date_create}</h4>
+                        <div class="flex justify-end space-x-2 mt-2">
+                            ${actionButtons}
+                        </div>
+                    </div>
+                `;
+            });
+        }
     }
-}
 
     function showReviewModal() {
         document.getElementById('ReviewModal').classList.remove('hidden');
@@ -133,9 +143,7 @@
         addReviewEntry();
     });
 
-    // Panggil untuk pertama kali
     refreshReviewEntries();
-</script>
 </script>
 {% include 'footer.html' %}
 
