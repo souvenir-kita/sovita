@@ -1,6 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
-from django.core import serializers
+from django.http import HttpResponseRedirect, JsonResponse
 from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
@@ -43,17 +42,16 @@ def create_review(request, id):
         try:
             product = get_object_or_404(Product, id=id)
             rating = strip_tags(request.POST.get("rating"))
-            description = strip_tags(request.POST.get("description"))
+            deskripsi = strip_tags(request.POST.get("deskripsi"))
 
-            if not rating or not description:
-                return JsonResponse({'status': 'FAILED', 'message': 'Rating and description are required.'}, status=400)
-             # Set timezone ke Jakarta saat membuat review
-
+            if not rating or not deskripsi:
+                return JsonResponse({'status': 'FAILED', 'message': 'Rating and deskripsi are required.'}, status=400)
+            # Set timezone ke Jakarta saat membuat review
             jakarta_tz = pytz.timezone('Asia/Jakarta')
             jakarta_time = timezone.now().astimezone(jakarta_tz)
             new_review = ReviewEntry(
                 rating=rating,
-                description=description,
+                deskripsi=deskripsi,
                 date_create=jakarta_time,
                 user=request.user,
                 product=product
@@ -84,7 +82,7 @@ def edit_review(request, id):
         jakarta_time = timezone.now().astimezone(jakarta_tz)
         
         # Update the review instance before saving
-        review.description = form.cleaned_data['description']
+        review.deskripsi = form.cleaned_data['deskripsi']
         review.rating = form.cleaned_data['rating']
         review.date_create = jakarta_time  # Update the date_update field
         review.save()
@@ -116,7 +114,7 @@ def show_json(request, product_id):
             'pk': review.id,
             'fields': {
                 'rating': review.rating,
-                'description': review.description,
+                'deskripsi': review.deskripsi,
                 'date_create': jakarta_time.strftime("%d %B %Y %H:%M"), 
                 'user': {
                     'username': review.user.username  # Ambil username dari user yang membuat review
@@ -124,4 +122,3 @@ def show_json(request, product_id):
             }
         })
     return JsonResponse(data, safe=False)
-

@@ -6,12 +6,12 @@ from django import forms
 class ReviewForm(ModelForm):
     class Meta:
         model = ReviewEntry
-        fields = ["rating", "description"]
+        fields = ["rating", "deskripsi"]
 
     def clean_rating(self):
         rating = self.cleaned_data["rating"]
         return strip_tags(rating)
 
-    def clean_description(self):
-        description = self.cleaned_data["description"]
-        return strip_tags(description)
+    def clean_deskripsi(self):
+        komentar = self.cleaned_data["deskripsi"]
+        return strip_tags(komentar)
