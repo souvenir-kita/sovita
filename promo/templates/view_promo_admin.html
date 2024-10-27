@@ -26,7 +26,7 @@
           </div>
           
           <div class="bg-blue-500 p-6 flex items-center justify-center">
-              <input type="number" class="w-full text-2xl text-center bg-transparent text-white placeholder-white/70 focus:outline-none" placeholder="Potongan" maxlength="20" value="{{promo.potongan}}" name="potongan" id="potongan" readonly>
+              <input type="number" class="w-full text-2xl text-center bg-transparent text-white placeholder-white/70 focus:outline-none" placeholder="Potongan" max="100" min="0" maxlength="3" value="{{promo.potongan}}" name="potongan" id="potongan" oninput="checkLength(this)" readonly>
           </div>
       </div>
 
@@ -129,6 +129,12 @@ $('#formpromo').on('submit', function(event){
         }
     });
 });
+
+function checkLength(input) {
+    if (input.value.length > 3) {
+        input.value = input.value.slice(0, 2); 
+    }
+}
 
 </script>
 {% endblock %}

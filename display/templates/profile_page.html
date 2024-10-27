@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="min-h-screen bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
+<div class="min-h-screen bg-gray-100 py-12 px-4 sm:px-6 lg:px-8" style="background: linear-gradient(153deg, #F09027 12.76%, #8CBEAA 71.77%);">
+    <div class="max-w-md mx-auto rounded-xl shadow-md overflow-hidden md:max-w-2xl" style="background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 8px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);">
         <div class="p-8">
             <div class="flex items-center justify-between mb-6">
-                <h1 class="text-2xl font-bold text-gray-900">Profile Information</h1>
+                <div class="mr-12"></div>
+                <h1 class="text-2xl font-bold text-gray-900">Profil</h1>
                 <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold">
                     {{ profile.role|title }}
                 </span>
@@ -13,34 +14,35 @@
             
             <div class="space-y-4">
                 <!-- Username -->
-                <div class="border-b border-gray-200 pb-4">
+                <div class="border-b border-black pb-4">
                     <h3 class="text-sm font-medium text-gray-500">Username</h3>
-                    <p class="mt-1 text-lg text-gray-900">{{ profile.user.username }}</p>
+                    <p class="mt-1 text-lg text-black">{{ profile.user.username }}</p>
                 </div>
 
                 <!-- Age -->
-                <div class="border-b border-gray-200 pb-4">
-                    <h3 class="text-sm font-medium text-gray-500">Age</h3>
+                <div class="border-b border-black pb-4">
+                    <h3 class="text-sm font-medium text-gray-500">Umur</h3>
                     <p class="mt-1 text-lg text-gray-900">{{ profile.age }}</p>
                 </div>
+                
 
                 <!-- Phone Number -->
-                <div class="border-b border-gray-200 pb-4">
-                    <h3 class="text-sm font-medium text-gray-500">Phone Number</h3>
+                <div class="border-b border-black pb-4">
+                    <h3 class="text-sm font-medium text-gray-500">Nomor Telepon</h3>
                     <p class="mt-1 text-lg text-gray-900">{{ profile.phone_number }}</p>
                 </div>
 
                 <!-- Address -->
                 <div>
-                    <h3 class="text-sm font-medium text-gray-500">Address</h3>
+                    <h3 class="text-sm font-medium text-gray-500">Alamat</h3>
                     <p class="mt-1 text-lg text-gray-900">{{ profile.address|linebreaks }}</p>
                 </div>
             </div>
-
+            
             <div class="mt-8">
-                <a href="" 
-                   class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                    Edit Profile
+                <a href="{% url 'display:display_main' %}" 
+                   class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#67BAC6] hover:bg-[#88d3df] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#76b4be]">
+                    Kembali
                 </a>
             </div>
         </div>
