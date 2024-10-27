@@ -40,8 +40,8 @@
                         <input type="number" name="rating" id="rating" min="1" max="5" class="mt-1 block w-full border border-gray-300 rounded-md p-2 hover:border-indigo-700" placeholder="Enter your rating (1 to 5)" required>
                     </div>
                     <div class="mb-4">
-                        <label for="description" class="block text-gray-700 text-sm font-bold mb-2">Description</label>
-                        <textarea name="description" id="description" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></textarea>
+                        <label for="deskripsi" class="block text-gray-700 text-sm font-bold mb-2">Deskripsi</label>
+                        <textarea name="deskripsi" id="deskripsi" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></textarea>
                     </div>
                     <div class="flex justify-end space-x-2">
                         <button type="button" id="cancelButton" onclick="hideReviewModal()" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">Back</button>
@@ -106,7 +106,7 @@
                     <div class="p-4 rounded-lg shadow-md space-y-1 max-w-md mx-auto" style="background: rgba(255, 255, 255, 0.6); backdrop-filter: blur(5px); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 8px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);">
                         <h1 class="text-lg font-semibold">${item.fields.user.username}</h1>
                         <h3 class="text-yellow-500">Rating: ${"⭐".repeat(item.fields.rating)}</h3>
-                        <p>Komentar: ${item.fields.description}</p>
+                        <p>Deskripsi: ${item.fields.deskripsi}</p>
                         <h4 class="text-gray-500 text-sm">Dibuat: ${item.fields.date_create}</h4>
                         <div class="flex justify-end space-x-2 mt-2">
                             ${actionButtons}

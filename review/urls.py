@@ -9,5 +9,4 @@ urlpatterns = [
     path('edit-review/<uuid:id>/', edit_review, name='edit_review'),
     path('delete-review/<uuid:id>/', delete_review, name='delete_review'),
     path('json/<uuid:product_id>/', show_json, name='show_json'),
-
 ]
