@@ -1,0 +1,38 @@
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Mouse+Memoirs&display=swap" rel="stylesheet">
+<div class="fixed inset-0 flex flex-col items-center justify-center">
+    <div class="bg-gray-200 rounded-2xl p-6 w-full max-w-2xl mx-4">
+        <div class="flex bg-[#FFF0F0] rounded-2xl font-['Mouse_Memoirs'] overflow-hidden mb-6">
+            <div class="flex-3 p-6 space-y-4">
+                <input type="text" class="w-full text-2xl text-center bg-[#FFF0F0] no-underline border-gray-300 focus:outline-none focus:border-blue-500" placeholder="Nama" maxlength="20">
+                <input type="text" class="w-full text-xl text-center bg-[#FFF0F0]  border-gray-300 focus:outline-none focus:border-blue-500"  placeholder="Kode" maxlength="20"/>
+                <input type="date" class="w-full text-xl text-center bg-[#FFF0F0]  border-gray-300 focus:outline-none focus:border-blue-500">
+            </div>
+            <div class="flex-2 bg-blue-500 p-6 flex items-center justify-center">
+                <input type="number" class="w-full text-2xl text-center bg-transparent text-white placeholder-white/70 focus:outline-none" placeholder="Harga" maxlength="20"/>
+            </div>
+        </div>
+        <div class="space-y-4">
+            <div class="flex items-center space-x-4">
+                <label class="text-lg min-w-20">Stock</label>
+                <input type="number" class="flex-1 p-2 rounded border focus:outline-none focus:border-blue-500 ">
+            </div>
+            <div class="flex items-start space-x-4">
+                <textarea class="flex-1 p-2 rounded border h-32 focus:outline-none focus:border-blue-500 resize-none">ADSDSA</textarea>
+            </div>
+        </div>
+        <div class="flex items-center justify-center gap-2 pt-5 pb-1">
+            <Button class="w-24 bg-blue-500 rounded-lg">Edit</Button>
+            <Button class="w-24 bg-red-400 rounded-lg">Delete</Button>
+          </div>
+
+    </div>
+</div>
+
+<style>
+    input[type=number]::-webkit-inner-spin-button, 
+    input[type=number]::-webkit-outer-spin-button { 
+        -webkit-appearance: none; 
+        margin: 0; 
+    }
+</style>

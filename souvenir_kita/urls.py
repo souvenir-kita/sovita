@@ -27,6 +27,7 @@ urlpatterns = [
     path("authentication/", include("authentication.urls")),
     path("forum/", include("forum.urls")),
     path("adminview/", include("adminview.urls")),
+    path("adminview/", include("adminview.urls")),
     path("review/", include('review.urls')),
     path("promo/",include("promo.urls")),
     path("", include("display.urls")),
