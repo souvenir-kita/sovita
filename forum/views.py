@@ -1,4 +1,8 @@
+from django.forms.models import model_to_dict
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
+from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.http import require_http_methods
 
 from display.models import Product
 from forum.forms import PostForm, ReplyForm
@@ -41,39 +45,89 @@ def delete_forum_post(request, product_id, post_id):
     return redirect("forum:forum_posts", product_id=product_id)
 
 
+@csrf_exempt
+@require_http_methods(["POST"])
 def create_forum_post_reply(request, product_id, post_id):
     post = get_object_or_404(Post, pk=post_id)
-    replies = Reply.objects.filter(post=post_id)
-    reply_form = ReplyForm(request.POST or None)
-    if reply_form.is_valid() and request.method == "POST":
-        reply = reply_form.save(commit=False)
-        reply.user = request.user
-        reply.post = post
+    reply = Reply(content=request.POST.get("content"), user=request.user, post=post)
+    try:
         reply.save()
-        return redirect("forum:forum_post", product_id=product_id, post_id=post_id)
-    return render(
-        request,
-        "create_forum_post_reply.html",
-        {"form": reply_form, "post": post, "replies": replies},
-    )
+        return JsonResponse(
+            {
+                "status": "success",
+                "message": "reply created succesfully",
+                "data": {
+                    "id": reply.id,
+                    "content": reply.content,
+                    "created_at": reply.created_at,
+                    "updated_at": reply.updated_at,
+                    "user": reply.user.username,
+                },
+            },
+            status=201,
+        )
+    except Exception as e:
+        return JsonResponse(
+            {
+                "status": "failed",
+                "message": str(e),
+            },
+            status=500,
+        )
 
 
+@csrf_exempt
+@require_http_methods(["POST"])
 def update_forum_post_reply(request, product_id, post_id, reply_id):
-    post = get_object_or_404(Post, pk=post_id)
     reply = get_object_or_404(Reply, pk=reply_id)
-    replies = Reply.objects.filter(post=post_id)
-    reply_form = ReplyForm(request.POST or None, instance=reply)
-    if reply_form.is_valid() and request.method == "POST":
-        reply_form.save()
-        return redirect("forum:forum_post", product_id=product_id, post_id=post_id)
-    return render(
-        request,
-        "edit_forum_post_reply.html",
-        {"form": reply_form, "post": post, "replies": replies},
-    )
+    reply.content = request.POST.get("content")
+    try:
+        reply.save()
+        return JsonResponse(
+            {
+                "status": "success",
+                "message": "reply updated succesfully",
+                "data": {
+                    "id": reply.id,
+                    "content": reply.content,
+                    "created_at": reply.created_at,
+                    "updated_at": reply.updated_at,
+                    "user": reply.user.username,
+                },
+            },
+            status=201,
+        )
+    except Exception as e:
+        return JsonResponse(
+            {
+                "status": "failed",
+                "message": str(e),
+            },
+            status=500,
+        )
 
 
+@csrf_exempt
+@require_http_methods(["DELETE"])
 def delete_forum_post_reply(request, product_id, post_id, reply_id):
-    get_object_or_404(Reply, pk=reply_id).delete()
-    print("executed")
-    return redirect("forum:forum_post", product_id=product_id, post_id=post_id)
+    reply = get_object_or_404(Reply, pk=reply_id)
+    try:
+        reply.delete()
+        return JsonResponse(
+            {
+                "status": "success",
+                "message": "reply deleted succesfully",
+                "data": {
+                    "id": reply.id,
+                },
+            },
+            status=201,
+        )
+    except Exception as e:
+        return JsonResponse(
+            {
+                "status": "failed",
+                "message": str(e),
+            },
+            status=500,
+        )
