@@ -26,7 +26,7 @@
             </div>
           {% endfor %}
           <div>
-            <input class="btn w-full bg-[#67BAC6] text-white font-main py-2 px-4 rounded-lg cursor-pointer transition-all duration-200 hover:bg-[#8CBEAA] hover:scale-105" type="submit" name="submit" value="Daftar" />
+            <input class="btn w-full bg-[#67BAC6] text-white font-main py-2 px-4 rounded-lg cursor-pointer transition-all duration-200 hover:bg-[#8CBEAA] hover:scale-105" type="submit" name="submit" value="Register" />
           </div>
         </div>
       </form>
@@ -38,8 +38,12 @@
         </ul>
       {% endif %}
       <p class="text-center font-main mt-6 text-gray-800">
-        Already have an account?
-        <a href="{% url 'authentication:login' %}" class="text-[#67BAC6] hover:underline">Login instead</a>
+        Sudah punya akun?
+        <a href="{% url 'authentication:login' %}" class="text-[#67BAC6] hover:underline">Login saja</a>
+      </p>
+      <p class="text-center font-main text-gray-800">
+        Saya ingin lihat-lihat saja.
+        <a href="{% url 'display:display_main' %}" class="text-[#67BAC6] hover:underline">Masuk tanpa akun</a>
       </p>
     </div>
   </div>

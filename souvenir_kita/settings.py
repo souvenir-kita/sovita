@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     "forum",  # Wisnu
     "display",  # Arzaka
     "cart",
+    "review", #Zufar
+    "promo", #rafli
     "adminview", #Arzaka
 ]
 
@@ -77,6 +79,8 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                'authentication.context_processors.user_role',
+                'authentication.context_processors.user_name',
             ],
         },
     },

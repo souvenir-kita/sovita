@@ -1,0 +1,148 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'navbar.html' %}
+<link href="https://fonts.googleapis.com/css2?family=Mouse+Memoirs&display=swap" rel="stylesheet">
+<div class="overflow-x-hidden px-4 md:px-8 pb-8 pt-24 min-h-screen bg-gray-100">
+	<div>
+		<button onclick="showModal()" class="bg-blue-500 h-12 rounded-lg text-white font-['Mouse_Memoirs'] w-20 hover:bg-blue-600 transition-colors">
+			Add Promo
+		</button>	
+	</div>
+	<div>
+		<div id="promo_cards" class="grid grid-cols-1 md:grid-cols-3 gap-6 px-20 py-10">
+	</div>
+	<script src="https://cdn.tailwindcss.com"></script>
+	<div class="fixed inset-0 flex items-center justify-center bg-opacity-50 text-center" style="display: none;" id="modal">
+		<div class=" bg-gray-400 rounded-2xl p-4" id="modal_content">
+		  <div style="padding-top: 1;font-size: large;font-weight: bold;" class="pb-2"> <!--Header-->
+			<p class="text-center">Tambah Promo</p>
+		  </div>
+		  <div> <!--Body-->
+			<form id="formpromo" action="{% url 'promo:add_promo' %}">
+			  <div>
+				<input type="text" name="nama" id="nama" placeholder="Nama" class="mt-1 mb-1 rounded-lg p-1 text-s">
+			  </div>
+			  <div>
+				<input type="text" name="kode" id="kode" placeholder="Kode" class="mt-1 mb-1 rounded-lg p-1 text-s">
+			  </div>
+			  <div>
+				<input type="number" step="100" min=0 name="potongan" id="potongan" placeholder="Potongan" class="mt-1 mb-1 rounded-lg p-1 text-s">
+			  </div>
+			  <div class="inline-flex">
+				<p class="pr-2 text-white">Kadaluarsa</p>
+				<input type="date"name="tanggal_akhir_berlaku" id="tanggal_akhir_berlaku" class="w-5" class="mt-1 mb-1 rounded-lg p-1 text-s"> 
+			  </div>
+			  <div> 
+				<input type="number" step="1" min=0 name="stock" id="stock" placeholder="stock" class="mt-1 mb-1 rounded-lg p-1 text-s" >
+			  </div>
+			  <div>
+				<textarea name="deskripsi" id="deskripsi" placeholder="deskripsi" class="mt-1 mb-1 rounded-lg p-1 text-s" style="resize: none;width: 100%; " ></textarea>
+			  </div>
+			</form>
+		  </div>
+		  <div class="flex space-x-2"> <!--footer-->
+			<button type="button" id="cancel" class="bg-red-400 text-xs p-1 rounded-lg w-full" onclick="hideModal()">Cancel</button>
+			<button type="submit" id="submitItem" form="formpromo" class="bg-blue-500 text-xs p-1 rounded-lg w-full">Save</button>
+		</div>
+		</div>  
+	</div>	
+</div>
+
+  
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+async function get_promo() {
+	return fetch("{% url 'promo:show_json' %}").then((res) => res.json());
+}
+
+async function refreshPromo() {
+    const promos = await get_promo();
+    let htmlString = "";
+    
+    if (promos.length === 0) {
+        $("#promo_cards").html('<div class="col-span-full text-center">Belum ada promo</div>');
+    } else {
+        promos.forEach((promo) => {
+            let potonganValue = promo.fields.potongan / 1000;
+            let bgColor;
+            let textColor = 'text-white';
+
+            if (potonganValue <= 100) {
+                bgColor = "bg-[#4E9B00]";
+            } else if (potonganValue <= 1000) {
+                bgColor = "bg-[#FF6E20]";
+            } else {
+                bgColor = "bg-[#9812FF]";
+            }
+			let sufiks = "";
+			let potongan;
+			if (potonganValue >= 1000){
+				sufiks = "jt"
+				potonganValue = parseFloat(promo.fields.potongan) /1000000;
+				potongan = Number.isInteger(potonganValue) ? 
+                       potonganValue.toFixed(0) + sufiks : 
+                       potonganValue.toFixed(2) + sufiks;
+			} else if(potonganValue >= 1){
+				sufiks = "k"
+				potongan = Number.isInteger(potonganValue) ? 
+                       potonganValue.toFixed(0) + sufiks : 
+                       potonganValue.toFixed(1) + sufiks;
+			}
+			
+
+            htmlString += `
+            <a href="view_promo_admin/${promo.pk}" class="block no-underline text-black transition-transform hover:scale-105">
+                <div class="flex bg-[#FFF0F0] rounded-2xl font-['Mouse_Memoirs'] max-w-80">
+                    <div class="flex-[3] text-center flex flex-col justify-center items-center p-4">
+                        <div class="text-2xl md:text-3xl lg:text-2xl mb-2 underline">${promo.fields.nama}</div>
+                        <div class="text-base md:text-lg lg:text-xl">kode: ${promo.fields.kode}</div>
+                        <div class="text-base md:text-lg lg:text-xl">Valid hingga ${promo.fields.tanggal_akhir_berlaku}</div>
+                    </div>
+                    <div class="flex-[2] ${bgColor} rounded-r-2xl flex items-center justify-center text-3xl md:text-4xl lg:text-5xl ${textColor}">
+                        ${potongan}
+                    </div>
+                </div>
+            </a>`;
+        });
+        $("#promo_cards").html(htmlString);
+    }
+}
+
+refreshPromo();
+
+function showModal() {
+	$("#modal").css("display","");
+	$("a").css("pointer-event","none")
+	$("html").css("overflow","hidden")
+}
+
+function hideModal() {
+	$("#modal").css("display","none")
+	$("a").css("pointer-event","")
+	$("html").css("overflow","")
+}
+
+//https://gawibowo.com/submit-form-dengan-ajax-menggunakan-jquery.htm
+$('#formpromo').submit(function() {
+		$.ajax({
+			type: 'POST',
+			url: $(this).attr('action'),
+			data: $(this).serialize(),
+			success: function(data) {
+				refreshPromo();
+				document.getElementById("formpromo").reset();
+				hideModal();
+			}
+		})
+		return false;
+	})
+
+
+</script>
+
+
+
+{% endblock content %} 	
