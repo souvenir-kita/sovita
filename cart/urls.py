@@ -14,4 +14,5 @@ urlpatterns = [
     path('delete/<uuid:id>/', delete_cart_product, name='delete_cart_product'),
     path('inc_amount/<uuid:id>/', inc_amount, name='inc_amount'),
     path('dec_amount/<uuid:id>/', dec_amount, name='dec_amount'),
+    path('update_note/<uuid:id>/', update_note, name='update_note'),
 ]

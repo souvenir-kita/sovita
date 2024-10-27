@@ -5,14 +5,20 @@ from django.shortcuts import redirect, render
 import datetime
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.contrib.auth.models import User
+from .forms import CustomUserCreationForm
+from .models import UserProfile
 
 
 def register(request):
-    form = UserCreationForm()
+    form = CustomUserCreationForm()
     if request.method == "POST":
-        form = UserCreationForm(request.POST)
+        form = CustomUserCreationForm(request.POST)
         if form.is_valid():
-            form.save()
+            user = form.save()
+            role = form.cleaned_data['role']
+            # Create a UserProfile for the user
+            UserProfile.objects.create(user=user, role=role)
             messages.success(request, "Your account has been successfully created!")
             return redirect("authentication:login")
     context = {"form": form}

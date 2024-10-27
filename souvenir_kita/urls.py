@@ -24,11 +24,12 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('display.urls')),
     path('cart/', include('cart.urls')),
-    path("admin/", admin.site.urls),
     path("authentication/", include("authentication.urls")),
     path("forum/", include("forum.urls")),
+    path("adminview/", include("adminview.urls")),
     path("review/", include('review.urls')),
     path("promo/",include("promo.urls")),
     path("", include("display.urls")),
     path("", include("cart.urls")),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+

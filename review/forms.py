@@ -6,10 +6,7 @@ from django import forms
 class ReviewForm(ModelForm):
     class Meta:
         model = ReviewEntry
-        fields = ["rating", "description", "date_create"]
-        widgets = {
-            'date_create': forms.DateTimeInput(attrs={'type': 'datetime-local'}),
-        }
+        fields = ["rating", "description"]
 
     def clean_rating(self):
         rating = self.cleaned_data["rating"]

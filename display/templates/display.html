@@ -3,61 +3,39 @@
 {% block content %}
 {% include 'navbar.html' %}
 
-<div class="flex flex-col items-center font-sans">
+<div class="flex flex-col items-center font-sans" style="background: linear-gradient(153deg, #F09027 12.76%, #8CBEAA 71.77%);">
     <div id="product_cards"></div>
-    <div id="crudModal" tabindex="-1" aria-hidden="true" class="hidden fixed inset-0 z-50 w-full flex items-center justify-center bg-gray-800 bg-opacity-50 overflow-x-hidden overflow-y-auto transition-opacity duration-300 ease-out">
-        <div id="crudModalContent" class="relative bg-white rounded-lg shadow-lg w-5/6 sm:w-3/4 md:w-1/2 lg:w-1/3 mx-4 sm:mx-0 transform scale-95 opacity-0 transition-transform transition-opacity duration-300 ease-out">
-          <div class="flex items-center justify-between p-4 border-b rounded-t">
-            <h3 class="text-xl font-semibold text-gray-900">
-              Add New Mood Entry
-            </h3>
-            <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center" id="closeModalBtn">
-              <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-              </svg>
-              <span class="sr-only">Close modal</span>
-            </button>
-          </div>
-          <div class="px-6 py-4 space-y-6 form-style">
-            <form id="productForm" enctype="multipart/form-data", method="POST">
-              <div class="mb-4">
-                <label for="name" class="block text-sm font-medium text-gray-700">Product Name: </label>
-                <input type="text" id="name" name="name" class="mt-1 block w-full border border-gray-300 rounded-md p-2 hover:border-indigo-700" placeholder="Enter product name" required>
-              </div>
-              <div class="mb-4">
-                <label for="price" class="block text-sm font-medium text-gray-700">Product Price (Rp): </label>
-                <input type="number" id="price" name="price" min="1" max="10000000000000000" class="mt-1 block w-full border border-gray-300 rounded-md p-2 hover:border-indigo-700" required>
-              </div>
-              <div class="mb-4">
-                <label for="description" class="block text-sm font-medium text-gray-700">Product Description: </label>
-                <textarea id="description" name="description" rows="3" class="mt-1 block w-full h-52 resize-none border border-gray-300 rounded-md p-2 hover:border-indigo-700" placeholder="Describe your item" required></textarea>
-              </div>
-              <div class="mb-4">
-                <label for="picture" class="block text-sm font-medium text-gray-700">Product Image: </label>
-                <input type="file" id="picture" name="picture" class="mt-1 block w-full border border-gray-300 rounded-md p-2 hover:border-indigo-700" accept="image/*">
-              </div>
-              <div class="mb-4">
-                <label for="location" class="block text-sm font-medium text-gray-700">Product Location: </label>
-                <input type="text" id="location" name="location" class="mt-1 block w-full border border-gray-300 rounded-md p-2 hover:border-indigo-700" placeholder="Enter product location" required>
-              </div>
-              <div class="mb-4">
-                <label for="shop" class="block text-sm font-medium text-gray-700">Shop: </label>
-                <input type="text" id="shop" name="shop" class="mt-1 block w-full border border-gray-300 rounded-md p-2 hover:border-indigo-700" placeholder="Enter shop" required>
-              </div>
-            </form>
-          </div>
-          <div class="flex flex-col space-y-2 md:flex-row md:space-y-0 md:space-x-2 p-6 border-t border-gray-200 rounded-b justify-center md:justify-end">
-            <button type="button" class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg" id="cancelButton">Cancel</button>
-            <button type="submit" id="submitProduct" form="productForm" class="bg-indigo-700 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded-lg">Save</button>
-          </div>
-        </div>
+    <div class="flex justify-end mt-4 w-full max-w-7xl p-5">
+    <div style="margin-right: 400px;">
+      <select id="sortDropdown" style="text-align: center;" class="bg-[#f09027] text-white font-bold py-2 px-4 rounded-lg transition duration-300 ease-in-out transform hover:bg-[#b85c2c] hover:scale-101 mt-4">
+        <option value="ascending">Sort by Price: Ascending</option>
+        <option value="descending">Sort by Price: Descending</option>
+        <option value="atoz">Sort by Alphabet: A - Z</option>
+        <option value="ztoa">Sort by Alphabet: Z - A</option>
+      </select>
+      <select id="categoryDropdown" style="text-align: center;" class="bg-[#f09027] text-white font-bold py-2 px-4 rounded-lg transition duration-300 ease-in-out transform hover:bg-[#b85c2c] hover:scale-101 mt-4">
+        <option value="all">All Categories</option>
+        <option value="FnB">FnB</option>
+        <option value="Dekorasi">Dekorasi</option>
+        <option value="Pakaian/Kain">Pakaian/Kain</option>
+        <option value="Lulur & Aromateraphy">Lulur & Aromatherapy</option>
+        <option value="Aksesoris">Aksesoris</option>
+      </select>
     </div>
-    <button data-modal-target="crudModal" data-modal-toggle="crudModal" class="btn bg-indigo-700 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-101 mt-4" onclick="showModal();">
-        Add A Product!
-    </button>
 </div>
 
+{% include 'footer.html' %}
+
 <script>
+    let sortAscending = false;
+
+    document.getElementById("sortDropdown").addEventListener("change", function() {
+    refreshProduct();
+    });
+    document.getElementById("categoryDropdown").addEventListener("change", function() {
+    refreshProduct();
+    });
+
     document.addEventListener("DOMContentLoaded", function() {
         const productElement = document.querySelectorAll('.product-name');
         
@@ -77,96 +55,81 @@
     });
 
     async function getProduct() {
-        return fetch("{% url 'display:show_json' %}").then((res) => res.json())
+        return fetch("{% url 'adminview:show_json' %}").then((res) => res.json())
     }
 
     async function refreshProduct() {
-    document.getElementById("product_cards").innerHTML = "";
-    const productEntries = await getProduct();
-    let htmlString = "";
-    
-    if (productEntries.length == 0) {
-        htmlString = `
-        <img class="mt-24" src="{{'media/images/noprod.png'}}" alt="No Products Available" style="margin-right: 25px;">
-        `;
-    } else {
-        htmlString = `
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 w-full max-w-7xl p-5 mt-24">
-        `;
+      document.getElementById("product_cards").innerHTML = "";
+      const productEntries = await getProduct();
+      let htmlString = "";
 
-        productEntries.forEach((item) => {
-            const name = item.fields.name;
-            const price = item.fields.price;
-            const picture = item.fields.picture;
+      const sortOption = document.getElementById("sortDropdown").value;
+      const categoryOption = document.getElementById("categoryDropdown").value;
 
-            htmlString += `
-            <div class="border border-gray-300 rounded-lg p-5 shadow-lg hover:scale-105 transition-transform duration-200 text-center flex flex-col justify-between">
-                <div>
-                    ${picture ? `<img src="/media/${picture}" alt="${name}" style="width: 150px; height: 150px; object-fit: contain; border-radius: 8px; margin: 0 auto;">` : ''}
-                    <h5 class="product-name mb-2 font-semibold mt-4">${name}</h5>
-                    <h5 class="mb-4 text-gray-700">Rp${price}</h5>
-                </div>
-                <div class="flex space-x-4 justify-center">
-                    <a href="/view/${item.pk}" class="text-blue-500 hover:underline">View</a>
-                    <a href="/edit/${item.pk}" class="text-blue-500 hover:underline">Edit</a>
-                    <a href="/delete/${item.pk}" class="text-red-500 hover:underline">Delete</a>
-                </div>
+      let filteredEntries = productEntries.filter((item) => {
+          if (categoryOption === "all") return true;
+          return item.fields.category === categoryOption;
+      });
+      
+      filteredEntries.sort((a, b) => {
+          if (sortOption === "ascending") {
+            return a.fields.price - b.fields.price;
+          } else if (sortOption === "descending") {
+            return b.fields.price - a.fields.price;
+          } else if (sortOption === "atoz") {
+            return a.fields.name.localeCompare(b.fields.name);
+          } else {
+            return b.fields.name.localeCompare(a.fields.name);
+          }
+      });
+
+
+      console.log("panjangnya adalah ");
+      console.log(filteredEntries.length);
+
+      if (filteredEntries.length === 0) {
+        htmlString = `
+        <div class="flex items-center justify-center mt-24 space-x-4 ml-8">
+            <img src="{% static 'image/noprod.png' %}" alt="No Products Available" class="w-60 h-80">
+            <div class="text-white text-center">
+                <p class="text-lg font-semibold">There are no products yet!</p>
+                <p class="text-sm">Please come back later.</p>
             </div>
-            `;
-        });
+        </div>
+      `;
 
-        htmlString += `</div>`;
-    }
-    
-    document.getElementById("product_cards").innerHTML = htmlString;
-    }  
+      } else {
+          htmlString = `
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 w-full max-w-7xl p-5 mt-24">
+          `;
+          filteredEntries.forEach((item) => {
+              const name = item.fields.name;
+              const price = item.fields.price;
+              const picture = item.fields.picture;
+
+              htmlString += `
+              <div class="bg-white bg-opacity-50 border border-gray-300 rounded-lg sm:p-5 p-3 shadow-lg hover:scale-105 transition-transform duration-200 text-center flex flex-col justify-between">
+                  <div>
+                      ${picture ? `<img src="/media/${picture}" alt="${name}" class="md:w-36 md:h-36 w-24 h-24" style="object-fit: cover; border-radius: 8px; margin: 0 auto;">` : ''}
+                      <h5 class="product-name mb-2 font-semibold mt-4">${name}</h5>
+                      <h5 class="mb-4 text-gray-700">Rp${price}</h5>
+                  </div>
+                  <div class="flex md:space-x-4 space-x-2 justify-center">
+                      <a href="/view/${item.pk}" class="text-blue-500 hover:underline text-sm md:text-base">Details</a>
+                  </div>
+              </div>
+              `;
+          });
+          htmlString += `</div>`;
+      }
+      document.getElementById("product_cards").innerHTML = htmlString;
+  }
+  
 
     refreshProduct();
     const modal = document.getElementById('crudModal');
     const modalContent = document.getElementById('crudModalContent')
 
-    function showModal() {
-      const modal = document.getElementById('crudModal');
-      const modalContent = document.getElementById('crudModalContent');
-
-      modal.classList.remove('hidden'); 
-      setTimeout(() => {
-        modalContent.classList.remove('opacity-0', 'scale-95');
-        modalContent.classList.add('opacity-100', 'scale-100');
-        }, 50); 
-    }
-
-    function hideModal() {
-      const modal = document.getElementById('crudModal');
-      const modalContent = document.getElementById('crudModalContent');
-
-      modalContent.classList.remove('opacity-100', 'scale-100');
-      modalContent.classList.add('opacity-0', 'scale-95');
-
-      setTimeout(() => {
-        modal.classList.add('hidden');
-        }, 150); 
-    }
-
-    document.getElementById("cancelButton").addEventListener("click", hideModal);
-    document.getElementById("closeModalBtn").addEventListener("click", hideModal);
-
-    function addProduct() {
-        fetch("{% url 'display:create_product_ajax' %}", {
-            method: "POST",
-            body: new FormData(document.querySelector('#productForm')),
-        })
-        .then(response => refreshProduct())
-
-        document.getElementById("productForm").reset(); 
-        hideModal();
-
-        return false;
-    }
-    document.getElementById("productForm").addEventListener("submit", (e) => {
-    e.preventDefault();
-    addProduct();
-    })
 
 </script>
 
