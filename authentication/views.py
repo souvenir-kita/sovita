@@ -6,7 +6,7 @@ import datetime
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.contrib.auth.models import User
-from .forms import CustomUserCreationForm
+from authentication.forms import CustomUserCreationForm
 from .models import UserProfile
 
 
@@ -17,8 +17,11 @@ def register(request):
         if form.is_valid():
             user = form.save()
             role = form.cleaned_data['role']
+            address = form.cleaned_data['address']
+            age = form.cleaned_data['age']
+            phone_number = form.cleaned_data['phone_number']
             # Create a UserProfile for the user
-            UserProfile.objects.create(user=user, role=role)
+            UserProfile.objects.create(user=user, role=role, address=address, age=age, phone_number=phone_number)
             messages.success(request, "Your account has been successfully created!")
             return redirect("authentication:login")
     context = {"form": form}

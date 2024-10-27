@@ -9,6 +9,7 @@ from adminview.models import Product
 from django.http import JsonResponse
 from django.views.decorators.http import require_POST
 import json
+from django.db.models import Q
 
 @login_required
 def show_cart(request):
