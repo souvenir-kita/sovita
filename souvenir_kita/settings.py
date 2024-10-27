@@ -43,8 +43,8 @@ INSTALLED_APPS = [
     "forum",  # Wisnu
     "display",  # Arzaka
     "cart",
-    "adminview", #Arzaka
     "promo", #rafli
+    "adminview", #Arzaka
 ]
 
 MIDDLEWARE = [
