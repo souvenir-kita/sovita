@@ -176,6 +176,7 @@
                     </div>
                 `;
                 replyForm.reset();
+                location.reload(); // (hacks) attach all event handler to new reply 
             } else {
                 console.log("error happened", json.messages);
             }
