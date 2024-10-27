@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     "cart",
     "review", #Zufar
     "promo", #rafli
+    "wishlist", # Reyhan
     "adminview", #Arzaka
 ]
 

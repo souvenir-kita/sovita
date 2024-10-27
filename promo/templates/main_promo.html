@@ -2,41 +2,47 @@
 {% block content %}
 {% include 'navbar.html' %}
 <link href="https://fonts.googleapis.com/css2?family=Mouse+Memoirs&display=swap" rel="stylesheet">
-<div class="overflow-x-hidden px-4 md:px-8 pb-8 pt-24 min-h-screen bg-gray-100">
-	<div>
-		<button onclick="showModal()" class="bg-blue-500 h-12 rounded-lg text-white font-['Mouse_Memoirs'] w-20 hover:bg-blue-600 transition-colors">
-			Add Promo
+<div class="overflow-x-hidden px-4 md:px-8 pb-8 pt-24 min-h-screen" style="background: linear-gradient(153deg, #F09027 12.76%, #8CBEAA 71.77%);">
+	<div class="flex space-x-8">
+		<button onclick="showModal()" class="w-12 h-12 bg-gradient-to-br from-[#4d2815] to-[rgb(210,106,16)] rounded-full text-2xl justify-center text-center align-center text-white font-sans hover:bg-blue-600 transition-colors flex items-center justify-center">
+			+
 		</button>	
+		<select id="sort_by_price" onchange="filter()" class="border bg-opacity-80 border-gray-300 rounded-lg px-4 py-2 text-gray-700 bg-white ">
+			<option value="potongan_asc" class="bg-opacity-50">Potongan Terendah</option>
+			<option value="potongan_desc" class="bg-opacity-50">Potongan Tertinggi</option>
+			<option value="tanggal_desc" class="bg-opacity-50">Kadaluarsa Terlama</option>
+			<option value="tanggal_asc" class="bg-opacity-50">Kadaluarsa Tercepat</option>
+		</select>
 	</div>
 	<div>
 		<div id="promo_cards" class="grid grid-cols-1 md:grid-cols-3 gap-6 px-20 py-10">
 	</div>
 	<script src="https://cdn.tailwindcss.com"></script>
 	<div class="fixed inset-0 flex items-center justify-center bg-opacity-50 text-center" style="display: none;" id="modal">
-		<div class=" bg-gray-400 rounded-2xl p-4" id="modal_content">
+		<div class=" bg-gradient-to-t from-[#d96629] to-[#c34603] rounded-lg p-5" id="modal_content" >
 		  <div style="padding-top: 1;font-size: large;font-weight: bold;" class="pb-2"> <!--Header-->
-			<p class="text-center">Tambah Promo</p>
+			<p class="text-center text-white">Tambah Promo</p>
 		  </div>
 		  <div> <!--Body-->
 			<form id="formpromo" action="{% url 'promo:add_promo' %}">
 			  <div>
-				<input type="text" name="nama" id="nama" placeholder="Nama" class="mt-1 mb-1 rounded-lg p-1 text-s">
+				<input type="text" name="nama" id="nama" placeholder="Nama" class="mt-1 mb-1 rounded-lg p-1 text-s" required>
 			  </div>
 			  <div>
-				<input type="text" name="kode" id="kode" placeholder="Kode" class="mt-1 mb-1 rounded-lg p-1 text-s">
+				<input type="text" name="kode" id="kode" placeholder="Kode" class="mt-1 mb-1 rounded-lg p-1 text-s" required>
 			  </div>
 			  <div>
-				<input type="number" step="100" min=0 name="potongan" id="potongan" placeholder="Potongan" class="mt-1 mb-1 rounded-lg p-1 text-s">
+				<input type="number" step="100" min=0 name="potongan" id="potongan" placeholder="Potongan" class="mt-1 mb-1 rounded-lg p-1 text-s" required>
 			  </div>
 			  <div class="inline-flex">
 				<p class="pr-2 text-white">Kadaluarsa</p>
-				<input type="date"name="tanggal_akhir_berlaku" id="tanggal_akhir_berlaku" class="w-5" class="mt-1 mb-1 rounded-lg p-1 text-s"> 
+				<input type="date"name="tanggal_akhir_berlaku" id="tanggal_akhir_berlaku" class="w-5" class="mt-1 mb-1 rounded-lg p-1 text-s" required> 
 			  </div>
 			  <div> 
-				<input type="number" step="1" min=0 name="stock" id="stock" placeholder="stock" class="mt-1 mb-1 rounded-lg p-1 text-s" >
+				<input type="number" step="1" min=0 name="stock" id="stock" placeholder="Stock" class="mt-1 mb-1 rounded-lg p-1 text-s" required>
 			  </div>
 			  <div>
-				<textarea name="deskripsi" id="deskripsi" placeholder="deskripsi" class="mt-1 mb-1 rounded-lg p-1 text-s" style="resize: none;width: 100%; " ></textarea>
+				<textarea name="deskripsi" id="deskripsi" placeholder="deskripsi" class="mt-1 mb-1 rounded-lg p-1 text-s" style="resize: none;width: 100%; " required ></textarea>
 			  </div>
 			</form>
 		  </div>
@@ -54,12 +60,21 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
+
+let order_by = "potongan";
+let urutan = "asc"
+
+const promoUrl = "{% url 'promo:show_json' %}";
+
 async function get_promo() {
-	return fetch("{% url 'promo:show_json' %}").then((res) => res.json());
+    const response = await fetch(`${promoUrl}?order_by=${order_by}&urutan=${urutan}`);
+	console.log(response);
+    const data = await response.json();
+    return data;
 }
 
 async function refreshPromo() {
-    const promos = await get_promo();
+    const promos = await get_promo(order_by, urutan);
     let htmlString = "";
     
     if (promos.length === 0) {
@@ -95,7 +110,7 @@ async function refreshPromo() {
 
             htmlString += `
             <a href="view_promo_admin/${promo.pk}" class="block no-underline text-black transition-transform hover:scale-105">
-                <div class="flex bg-[#FFF0F0] rounded-2xl font-['Mouse_Memoirs'] max-w-80">
+                <div class="flex bg-white rounded-2xl font-['Mouse_Memoirs'] bg-opacity-70 max-w-80">
                     <div class="flex-[3] text-center flex flex-col justify-center items-center p-4">
                         <div class="text-2xl md:text-3xl lg:text-2xl mb-2 underline">${promo.fields.nama}</div>
                         <div class="text-base md:text-lg lg:text-xl">kode: ${promo.fields.kode}</div>
@@ -112,6 +127,24 @@ async function refreshPromo() {
 }
 
 refreshPromo();
+
+function filter(){
+	const sortSelect = document.getElementById('sort_by_price').value;
+    if (sortSelect === "potongan_asc") {
+        order_by = "potongan";
+		urutan =  "asc" ;
+    } else if (sortSelect === "potongan_desc") {
+        order_by = "potongan";
+		urutan =  "desc" ;
+    } else if (sortSelect === "tanggal_asc") {
+        order_by = "tanggal_akhir_berlaku";
+		urutan =  "asc" ;
+    } else if (sortSelect === "tanggal_desc") {
+        order_by = "tanggal_akhir_berlaku";
+		urutan =  "desc" ;
+    } 
+	refreshPromo();
+}
 
 function showModal() {
 	$("#modal").css("display","");
