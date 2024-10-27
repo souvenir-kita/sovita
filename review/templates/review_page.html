@@ -1,152 +1,142 @@
 {% extends 'base.html' %}
 {% block content %}
-{% block meta %}
-<script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.7/dist/purify.min.js"></script>
-{% endblock meta %}
 {% include 'navbar.html' %}
-<div id="review_entry">
-    <div id="crudModal" tabindex="-1" aria-hidden="true" class="hidden fixed inset-0 z-50 w-full flex items-center justify-center bg-gray-800 bg-opacity-50 overflow-x-hidden overflow-y-auto transition-opacity duration-300 ease-out">
-        <div id="crudModalContent" class="relative bg-white rounded-lg shadow-lg w-5/6 sm:w-3/4 md:w-1/2 lg:w-1/3 mx-4 sm:mx-0 transform scale-95 opacity-0 transition-transform transition-opacity duration-300 ease-out">
-          <!-- Modal header -->
-          <div class="flex items-center justify-between p-4 border-b rounded-t">
-            <h3 class="text-xl font-semibold text-gray-900">
-              Add Review
-            </h3>
-            <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center" id="closeModalBtn">
-              <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-              </svg>
-              <span class="sr-only">Close modal</span>
-            </button>
-          </div>
-          <!-- Modal body -->
-          <div class="px-6 py-4 space-y-6 form-style">
-            <form id="reviewEntryForm">
-              <div class="mb-4">
-                <label for="rating" class="block text-sm font-medium text-gray-700">Rating</label>
-                <input type="text" id="rating" name="rating" class="mt-1 block w-full border border-gray-300 rounded-md p-2 hover:border-indigo-700" placeholder="Enter your rating" required>
-              </div>
-              <div class="mb-4">
-                <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
-                <textarea id="description" name="description" rows="3" class="mt-1 block w-full h-52 resize-none border border-gray-300 rounded-md p-2 hover:border-indigo-700" placeholder="Describe your feelings" required></textarea>
-              </div>
+
+
+<div class="container mx-4 my-4">
+    <div class="mb-4">
+        <button onclick="showReviewModal()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" style="margin-top: 50px;">
+            Add Review
+        </button>
+    </div>
+    <div>
+        <select id="ratingDropDown">
+            <option value="allstar">Semua</option>
+            <option value="onestar">Bintang 1</option>
+            <option value="twostar">Bintang 2</option>
+            <option value="threestar">Bintang 3</option>
+            <option value="fourstar">Bintang 4</option>
+            <option value="fivestar">Bintang 5</option>
+        </select>
+    </div>
+    <div id="review_entry" class="space-y-4"></div>
+    <!-- Modal -->
+    <div id="ReviewModal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center">
+        <div id="ReviewModalContent" class="bg-white p-6 rounded-lg shadow-lg">
+            <form id="ReviewId" method="POST">
+                {% csrf_token %}
+                <div class="mb-4">
+                    <label for="rating" class="block text-gray-700 text-sm font-bold mb-2">Rating</label>
+                    <input type="number" name="rating" id="rating" min="1" max="5" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                </div>
+                <div class="mb-4">
+                    <label for="description" class="block text-gray-700 text-sm font-bold mb-2">Description</label>
+                    <textarea name="description" id="description" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></textarea>
+                </div>
+                <div class="flex justify-end space-x-2">
+                    <button type="button" id="cancelButton" onclick="hideReviewModal()" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">Back</button>
+                    <button type="submit" id="submitReview" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Add</button>
+                </div>
             </form>
-          </div>
-          <!-- Modal footer -->
-          <div class="flex flex-col space-y-2 md:flex-row md:space-y-0 md:space-x-2 p-6 border-t border-gray-200 rounded-b justify-center md:justify-end">
-            <button type="button" class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg" id="cancelButton">Back</button>
-            <button type="submit" id="submitReviewEntry" form="reviewEntryForm" class="bg-indigo-700 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded-lg">Add</button>
-          </div>
         </div>
-      </div>
+    </div>    
 </div>
 
 <script>
+    // Event listener untuk dropdown filter rating
+    document.getElementById("ratingDropDown").addEventListener("change", function() {
+        refreshReviewEntries();
+    });
 
-const modal = document.getElementById('crudModal');
-const modalContent = document.getElementById('crudModalContent');
-
-  function showModal() {
-      const modal = document.getElementById('crudModal');
-      const modalContent = document.getElementById('crudModalContent');
-
-      modal.classList.remove('hidden'); 
-      setTimeout(() => {
-        modalContent.classList.remove('opacity-0', 'scale-95');
-        modalContent.classList.add('opacity-100', 'scale-100');
-      }, 50); 
-  }
-
-  function hideModal() {
-      const modal = document.getElementById('crudModal');
-      const modalContent = document.getElementById('crudModalContent');
-
-      modalContent.classList.remove('opacity-100', 'scale-100');
-      modalContent.classList.add('opacity-0', 'scale-95');
-
-      setTimeout(() => {
-        modal.classList.add('hidden');
-      }, 150); 
-  }
-
-  document.getElementById("cancelButton").addEventListener("click", hideModal);
-  document.getElementById("closeModalBtn").addEventListener("click", hideModal);
-
-async function getReviewEntries(){
-    return fetch("{% url 'review:show_json' %}").then((res) => res.json())
-  }
- function addReviewEntry() {
-    fetch("{% url 'review:create_review' id=id %}", {
-      method: "POST",
-      body: new FormData(document.querySelector('#reviewEntryForm')),
-    })
-    .then(response => refreshReviewEntries())
-
-    document.getElementById("reviewEntryForm").reset(); 
-    document.querySelector("[data-modal-toggle='crudModal']").click();
-
-    return false;
-  }
-async function refreshReviewEntries() {
-    document.getElementById("review_entry").innerHTML = "";
-    document.getElementById("review_entry").className = "";
-    const reviewEntries = await getReviewEntries();
-    let htmlString = "";
-    let classNameString = "";
-
-    if (reviewEntries.length === 0) {
-        classNameString = "flex flex-col items-center justify-center min-h-[24rem] p-6";
-        htmlString = `
-            <div class="flex flex-col items-center justify-center min-h-[24rem] p-6">
-                <p class="text-center text-gray-600 mt-4">Belum ada data review pada product ini:(.</p>
-            </div>
-        `;
+    function getReviewEntries() {
+        const productId = "{{ id }}";
+        return fetch(`/review/json/${productId}/`)
+            .then((res) => res.json())
+            .catch(error => console.error('Error fetching reviews:', error));
     }
-    else {
-        classNameString = "columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6 w-full"
-        reviewEntries.forEach((item) => {
-            const rating = DOMPurify.sanitize(item.fields.rating);
-            const description = DOMPurify.sanitize(item.fields.description);
-            htmlString += `
-            <div class="relative break-inside-avoid">
-                <div class="absolute top-2 z-10 left-1/2 -translate-x-1/2 flex items-center -space-x-2">
-                    <div class="w-[3rem] h-8 bg-gray-200 rounded-md opacity-80 -rotate-90"></div>
-                    <div class="w-[3rem] h-8 bg-gray-200 rounded-md opacity-80 -rotate-90"></div>
+
+    async function refreshReviewEntries() {
+    const reviewContainer = document.getElementById('review_entry');
+    reviewContainer.innerHTML = "";
+    const currentUsername = "{{ user.username }}"; // Ambil username user yang login
+
+    const reviews = await getReviewEntries();
+    const ratingOption = document.getElementById("ratingDropDown").value;
+
+    // Urutkan reviews berdasarkan date_create (dari yang terbaru)
+    reviews.sort((a, b) => new Date(b.fields.date_create) - new Date(a.fields.date_create));
+
+    // Filter reviews berdasarkan rating yang dipilih
+    const filteredReviews = reviews.filter((item) => {
+        const rating = item.fields.rating;
+        switch (ratingOption) {
+            case "onestar": return rating === 1;
+            case "twostar": return rating === 2;
+            case "threestar": return rating === 3;
+            case "fourstar": return rating === 4;
+            case "fivestar": return rating === 5;
+            case "allstar": return true; // Tampilkan semua review
+            default: return true; // "Semua Rating" menampilkan semua review
+        }
+    });
+
+    // Tampilkan review setelah difilter
+    if (filteredReviews.length === 0) {
+        reviewContainer.innerHTML = `<p>No reviews available for this rating.</p>`;
+    } else {
+        filteredReviews.forEach(item => {
+            // Cek apakah review ini milik user yang sedang login
+            const isOwner = item.fields.user.username === currentUsername;
+            
+            // Buat button edit dan delete hanya jika user adalah pemilik review
+            const actionButtons = isOwner ? `
+                <a href="/review/edit-review/${item.pk}" class="bg-yellow-500 hover:bg-yellow-600 text-white rounded-full p-2 transition duration-300 shadow-md">Edit</a>
+                <a href="/review/delete-review/${item.pk}" class="bg-red-500 hover:bg-red-600 text-white rounded-full p-2 transition duration-300 shadow-md">Delete</a>
+            ` : '';
+
+            reviewContainer.innerHTML += `
+                <div>
+                    <h1>${item.fields.user.username}</h1>
+                    <h3>Rating: ${"⭐".repeat(item.fields.rating)}</h3>
+                    <p>${item.fields.description}</p>
+                    <h4>Date: ${item.fields.date_create}</h4>
+                    ${actionButtons}
                 </div>
-                <div class="relative top-5 bg-indigo-100 shadow-md rounded-lg mb-6 break-inside-avoid flex flex-col border-2 border-indigo-300 transform rotate-1 hover:rotate-0 transition-transform duration-300">
-                    <div class="bg-indigo-200 text-gray-800 p-4 rounded-t-lg border-b-2 border-indigo-300">
-                        <h3 class="font-bold text-xl mb-2">${item.fields.rating}</h3>
-                        <p class="text-gray-600">${item.fields.description}</p>
-                        <h4> ${item.fields.date_create}</h4>
-                    </div>
-                </div>
-                <div class="absolute top-0 -right-4 flex space-x-1">
-                    <a href="/edit-review/${item.pk}" class="bg-yellow-500 hover:bg-yellow-600 text-white rounded-full p-2 transition duration-300 shadow-md">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-9 w-9" viewBox="0 0 20 20" fill="currentColor">
-                            <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
-                        </svg>
-                    </a>
-                    <a href="/delete-review/${item.pk}" class="bg-red-500 hover:bg-red-600 text-white rounded-full p-2 transition duration-300 shadow-md">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-9 w-9" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
-                        </svg>
-                    </a>
-                </div>
-            </div>
             `;
         });
     }
-    document.getElementById("review_entry").className = classNameString;
-    document.getElementById("review_entry").innerHTML = htmlString;
 }
-refreshReviewEntries();
-document.getElementById("reviewEntryForm").addEventListener("submit", (e) => {
-    e.preventDefault();
-    addReviewEntry();
-  })
 
+    function showReviewModal() {
+        document.getElementById('ReviewModal').classList.remove('hidden');
+    }
+
+    function hideReviewModal() {
+        document.getElementById('ReviewModal').classList.add('hidden');
+    }
+
+    function addReviewEntry() {
+        fetch("{% url 'review:create_review' id %}", {
+            method: "POST",
+            body: new FormData(document.querySelector('#ReviewId')),
+        })
+        .then(response => refreshReviewEntries())
+        .catch(error => console.error('Error adding review:', error));
+
+        document.getElementById("ReviewId").reset();
+        hideReviewModal();
+        return false;
+    }
+
+    document.getElementById("ReviewId").addEventListener("submit", (e) => {
+        e.preventDefault();
+        addReviewEntry();
+    });
+
+    // Panggil untuk pertama kali
+    refreshReviewEntries();
 </script>
-<button data-modal-target="crudModal" data-modal-toggle="crudModal" class="btn bg-indigo-700 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105" onclick="showModal();">
-    Add Review
-</button>
+</script>
+{% include 'footer.html' %}
+
 {% endblock content %}
