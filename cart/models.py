@@ -16,6 +16,7 @@ class CartProduct(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='cart_products')
     amount = models.PositiveIntegerField()
     note = models.TextField(max_length=144, blank=True, null=True)
+    date_added = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         unique_together = ('cart', 'product')
