@@ -12,8 +12,20 @@
                     <a href="{% url 'forum:create_forum_post' product.id %}"
                        class="w-full px-4 py-2 text-base font-semibold text-white bg-[#b85c2c] hover:bg-[#f09027] border border-transparent rounded-md shadow-sm">Buat diskusi baru</a>
                 {% endif %}
+                <div class="flex items-center justify-between text-white">
+                    <h2 class="text-lg font-semibold">Diskusi</h2>
+                    <select id="post-time-filter"
+                            class="px-3 py-2 text-gray-700 bg-gray-200 rounded-md">
+                        <option value="" selected>Filter waktu</option>
+                        <option value="3_hours">3 jam</option>
+                        <option value="12_hours">12 jam</option>
+                        <option value="1_day">1 hari</option>
+                        <option value="3_days">3 hari</option>
+                        <option value="7_days">7 hari</option>
+                    </select>
+                </div>
                 {% if not posts %}
-                    <div class="flex flex-col items-center justify-center flex-grow space-y-8 rounded-lg forum-post">
+                    <div class="flex flex-col items-center justify-center flex-grow space-y-8 rounded-lg">
                         <svg class="w-20"
                              viewBox="0 0 16 16"
                              xmlns="http://www.w3.org/2000/svg"
@@ -35,7 +47,7 @@
                     </div>
                 {% else %}
                     {% for post in posts %}
-                        <div class="p-4 bg-white border border-gray-200 rounded-md hover:bg-gray-50">
+                        <div class="p-4 bg-white border border-gray-200 rounded-md hover:bg-gray-50 forum-post">
                             <h6 class="flex items-center mb-2 text-xs text-gray-500">
                                 <span>Diposting oleh {{ post.user }}</span>
                                 <span class="mx-1">•</span>
@@ -112,5 +124,54 @@
                 event.stopPropagation(); // Prevent event bubbling
             });
         });
+    </script>
+    <script>
+        function filterPost(postFilter) {
+            let thresholdTime;
+            const now = new Date();
+            
+             // Calculate the threshold time based on the selected filter
+            switch (postFilter.value) {
+                case '3_hours':
+                    thresholdTime = new Date(now.getTime() - 3 * 60 * 60 * 1000);
+                    break;
+                case '12_hours':
+                    thresholdTime = new Date(now.getTime() - 12 * 60 * 60 * 1000);
+                    break;
+                case '1_day':
+                    thresholdTime = new Date(now.getTime() - 24 * 60 * 60 * 1000);
+                    break;
+                case '3_days':
+                    thresholdTime = new Date(now.getTime() - 3 * 24 * 60 * 60 * 1000);
+                    break;
+                case '7_days':
+                    thresholdTime = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
+                    break;
+                default:
+                    thresholdTime = null; // No filtering
+            }
+
+            const posts = document.querySelectorAll(".forum-post");
+            posts.forEach((post) => {
+                const postDateValue = post.querySelector(".forum-post-date").textContent;
+                const postDate = new Date(postDateValue.split('-').reverse().join('-'));
+                // Show posts that are within the specified time frame
+                post.classList.add("hidden"); // Start from the same state
+                if (thresholdTime && postDate >= thresholdTime) {
+                    post.classList.add("hidden"); // Show post
+                } else {
+                    post.classList.remove("hidden"); // Hide post
+                }
+            });
+        }
+
+        // Add event listener
+        const postFilter = document.querySelector("#post-time-filter");
+        postFilter.addEventListener("change", function(e) {
+            filterPost(postFilter)
+        });
+
+        // Execute on page load
+        filterPost(postFilter)
     </script>
 {% endblock content %}
