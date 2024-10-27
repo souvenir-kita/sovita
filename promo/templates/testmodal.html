@@ -1,0 +1,35 @@
+<div>
+  <div>
+    <div> <!--Header-->
+      <p>Tambah Promo</p>
+    </div>
+    <div> <!--Body-->
+      <form id="formpromo">
+        <div>
+          <label for="nama" id="nama">Nama</label>
+          <input type="text" name="nama" id="nama">
+        </div>
+        <div>
+          <label for="kode" id="kode">Kode</label>
+          <input type="text" name="kode" id="kode">
+        </div>
+        <div>
+          <label for="potongan" id="potongan">Potongan</label>
+          <input type="number" step="100" min=0 name="potongan" id="potongan">
+        </div>
+        <div>
+          <label for="stock" id="stock">Stock</label>
+          <input type="number" step="1" min=0 name="stock" id="stock">
+        </div>
+        <div>
+          <label for="deskripsi" id="deskripsi">Deskripsi</label>
+          <textarea name="deskripsi" id="deskripsi"></textarea>
+        </div>
+      </form>
+    </div>
+    <div> <!--footer-->
+      <button type="button" id="cancel">Cancel</button>
+      <button type="submit" id="submitItem" form="itemForm">Save</button>
+    </div>
+  </div>  
+</div>

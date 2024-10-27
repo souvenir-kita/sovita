@@ -5,22 +5,25 @@
 
 <div class="flex flex-col items-center font-sans" style="background: linear-gradient(153deg, #F09027 12.76%, #8CBEAA 71.77%);">
     <div id="product_cards"></div>
-    <div class="flex justify-end mt-4 w-full max-w-7xl p-5">
-    <div style="margin-right: 400px;">
-      <select id="sortDropdown" style="text-align: center;" class="bg-[#f09027] text-white font-bold py-2 px-4 rounded-lg transition duration-300 ease-in-out transform hover:bg-[#b85c2c] hover:scale-101 mt-4">
-        <option value="ascending">Sort by Price: Ascending</option>
-        <option value="descending">Sort by Price: Descending</option>
-        <option value="atoz">Sort by Alphabet: A - Z</option>
-        <option value="ztoa">Sort by Alphabet: Z - A</option>
-      </select>
-      <select id="categoryDropdown" style="text-align: center;" class="bg-[#f09027] text-white font-bold py-2 px-4 rounded-lg transition duration-300 ease-in-out transform hover:bg-[#b85c2c] hover:scale-101 mt-4">
-        <option value="all">All Categories</option>
-        <option value="FnB">FnB</option>
-        <option value="Dekorasi">Dekorasi</option>
-        <option value="Pakaian/Kain">Pakaian/Kain</option>
-        <option value="Lulur & Aromateraphy">Lulur & Aromatherapy</option>
-        <option value="Aksesoris">Aksesoris</option>
-      </select>
+    <div class="flex flex-col md:flex-row justify-end mt-4 w-full max-w-7xl p-5">
+      <div class="flex space-x-4 md:space-x-8" style="margin-right: 375px;">
+          <select id="sortDropdown" class="bg-[#b85c2c] text-white font-bold py-2 px-4 rounded-lg transition duration-300 ease-in-out transform hover:bg-[#b85c2c] hover:scale-101 mt-4">
+              <option value="ascending">Sort by Price: Ascending</option>
+              <option value="descending">Sort by Price: Descending</option>
+              <option value="atoz">Sort by Alphabet: A - Z</option>
+              <option value="ztoa">Sort by Alphabet: Z - A</option>
+              <option value="newtoold">Sort by Time: Newest - Oldest</option>
+              <option value="oldtonew">Sort by Time: Oldest - Newest</option>
+          </select>
+          <select id="categoryDropdown" class="bg-[#b85c2c] text-white font-bold py-2 px-4 rounded-lg transition duration-300 ease-in-out transform hover:bg-[#b85c2c] hover:scale-101 mt-4">
+              <option value="all">All Categories</option>
+              <option value="FnB">FnB</option>
+              <option value="Dekorasi">Dekorasi</option>
+              <option value="Pakaian/Kain">Pakaian/Kain</option>
+              <option value="Lulur & Aromateraphy">Lulur & Aromatherapy</option>
+              <option value="Aksesoris">Aksesoris</option>
+          </select>
+      </div>
     </div>
 </div>
 
@@ -72,18 +75,21 @@
       });
       
       filteredEntries.sort((a, b) => {
-          if (sortOption === "ascending") {
+        if (sortOption === "ascending") {
             return a.fields.price - b.fields.price;
-          } else if (sortOption === "descending") {
+        } else if (sortOption === "descending") {
             return b.fields.price - a.fields.price;
-          } else if (sortOption === "atoz") {
+        } else if (sortOption === "atoz") {
             return a.fields.name.localeCompare(b.fields.name);
-          } else {
+        } else if (sortOption === "ztoa") {
             return b.fields.name.localeCompare(a.fields.name);
-          }
+        } else if (sortOption === "newtoold") {
+            return new Date(b.fields.date_created) - new Date(a.fields.date_created);
+        } else {
+            return new Date(a.fields.date_created) - new Date(b.fields.date_created);
+        }
       });
-
-
+      
       console.log("panjangnya adalah ");
       console.log(filteredEntries.length);
 
@@ -100,7 +106,7 @@
 
       } else {
           htmlString = `
-          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 w-full max-w-7xl p-5 mt-24">
+          <div class="flex flex-wrap gap-5 w-full max-w-7xl p-5 mt-24 justify-start w-full">
           `;
           filteredEntries.forEach((item) => {
               const name = item.fields.name;

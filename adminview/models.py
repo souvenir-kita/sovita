@@ -10,6 +10,7 @@ class Product(models.Model):
     picture = models.ImageField(null=True, blank=True, upload_to="images/", default='/images/default.png')
     category = models.CharField(max_length=255)
     location = models.CharField(max_length=511)
+    date_created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.name
