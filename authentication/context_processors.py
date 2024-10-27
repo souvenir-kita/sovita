@@ -13,6 +13,7 @@ def user_role(request):
             logger.debug(f"UserProfile does not exist for user: {request.user.username}")
     else:
         role = None
+    print("role skarang", role)
     return {'user_role': role}
 
 def user_name(request):

@@ -1,185 +1,171 @@
 {% extends 'base.html' %}
 {% block content %}
-    {% include 'navbar.html' %}
-    <div class="min-h-screen font-sans"
-         style="background: linear-gradient(153deg, #F09027 12.76%, #8CBEAA 71.77%)">
-        <div class="container px-4 py-12 mx-auto mt-12">
-            <div class="flex flex-col items-start justify-center gap-8 lg:flex-row">
-                <div class="w-full p-8 bg-white bg-opacity-50 rounded-lg shadow-lg lg:w-2/3">
-                    <div class="flex flex-col gap-8 md:flex-row">
-                        <div class="w-full mt-16 md:w-1/3">
-                            <img src="{{ product.picture.url }}"
-                                 alt="{{ product.name }}"
-                                 class="object-contain w-full h-64 p-4 bg-white rounded-lg shadow-md">
-                        </div>
-                        <div class="w-full md:w-2/3">
-                            <h1 class="mb-4 text-3xl font-bold text-gray-800">{{ product.name }}</h1>
-                            <div class="space-y-4">
-                                <div class="flex items-center">
-                                    <span class="w-24 font-semibold text-gray-600">Price:</span>
-                                    <span class="text-2xl font-bold text-gray-800">Rp{{ product.price }}</span>
-                                </div>
-                                <div class="flex items-center">
-                                    <span class="w-24 font-semibold text-gray-600">Category:</span>
-                                    <span class="bg-[#f09027] text-white px-3 py-1 rounded-full text-sm">{{ product.category }}</span>
-                                </div>
-                                <div>
-                                    <h2 class="mb-2 font-semibold text-gray-600">Description:</h2>
-                                    <div class="p-4 bg-white rounded-lg bg-opacity-70">
-                                        <p class="text-gray-700 whitespace-pre-wrap">{{ product.description }}</p>
-                                    </div>
-                                </div>
-                                <form action="{% url 'cart:add_product_to_cart' product.id %}"
-                                      method="post"
-                                      class="mt-6">
-                                    {% csrf_token %}
-                                    <div class="flex items-center gap-4">
-                                        <div class="flex items-center">
-                                            <label for="cart_amount" class="mr-2 font-semibold text-gray-600">Amount:</label>
-                                            <input type="number"
-                                                   name="cart_amount"
-                                                   id="cart_amount"
-                                                   required
-                                                   min="1"
-                                                   value="1"
-                                                   class="border border-gray-300 rounded-md text-center w-20 p-2 focus:ring-[#f09027] focus:border-[#f09027]">
-                                        </div>
-                                        <button type="submit"
-                                                class="bg-[#f09027] hover:bg-[#b85c2c] text-white font-bold py-2 px-6 rounded-lg transition duration-300 ease-in-out transform hover:scale-105">
-                                            Add To Cart
-                                        </button>
-                                    </div>
-                                </form>
-                                <a href="{% url 'forum:forum_posts' product.id %}"
-                                   class="block w-max bg-[#f09027] hover:bg-[#b85c2c] text-white font-bold py-2 px-6 rounded-lg transition duration-300 ease-in-out transform">
-                                    Go To Forum
-                                </a>
-                            <button id="wishlist-toggle" 
-                                    class="{% if is_wishlisted %}bg-gradient-to-r from-pink-500 to-red-500{% else %}bg-gradient-to-r from-yellow-400 to-orange-500{% endif %} text-white font-bold py-2 px-4 rounded-full shadow-lg transition transform hover:scale-105"
-                                    data-wishlisted="{% if is_wishlisted %}true{% else %}false{% endif %}"
-                                    onclick="toggleWishlist('{{ product.id }}')">
-                                {% if is_wishlisted %}
-                                    Remove from Wishlist
-                                {% else %}
-                                    Add to Wishlist
-                                {% endif %}
-                            </button>
-                            <div id="wishlistModal" class="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center hidden">
-                                <div class="bg-white rounded-lg shadow-lg p-7 w-1/3">
-                                    <h2 class="text-xl font-bold mb-4">Add Product to Wishlist</h2>
-                                    <form id="wishlistForm">
-                                        {% csrf_token %}
-                                        <input type="hidden" id="productId" name="productId">
-                                        <label for="priority" class="block font-semibold">Priority Level:</label>
-                                        <select id="priority" name="priority" class="border border-gray-300 rounded-md mb-2 w-full">
-                                            <option value="1">Low</option>
-                                            <option value="2" selected>Medium</option>
-                                            <option value="3">High</option>
-                                        </select>
-                                        <label for="description" class="block font-semibold">Description:</label>
-                                        <textarea id="description" name="description" rows="3" class="border border-gray-300 rounded-md w-full" placeholder="  Add a note..."></textarea>
-                                        <div class="flex justify-end mt-4">
-                                            <button type="button" onclick="closeWishlistModal()" class="bg-gray-500 text-white px-4 py-2 rounded mr-2">Cancel</button>
-                                            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Add to Wishlist</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
+  {% include 'navbar.html' %}
+  <div class="min-h-screen font-sans" style="background: linear-gradient(153deg, #F09027 12.76%, #8CBEAA 71.77%)">
+    <div class="container px-4 py-12 mx-auto mt-12">
+      <div class="flex flex-col items-start justify-center gap-8 lg:flex-row">
+        <div class="w-full p-8 bg-white bg-opacity-50 rounded-lg shadow-lg lg:w-2/3">
+          <div class="flex flex-col gap-8 md:flex-row">
+            <div class="w-full mt-16 md:w-1/3">
+              <img src="{{ product.picture.url }}" alt="{{ product.name }}" class="object-contain w-full h-64 p-4 bg-white rounded-lg shadow-md" />
+            </div>
+            <div class="w-full md:w-2/3">
+              <h1 class="mb-4 text-3xl font-bold text-gray-800">{{ product.name }}</h1>
+              <div class="space-y-4">
+                <div class="flex items-center">
+                  <span class="w-24 font-semibold text-gray-600">Harga:</span>
+                  <span class="text-2xl font-bold text-gray-800">Rp{{ product.price }}</span>
+                </div>
+                <div class="flex items-center">
+                  <span class="w-24 font-semibold text-gray-600">Kategori:</span>
+                  <span class="bg-[#f09027] text-white px-3 py-1 rounded-full text-sm">{{ product.category }}</span>
+                </div>
+                <div>
+                  <h2 class="mb-2 font-semibold text-gray-600">Deskripsi:</h2>
+                  <div class="p-4 bg-white rounded-lg bg-opacity-70">
+                    <p class="text-gray-700 whitespace-pre-wrap">{{ product.description }}</p>
+                  </div>
+                </div>
+                {% if user_role %}
+                <form action="{% url 'cart:add_product_to_cart' product.id %}" method="post" class="mt-6">
+                  {% csrf_token %}
+                  <div class="flex items-center gap-4">
+                    <div class="flex items-center">
+                      <label for="cart_amount" class="mr-2 font-semibold text-gray-600">Jumlah:</label>
+                      <input type="number" name="cart_amount" id="cart_amount" required min="1" value="1" class="border border-gray-300 rounded-md text-center w-20 p-2 focus:ring-[#f09027] focus:border-[#f09027]" />
                     </div>
+                    <button type="submit" class="bg-[#f09027] hover:bg-[#b85c2c] text-white font-bold py-2 px-6 rounded-lg transition duration-300 ease-in-out transform hover:scale-105">Tambah ke keranjang</button>
+                  </div>
+                </form>
+                {% endif %}
+                <a href="{% url 'forum:forum_posts' product.id %}" class="block w-max bg-[#f09027] hover:bg-[#b85c2c] text-white font-bold py-2 px-6 rounded-lg transition duration-300 ease-in-out transform">Lihat forum</a>
+                {% if user_role %}
+                  <button id="wishlist-toggle"
+                    class="{% if is_wishlisted %}
+                      bg-gradient-to-r from-pink-500 to-red-500
+                    {% else %}
+                      bg-gradient-to-r from-yellow-400 to-orange-500
+                    {% endif %} text-white font-bold py-2 px-4 rounded-full shadow-lg transition transform hover:scale-105"
+                    data-wishlisted="{% if is_wishlisted %}
+                      true
+                    {% else %}
+                      false
+                    {% endif %}"
+                    onclick="toggleWishlist('{{ product.id }}')">
+                    {% if is_wishlisted %}
+                      Hapus dari wishlist
+                    {% else %}
+                      Tambah ke wishlist
+                    {% endif %}
+                  </button>
+                {% endif %}
+                <div id="wishlistModal" class="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center hidden">
+                  <div class="bg-white rounded-lg shadow-lg p-7 w-1/3">
+                    <h2 class="text-xl font-bold mb-4">Add Product to Wishlist</h2>
+                    <form id="wishlistForm">
+                      {% csrf_token %}
+                      <input type="hidden" id="productId" name="productId" />
+                      <label for="priority" class="block font-semibold">Priority Level:</label>
+                      <select id="priority" name="priority" class="border border-gray-300 rounded-md mb-2 w-full">
+                        <option value="1">Low</option>
+                        <option value="2" selected>Medium</option>
+                        <option value="3">High</option>
+                      </select>
+                      <label for="description" class="block font-semibold">Description:</label>
+                      <textarea id="description" name="description" rows="3" class="border border-gray-300 rounded-md w-full" placeholder="  Add a note..."></textarea>
+                      <div class="flex justify-end mt-4">
+                        <button type="button" onclick="closeWishlistModal()" class="bg-gray-500 text-white px-4 py-2 rounded mr-2">Cancel</button>
+                        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Add to Wishlist</button>
+                      </div>
+                    </form>
+                  </div>
                 </div>
+              </div>
             </div>
-            <div class="w-full p-6 bg-white bg-opacity-50 rounded-lg shadow-lg lg:w-1/3">
-                <h2 class="mb-4 text-xl font-bold text-gray-800">Location</h2>
-                <div class="overflow-hidden rounded-lg shadow-md">
-                    <iframe src="{{ product.location }}"
-                            width="100%"
-                            height="400"
-                            style="border:0"
-                            allowfullscreen=""
-                            loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"
-                            class="w-full"></iframe>
-                </div>
-            </div>
+          </div>
         </div>
-        <div class="flex justify-center mt-8">
-            <a href="{% url 'display:display_main' %}"
-               class="inline-block bg-[#f09027] hover:bg-[#b85c2c] text-white font-semibold py-2 px-6 rounded-lg transition duration-300 ease-in-out transform hover:scale-105">Back to Products</a>
+        <div class="w-full p-6 bg-white bg-opacity-50 rounded-lg shadow-lg lg:w-1/3">
+          <h2 class="mb-4 text-xl font-bold text-gray-800">Lokasi</h2>
+          <div class="overflow-hidden rounded-lg shadow-md">
+            <iframe src="{{ product.location }}" width="100%" height="400" style="border:0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="w-full"></iframe>
+          </div>
         </div>
+      </div>
+      <div class="flex justify-center mt-8">
+        <a href="{% url 'display:display_main' %}" class="inline-block bg-[#f09027] hover:bg-[#b85c2c] text-white font-semibold py-2 px-6 rounded-lg transition duration-300 ease-in-out transform hover:scale-105">Kembali ke beranda</a>
+      </div>
     </div>
-</div>
-<script>
+  </div>
+  <script>
     function toggleWishlist(productId) {
-        const wishlistButton = document.getElementById('wishlist-toggle');
-        const isWishlisted = wishlistButton.getAttribute('data-wishlisted') === 'true';
-
-        if (isWishlisted) {
-            fetch(`/wishlist/toggle/${productId}/`, {
-                method: 'POST',
-                headers: {
-                    'X-CSRFToken': '{{ csrf_token }}',
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({})
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.status === 'success' && data.action === 'removed') {
-                    wishlistButton.classList.remove('bg-gradient-to-r', 'from-pink-500', 'to-red-500');
-                    wishlistButton.classList.add('bg-gradient-to-r', 'from-yellow-400', 'to-orange-500');
-                    wishlistButton.textContent = 'Add to Wishlist';
-                    wishlistButton.setAttribute('data-wishlisted', 'false');
-                }
-            })
-            .catch(error => console.error('Error:', error));
-        } else {
-            showWishlistModal(productId);
-        }
-    }
-
-    function showWishlistModal(productId) {
-        document.getElementById('productId').value = productId;
-        document.getElementById('wishlistModal').classList.remove('hidden');
-    }
-
-    function closeWishlistModal() {
-        document.getElementById('wishlistModal').classList.add('hidden');
-    }
-
-    document.getElementById('wishlistForm').addEventListener('submit', function(event) {
-        event.preventDefault();
-
-        const productId = document.getElementById('productId').value;
-        const priority = document.getElementById('priority').value;
-        const description = document.getElementById('description').value;
-        const csrfToken = '{{ csrf_token }}';
-
+      const wishlistButton = document.getElementById('wishlist-toggle')
+      const isWishlisted = wishlistButton.getAttribute('data-wishlisted') === 'true'
+    
+      if (isWishlisted) {
         fetch(`/wishlist/toggle/${productId}/`, {
-            method: 'POST',
-            headers: {
-                'X-CSRFToken': csrfToken,
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ priority, description })
+          method: 'POST',
+          headers: {
+            'X-CSRFToken': '{{ csrf_token }}',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({})
         })
-        .then(response => response.json())
-        .then(data => {
-            if (data.status === 'success' && data.action === 'added') {
-                const wishlistButton = document.getElementById('wishlist-toggle');
-                wishlistButton.classList.remove('bg-gradient-to-r', 'from-yellow-400', 'to-orange-500');
-                wishlistButton.classList.add('bg-gradient-to-r', 'from-pink-500', 'to-red-500');
-                wishlistButton.textContent = 'Remove from Wishlist';
-                wishlistButton.setAttribute('data-wishlisted', 'true');
-                closeWishlistModal();
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.status === 'success' && data.action === 'removed') {
+              wishlistButton.classList.remove('bg-gradient-to-r', 'from-pink-500', 'to-red-500')
+              wishlistButton.classList.add('bg-gradient-to-r', 'from-yellow-400', 'to-orange-500')
+              wishlistButton.textContent = 'Add to Wishlist'
+              wishlistButton.setAttribute('data-wishlisted', 'false')
             }
+          })
+          .catch((error) => console.error('Error:', error))
+      } else {
+        showWishlistModal(productId)
+      }
+    }
+    
+    function showWishlistModal(productId) {
+      document.getElementById('productId').value = productId
+      document.getElementById('wishlistModal').classList.remove('hidden')
+    }
+    
+    function closeWishlistModal() {
+      document.getElementById('wishlistModal').classList.add('hidden')
+    }
+    
+    document.getElementById('wishlistForm').addEventListener('submit', function (event) {
+      event.preventDefault()
+    
+      const productId = document.getElementById('productId').value
+      const priority = document.getElementById('priority').value
+      const description = document.getElementById('description').value
+      const csrfToken = '{{ csrf_token }}'
+    
+      fetch(`/wishlist/toggle/${productId}/`, {
+        method: 'POST',
+        headers: {
+          'X-CSRFToken': csrfToken,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ priority, description })
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.status === 'success' && data.action === 'added') {
+            const wishlistButton = document.getElementById('wishlist-toggle')
+            wishlistButton.classList.remove('bg-gradient-to-r', 'from-yellow-400', 'to-orange-500')
+            wishlistButton.classList.add('bg-gradient-to-r', 'from-pink-500', 'to-red-500')
+            wishlistButton.textContent = 'Remove from Wishlist'
+            wishlistButton.setAttribute('data-wishlisted', 'true')
+            closeWishlistModal()
+          }
         })
-        .catch(error => {
-            console.error('Error:', error);
-        });
-    });
+        .catch((error) => {
+          console.error('Error:', error)
+        })
+    })
+  </script>
 
-</script>
-
-{% include 'footer.html' %}
+  {% include 'footer.html' %}
 {% endblock %}
