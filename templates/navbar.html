@@ -25,6 +25,7 @@ box-shadow: 0px 6px 27px 0px rgba(0, 0, 0, 0.25);">
           <a href="{% url 'display:display_main' %}" class="text-white text-lg hover:text-cyan-200">Home</a>
           {% if user_role == 'admin' %}
             <a href="{% url 'adminview:show_admin' %}" class="text-white text-lg hover:text-cyan-200">Admin</a>
+            <a href="{% url 'promo:show_promo' %}" class="text-white text-lg hover:text-cyan-200">Promo</a>
           {% endif %}
           <a href="{% url 'display:search' %}" class="text-white text-lg hover:text-cyan-200">Search</a>
           <a href="{% url 'cart:show_cart' %}" class="text-white text-lg hover:text-cyan-200">Cart</a>
@@ -47,7 +48,10 @@ box-shadow: 0px 6px 27px 0px rgba(0, 0, 0, 0.25);">
       <div class="flex items-center justify-center font-main font-bold bg-white bg-opacity-70 rounded-md mb-2">
         <a href="{% url 'adminview:show_admin' %}" class="text-black text-lg hover:text-cyan-200">Admin</a>
       </div>
-      {% endif %}
+      <div class="flex items-center justify-center font-main font-bold bg-white bg-opacity-70 rounded-md mb-2">
+        <a href="{% url 'promo:show_promo' %}" class="text-black text-lg hover:text-cyan-200">Promo</a>
+      </div>
+      {% endif %} 
       <div class="flex items-center justify-center font-main font-bold bg-white bg-opacity-70 rounded-md mb-2">
         <a href="{% url 'display:search' %}" class="text-black text-lg hover:text-cyan-200">Search</a>
       </div>
