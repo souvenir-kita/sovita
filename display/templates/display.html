@@ -6,8 +6,8 @@
 <div class="flex flex-col items-center font-sans" style="background: linear-gradient(153deg, #F09027 12.76%, #8CBEAA 71.77%);">
     <div id="product_cards"></div>
     <div class="flex flex-col md:flex-row justify-center mt-4 w-full max-w-7xl p-5">
-      <div class="flex space-x-4 md:space-x-8">
-          <select id="sortDropdown" class="bg-[#b85c2c] text-white font-bold py-2 px-4 rounded-lg transition duration-300 ease-in-out transform hover:bg-[#b85c2c] hover:scale-101 mt-4">
+      <div class="flex flex-wrap justify-center space-x-4 md:space-x-8">
+          <select id="sortDropdown" class="bg-[#b85c2c] text-white md:text-base text-sm font-bold py-2 px-1 md:px- rounded-lg transition duration-300 ease-in-out transform hover:bg-[#b85c2c] hover:scale-101 mt-4">
               <option value="ascending">Urut berdasarkan harga: Naik</option>
               <option value="descending">Urut berdasarkan harga: Turun</option>
               <option value="atoz">Urut berdasarkan alfabet: Naik</option>
@@ -15,7 +15,7 @@
               <option value="newtoold">Urut berdasarkan waktu: Naik</option>
               <option value="oldtonew">Urut berdasarkan waktu: Turun</option>
           </select>
-          <select id="categoryDropdown" class="bg-[#b85c2c] text-white font-bold py-2 px-4 rounded-lg transition duration-300 ease-in-out transform hover:bg-[#b85c2c] hover:scale-101 mt-4">
+          <select id="categoryDropdown" class="bg-[#b85c2c] md:text-base text-sm text-white font-bold py-2 px-1 md:px-4 rounded-lg transition duration-300 ease-in-out transform hover:bg-[#b85c2c] hover:scale-101 mt-4">
               <option value="all">Semua kategori</option>
               <option value="FnB">FnB</option>
               <option value="Dekorasi">Dekorasi</option>
@@ -107,10 +107,10 @@
               const picture = item.fields.picture;
 
               htmlString += `
-              <div class="bg-white bg-opacity-50 border border-gray-300 rounded-lg sm:p-5 p-3 shadow-lg hover:scale-105 transition-transform duration-200 text-center flex flex-col justify-between">
+              <div class="bg-white bg-opacity-50 w-32 md:w-48 border border-gray-300 rounded-lg sm:p-5 p-3 shadow-lg hover:scale-105 transition-transform duration-200 text-center flex flex-col justify-between ">
                   <div>
                       ${picture ? `<img src="/media/${picture}" alt="${name}" class="md:w-36 md:h-36 w-24 h-24" style="object-fit: cover; border-radius: 8px; margin: 0 auto;">` : ''}
-                      <h5 class="product-name mb-2 font-semibold mt-4">${name}</h5>
+                      <h5 class="product-name mb-2 font-semibold mt-4 line-clamp-2">${name}</h5>
                       <h5 class="mb-4 text-gray-700">Rp${price}</h5>
                   </div>
                   <div class="flex md:space-x-4 space-x-2 justify-center">
