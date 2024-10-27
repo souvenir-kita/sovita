@@ -5,7 +5,6 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Mouse+Memoirs&display=swap" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <div class=" overflow-x-hidden px-4 md:px-8 pb-8 pt-24 fixed inset-0 flex flex-col items-center justify-center" style="background: linear-gradient(153deg, #F09027 12.76%, #8CBEAA 71.77%);">
   <div class=" rounded-2xl p-6 w-full max-w-2xl mx-4  bg-white bg-opacity-50">
     <form action="{% url 'promo:edit_promo' promo.pk %}" id="formpromo">
@@ -44,14 +43,14 @@
       </div>
       <div class="flex justify-center mt-4">
         <div class="m-1">
-            <button class="w-24 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600" id="edit" onclick="editMode()" type="button">Edit</button>
-            <button class="w-24 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600" style="display:none;" id="cancel" onclick="cancelEdit()" type="button">Cancel</button>
+            <button class="w-24 px-4 py-2 bg-[#B5592A] text-white rounded hover:bg-[#9b4e27]" id="edit" onclick="editMode()" type="button">Edit</button>
+            <button class="w-24 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600" style="display:none;" id="cancel" onclick="cancelEdit()" type="button">Cancel</button>
         </div>
         <div class="m-1">
             <a href="{% url 'promo:delete_promo' promo.pk %}">
                 <button class="w-24 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600" id="delete" type="button">Delete</button>
             </a>
-            <button class="w-24 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600" style="display:none;" id="save" type="submit" form="formpromo">Save</button>
+            <button class="w-24 px-4 py-2 bg-[#B5592A] text-white rounded hover:bg-[#9b4e27]" style="display:none;" id="save" type="submit" form="formpromo">Save</button>
         </div>
     </div>
     </form>
