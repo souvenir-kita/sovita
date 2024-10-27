@@ -38,7 +38,10 @@
                   </div>
                 </form>
                 {% endif %}
-                <a href="{% url 'forum:forum_posts' product.id %}" class="block w-max bg-[#f09027] hover:bg-[#b85c2c] text-white font-bold py-2 px-6 rounded-lg transition duration-300 ease-in-out transform">Lihat forum</a>
+                <div class="flex">
+                <a href="{% url 'forum:forum_posts' product.id %}" class="block w-max bg-[#f09027] hover:bg-[#b85c2c] mr-6 text-white font-bold py-2 px-6 rounded-lg transition duration-300 ease-in-out transform">Lihat forum</a>
+                <a href="{% url 'review:show_review' product.id %}" class="block w-max bg-[#f09027] hover:bg-[#b85c2c] text-white font-bold py-2 px-6 rounded-lg transition duration-300 ease-in-out transform">Lihat ulasan</a>
+                </div>
                 {% if user_role %}
                   <button id="wishlist-toggle"
                     class="{% if is_wishlisted %}
