@@ -89,9 +89,6 @@
             return new Date(a.fields.date_created) - new Date(b.fields.date_created);
         }
       });
-      
-      console.log("panjangnya adalah ");
-      console.log(filteredEntries.length);
 
       if (filteredEntries.length === 0) {
         htmlString = `
@@ -102,7 +99,7 @@
 
       } else {
           htmlString = `
-          <div class="flex flex-wrap gap-5 w-full max-w-7xl p-5 mt-24 justify-start w-full">
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 w-full max-w-7xl p-5 mt-24 justify-start">
           `;
           filteredEntries.forEach((item) => {
               const name = item.fields.name;
