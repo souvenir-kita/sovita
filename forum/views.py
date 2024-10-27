@@ -60,7 +60,16 @@ def delete_forum_post(request, product_id, post_id):
 @login_required(login_url="authentication:login")
 def create_forum_post_reply(request, product_id, post_id):
     post = get_object_or_404(Post, pk=post_id)
-    reply = Reply(content=request.POST.get("content"), user=request.user, post=post)
+    content = request.POST.get("content")
+    if not content or content.strip() == "":
+        return JsonResponse(
+            {
+                "status": "failed",
+                "message": "Content cannot be empty.",
+            },
+            status=400,
+        )
+    reply = Reply(content=content, user=request.user, post=post)
     try:
         reply.save()
         return JsonResponse(
@@ -92,7 +101,16 @@ def create_forum_post_reply(request, product_id, post_id):
 @login_required(login_url="authentication:login")
 def update_forum_post_reply(request, product_id, post_id, reply_id):
     reply = get_object_or_404(Reply, pk=reply_id)
-    reply.content = request.POST.get("content")
+    content = request.POST.get("content")
+    if not content or content.strip() == "":
+        return JsonResponse(
+            {
+                "status": "failed",
+                "message": "Content cannot be empty.",
+            },
+            status=400,
+        )
+    reply.content = content
     try:
         reply.save()
         return JsonResponse(

@@ -50,3 +50,7 @@ class mainTest(TestCase):
         cart_product = CartProduct.objects.filter(cart=self.cart, product=self.product).first()
         self.assertIsNotNone(cart_product)
         self.assertEqual(cart_product.amount, 3)
+        
+
+
+    

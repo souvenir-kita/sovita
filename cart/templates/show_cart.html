@@ -89,6 +89,14 @@
         Rp<span id="totalPrice">0</span>
       </p>
       <button class="text-white px-2 py-1 my-2 rounded w-full transition-colors duration-200 ease-in-out" style="background-color: #67BAC6;" onmouseover="this.style.backgroundColor='#8DCAD4'" onmouseout="this.style.backgroundColor='#67BAC6'" onmousedown="this.style.transform='scale(0.95)'" onmouseup="this.style.transform='scale(1)'">Check Out</button>
+      <label for="promo">Kode Promo:</label>
+      <input type="text" id="promo" class="text-black px-2 py-1 my-2 rounded w-full transition-colors duration-200 ease-in-out" style="background-color: white;">
+      
+      <button id="apply-promo" class="text-white px-2 py-1 my-2 rounded w-full transition-colors duration-200 ease-in-out" style="background-color: #67BAC6;" onmouseover="this.style.backgroundColor='#8DCAD4'" onmouseout="this.style.backgroundColor='#67BAC6'" onmousedown="this.style.transform='scale(0.95)'" onmouseup="this.style.transform='scale(1)'">Pakai Promo
+      </button>
+      
+      <p id="discount-display" class="text-black mt-2">Discount: <span id="discount-amount">0%</span></p>
+      
     </div>
   </div>
 
@@ -111,6 +119,9 @@
   {% include 'footer.html' %}
 
   <script>
+    let diskon = 0;
+    let total = 0;
+    
     document.addEventListener('DOMContentLoaded', function () {
       const decrementButtons = document.querySelectorAll('.decrement')
       const incrementButtons = document.querySelectorAll('.increment')
@@ -198,13 +209,14 @@
       }
     
       function updateTotalPrice() {
-        let total = 0
+        total = 0
         checkboxes.forEach((checkbox) => {
           if (checkbox.checked) {
             total += parseFloat(checkbox.getAttribute('data-price'))
           }
         })
-        totalPriceElement.textContent = total.toLocaleString()
+        totalDidiskon = total * (1 - diskon/100);
+        totalPriceElement.textContent = totalDidiskon.toLocaleString()
       }
     
       // Event Listeners
@@ -360,6 +372,41 @@
           closeModal()
         }
       })
+
+    
+    document.getElementById("apply-promo").addEventListener("click", function() {
+    const promoCode = document.getElementById("promo").value;
+    if (promoCode.length >= 4) {  
+        fetch(`/promo/json/kode/${promoCode}/`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Promo tidak ditemukan!");
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.length > 0) {
+                    const discount = data[0].fields.potongan; 
+                    document.getElementById("discount-amount").textContent = discount+ "%";
+                    diskon = discount;
+                    totalDidiskon = total * (1 - diskon/100);
+                    totalDidiskon = totalDidiskon.toLocaleString();
+                    document.getElementById('totalPrice').textContent = totalDidiskon;
+                } else {
+                    document.getElementById("discount-amount").textContent = "Tidak valid!";
+                }
+            })
+            .catch(error => {
+                document.getElementById("discount-amount").textContent = "Tidak valid!";
+            });
+    } else {
+        alert("Kode promo tidak valid!");
+        document.getElementById("discount-amount").textContent = 0;
+    }
+    
+});
     })
+
+  
   </script>
 {% endblock %}

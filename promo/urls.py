@@ -11,4 +11,5 @@ urlpatterns = [
     path('view_promo_admin/<uuid:id>', view_promo_admin, name='view_promo_admin'),
     path('delete/<uuid:id>', delete_promo, name='delete_promo'),
     path('edit_promo/<uuid:pk>/', edit_promo, name='edit_promo'),
+    path('json/kode/<str:kode>/', show_json_by_kode, name='show_json_by_kode'),
 ]
