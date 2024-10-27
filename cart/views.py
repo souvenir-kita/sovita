@@ -26,11 +26,11 @@ def show_cart(request):
         # Get the cart products related to this cart
         cart_products = CartProduct.objects.filter(cart=cart)
         
-        # Apply sorting based on the product's name
+        # Apply sorting based on the product's name explicitly
         if sort == 'alphabet_asc':
-            cart_products = cart_products.order_by('product__name')
+            cart_products = sorted(cart_products, key=lambda cp: cp.product.name.lower())
         elif sort == 'alphabet_dsc':
-            cart_products = cart_products.order_by('-product__name')
+            cart_products = sorted(cart_products, key=lambda cp: cp.product.name.lower(), reverse=True)
     
     context = {
         'cart': cart,
