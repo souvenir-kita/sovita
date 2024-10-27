@@ -20,19 +20,25 @@ box-shadow: 0px 6px 27px 0px rgba(0, 0, 0, 0.25);">
       <div class="hidden md:flex gap-10 ml-auto items-center justify-between w-full">
         <div class="flex items-center">
           <a href="{% url 'display:display_main' %}"><img src="{% static 'image/logo.png' %}" class="w-24" alt="Image 2" /></a>
+          {% if user_role %}
+            <h1 class="text-white font-main font-bold text-l ml-6">Halo, {{ user_name }}!</h1>
+          {% endif %}
         </div>
         <div class="flex gap-10 items-center">
-          <a href="{% url 'display:display_main' %}" class="text-white text-lg hover:text-cyan-200">Home</a>
+          <a href="{% url 'display:display_main' %}" class="text-white font-main text-lg hover:text-cyan-200">Beranda</a>
           {% if user_role == 'admin' %}
-            <a href="{% url 'adminview:show_admin' %}" class="text-white text-lg hover:text-cyan-200">Admin</a>
+            <a href="{% url 'adminview:show_admin' %}" class="text-white font-main text-lg hover:text-cyan-200">Admin</a>
+            <a href="{% url 'promo:show_promo' %}" class="text-white font-main text-lg hover:text-cyan-200">Promo</a>
           {% endif %}
-          <a href="{% url 'display:search' %}" class="text-white text-lg hover:text-cyan-200">Search</a>
-          <a href="{% url 'cart:show_cart' %}" class="text-white text-lg hover:text-cyan-200">Cart</a>
+          <a href="{% url 'display:search' %}" class="text-white font-main text-lg hover:text-cyan-200">Cari</a>
+
           {% if user_role %}
-            <h1 style="margin-top: 2px;" class="text-white text-l">Welcome {{ user_name }}!</h1>
-            <a href="{% url 'authentication:logout' %}"><button class="text-black text-sm rounded-lg py-2 px-4 bg-[rgb(215,215,215)] border-none cursor-pointer transition-transform duration-500 hover:opacity-75">Logout</button></a>
+            <a href="{% url 'wishlist:show_wishlist' %}" class="text-white font-main text-lg hover:text-cyan-200"><i class="fas fa-heart"></i></a>
+            <a href="{% url 'cart:show_cart' %}" class="text-white font-main text-lg hover:text-cyan-200"><i class="fas fa-shopping-cart"></i></a>
+            <a href="{% url 'display:profile' %}"><button class="text-white font-main text-sm rounded-lg py-2 px-4 bg-[#67BAC6] border-none cursor-pointer transition-transform duration-500 hover:opacity-75">Profil</button></a>
+            <a href="{% url 'authentication:logout' %}"><button class="text-white font-main text-sm rounded-lg py-2 px-4 bg-[#67BAC6] border-none cursor-pointer transition-transform duration-500 hover:opacity-75">Logout</button></a>
           {% else %}
-            <a href="{% url 'authentication:login' %}"><button class="text-black text-sm rounded-lg py-2 px-4 bg-[rgb(215,215,215)] border-none cursor-pointer transition-transform duration-500 hover:opacity-75">Login</button></a>
+            <a href="{% url 'authentication:login' %}"><button class="text-white font-main text-sm rounded-lg py-2 px-4 bg-[#67BAC6] border-none cursor-pointer transition-transform duration-500 hover:opacity-75">Login</button></a>
           {% endif %}
         </div>
       </div>
@@ -40,28 +46,37 @@ box-shadow: 0px 6px 27px 0px rgba(0, 0, 0, 0.25);">
 
     <div class="mobile-menu hidden md:hidden text-white py-4 px-6" style="background: linear-gradient(92deg, #8CBEAA 15.37%, #73D28C 79.06%);">
       <div class="flex items-center justify-center font-main font-bold bg-white bg-opacity-70 rounded-md mb-2">
-        <a href="/main" class="text-black text-lg hover:text-cyan-200">Home</a>
-      </div>      
-      {% if user_role == 'admin' %}
-      <div class="flex items-center justify-center font-main font-bold bg-white bg-opacity-70 rounded-md mb-2">
-        <a href="{% url 'adminview:show_admin' %}" class="text-black text-lg hover:text-cyan-200">Admin</a>
+        <a href="/main" class="text-black text-lg hover:text-cyan-200">Beranda</a>
       </div>
+      {% if user_role == 'admin' %}
+        <div class="flex items-center justify-center font-main font-bold bg-white bg-opacity-70 rounded-md mb-2">
+          <a href="{% url 'adminview:show_admin' %}" class="text-black text-lg hover:text-cyan-200">Admin</a>
+        </div>
+        <div class="flex items-center justify-center font-main font-bold bg-white bg-opacity-70 rounded-md mb-2">
+          <a href="{% url 'promo:show_promo' %}" class="text-black text-lg hover:text-cyan-200">Promo</a>
+        </div>
       {% endif %}
       <div class="flex items-center justify-center font-main font-bold bg-white bg-opacity-70 rounded-md mb-2">
-        <a href="{% url 'display:search' %}" class="text-black text-lg hover:text-cyan-200">Search</a>
-      </div>
-      <div class="flex items-center justify-center font-main font-bold bg-white bg-opacity-70 rounded-md mb-2">
-        <a href="{% url 'cart:show_cart' %}" class="text-black text-lg hover:text-cyan-200">Cart</a>
+        <a href="{% url 'display:search' %}" class="text-black text-lg hover:text-cyan-200">Cari</a>
       </div>
       {% if user_role %}
-      <div class="mt-6">
-        <h1 style="margin-top: 2px;" class="text-white text-l font-main font-bold text-xl">Welcome {{ user_name }}!</h1>
-      </div>
+        <div class="flex items-center justify-center font-main font-bold bg-white bg-opacity-70 rounded-md mb-2">
+          <a href="{% url 'wishlist:show_wishlist' %}" class="text-black text-lg hover:text-cyan-200">Wishlist</a>
+        </div>
+        <div class="flex items-center justify-center font-main font-bold bg-white bg-opacity-70 rounded-md mb-2">
+          <a href="{% url 'cart:show_cart' %}" class="text-black text-lg hover:text-cyan-200">Keranjang</a>
+        </div>
+        <div class="mt-6">
+          <h1 style="margin-top: 2px;" class="text-white text-l font-main font-bold text-xl">Halo, {{ user_name }}!</h1>
+        </div>
         <div class="mt-3">
+          <a href="{% url 'display:profile' %}"><button class="text-black text-sm rounded-lg py-2 px-4 bg-[rgb(215,215,215)] border-none cursor-pointer transition-transform duration-500 hover:opacity-75">Profile</button></a>
           <a href="{% url 'authentication:logout' %}"><button class="text-black text-sm rounded-lg py-2 px-4 bg-[rgb(215,215,215)] border-none cursor-pointer transition-transform duration-500 hover:opacity-75">Logout</button></a>
         </div>
       {% else %}
-        <a href="{% url 'authentication:login' %}"><button class="text-black text-sm rounded-lg py-2 px-4 bg-[rgb(215,215,215)] border-none cursor-pointer transition-transform duration-500 hover:opacity-75">Login</button></a>
+        <div class="flex items-center justify-center font-main font-bold bg-[#C89A45] rounded-md mb-2 mt-4">
+          <a href="{% url 'authentication:login' %}" class="text-black text-lg hover:text-cyan-200">Login</a>
+        </div>
       {% endif %}
     </div>
   </nav>
