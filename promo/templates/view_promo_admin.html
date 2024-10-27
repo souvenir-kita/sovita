@@ -32,7 +32,7 @@
 
       <div class="space-y-4">
           <div class="flex items-center space-x-4">
-              <label class="text-lg min-w-20 font-semibold" ">Stock</label>
+              <label class="text-lg min-w-20 font-semibold" ">Stok</label>
               <input type="number" class="flex-1 p-2 rounded border focus:outline-none focus:border-blue-500 bg-opacity-10" value="{{promo.stock}}" name="stock" id="stock" readonly>
           </div>
           
@@ -44,13 +44,13 @@
       <div class="flex justify-center mt-4">
         <div class="m-1">
             <button class="w-24 px-4 py-2 bg-[#B5592A] text-white rounded hover:bg-[#9b4e27]" id="edit" onclick="editMode()" type="button">Edit</button>
-            <button class="w-24 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600" style="display:none;" id="cancel" onclick="cancelEdit()" type="button">Cancel</button>
+            <button class="w-24 px-4 py-2 bg-[#4c3013] text-white rounded hover:hover:bg-[#201508]" style="display:none;" id="cancel" onclick="cancelEdit()" type="button">Cancel</button>
         </div>
         <div class="m-1">
             <a href="{% url 'promo:delete_promo' promo.pk %}">
-                <button class="w-24 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600" id="delete" type="button">Delete</button>
+                <button class="w-24 px-4 py-2 bg-[#4c3013] text-white rounded hover:bg-[#201508]" id="delete" type="button">Hapus</button>
             </a>
-            <button class="w-24 px-4 py-2 bg-[#B5592A] text-white rounded hover:bg-[#9b4e27]" style="display:none;" id="save" type="submit" form="formpromo">Save</button>
+            <button class="w-24 px-4 py-2 bg-[#B5592A] text-white rounded hover:bg-[#9b4e27]" style="display:none;" id="save" type="submit" form="formpromo">Simpan</button>
         </div>
     </div>
     </form>
@@ -60,6 +60,13 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
+let nama = $("#nama").val();
+let kode = $("#kode").val();
+let potongan = $("#potongan").val();
+let tanggal_akhir_berlaku =  $("#tanggal_akhir_berlaku").val();
+let stock = $("#stock").val();
+let deskripsi= $("#deskripsi").val();
+
 function editMode() {
     event.preventDefault();
 	$("#edit").hide();
@@ -72,7 +79,6 @@ function editMode() {
     $("#stock").prop("readonly", false);
     $("#potongan").prop("readonly", false);
     $("#deskripsi").prop("readonly", false);
-    
 }
   
 function cancelEdit() {
@@ -87,12 +93,12 @@ function cancelEdit() {
     $("#potongan").prop("readonly", true);
     $("#deskripsi").prop("readonly", true);
 
-    $("#nama").val("{{promo.nama}}");
-    $("#kode").prop("{{promo.kode}}");
-    $("#tanggal_akhir_berlaku").val("{{promo.tanggal_akhir_berlaku|date:'Y-m-d' }}");
-    $("#stock").val("{{promo.stock}}");
-    $("#potongan").val("{{promo.potongan}}");
-    $("#deskripsi").val("{{promo.deskripsi}}");
+    $("#nama").val(nama);
+    $("#kode").prop(kode);
+    $("#tanggal_akhir_berlaku").val(tanggal_akhir_berlaku);
+    $("#stock").val(stock);
+    $("#potongan").val(potongan);
+    $("#deskripsi").val(deskripsi);
 }
 
 $('#formpromo').on('submit', function(event){
@@ -114,7 +120,12 @@ $('#formpromo').on('submit', function(event){
             $("#stock").prop("readonly", true);
             $("#potongan").prop("readonly", true);
             $("#deskripsi").prop("readonly", true);
-            location.reload()
+            nama = $("#nama").val();
+            kode = $("#kode").val();
+            potongan = $("#potongan").val();
+            tanggal_akhir_berlaku =  $("#tanggal_akhir_berlaku").val();
+            stock = $("#stock").val();
+            deskripsi= $("#deskripsi").val();
         }
     });
 });

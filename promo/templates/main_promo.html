@@ -4,8 +4,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Mouse+Memoirs&display=swap" rel="stylesheet">
 <div class="overflow-x-hidden px-4 md:px-8 pb-8 pt-24 min-h-screen" style="background: linear-gradient(153deg, #F09027 12.76%, #8CBEAA 71.77%);">
 	<div class="flex space-x-8">
-		<button onclick="showModal()" class="w-12 h-12 bg-[rgb(210,107,16)] rounded-lg text-lg text-center align-center hover:bg-[rgb(181,105,39)] text-white font-bold">
-			Add
+		<button onclick="showModal()" class="h-12 bg-[rgb(210,107,16)] rounded-lg text-lg text-center align-center pr-3 pl-3 hover:bg-[rgb(181,105,39)] text-white font-bold">
+			Tambah Promo
 		</button>	
 		<select id="sort_by_price" onchange="filter()" class="border bg-opacity-80 border-gray-300 rounded-lg px-4 py-2 text-gray-700 bg-white ">
 			<option value="potongan_asc" class="bg-opacity-50">Potongan Terendah</option>
@@ -19,7 +19,7 @@
 	</div>
 	<script src="https://cdn.tailwindcss.com"></script>
 	<div class="fixed inset-0 flex items-center justify-center bg-opacity-50 text-center" style="display: none;" id="modal">
-		<div class=" bg-gradient-to-b from-[#8CBEAA] to-[#73D28C] rounded-lg p-5 border-[#4c3013] border-4" id="modal_content" >
+		<div class="rounded-lg p-5 border-[#4c3013] border-4" id="modal_content" style="background: rgba(255, 255, 255, 0.3); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 8px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);" >
 		  <div style="padding-top: 1;font-size: large;font-weight: bold;" class="pb-2"> <!--Header-->
 			<p class="text-center text-[#4c3013]">Tambah Promo</p>
 		  </div>
@@ -39,16 +39,16 @@
 				<input type="date"name="tanggal_akhir_berlaku" id="tanggal_akhir_berlaku" class="w-5" class="mt-1 mb-1 rounded-lg p-1 text-s" required> 
 			  </div>
 			  <div> 
-				<input type="number" step="1" min=0 name="stock" id="stock" placeholder="Stock" class="mt-1 mb-1 rounded-lg p-1 text-s" required>
+				<input type="number" step="1" min=0 name="stock" id="stock" placeholder="Stok" class="mt-1 mb-1 rounded-lg p-1 text-s" required>
 			  </div>
 			  <div>
-				<textarea name="deskripsi" id="deskripsi" placeholder="deskripsi" class="mt-1 mb-1 rounded-lg p-1 text-s" style="resize: none;width: 100%; " required ></textarea>
+				<textarea name="deskripsi" id="deskripsi" placeholder="Deskripsi" class="mt-1 mb-1 rounded-lg p-1 text-s w-full" style="resize: none" required ></textarea>
 			  </div>
 			</form>
 		  </div>
 		  <div class="flex space-x-2"> <!--footer-->
-			<button type="button" id="cancel" class="bg-[#8a1616] text-xs p-1 rounded-lg w-full text-white" onclick="hideModal()">Cancel</button>
-			<button type="submit" id="submitItem" form="formpromo" class="bg-[#4c3013] text-white text-xs p-1 rounded-lg w-full">Save</button>
+			<button type="button" id="cancel" class="bg-[#f09027] hover:bg-[#b85c2c] text-xs p-1 rounded-lg w-full text-white" onclick="hideModal()">Cancel</button>
+			<button type="submit" id="submitItem" form="formpromo" class="bg-[#4c3013] hover:bg-[#201508] text-white text-xs p-1 rounded-lg w-full">Save</button>
 		</div>
 		</div>  
 	</div>	
