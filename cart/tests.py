@@ -8,7 +8,6 @@ import json
 
 User = get_user_model()
 
-
 class mainTest(TestCase):
     def test_cart_url_is_exist(self):
         response = self.client.get(reverse('cart:show_cart'))
