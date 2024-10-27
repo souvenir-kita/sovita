@@ -1,0 +1,1302 @@
+[
+    {
+        "model": "adminview.product",
+        "pk": "2247e5d3-cf52-44bb-86c1-078b53e36e6e",
+        "fields": {
+            "name": "Pie Susu Ajik Krisna Special Asli Bali 30 pcs",
+            "description": "Temukan kelezatannya disetiap gigitan PIE SUSU AJIK KRISNA Krispi pinggirannya, Lembut di tengah, dengan toping yang manisnya PAS dan Tebal Expired 8-12 hari sejak tanggal produksi. Siap kirim ke seluruh Indonesia :) Kami akan selalu memberikan stok terbaru untuk pembelian online Harap simpan di kulkas untuk menjaga kualitas produk pada kemasan yang sudah di buka",
+            "price": 105000,
+            "picture": "images/id-11134207-7r98s-lyerjfbymbl462@resize_w900_nl.webp",
+            "category": "FnB",
+            "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31550.779902920804!2d115.16098947207789!3d-8.706029500000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd2474ed70a806d%3A0xef660ac7757abf23!2sPie%20Susu%20Ajik!5e0!3m2!1sid!2sus!4v1729789449090!5m2!1sid!2sus",
+            "date_created": "2018-11-20T15:58:44.767594-06:00"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "ea6f1f67-dce1-4398-a63c-5084f5608ab5",
+        "fields": {
+            "name": "Kacang Kapri Tari Bali Meman Asli Bali 300gr",
+            "description": "Kacang Kapri Tari Bali Meman Asli Bali 300gr Siap menemani anda nonton acara kesayangan (drakor atau bola) Bisa juga jadi menu cemilan acara kekeluargaan atau dengan orang tersayang <3 Kacangnya besar, empuk, gurih, dan renyah :) Sekali coba pasti ketagihan ^^",
+            "price": 29900,
+            "picture": "images/id-11134207-7r98y-ly59ruxsq68w7b@resize_w900_nl.webp",
+            "category": "FnB",
+            "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31550.779902920804!2d115.16098947207789!3d-8.706029500000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd2474ed70a806d%3A0xef660ac7757abf23!2sPie%20Susu%20Ajik!5e0!3m2!1sid!2sus!4v1729789449090!5m2!1sid!2sus",
+            "date_created": "2018-11-20T15:58:44.767594-06:01"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "814dc7a4-b334-453b-afee-213a05e1fb19",
+        "fields": {
+            "name": "Bakpia Pia Legong",
+            "description": "Pia Legendaris Khas Bali sejak 2006. Kulit Pia Renyah dengan isi yang Nikmat dan Nagih di tiap gigitannya. Bahan berkualitas premium dan teknik memanggang yang tepat membuat Pia Legong tidak mengandalkan bahan kimia atau bahan tambahan lainnya sebagai pengawet. Tekstur kulit Pia yang kering memiliki ciri khas berlapis dan renyah menjaga keawetan pia itu sendiri secara alami.",
+            "price": 120000,
+            "picture": "images/id-11134207-7r98t-m04l746j8q4731@resize_w900_nl.webp",
+            "category": "FnB",
+            "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19873.589513404026!2d115.17157479789637!3d-8.746524890619709!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd2417281e671e9%3A0x35f61d22b7776967!2sPia%20Legong%20(Official%20Store)!5e0!3m2!1sen!2suk!4v1729790014284!5m2!1sen!2suk",
+            "date_created": "2018-11-20T15:58:44.767594-06:02"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "2892f369-df9b-4b1b-b687-5dba14816855",
+        "fields": {
+            "name": "Bakpia Pia Kukus Ajik Krisna",
+            "description": "Pia Bakpia Bapia Bolu Kukus Ajik Krisna (Bukan Tugu Jogja) Oleh Oleh Asli Bali Untuk kalian pecinta bakpia kukus, dapat menikmati Pia Kukus Ajik. Memiliki tekstur yang lembut ketika digigit, isinya nikmat dan langsung penuh kedalam mulut. Tersedia Varian (Rasa Bakpia - Rasa Isi) : Original - Coklat Original - Kacang Hijau Original - Keju Brownies - Tiramisu Brownies - Keju Brownies - Coklat Pandan - Kelapa",
+            "price": 36900,
+            "picture": "images/id-11134207-7r98u-lyesbjg1qy2wa6@resize_w900_nl.webp",
+            "category": "FnB",
+            "location": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15774.621094824273!2d115.1782208!3d-8.7242466!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd247cbf86f48cf%3A0xcaf8e6ec17b77f71!2sPia%20Kukus%20Made%20Bali!5e0!3m2!1sen!2suk!4v1729790074029!5m2!1sen!2suk",
+            "date_created": "2018-11-20T15:58:44.767594-06:03"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "4b41e3ca-5b4b-4efa-9871-b620dcf84402",
+        "fields": {
+            "name": "Kacang Matahari Bawang Putih",
+            "description": "Kacang Matahari Bawang Putih Asli Bali ukuran 250gr dan 500gr Silahkan pilih ukuran sesuai keinginan :) Cemilan kacang unggulan asli kacang bali Rasa gurih, asin, sedap bawang putih, dan nagih Yuk bisa di makan bareng keluarga dan orang tersayang Siap kirim ke seluruh Indonesia :) Kami akan selalu memberikan stok terbaru untuk pembelian online Harap simpan di kulkas untuk menjaga kerenyahan kerupuk pada kemasan yang sudah di buka",
+            "price": 28000,
+            "picture": "images/id-11134207-7r98o-ly59ruxsszds63@resize_w900_nl.webp",
+            "category": "FnB",
+            "location": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15778.13458448903!2d115.2526827!3d-8.640688!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd23f8ecf07299d%3A0x18221acade743e9b!2sKacang%20Matahari!5e0!3m2!1sen!2suk!4v1729790113008!5m2!1sen!2suk",
+            "date_created": "2018-11-20T15:58:44.767594-06:04"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "e15445e6-f014-4c3d-b046-068b6abaf407",
+        "fields": {
+            "name": "Fudgy Brownies Bali",
+            "description": "Bali Brownies Oleh Oleh Khas Bali Fudgy Brownies Bali Salah satu Brownies nikmat dan bikin mulut penuh dengan kenikmatan Enak, nikmat & lembut. Sangat cocok di makan bersama keluarga dan orang tersayang Tersedia beragam pilihan rasa: - Ovomaltine - Nutella - Cream Cheese - Skippy - Rhum Raisin - Choco Melt (Best Seller) - Almond - Vanilla - Tiramisu",
+            "price": 150000,
+            "picture": "images/id-11134207-7r98s-m072fr08esr062@resize_w900_nl.webp",
+            "category": "FnB",
+            "location": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15776.28822920398!2d115.1688567!3d-8.6846979!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd24706378cec57%3A0x4ba6b972b4c0ea7!2sBALI%20BROWNIES%20OLEH%20OLEH%20KHAS%20BALI!5e0!3m2!1sen!2suk!4v1729790151080!5m2!1sen!2suk",
+            "date_created": "2018-11-20T15:58:44.767594-06:05"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "5bae3a03-a902-4ecf-a359-4f46c8d9d3b3",
+        "fields": {
+            "name": "Pisang Gulung Ajik Krisna",
+            "description": "Pisang Gulung Ajik Krisna Oleh Oleh Khas Bali Untuk pecinta bolu, jangan ketinggalan coba yang satu ini. Pisang Gulung adalah jenis cemilan dengan keunikan tersendiri. Cemilan ini berbahan dasar pisang yang memiliki bentuk gulungan dimana bertekstur lembut, padat, dan di balut dengan coklat pada setiap ujungnya. Pisang gulung memiliki rasa yang manis dari pisang dan coklat yang bersatu dengan lembutnya roti bolu.",
+            "price": 15000,
+            "picture": "images/id-11134207-7r98u-m072fr08kf0s79@resize_w900_nl.webp",
+            "category": "FnB",
+            "location": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15773.870985656542!2d115.1784244!3d-8.7419832!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd2440515bbbfa1%3A0xc7eda90b6495109!2sKrisna%20Toko%20Oleh%20Oleh%20Khas%20Bali!5e0!3m2!1sen!2suk!4v1729790276645!5m2!1sen!2suk",
+            "date_created": "2018-11-20T15:58:44.767594-06:06"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "9daf68b8-33c2-4270-b8c4-54dc8da45064",
+        "fields": {
+            "name": "Dodol Bali Ajik Krisna",
+            "description": "Dodol Bali Ajik Krisna Oleh Oleh Khas Bali Suka makan dodol, tapi kesel karena lengket banget di gigi? Jangan Khawatir, Dodol Aji'K justru kenyal dan lembut. Pas banget di nikmati di saat santai bersmaa teh dan kopi favorit. Diolah dari bahan bahan pilihan dengan cara tradisional Bali. Sehingga Menyuguhkan citarasa khas Nusantara yang akan membuat anda menginginkan lebih dan lebih.",
+            "price": 44800,
+            "picture": "images/id-11134207-7r991-m04l746ja4on78@resize_w900_nl.webp",
+            "category": "FnB",
+            "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3131.6811482909648!2d115.49540558652447!3d-8.531323049715358!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd20e6ace887c03%3A0x56fbab81c6cfdfc!2sDodol%20Bali%20Original!5e0!3m2!1sen!2sid!4v1729790566071!5m2!1sen!2sid",
+            "date_created": "2018-11-20T15:58:44.767594-06:07"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "da5b5362-94c8-457f-b148-fb7d250807bc",
+        "fields": {
+            "name": "Kacang Matahari Original Bali",
+            "description": "Kacang Matahari Original Bali ukuran 250gr dan 500gr Silahkan pilih ukuran sesuai keinginan :) Cemilan kacang unggulan asli kacang bali Rasa gurih, asin, dan nagih Yuk bisa di makan bareng keluarga dan orang tersayang",
+            "price": 25000,
+            "picture": "images/id-11134207-7r98y-ly59ruxsrktc8e@resize_w900_nl.webp",
+            "category": "FnB",
+            "location": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15778.13458448903!2d115.2526827!3d-8.640688!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd23f8ecf07299d%3A0x18221acade743e9b!2sKacang%20Matahari!5e0!3m2!1sen!2suk!4v1729790611564!5m2!1sen!2suk",
+            "date_created": "2018-11-20T15:58:44.767594-06:08"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "9263be0f-6a79-4798-9d4b-d31b41545990",
+        "fields": {
+            "name": "Bakpia Pia Baturiti Cap Bintang",
+            "description": "Pia Baturiti cap bintang Oleh Oleh Khas Bali Asli Salah satu pia legendaris baturiti di bali, yang menggunakan kemasan plastik mika. Enak, nikmat & lembut. Sangat cocok di makan bersama keluarga dan orang tersayang Tersedia beragam pilihan rasa: - kacang hijau (exp 10 hari) - coklat (exp 10 hari) - wijen (exp 15 hari) - durian (exp 15 hari) - keju (exp 15 hari)",
+            "price": 480000,
+            "picture": "images/id-11134207-7r98v-m072fr08bzm438@resize_w900_nl.webp",
+            "category": "FnB",
+            "location": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15774.213747828608!2d115.1776227!3d-8.7338829!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd24402a8e2c317%3A0x301a4bfc07014348!2sPia%20Bintang!5e0!3m2!1sen!2sid!4v1729790719267!5m2!1sen!2sid",
+            "date_created": "2018-11-20T15:58:44.767594-06:09"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "1b9b41a4-2b11-46bd-b4e8-02efdd496c89",
+        "fields": {
+            "name": "Roti Bali",
+            "description": "Roti unik dengan rasa Ayam Nori dan Ayam Betutu. Roti ini memperkenalkan cita rasa khas kuliner Bali. Penasaran dengan rasanya? Yang pasti kalian tidak akan kecewa. Rasa khas kuliner Bali akan melekat kuat dan memuaskan citarasa kalian.",
+            "price": 79000,
+            "picture": "images/Roti-Bali-1.jpg",
+            "category": "FnB",
+            "location": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15773.870985656542!2d115.1784244!3d-8.7419832!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd2440515bbbfa1%3A0xc7eda90b6495109!2sKrisna%20Toko%20Oleh%20Oleh%20Khas%20Bali!5e0!3m2!1sen!2suk!4v1729790337950!5m2!1sen!2suk",
+            "date_created": "2018-11-20T15:58:44.767594-06:10"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "c391e55e-fad4-48a5-adf3-658fc1248613",
+        "fields": {
+            "name": "Pia Crispy",
+            "description": "Pia Crispy adalah pastry terbaru hasil inovasi Ajik Krisna dimana ketika digigit akan berasa lembut tapi juga crispy sehingga mengajak lidah kalian menari ketika merasakan isinya. Terdapat 3 pilihan rasa yaitu rasa cokelat, keju, dan kacang.",
+            "price": 53000,
+            "picture": "images/Pia-Crispy-1.jpg",
+            "category": "FnB",
+            "location": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15773.870985656542!2d115.1784244!3d-8.7419832!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd2440515bbbfa1%3A0xc7eda90b6495109!2sKrisna%20Toko%20Oleh%20Oleh%20Khas%20Bali!5e0!3m2!1sen!2suk!4v1729790337950!5m2!1sen!2suk",
+            "date_created": "2018-11-20T15:58:44.767594-06:11"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "55d92e78-88e3-4453-ae68-479b2ed5a187",
+        "fields": {
+            "name": "Bali Durian Crispy",
+            "description": "Produk ini memiliki rasa dan ciri khas buah durian yang unik. Di dalam kue ini terdapat fla durian dengan rasa durian asli yang nikmat dan lembut di mulut. Untuk satu kotaknya bisa dinikmati bersama 2-3 orang. Cocok untuk berbagi kenikmatan bersama para pecinta durian.",
+            "price": 45000,
+            "picture": "images/Bali-Durian-Crispy-4.jpg",
+            "category": "FnB",
+            "location": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15773.870985656542!2d115.1784244!3d-8.7419832!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd2440515bbbfa1%3A0xc7eda90b6495109!2sKrisna%20Toko%20Oleh%20Oleh%20Khas%20Bali!5e0!3m2!1sen!2suk!4v1729790337950!5m2!1sen!2suk",
+            "date_created": "2018-11-20T15:58:44.767594-06:12"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "89635e77-379e-4974-a492-fc904c1e88b2",
+        "fields": {
+            "name": "Bali Banana Crispy",
+            "description": "Bali banana crispy adalah pastry berbentuk pisang yang didalamnya terdapat pisang pilihan dan cream special, ditambah dengan parutan keju diatasnya yang pastinya membuat gurih dan nikmat dalam setiap gigitannya",
+            "price": 53000,
+            "picture": "images/Bali-Banana-Crispy-4.jpg",
+            "category": "FnB",
+            "location": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15773.870985656542!2d115.1784244!3d-8.7419832!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd2440515bbbfa1%3A0xc7eda90b6495109!2sKrisna%20Toko%20Oleh%20Oleh%20Khas%20Bali!5e0!3m2!1sen!2suk!4v1729790337950!5m2!1sen!2suk",
+            "date_created": "2018-11-20T15:58:44.767594-06:13"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "fe9d2bc1-0af7-4049-b94c-e5caf9426628",
+        "fields": {
+            "name": "Pia Ajik",
+            "description": "Produk satu ini memiliki empat rasa yaitu susu, kopi, kacang merah, pandan & kacang hijau. Rasanya lezat dengan tekstur roti yang sedikit crispy. Cocok dinikmati bersama kopi atau teh favorit kalian.",
+            "price": 61000,
+            "picture": "images/Pia-Ajik-2.jpg",
+            "category": "FnB",
+            "location": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15773.870985656542!2d115.1784244!3d-8.7419832!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd2440515bbbfa1%3A0xc7eda90b6495109!2sKrisna%20Toko%20Oleh%20Oleh%20Khas%20Bali!5e0!3m2!1sen!2suk!4v1729790337950!5m2!1sen!2suk",
+            "date_created": "2018-11-20T15:58:44.767594-06:14"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "a5875cd5-c267-4f29-90a6-318e06f7f15f",
+        "fields": {
+            "name": "Kacang Ajik",
+            "description": "Dengan standard proses pemasakan yang tinggi kacang Ajik terjamin renyah dan gurih. Sangat cocok untuk disantap ramai-ramai dalam keadaan santai, acara pesta, maupun oleh-oleh untuk sahabat dan keluarga",
+            "price": 22750,
+            "picture": "images/Kacang-Ajik-2.jpg",
+            "category": "FnB",
+            "location": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15773.870985656542!2d115.1784244!3d-8.7419832!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd2440515bbbfa1%3A0xc7eda90b6495109!2sKrisna%20Toko%20Oleh%20Oleh%20Khas%20Bali!5e0!3m2!1sen!2suk!4v1729790337950!5m2!1sen!2suk",
+            "date_created": "2018-11-20T15:58:44.767594-06:15"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "de508af5-26a1-4250-a528-3fb963cb0ea7",
+        "fields": {
+            "name": "Keripik Pisang Coklat Keju/Madu Keju",
+            "description": "Nikmati sensasi unik Keripik Pisang Coklat Keju atau Madu Keju, camilan renyah dengan perpaduan rasa yang tak terlupakan! Manisnya coklat premium dan gurihnya keju, atau lembutnya madu alami dengan keju, membuat setiap gigitan memanjakan lidah. Dibuat dari pisang pilihan dan bahan berkualitas, keripik ini bebas pengawet dan MSG, cocok untuk camilan sehat sehari-hari. Kemasannya praktis, sehingga mudah dibawa ke mana saja, pas untuk dinikmati sendiri, dibagikan, atau sebagai oleh-oleh istimewa.",
+            "price": 15000,
+            "picture": "images/keripik-pisang-madu-kecil.jpg",
+            "category": "FnB",
+            "location": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15773.870985656542!2d115.1784244!3d-8.7419832!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd2440515bbbfa1%3A0xc7eda90b6495109!2sKrisna%20Toko%20Oleh%20Oleh%20Khas%20Bali!5e0!3m2!1sen!2suk!4v1729790337950!5m2!1sen!2suk",
+            "date_created": "2018-11-20T15:58:44.767594-06:16"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "01620636-c15c-40e9-8dac-6e407ebdb91a",
+        "fields": {
+            "name": "Kintamani Coffee Mangsi",
+            "description": "Kintamani Coffee Mangsi adalah kopi premium khas Bali yang menghadirkan cita rasa unik dari perkebunan Kintamani, dikenal dengan karakter rasa yang segar dan fruity. Diproses dengan standar tinggi untuk menjaga kualitas biji kopi terbaik, Mangsi menghadirkan keaslian kopi Bali yang kaya aroma dan lembut di setiap tegukan. Cocok untuk para pecinta kopi yang ingin menikmati pengalaman rasa otentik Bali, Kintamani Coffee Mangsi juga menjadi pilihan sempurna sebagai oleh-oleh khas yang eksklusif. Hadirkan nuansa Bali di rumah dengan setiap cangkir kopi ini!",
+            "price": 20000,
+            "picture": "images/kintamani-Arabika-100-Depan.jpg",
+            "category": "FnB",
+            "location": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15773.870985656542!2d115.1784244!3d-8.7419832!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd2440515bbbfa1%3A0xc7eda90b6495109!2sKrisna%20Toko%20Oleh%20Oleh%20Khas%20Bali!5e0!3m2!1sen!2suk!4v1729790337950!5m2!1sen!2suk",
+            "date_created": "2018-11-20T15:58:44.767594-06:17"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "5cdbdc9a-4485-4e5f-9222-870efa9f5bc9",
+        "fields": {
+            "name": "Bagiak Toples Bulat",
+            "description": "Bagiak Toples Bulat adalah camilan tradisional khas Bali yang renyah dan lembut, terbuat dari bahan alami berkualitas dengan cita rasa manis yang khas. Disajikan dalam toples bulat yang praktis dan elegan, menjadikannya oleh-oleh yang sempurna untuk dibawa pulang. Cocok dinikmati kapan saja, baik saat santai bersama keluarga maupun sebagai teman minum teh atau kopi. Bagiak Toples Bulat tak hanya lezat, tapi juga awet dan tahan lama, menjadikannya pilihan terbaik sebagai camilan khas Bali yang menggoda selera.",
+            "price": 21500,
+            "picture": "images/bagiak-bali-aneka-citarasa-1.jpg",
+            "category": "FnB",
+            "location": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15773.870985656542!2d115.1784244!3d-8.7419832!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd2440515bbbfa1%3A0xc7eda90b6495109!2sKrisna%20Toko%20Oleh%20Oleh%20Khas%20Bali!5e0!3m2!1sen!2suk!4v1729790337950!5m2!1sen!2suk",
+            "date_created": "2018-11-20T15:58:44.767594-06:18"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "9df64c2b-10dd-4795-bcfa-900dc730b535",
+        "fields": {
+            "name": "Kacang Disco Besar Manna",
+            "description": "Kacang Disco Besar Manna adalah camilan gurih yang wajib dicoba, terbuat dari kacang pilihan berkualitas yang dibalut dengan lapisan tepung renyah dan bumbu khas yang menggoda selera. Dengan ukuran yang besar, setiap gigitannya memberikan kepuasan maksimal dan kerenyahan yang tak tertandingi. Cocok untuk dinikmati saat bersantai, berkumpul bersama teman, atau sebagai teman perjalanan, Kacang Disco Besar Manna juga menjadi oleh-oleh yang sempurna dari Bali. Sajikan dalam toples cantik, dan nikmati camilan lezat ini kapan saja!",
+            "price": 27500,
+            "picture": "images/1-88.jpg",
+            "category": "FnB",
+            "location": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15773.870985656542!2d115.1784244!3d-8.7419832!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd2440515bbbfa1%3A0xc7eda90b6495109!2sKrisna%20Toko%20Oleh%20Oleh%20Khas%20Bali!5e0!3m2!1sen!2suk!4v1729790337950!5m2!1sen!2suk",
+            "date_created": "2018-11-20T15:58:44.767594-06:19"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "a39133b8-246f-473f-ba42-8c960fc164eb",
+        "fields": {
+            "name": "Kain Cabuk",
+            "description": "Kain Cabuk adalah produk tekstil tradisional Bali yang memadukan keindahan seni dan fungsi dalam setiap helai. Dikenal dengan motif dan corak yang kaya warna, Kain Cabuk cocok digunakan sebagai selendang, sarung, atau aksesori fashion lainnya yang menambah keanggunan penampilan. Terbuat dari bahan berkualitas tinggi yang nyaman dipakai, Kain Cabuk juga sangat ideal untuk berbagai acara, baik formal maupun kasual. Dengan setiap Kain Cabuk, Anda tidak hanya mendapatkan aksesori yang stylish, tetapi juga membawa pulang sentuhan budaya Bali yang autentik. Jadikan Kain Cabuk sebagai pilihan oleh-oleh yang sempurna dan tampilkan pesona Bali dalam gaya Anda!",
+            "price": 105000,
+            "picture": "images/Kain-Cabuk.jpg",
+            "category": "Pakaian/Kain",
+            "location": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15773.870985656542!2d115.1784244!3d-8.7419832!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd2440515bbbfa1%3A0xc7eda90b6495109!2sKrisna%20Toko%20Oleh%20Oleh%20Khas%20Bali!5e0!3m2!1sen!2suk!4v1729790337950!5m2!1sen!2suk",
+            "date_created": "2018-11-20T15:58:44.767594-06:20"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "f7c1a63d-01fb-4cf7-8635-ddaa4804e67c",
+        "fields": {
+            "name": "Kain Prada Blok",
+            "description": "Kain Prada Blok adalah kain khas Bali yang memikat dengan desain blok yang unik dan warna-warna cerah yang mencolok. Terbuat dari bahan berkualitas tinggi, kain ini sangat nyaman dipakai dan ideal untuk berbagai keperluan, mulai dari busana sehari-hari hingga pakaian pesta. Setiap helai Kain Prada Blok menampilkan keindahan dan kearifan lokal, menjadikannya pilihan sempurna untuk Anda yang ingin menambahkan sentuhan budaya Bali dalam koleksi fashion Anda. Tersedia dalam berbagai ukuran, Kain Prada Blok juga sangat cocok sebagai oleh-oleh yang istimewa, membawa pulang keanggunan dan keindahan pulau Dewata!",
+            "price": 650000,
+            "picture": "images/Kain-Prada-Blok.jpg",
+            "category": "Pakaian/Kain",
+            "location": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15773.870985656542!2d115.1784244!3d-8.7419832!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd2440515bbbfa1%3A0xc7eda90b6495109!2sKrisna%20Toko%20Oleh%20Oleh%20Khas%20Bali!5e0!3m2!1sen!2suk!4v1729790337950!5m2!1sen!2suk",
+            "date_created": "2018-11-20T15:58:44.767594-06:21"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "ea6c5b58-e7f5-4719-8d94-e3449fa1d9ab",
+        "fields": {
+            "name": "Baju Barong M Ps",
+            "description": "Baju Barong M Ps adalah pakaian tradisional Bali yang memukau, terinspirasi oleh keanggunan dan kekuatan Barong, simbol spiritual dan budaya yang kaya. Dengan desain yang indah dan detail yang halus, baju ini terbuat dari bahan berkualitas tinggi yang nyaman dan ringan, sempurna untuk dikenakan pada berbagai acara, baik formal maupun santai. Tersedia dalam berbagai ukuran, Baju Barong M Ps tidak hanya menawarkan tampilan yang menawan tetapi juga membawa Anda lebih dekat dengan budaya Bali yang kaya. Jadikan baju ini sebagai pilihan sempurna untuk oleh-oleh atau sebagai tambahan koleksi fashion Anda, dan tampilkan pesona Bali di setiap kesempatan!",
+            "price": 31000,
+            "picture": "images/1-115.jpg",
+            "category": "Pakaian/Kain",
+            "location": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15773.870985656542!2d115.1784244!3d-8.7419832!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd2440515bbbfa1%3A0xc7eda90b6495109!2sKrisna%20Toko%20Oleh%20Oleh%20Khas%20Bali!5e0!3m2!1sen!2suk!4v1729790337950!5m2!1sen!2suk",
+            "date_created": "2018-11-20T15:58:44.767594-06:22"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "71f03341-2cd3-4471-ac1f-302a521bb380",
+        "fields": {
+            "name": "Kebaya Brokat Emas",
+            "description": "Kebaya Brokat Emas adalah pakaian tradisional Indonesia yang elegan dan mempesona, dirancang dengan sentuhan modern dan detail brokat yang mewah. Dibalut dengan nuansa emas yang berkilau, kebaya ini cocok untuk berbagai acara formal seperti pesta, pernikahan, atau acara budaya, menambah pesona feminin dan anggun pada pemakainya. Terbuat dari bahan berkualitas tinggi, Kebaya Brokat Emas menawarkan kenyamanan dan keindahan yang tak tertandingi. Tersedia dalam berbagai ukuran, kebaya ini juga menjadi pilihan sempurna sebagai oleh-oleh atau hadiah istimewa bagi orang tersayang. Tampilkan keanggunan Anda dengan Kebaya Brokat Emas dan bawa pulang nuansa tradisional yang memikat!",
+            "price": 650000,
+            "picture": "images/Kebaya-Brokat-Emas.jpg",
+            "category": "Pakaian/Kain",
+            "location": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15773.870985656542!2d115.1784244!3d-8.7419832!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd2440515bbbfa1%3A0xc7eda90b6495109!2sKrisna%20Toko%20Oleh%20Oleh%20Khas%20Bali!5e0!3m2!1sen!2suk!4v1729790337950!5m2!1sen!2suk",
+            "date_created": "2018-11-20T15:58:44.767594-06:23"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "689d1bb7-d431-4f3c-b6a6-09a96b3aa21f",
+        "fields": {
+            "name": "Tenun Songket Negara",
+            "description": "Tenun Songket Negara Original dengan motif patra sari berwarna merah hijau biru kuning dipadukan dengan warna dasar ungu. Kain Tenun Songket ini tidak berat ketika dikenakan sehingga kamu bisa leluasa bergerak ketika mengenakan tenun songket negara ini.",
+            "price": 750000,
+            "picture": "images/tenun-songket-negara-1.jpg",
+            "category": "Pakaian/Kain",
+            "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1010099.3869676825!2d114.38695261447687!3d-8.528407823892055!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd21163d3dab7fb%3A0xf1dbec6869343915!2sRumah%20ayulestari%20kain%20songket%20bali!5e0!3m2!1sen!2sid!4v1729790817255!5m2!1sen!2sid",
+            "date_created": "2018-11-20T15:58:44.767594-06:24"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "e4437779-8ac0-4750-b6ef-972cc3ac71bf",
+        "fields": {
+            "name": "Kain Endek Gringsing Bali Sami",
+            "description": "Kain Endek Gringsing Bali Sami adalah kain tradisional yang kaya akan makna dan estetika, dihasilkan melalui proses tenun yang rumit dan penuh perhatian. Memadukan warna-warna cerah dan motif gringsing yang khas, kain ini mencerminkan keindahan budaya Bali yang mendalam. Cocok untuk berbagai keperluan, mulai dari busana sehari-hari hingga pakaian adat, Kain Endek Gringsing Bali Sami memberikan sentuhan elegan dan artistik pada penampilan Anda. Terbuat dari bahan berkualitas tinggi, kain ini tidak hanya nyaman dipakai tetapi juga tahan lama. Pilihan sempurna sebagai oleh-oleh atau tambahan koleksi fashion Anda, bawa pulang keindahan dan keanggunan Bali dengan Kain Endek Gringsing Bali Sami!",
+            "price": 325000,
+            "picture": "images/1-85.jpg",
+            "category": "Pakaian/Kain",
+            "location": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15773.870985656542!2d115.1784244!3d-8.7419832!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd2440515bbbfa1%3A0xc7eda90b6495109!2sKrisna%20Toko%20Oleh%20Oleh%20Khas%20Bali!5e0!3m2!1sen!2suk!4v1729790337950!5m2!1sen!2suk",
+            "date_created": "2018-11-20T15:58:44.767594-06:25"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "739381f0-af3b-4ae0-a497-d94ff4e95ea3",
+        "fields": {
+            "name": "Daster Kelelawar Barong bb",
+            "description": "Daster Kelelawar Barong BB adalah pakaian santai yang menggabungkan kenyamanan dan keindahan budaya Bali dalam satu desain. Dengan potongan kelelawar yang leluasa, daster ini memberikan kebebasan bergerak yang maksimal, cocok untuk digunakan di rumah atau saat bersantai. Dihiasi dengan motif Barong yang ikonik dan penuh warna, daster ini tidak hanya menambah pesona penampilan Anda tetapi juga mencerminkan kearifan lokal Bali. Terbuat dari bahan berkualitas yang lembut dan ringan, Daster Kelelawar Barong BB adalah pilihan ideal untuk Anda yang ingin tampil stylish sekaligus nyaman. Jadikan daster ini sebagai oleh-oleh istimewa atau koleksi fashion yang menyenangkan, dan bawa pulang sentuhan budaya Bali ke dalam gaya sehari-hari Anda!",
+            "price": 56000,
+            "picture": "images/DASTER-KELELAWAR-BARONG-BALI-BAGAS-6.jpg",
+            "category": "Pakaian/Kain",
+            "location": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15773.870985656542!2d115.1784244!3d-8.7419832!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd2440515bbbfa1%3A0xc7eda90b6495109!2sKrisna%20Toko%20Oleh%20Oleh%20Khas%20Bali!5e0!3m2!1sen!2suk!4v1729790337950!5m2!1sen!2suk",
+            "date_created": "2018-11-20T15:58:44.767594-06:26"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "7ef5fa9e-8f81-4b70-8186-4f6d67b29937",
+        "fields": {
+            "name": "Celana Pendek Karet Katun Kembang",
+            "description": "Celana Pendek Karet Katun Kembang adalah pilihan sempurna untuk kenyamanan dan gaya santai Anda! Terbuat dari bahan katun berkualitas tinggi yang lembut dan breathable, celana pendek ini dirancang dengan elastis di bagian pinggang untuk memberikan fleksibilitas maksimal dan kenyamanan saat dipakai. Dengan motif kembang yang cerah dan menarik, celana ini cocok untuk berbagai aktivitas, mulai dari berolahraga, bersantai di rumah, hingga jalan-jalan di pantai. Celana Pendek Karet Katun Kembang menawarkan kombinasi sempurna antara fashion dan fungsionalitas, menjadikannya pilihan ideal untuk setiap kesempatan. Dapatkan segera dan tampilkan gaya kasual yang segar dan stylish!",
+            "price": 30000,
+            "picture": "images/Celana-Pendek-Karet-Katun-Kmbg-1.jpg",
+            "category": "Pakaian/Kain",
+            "location": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15773.870985656542!2d115.1784244!3d-8.7419832!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd2440515bbbfa1%3A0xc7eda90b6495109!2sKrisna%20Toko%20Oleh%20Oleh%20Khas%20Bali!5e0!3m2!1sen!2suk!4v1729790337950!5m2!1sen!2suk",
+            "date_created": "2018-11-20T15:58:44.767594-06:27"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "5e4c2aec-e14b-4d60-b52e-699bd83ce26e",
+        "fields": {
+            "name": "Celana Pendek Viona Batik Damar Kusumo",
+            "description": "Celana Pendek Viona Batik Damar Kusumo adalah perpaduan sempurna antara tradisi dan kenyamanan modern, dirancang untuk Anda yang ingin tampil stylish tanpa mengorbankan kenyamanan. Terbuat dari bahan berkualitas tinggi, celana pendek ini memiliki motif batik Damar Kusumo yang indah dan kaya warna, mencerminkan keindahan budaya Indonesia. Dengan potongan yang nyaman dan desain yang trendy, celana ini ideal untuk digunakan sehari-hari, baik saat bersantai di rumah maupun saat berkumpul dengan teman-teman. Celana Pendek Viona Batik Damar Kusumo juga menjadi pilihan tepat sebagai oleh-oleh atau hadiah istimewa, membawa nuansa budaya dalam setiap langkah Anda. Tampil anggun dan modis dengan celana pendek batik yang tak lekang oleh waktu ini!",
+            "price": 66000,
+            "picture": "images/Celana-Pendek-Viona-Batik-Damar-Kusumo5-1.jpg",
+            "category": "Pakaian/Kain",
+            "location": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15773.870985656542!2d115.1784244!3d-8.7419832!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd2440515bbbfa1%3A0xc7eda90b6495109!2sKrisna%20Toko%20Oleh%20Oleh%20Khas%20Bali!5e0!3m2!1sen!2suk!4v1729790337950!5m2!1sen!2suk",
+            "date_created": "2018-11-20T15:58:44.767594-06:28"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "a1ace26c-0f40-4af8-a079-306232d34e0c",
+        "fields": {
+            "name": "Kain Catur Tridatu",
+            "description": "Kain Catur Tridatu adalah kain tradisional Bali yang kaya akan makna dan simbolisme, menampilkan motif catur yang khas dengan kombinasi warna yang mencolok. Terbuat dari bahan berkualitas tinggi, kain ini sangat cocok digunakan untuk berbagai keperluan, mulai dari pakaian adat, aksesori, hingga hiasan interior. Motif Tridatu yang melambangkan kesucian dan keharmonisan menjadikan kain ini tidak hanya cantik secara visual tetapi juga sarat akan nilai budaya. Kain Catur Tridatu adalah pilihan sempurna sebagai oleh-oleh dari Bali atau tambahan koleksi fashion Anda, membawa pulang keindahan dan kearifan lokal dalam setiap helai. Tampilkan gaya Anda dengan sentuhan tradisional yang memikat!",
+            "price": 22500,
+            "picture": "images/kain-catur-kotak-bali-800x800.webp",
+            "category": "Pakaian/Kain",
+            "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25044.407403917692!2d115.21682395017213!3d-8.668048529668726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd24090c6516293%3A0xa107908d27edf0f3!2sBintang%20Bali%20Busana%20Adat!5e0!3m2!1sen!2sid!4v1729790890063!5m2!1sen!2sid",
+            "date_created": "2018-11-20T15:58:44.767594-06:29"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "61ecba3a-900a-4efb-9d54-2c2f7bd3ff37",
+        "fields": {
+            "name": "Kain Prada Bali",
+            "description": "Kain Prada adalah karya seni yang unik, dan karakteristiknya mengandung muatan nilai-nilai yang kompleks, serta mendalam yang menyangkut nilai estetik, simbolik, filosofis. Kain prada-pun mempunyai fungsi yang sangat esensial dalam masyarakat Bali. Pada jaman dahulu, kain prada merupakan kain yang digemari oleh kalangan para raja dan bangsawan karena warnanya yang gemerlap. Pada masa kini, kain prada banyak digunakan sebagai sarana perlengkapan upacara keagamaan, busana adat, juga digunakan sebagai kostum tari. Sebab warna yang gemerlap sangat cocok dengan jiwa dinamis tarian Bali.",
+            "price": 35000,
+            "picture": "images/kain-prada-bali-800x800.webp",
+            "category": "Pakaian/Kain",
+            "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25044.407403917692!2d115.21682395017213!3d-8.668048529668726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd24090c6516293%3A0xa107908d27edf0f3!2sBintang%20Bali%20Busana%20Adat!5e0!3m2!1sen!2sid!4v1729790890063!5m2!1sen!2sid",
+            "date_created": "2018-11-20T15:58:44.767594-06:30"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "1b1a87db-1b1e-45a4-a978-bcea7ef1b7d0",
+        "fields": {
+            "name": "Kamen Rang-Rang",
+            "description": "Kamen Rang-Rang adalah pakaian tradisional Bali yang unik dan penuh warna, dirancang khusus untuk menonjolkan keindahan budaya dan seni pulau Dewata. Terbuat dari bahan berkualitas tinggi yang nyaman dan ringan, kamen ini biasanya dipakai oleh wanita Bali dalam berbagai upacara adat dan acara spesial. Dengan motif yang kaya dan beragam, Kamen Rang-Rang tidak hanya memberikan sentuhan tradisional tetapi juga menambah pesona feminin pada penampilan Anda. Cocok digunakan dalam berbagai kesempatan, mulai dari perayaan budaya hingga acara formal, kamen ini adalah pilihan ideal sebagai oleh-oleh yang istimewa atau koleksi fashion Anda. Tampilkan keanggunan dan kearifan lokal Bali dengan Kamen Rang-Rang!",
+            "price": 1500000,
+            "picture": "images/Kamen-Rang-Rang.jpg",
+            "category": "Pakaian/Kain",
+            "location": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15773.870985656542!2d115.1784244!3d-8.7419832!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd2440515bbbfa1%3A0xc7eda90b6495109!2sKrisna%20Toko%20Oleh%20Oleh%20Khas%20Bali!5e0!3m2!1sen!2suk!4v1729790337950!5m2!1sen!2suk",
+            "date_created": "2018-11-20T15:58:44.767594-06:31"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "d8b4c858-094b-428f-ae65-8b9f70e242c5",
+        "fields": {
+            "name": "Hem Endek Krisna",
+            "description": "Hem Endek Krisna adalah kemeja stylish yang menggabungkan keindahan motif endek khas Bali dengan desain modern yang nyaman dipakai. Terbuat dari bahan berkualitas tinggi yang lembut dan breathable, hem ini cocok untuk berbagai kesempatan, baik formal maupun santai. Motif Krisna yang kaya warna dan detail mencerminkan seni dan budaya Bali, menjadikan kemeja ini pilihan ideal untuk Anda yang ingin tampil menawan dan berkelas. Hem Endek Krisna juga menjadi pilihan sempurna sebagai oleh-oleh atau hadiah istimewa, membawa pulang pesona dan keanggunan Bali dalam setiap penampilan Anda. Tampil percaya diri dan elegan dengan Hem Endek Krisna!",
+            "price": 375000,
+            "picture": "images/Hem-Endek-Krisna-ML.jpg",
+            "category": "Pakaian/Kain",
+            "location": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15773.870985656542!2d115.1784244!3d-8.7419832!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd2440515bbbfa1%3A0xc7eda90b6495109!2sKrisna%20Toko%20Oleh%20Oleh%20Khas%20Bali!5e0!3m2!1sen!2suk!4v1729790337950!5m2!1sen!2suk",
+            "date_created": "2018-11-20T15:58:44.767594-06:32"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "515df22f-d22c-42b6-b293-a94b3fa1e16f",
+        "fields": {
+            "name": "Kebaya Tile Style",
+            "description": "Kebaya Tile Style adalah pilihan elegan bagi Anda yang ingin tampil anggun dengan sentuhan modern. Dirancang dengan bahan tile berkualitas tinggi yang ringan dan nyaman, kebaya ini menonjolkan detail halus dan potongan yang feminin, cocok untuk berbagai acara, dari pernikahan hingga pesta resmi. Dengan berbagai pilihan warna dan motif yang menarik, Kebaya Tile Style tidak hanya mencerminkan keindahan budaya Indonesia tetapi juga memberikan kesan stylish dan trendy. Kenakan kebaya ini untuk menunjukkan pesona dan keanggunan Anda, serta bawa pulang nuansa tradisional yang tetap relevan di setiap kesempatan. Tampil memukau dengan Kebaya Tile Style dan biarkan setiap momen Anda bersinar!",
+            "price": 1450000,
+            "picture": "images/Kebaya-Tile-Style.jpg",
+            "category": "Pakaian/Kain",
+            "location": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15773.870985656542!2d115.1784244!3d-8.7419832!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd2440515bbbfa1%3A0xc7eda90b6495109!2sKrisna%20Toko%20Oleh%20Oleh%20Khas%20Bali!5e0!3m2!1sen!2suk!4v1729790337950!5m2!1sen!2suk",
+            "date_created": "2018-11-20T15:58:44.767594-06:33"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "afb1df55-76ce-45d3-87b9-da69a8558b93",
+        "fields": {
+            "name": "I LoveBali Muscle Shirt Anak Rumah Kaos Bali VIP",
+            "description": "I LoveBali Muscle Shirt Anak Rumah Kaos Bali VIP adalah kaos tanpa lengan yang sempurna untuk si kecil yang mencintai Bali! Dengan desain yang ceria dan penuh warna, kaos ini menampilkan grafis \u201cI Love Bali\u201d yang lucu, menjadikannya pilihan ideal untuk anak-anak yang ingin menunjukkan kecintaan mereka terhadap pulau Dewata. Terbuat dari bahan katun berkualitas tinggi yang lembut dan breathable, kaos ini nyaman dipakai sepanjang hari, baik saat bermain di luar maupun bersantai di rumah. I LoveBali Muscle Shirt tidak hanya stylish tetapi juga praktis, cocok untuk aktivitas sehari-hari. Jadikan kaos ini sebagai pilihan hadiah istimewa atau oleh-oleh yang menggemaskan, dan biarkan anak Anda tampil modis sambil merayakan keindahan Bali!",
+            "price": 58000,
+            "picture": "images/I-LoveBali-Muscle-Shirt-Anak-Rumah-Kaos-Bali-VIP.jpg",
+            "category": "Pakaian/Kain",
+            "location": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15773.870985656542!2d115.1784244!3d-8.7419832!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd2440515bbbfa1%3A0xc7eda90b6495109!2sKrisna%20Toko%20Oleh%20Oleh%20Khas%20Bali!5e0!3m2!1sen!2suk!4v1729790337950!5m2!1sen!2suk",
+            "date_created": "2018-11-20T15:58:44.767594-06:34"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "44e75b77-d19f-41de-9ae8-01b2ad8578fe",
+        "fields": {
+            "name": "Celana Panjang Valen Batik Damar Kusumo",
+            "description": "Celana Panjang Valen Batik Damar Kusumo adalah pilihan sempurna bagi Anda yang ingin tampil stylish dengan sentuhan tradisional. Terbuat dari bahan berkualitas tinggi, celana panjang ini menampilkan motif batik Damar Kusumo yang indah dan kaya warna, mencerminkan keindahan budaya Indonesia. Dengan desain yang nyaman dan potongan yang modern, celana ini ideal untuk berbagai kesempatan, mulai dari acara formal hingga santai. Celana Panjang Valen Batik Damar Kusumo juga sangat cocok dipadukan dengan berbagai atasan, menjadikannya pilihan versatile untuk melengkapi koleksi fashion Anda. Tampilkan pesona dan keanggunan budaya Indonesia dalam setiap langkah Anda dengan celana panjang yang memikat ini!",
+            "price": 84000,
+            "picture": "images/CELANA-PANJANG-VALEN-Batik-Damar-Kusumo5.jpg",
+            "category": "Pakaian/Kain",
+            "location": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15773.870985656542!2d115.1784244!3d-8.7419832!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd2440515bbbfa1%3A0xc7eda90b6495109!2sKrisna%20Toko%20Oleh%20Oleh%20Khas%20Bali!5e0!3m2!1sen!2suk!4v1729790337950!5m2!1sen!2suk",
+            "date_created": "2018-11-20T15:58:44.767594-06:35"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "6add4df0-1782-4a00-823d-fcd1d41c6dce",
+        "fields": {
+            "name": "Celana Bali N Soul Hawai S-XL",
+            "description": "Celana Bali N Soul Hawai S-XL adalah pilihan ideal untuk Anda yang mencari kenyamanan dan gaya santai. Terbuat dari bahan berkualitas tinggi yang ringan dan breathable, celana ini dirancang khusus untuk memberikan keleluasaan bergerak, sempurna untuk berbagai aktivitas, mulai dari bersantai di pantai hingga jalan-jalan di kota. Dengan desain yang penuh warna dan motif Hawai yang ceria, celana ini tidak hanya stylish tetapi juga mencerminkan suasana tropis yang menyenangkan. Tersedia dalam ukuran S-XL, Celana Bali N Soul Hawai cocok untuk semua orang yang ingin tampil modis dan nyaman. Dapatkan segera dan tambahkan sentuhan Bali dalam gaya sehari-hari Anda!",
+            "price": 26500,
+            "picture": "images/Celana-Bali-N-Soul-Hawai-S-Xl-1.jpg",
+            "category": "Pakaian/Kain",
+            "location": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15773.870985656542!2d115.1784244!3d-8.7419832!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd2440515bbbfa1%3A0xc7eda90b6495109!2sKrisna%20Toko%20Oleh%20Oleh%20Khas%20Bali!5e0!3m2!1sen!2suk!4v1729790337950!5m2!1sen!2suk",
+            "date_created": "2018-11-20T15:58:44.767594-06:36"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "86e2a184-06f7-4957-8ea3-1b11350da5a9",
+        "fields": {
+            "name": "Kain Songket Pinggiran",
+            "description": "Kain Songket Pinggiran adalah kain tradisional yang memancarkan keindahan dan keanggunan budaya Indonesia. Dikenal dengan tekstur yang kaya dan corak yang berwarna-warni, kain ini dihiasi dengan sulaman benang emas atau perak yang memberikan sentuhan mewah pada setiap helai. Cocok untuk berbagai keperluan, mulai dari pakaian adat hingga aksesori fashion, Kain Songket Pinggiran menambah pesona dan keanggunan dalam penampilan Anda. Terbuat dari bahan berkualitas tinggi, kain ini tidak hanya nyaman dipakai tetapi juga tahan lama. Jadikan Kain Songket Pinggiran sebagai pilihan istimewa untuk oleh-oleh atau koleksi fashion Anda, dan bawa pulang keindahan serta kearifan lokal yang menakjubkan!",
+            "price": 1000000,
+            "picture": "images/Kain-Songket-Pinggiran.jpg",
+            "category": "Pakaian/Kain",
+            "location": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15773.870985656542!2d115.1784244!3d-8.7419832!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd2440515bbbfa1%3A0xc7eda90b6495109!2sKrisna%20Toko%20Oleh%20Oleh%20Khas%20Bali!5e0!3m2!1sen!2suk!4v1729790337950!5m2!1sen!2suk",
+            "date_created": "2018-11-20T15:58:44.767594-06:37"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "7c008bf0-edf7-4845-aa82-cad07cd4e1d2",
+        "fields": {
+            "name": "Set Kamen Kecak Bali",
+            "description": "Set Kamen Kecak Bali adalah koleksi tradisional yang menggabungkan keindahan dan seni pertunjukan Bali. Kamen, atau sarung yang dikenakan oleh para penari, terbuat dari bahan berkualitas tinggi dan dihiasi dengan motif khas Bali yang kaya warna dan detail. Set ini biasanya digunakan dalam pertunjukan tari Kecak, yang terkenal dengan nyanyian \u201ccak\u201d yang menggugah semangat dan menggambarkan kisah epik Ramayana.",
+            "price": 100000,
+            "picture": "images/setkecak-800x800.webp",
+            "category": "Pakaian/Kain",
+            "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25044.407403917692!2d115.21682395017213!3d-8.668048529668726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd24090c6516293%3A0xa107908d27edf0f3!2sBintang%20Bali%20Busana%20Adat!5e0!3m2!1sen!2sid!4v1729790890063!5m2!1sen!2sid",
+            "date_created": "2018-11-20T15:58:44.767594-06:38"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "e0c21c0f-fd57-494b-89c2-71258bf9ae52",
+        "fields": {
+            "name": "Selendang Katun Bordir",
+            "description": "Selendang Katun Bordir adalah aksesori yang sempurna untuk menambahkan sentuhan elegan pada setiap penampilan. Terbuat dari bahan katun berkualitas tinggi yang lembut dan nyaman, selendang ini dihiasi dengan bordir indah yang mencerminkan keahlian dan kreativitas pengrajin. Dengan desain yang beragam dan warna-warna yang menarik, Selendang Katun Bordir cocok untuk digunakan dalam berbagai kesempatan, baik formal maupun kasual. Gunakan selendang ini sebagai pelengkap busana Anda, atau sebagai hadiah istimewa untuk orang terkasih. Tampilkan gaya Anda dengan Selendang Katun Bordir dan nikmati keanggunan serta kenyamanan dalam setiap pemakaian!",
+            "price": 131500,
+            "picture": "images/Selendang-Katun-Bordir.jpg",
+            "category": "Pakaian/Kain",
+            "location": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15773.870985656542!2d115.1784244!3d-8.7419832!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd2440515bbbfa1%3A0xc7eda90b6495109!2sKrisna%20Toko%20Oleh%20Oleh%20Khas%20Bali!5e0!3m2!1sen!2suk!4v1729790337950!5m2!1sen!2suk",
+            "date_created": "2018-11-20T15:58:44.767594-06:39"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "d8fc778a-261e-492f-b39a-54242bfdbd77",
+        "fields": {
+            "name": "Gelang Tridatu Polos Asli Khas Bali",
+            "description": "Tri Datu atau Tridatu, Tridhatu merupakan susunan benang dengan nilai filosofis yang dalam dan diyakini oleh umat Hindu memiliki kekuatan. Tri berarti tiga dan Datu berarti elemen atau warna. Pemakaian benang Tri Datu diharapkan kita selalu ingat dengan kebesaran Tuhan sebagai maha pencipta, pemelihara dan pelebur.",
+            "price": 12000,
+            "picture": "images/814aee27-366f-41ca-b222-a4e4d1e6a83a.jpg",
+            "category": "Aksesoris",
+            "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d252421.54570530087!2d114.89309852500003!3d-8.683309799999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd247189f6728c3%3A0xa87714f158e834c7!2sMala%20Elements!5e0!3m2!1sen!2sid!4v1729791000800!5m2!1sen!2sid",
+            "date_created": "2018-11-20T15:58:44.767594-06:40"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "17754715-ff4f-4988-bae3-7a222170ade5",
+        "fields": {
+            "name": "Gelang Regae / Gelang Rasta / Gelang Bali Asli",
+            "description": "Kreasi gelang Rasta yang sangat unik dengan warna nya yang sangat menarik. Dibuat dengan model adjustable dan simple namun elegan. Catur datu adalah benang khas dari Pura Punduk Dawa (Semeton Pasek) , dengan 4 warna.",
+            "price": 15000,
+            "picture": "images/dae2e23f-c4cd-46f6-90fb-7babbf7b686c.jpg",
+            "category": "Aksesoris",
+            "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d252421.54570530087!2d114.89309852500003!3d-8.683309799999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd247189f6728c3%3A0xa87714f158e834c7!2sMala%20Elements!5e0!3m2!1sen!2sid!4v1729791000800!5m2!1sen!2sid",
+            "date_created": "2018-11-20T15:58:44.767594-06:41"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "98b840f6-2495-4970-8b43-e8d7e9667f08",
+        "fields": {
+            "name": "Gelang & Kalung Kerang Bali / Shell Bracelet/ Shell Neklace",
+            "description": "Kalung Cangkang Cowrie ini adalah Produk Terlaris kami! Cangkang kerang dikenal membawa kekuatan dan keberuntungan. Kalung choker cangkang kerang kami dibuat dari cangkang cowrie alami dan tali lilin.",
+            "price": 17500,
+            "picture": "images/a5b46910-9c2f-4132-8235-79eb22553e97.jpg",
+            "category": "Aksesoris",
+            "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d252421.54570530087!2d114.89309852500003!3d-8.683309799999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd247189f6728c3%3A0xa87714f158e834c7!2sMala%20Elements!5e0!3m2!1sen!2sid!4v1729791000800!5m2!1sen!2sid",
+            "date_created": "2018-11-20T15:58:44.767594-06:42"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "ddaaaa6c-c750-4b20-b7f0-2583bf325b98",
+        "fields": {
+            "name": "Jepitan Rambut Kamboja Khas Bali",
+            "description": "Jepit rambut badai bunga kamboja wanita cantik elegan kekinian. Jepitan rambut yang dapat digunakan berbagai model, bisa saat rambut dikuncir, disanggul dan lain-lain. Sangat cocok di pakai di berbagai acara. Pilihan warna yang banyak membuat tampilan rambut anda semakin cantik.",
+            "price": 9900,
+            "picture": "images/fdec10da-162c-48e8-8ef9-fff6999c2503.jpg",
+            "category": "Aksesoris",
+            "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d252435.0192061549!2d114.95167232499998!3d-8.663261899999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd24095336ec84d%3A0x8bcb9bb6f60c2c98!2sD'love%20Accessories!5e0!3m2!1sen!2sid!4v1729791079545!5m2!1sen!2sid",
+            "date_created": "2018-11-20T15:58:44.767594-06:43"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "72913bb7-fde1-4d04-931d-999d903b5619",
+        "fields": {
+            "name": "Sabuk Lilit Satin / Sabuk Prada Satin / Aksesoris Tari Bali",
+            "description": "Gelang tari Bali atau biasa disebut dengan gelang kana merupakan gelang yang umum digunakan untuk Topeng Bali, gopala dan tari kreasi lainnya.",
+            "price": 50000,
+            "picture": "images/86e2524d-a924-49bc-b096-018e5ee3c156.jpg",
+            "category": "Aksesoris",
+            "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d252435.0192061549!2d114.95167232499998!3d-8.663261899999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd24095336ec84d%3A0x8bcb9bb6f60c2c98!2sD'love%20Accessories!5e0!3m2!1sen!2sid!4v1729791079545!5m2!1sen!2sid",
+            "date_created": "2018-11-20T15:58:44.767594-06:44"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "fb29fca2-3961-45aa-82ce-44dc57d69a05",
+        "fields": {
+            "name": "Kipas Tari Prada Bahan Metris",
+            "description": "KIPAS PRADA merupakan kipas yang biasa digunakan untuk tari-tarian baik tarian bali, tari kreasi maupun pentas seni lainnya. Rangka dasar dibuat dari bahan bambu tebal yang di cat dengan warna merah. Bahan kain menggunakan kain metris atau kain tenunan khas bali dihiasi sablon prada khusus sehingga kuat dan tidak mudah luntur.",
+            "price": 45000,
+            "picture": "images/c7a8c01f51962a238ee380df69a31be2.webp",
+            "category": "Aksesoris",
+            "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d252435.0192061549!2d114.95167232499998!3d-8.663261899999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd24095336ec84d%3A0x8bcb9bb6f60c2c98!2sD'love%20Accessories!5e0!3m2!1sen!2sid!4v1729791079545!5m2!1sen!2sid",
+            "date_created": "2018-11-20T15:58:44.767594-06:45"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "b185d28e-ce45-4863-8c49-fbf4a46f812d",
+        "fields": {
+            "name": "Udeng Bali Jadi Premium Poleng Katun",
+            "description": "Udeng Bali Jadi dari bahan katun, motif kotak bisa berubah besar kecil nya. Ikatan depan bisa dibuka untuk mengecilkan atau membesarkan sedikit",
+            "price": 59500,
+            "picture": "images/a024a5b4-79fe-480d-bdc0-b8f12be32bca.png",
+            "category": "Aksesoris",
+            "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d252435.0192061549!2d114.95167232499998!3d-8.663261899999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd2409a0bbb881f%3A0xc08e36ec25434fe6!2sAURIZ%20BALI%20%EF%B8%8F%20AKSESORIS-SOUVENIR-DESIGN-FASHION%20%26%20FOOD!5e0!3m2!1sen!2sid!4v1729791157181!5m2!1sen!2sid",
+            "date_created": "2018-11-20T15:58:44.767594-06:46"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "5458927d-63c4-46be-936c-bc5b930ea39e",
+        "fields": {
+            "name": "Anting Subeng Jepun Capung Kombinasi Alpaka Aksesoris Bali",
+            "description": "Subeng Anting Bali adalah aksesori tradisional dengan desain ukiran khas Bali, terbuat dari perak atau emas. Anting ini sering dipakai dalam acara adat, menonjolkan keindahan dan identitas budaya Bali.",
+            "price": 120000,
+            "picture": "images/60d645a8-cb7d-4559-bd96-5c848b32f247.jpg",
+            "category": "Aksesoris",
+            "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d252435.0192061549!2d114.95167232499998!3d-8.663261899999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd2409a0bbb881f%3A0xc08e36ec25434fe6!2sAURIZ%20BALI%20%EF%B8%8F%20AKSESORIS-SOUVENIR-DESIGN-FASHION%20%26%20FOOD!5e0!3m2!1sen!2sid!4v1729791157181!5m2!1sen!2sid",
+            "date_created": "2018-11-20T15:58:44.767594-06:47"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "0c0b354b-12b4-4f3f-a957-aa9a3a431658",
+        "fields": {
+            "name": "Siger Bordir Motif Bali",
+            "description": "Siger Bordir Motip Bali 2 Bahan Benang Rayon Warna & Gold Metalik & Kain Abutai Di Lapisi Kain Keras & Spon Dengan Bordiran Yang Kokoh Dengan 14 Macam Varian Warna Bordir & Sudah Di Lengkapi Tali Pengikat",
+            "price": 50000,
+            "picture": "images/247a7c1d-d2ad-4733-916d-03da4c6124fd.jpg",
+            "category": "Aksesoris",
+            "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d252435.0192061549!2d114.95167232499998!3d-8.663261899999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd238c37c6a4d55%3A0xee0d2a8decd953bf!2sPLANET%20ACCESSORIES%20BALI!5e0!3m2!1sen!2sid!4v1729791298263!5m2!1sen!2sid",
+            "date_created": "2018-11-20T15:58:44.767594-06:48"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "63ae2f4e-5893-4faa-b194-bfa6d65905af",
+        "fields": {
+            "name": "Bros Alpaka Bali Motif Kenari Tanggung",
+            "description": "Aksesoris asli bali ini akan menambah pesona cantikmu. Dikerjakan oleh tukang yang memiliki jiwa seni tinggi. dibuat dengan bahan kuningan anti karat aman & tidak gatal dikulit, dilapis emas 24k membuat bros ini menyerupai emas asli.",
+            "price": 20000,
+            "picture": "images/ff90ff2a-be2e-4f7d-9df9-a296a187d47a.jpg",
+            "category": "Aksesoris",
+            "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d252435.0192061549!2d114.95167232499998!3d-8.663261899999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd238c37c6a4d55%3A0xee0d2a8decd953bf!2sPLANET%20ACCESSORIES%20BALI!5e0!3m2!1sen!2sid!4v1729791298263!5m2!1sen!2sid",
+            "date_created": "2018-11-20T15:58:44.767594-06:49"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "8e816d0c-ee1a-4524-b09d-ec81fa42c020",
+        "fields": {
+            "name": "Badong Modre Kulit Premium",
+            "description": "Badong Kulit (Cocok untuk Tari Tamulilingan, Tari Lepas maupun Tari Kreasi)",
+            "price": 201000,
+            "picture": "images/id-11134207-7qul5-lkfzkre5biqc6c@resize_w900_nl.webp",
+            "category": "Aksesoris",
+            "location": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15779.844427198846!2d115.2827801!3d-8.5997327!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd23e29f722c09f%3A0x42d351f623e73d14!2sKios%20Tari%20Bali!5e0!3m2!1sen!2sid!4v1729788966859!5m2!1sen!2sid",
+            "date_created": "2018-11-20T15:58:44.767594-06:50"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "2f4644c2-f8b4-4685-a7af-f25b488ca715",
+        "fields": {
+            "name": "Tusuk Sandat Emas",
+            "description": "Tusuk Rambut sandat Emas biasa digunakan untuk hiasan rambut untuk penari Bali, atau sanggul modern khas Bali. Biasanya minimal 3 tusuk sandat emas yang digunakan untuk sanggul khas Bali. Tusuk rambut ini kualitas standar (bahan tipis dan mudah patah dibandingkan dengan yang premium harga 40.000/tusuk).",
+            "price": 30000,
+            "picture": "images/eb72d720ed8a930d60dec6195a58c402@resize_w900_nl.webp",
+            "category": "Aksesoris",
+            "location": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15779.844427198846!2d115.2827801!3d-8.5997327!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd23e29f722c09f%3A0x42d351f623e73d14!2sKios%20Tari%20Bali!5e0!3m2!1sen!2sid!4v1729788966859!5m2!1sen!2sid",
+            "date_created": "2018-11-20T15:58:44.767594-06:51"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "91cc6dc9-7257-44ae-ba62-6097e86043f4",
+        "fields": {
+            "name": "Bando Bunga Kamboja",
+            "description": "Bahan bando menggunakan bando plastik anti patah dilapis pita glitter emas, lebih mewah. Bunga kamboja ukuran 4cm-6cm ukuran dan detail daun menyesuaikan stok.",
+            "price": 14700,
+            "picture": "images/id-11134207-7r98s-lyrc2ef5dv60c2@resize_w900_nl.webp",
+            "category": "Aksesoris",
+            "location": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15779.844427198846!2d115.2827801!3d-8.5997327!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd23e29f722c09f%3A0x42d351f623e73d14!2sKios%20Tari%20Bali!5e0!3m2!1sen!2sid!4v1729788966859!5m2!1sen!2sid",
+            "date_created": "2018-11-20T15:58:44.767594-06:52"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "319f460b-b0dd-4ea1-b53e-041fd2b09ff0",
+        "fields": {
+            "name": "Sanggul Putri Bali Cantik Untuk Anak dan Dewasa",
+            "description": "Dibuat handmade oleh tenaga yang sangat terampil dan berpengalaman. Dengan detail pengerjaan yg rapi dan pastinya kokoh sehingga tidak mudah rusak dan tidak mudah luntur. Mahkota ini bisa dipakai untuk pengantin maupun hiasan kepala untuk karnaval maupun untuk tari dll. Bisa dipakai untuk anak maupun dewasa dengan model yang lentur dan bisa dikecilkan dan dibesarkan ukurannya.",
+            "price": 20000,
+            "picture": "images/id-11134207-7r98x-lxj4a7sbtt0ec4@resize_w900_nl.webp",
+            "category": "Aksesoris",
+            "location": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15779.844427198846!2d115.2827801!3d-8.5997327!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd23e29f722c09f%3A0x42d351f623e73d14!2sKios%20Tari%20Bali!5e0!3m2!1sen!2sid!4v1729788966859!5m2!1sen!2sid",
+            "date_created": "2018-11-20T15:58:44.767594-06:53"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "71354e23-c6f0-4487-ab74-cc21fcf8088f",
+        "fields": {
+            "name": "Masker Batik Bali Premium Isi 3",
+            "description": "Masker kain batik berkualitas tinggi dengan motif khas Bali. Set terdiri dari tiga masker yang nyaman, breathable, dan dapat dicuci. Ideal untuk melindungi diri sekaligus menambah gaya. Tampilkan keunikan Anda dengan masker yang stylish ini!",
+            "price": 100000,
+            "picture": "images/Masker-Endek-Premium-Isi-3.jpg",
+            "category": "Aksesoris",
+            "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.441744842428!2d115.2310244744475!3d-8.649467987979367!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd240802db988af%3A0xdbffe01fbd635128!2sKrisna%20Oleh%20-%20Oleh%20Bali%20Nusa%20Indah!5e0!3m2!1sen!2sid!4v1729789406153!5m2!1sen!2sid",
+            "date_created": "2018-11-20T15:58:44.767594-06:54"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "94fab042-4c60-42c8-a3e4-876b46bce70a",
+        "fields": {
+            "name": "Udeng Endek Krisna",
+            "description": "Aksesori tradisional Bali terbuat dari kain endek berkualitas. Didesain dengan motif khas yang elegan, udeng ini nyaman dipakai dan cocok untuk berbagai acara, dari formal hingga sehari-hari. Ukurannya dapat disesuaikan, menjadikannya pilihan sempurna untuk menambahkan sentuhan budaya Bali ke dalam gaya Anda",
+            "price": 75000,
+            "picture": "images/Udeng-Endek-Krisna.jpg",
+            "category": "Aksesoris",
+            "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.441744842428!2d115.2310244744475!3d-8.649467987979367!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd240802db988af%3A0xdbffe01fbd635128!2sKrisna%20Oleh%20-%20Oleh%20Bali%20Nusa%20Indah!5e0!3m2!1sen!2sid!4v1729789406153!5m2!1sen!2sid",
+            "date_created": "2018-11-20T15:58:44.767594-06:55"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "3cbce4bf-088a-4405-aa46-131e77ea7d19",
+        "fields": {
+            "name": "Gelang Rose Bludru",
+            "description": "Aksesori menawan yang terbuat dari bludru lembut, memberikan kesan hangat dan elegan. Dengan desain unik, gelang ini sempurna untuk melengkapi penampilan Anda di berbagai acara, dari santai hingga formal.",
+            "price": 9000,
+            "picture": "images/1-39.jpg",
+            "category": "Aksesoris",
+            "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.441744842428!2d115.2310244744475!3d-8.649467987979367!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd240802db988af%3A0xdbffe01fbd635128!2sKrisna%20Oleh%20-%20Oleh%20Bali%20Nusa%20Indah!5e0!3m2!1sen!2sid!4v1729789406153!5m2!1sen!2sid",
+            "date_created": "2018-11-20T15:58:44.767594-06:56"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "5bec963a-6157-4a0b-9cc9-d8370f90e47d",
+        "fields": {
+            "name": "Kipas Topi Sri",
+            "description": "Kipas Topi Sri adalah aksesori unik yang menggabungkan fungsi dan gaya, ideal untuk Anda yang ingin tampil berbeda. Dengan desain yang menyerupai topi, kipas ini tidak hanya memberikan kesejukan saat cuaca panas, tetapi juga menambahkan sentuhan artistik pada penampilan Anda. Terbuat dari bahan berkualitas, Kipas Topi Sri memiliki corak yang indah dan warna-warna cerah, mencerminkan kekayaan budaya Indonesia. Cocok digunakan dalam berbagai acara, baik formal maupun santai, kipas ini juga menjadi pilihan hadiah yang istimewa dan menarik. Bawa pulang keindahan dan keunikan dengan Kipas Topi Sri dan jadikan setiap momen Anda lebih berkesan!",
+            "price": 20500,
+            "picture": "images/Kipas-Topi-Sri.jpg",
+            "category": "Aksesoris",
+            "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.441744842428!2d115.2310244744475!3d-8.649467987979367!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd240802db988af%3A0xdbffe01fbd635128!2sKrisna%20Oleh%20-%20Oleh%20Bali%20Nusa%20Indah!5e0!3m2!1sen!2sid!4v1729789406153!5m2!1sen!2sid",
+            "date_created": "2018-11-20T15:58:44.767594-06:57"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "884ff678-474b-49ea-bd10-fd270ad30601",
+        "fields": {
+            "name": "Kipas Wayang Sri",
+            "description": "Kipas Wayang Sri adalah aksesori tradisional yang memukau, terinspirasi oleh seni wayang kulit yang kaya akan budaya Indonesia. Dihiasi dengan gambar karakter wayang yang ikonik, kipas ini tidak hanya berfungsi sebagai alat untuk mendinginkan diri, tetapi juga sebagai pernyataan gaya yang unik dan menarik. Terbuat dari bahan berkualitas, Kipas Wayang Sri menawarkan kombinasi sempurna antara keindahan dan fungsionalitas, menjadikannya pilihan ideal untuk berbagai acara, baik formal maupun kasual. Cocok sebagai oleh-oleh atau hadiah istimewa, kipas ini membawa serta sentuhan seni dan kearifan lokal dalam setiap penggunaannya. Tampilkan kecintaan Anda terhadap budaya Indonesia dengan Kipas Wayang Sri dan biarkan setiap momen Anda terasa lebih istimewa!",
+            "price": 22000,
+            "picture": "images/Kipas-Wayang-Sri.jpg",
+            "category": "Aksesoris",
+            "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.441744842428!2d115.2310244744475!3d-8.649467987979367!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd240802db988af%3A0xdbffe01fbd635128!2sKrisna%20Oleh%20-%20Oleh%20Bali%20Nusa%20Indah!5e0!3m2!1sen!2sid!4v1729789406153!5m2!1sen!2sid",
+            "date_created": "2018-11-20T15:58:44.767594-06:58"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "dde1a0f4-eaa3-400e-9811-fbe50908f006",
+        "fields": {
+            "name": "Topi Kain Bunga",
+            "description": "Topi Kain Bunga adalah aksesori fashion yang ceria dan penuh gaya, sempurna untuk menambah pesona penampilan Anda. Terbuat dari bahan kain berkualitas tinggi, topi ini dihiasi dengan motif bunga yang indah dan berwarna-warni, menciptakan tampilan yang segar dan menarik. Cocok untuk berbagai kesempatan, mulai dari acara santai di luar ruangan hingga jalan-jalan di pantai, Topi Kain Bunga tidak hanya melindungi Anda dari sinar matahari tetapi juga menambah sentuhan feminin pada outfit Anda. Dengan desain yang ringan dan nyaman, topi ini adalah pilihan ideal untuk melengkapi gaya Anda. Dapatkan segera Topi Kain Bunga dan tunjukkan sisi ceria dan stylish Anda di setiap kesempatan!",
+            "price": 27500,
+            "picture": "images/Topi-Kain-Bunga-Sri-3.jpg",
+            "category": "Aksesoris",
+            "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.441744842428!2d115.2310244744475!3d-8.649467987979367!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd240802db988af%3A0xdbffe01fbd635128!2sKrisna%20Oleh%20-%20Oleh%20Bali%20Nusa%20Indah!5e0!3m2!1sen!2sid!4v1729789406153!5m2!1sen!2sid",
+            "date_created": "2018-11-20T15:58:44.767594-06:59"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "6d802ced-6500-4401-9498-a6100baac9fe",
+        "fields": {
+            "name": "Patung Etnik Tradisional Tari Oleg Bali Pajangan Dekorasi Meja - Pink",
+            "description": "Patung Etnik Tradisional Tari Oleg Bali adalah dekorasi meja yang menawan dan kaya makna, mengabadikan keindahan salah satu tarian tradisional ikonik Bali. Dihiasi dengan warna pink yang cerah, patung ini memberikan sentuhan segar dan ceria pada ruang Anda. Setiap detail pada patung ini menampilkan keahlian pengrajin lokal, menciptakan karya seni yang tidak hanya menjadi pajangan, tetapi juga mencerminkan budaya dan tradisi Bali yang kaya. Cocok untuk berbagai jenis dekorasi, baik di rumah maupun di ruang kerja, Patung Etnik Tradisional Tari Oleg Bali adalah pilihan sempurna sebagai hadiah istimewa atau oleh-oleh. Tambahkan pesona budaya Indonesia ke dalam interior Anda dengan patung yang memukau ini!",
+            "price": 39000,
+            "picture": "images/39fcb46a-8029-4f66-a310-301be7c2601f.jpg",
+            "category": "Dekorasi",
+            "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3945.5918192356967!2d115.34068707444558!3d-8.53894768653971!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd216ed5e5ae0ad%3A0x6f33a7f81f1e3d8c!2sFlora%20Bali!5e0!3m2!1sen!2sid!4v1729789555395!5m2!1sen!2sid",
+            "date_created": "2018-11-20T15:58:44.767594-06:60"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "f7fc6014-ae72-40c8-b78b-9e07b5703b9d",
+        "fields": {
+            "name": "Dekorasi Lonceng Angin Aluminium Dolphin Genta Angin Besar Asli Bali - Polos Mini",
+            "description": "Dekorasi Lonceng Angin Aluminium Dolphin Genta Angin Besar Asli Bali - Polos Mini adalah sentuhan dekoratif yang elegan dan unik, sempurna untuk mempercantik ruang Anda. Terbuat dari aluminium berkualitas tinggi, lonceng angin ini dirancang dengan bentuk ikan lumba-lumba yang menawan, menggambarkan keindahan alam Bali. Suara lembut yang dihasilkan saat angin berhembus akan menambah suasana tenang dan damai di rumah Anda. Dengan desain polos yang minimalis, dekorasi ini mudah dipadukan dengan berbagai gaya interior, baik modern maupun tradisional. Lonceng Angin Dolphin ini juga merupakan pilihan hadiah yang sempurna untuk teman atau keluarga, membawa serta keindahan dan keunikan budaya Bali. Jadikan ruang Anda lebih berkesan dengan Dekorasi Lonceng Angin Aluminium Dolphin yang menawan ini!",
+            "price": 24500,
+            "picture": "images/c0f7de62-b472-4121-b475-a7e956edfc60.jpg",
+            "category": "Dekorasi",
+            "location": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15780.281834311441!2d115.2742973!3d-8.5892245!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd23fc4a0338a33%3A0x52032f376ce22cd3!2sSukawati%20mesari!5e0!3m2!1sen!2sid!4v1729789628133!5m2!1sen!2sid",
+            "date_created": "2018-11-20T15:58:44.767594-06:61"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "c45d6842-7a7e-4b9d-9680-8ea6bd6f35a1",
+        "fields": {
+            "name": "Dekorasi Kamar Dream Catcher 3 Tumpuk Penangkal Mimpi Buruk Khas Bali - Pink Abu",
+            "description": "Dekorasi Kamar Dream Catcher 3 Tumpuk Penangkal Mimpi Buruk Khas Bali - Pink Abu adalah hiasan unik yang tidak hanya mempercantik ruang Anda, tetapi juga membawa energi positif. Terbuat dengan desain tiga tumpuk yang elegan, dream catcher ini didominasi oleh warna pink dan abu-abu yang lembut, menciptakan nuansa yang tenang dan menenangkan di kamar Anda. Dipercaya sebagai penangkal mimpi buruk, dream catcher ini dirancang dengan detail khas Bali, menambah sentuhan artistik dan spiritual pada dekorasi rumah Anda. Ideal untuk digantung di atas tempat tidur atau di dekat jendela, Dream Catcher 3 Tumpuk ini juga merupakan pilihan hadiah yang istimewa bagi orang tersayang. Bawa ketenangan dan keindahan ke dalam ruang pribadi Anda dengan Dream Catcher Khas Bali yang menawan ini!",
+            "price": 45000,
+            "picture": "images/5f96d638-4b16-4228-8279-7a0846583caa.jpg",
+            "category": "Dekorasi",
+            "location": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15780.281834311441!2d115.2742973!3d-8.5892245!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd23fc4a0338a33%3A0x52032f376ce22cd3!2sSukawati%20mesari!5e0!3m2!1sen!2sid!4v1729789628133!5m2!1sen!2sid",
+            "date_created": "2018-11-20T15:58:44.767594-06:62"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "53e9698b-484c-4923-99f2-ab94f32db6a7",
+        "fields": {
+            "name": "Dekorasi Bebek Rajut Kayu Bali Unik Wooden Duck Dollkayu",
+            "description": "Dekorasi Bebek Rajut Kayu Bali Unik Wooden Duck Dollkayu adalah hiasan rumah yang menggemaskan dan penuh karakter, terbuat dari kombinasi kayu alami dan rajutan tangan khas Bali. Patung bebek ini memiliki desain yang unik dan kreatif, membuatnya menjadi pilihan dekorasi yang menarik untuk meja, rak, atau sudut ruangan Anda. Sentuhan rajut memberikan nuansa tradisional dan artistik, sementara bahan kayu berkualitas menambah kesan alami dan rustic. Cocok sebagai pajangan, hadiah, atau oleh-oleh khas Bali, Wooden Duck Dollkayu menghadirkan suasana ceria dan keunikan dalam dekorasi rumah Anda. Tambahkan sentuhan Bali yang menyenangkan dengan dekorasi bebek rajut yang cantik ini!",
+            "price": 79900,
+            "picture": "images/7c7b3fc7-e61e-4452-bd14-55345364d631.jpg",
+            "category": "Dekorasi",
+            "location": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15780.281834311441!2d115.2742973!3d-8.5892245!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd23fc4a0338a33%3A0x52032f376ce22cd3!2sSukawati%20mesari!5e0!3m2!1sen!2sid!4v1729789628133!5m2!1sen!2sid",
+            "date_created": "2018-11-20T15:58:44.767594-06:63"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "dbbb1b9c-2816-4c7f-9f43-d60c6bbd8ecf",
+        "fields": {
+            "name": "Hiasan Dekorasi Patung Burung Garuda 60cm Kerajinan Kayu Asli Bali - Merah 45cm",
+            "description": "Hiasan Dekorasi Patung Burung Garuda 60cm Kerajinan Kayu Asli Bali - Merah 45cm adalah karya seni luar biasa yang menggambarkan Burung Garuda, simbol kekuatan dan kebijaksanaan dalam budaya Indonesia. Terbuat dari kayu berkualitas tinggi dan dipahat dengan keterampilan tangan para pengrajin Bali, patung ini dihiasi dengan detail yang rumit dan diwarnai merah mencolok, menjadikannya sebagai pusat perhatian dalam setiap ruangan. Dengan tinggi 60 cm, patung ini ideal untuk dipajang di ruang tamu, kantor, atau area khusus untuk memberikan kesan megah dan artistik. Patung Burung Garuda ini tidak hanya menambah estetika ruangan tetapi juga membawa makna spiritual dan historis yang mendalam. Cocok sebagai dekorasi atau koleksi pribadi, hiasan ini merupakan perwujudan dari seni dan budaya Bali yang kaya. Tampilkan kekuatan dan keindahan dengan Patung Burung Garuda yang megah ini!",
+            "price": 215000,
+            "picture": "images/78a694a7-fd61-4f29-91ac-e00b5cc40b30.jpg",
+            "category": "Dekorasi",
+            "location": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15780.281834311441!2d115.2742973!3d-8.5892245!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd23fc4a0338a33%3A0x52032f376ce22cd3!2sSukawati%20mesari!5e0!3m2!1sen!2sid!4v1729789628133!5m2!1sen!2sid",
+            "date_created": "2018-11-20T15:58:44.767594-06:64"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "bde4b8bf-9218-4d89-8ffd-916b47c1b351",
+        "fields": {
+            "name": "Payung Dekorasi Tingkat / Susun 3 Kain Satin Prada Khas Bali B - Putih",
+            "description": "Payung Dekorasi Tingkat/Susun 3 Kain Satin Prada Khas Bali B - Putih adalah dekorasi cantik yang menonjolkan keanggunan dan budaya Bali dalam setiap detailnya. Terbuat dari kain satin prada yang lembut dan berkilau, payung ini memiliki desain bertingkat dengan tiga susun, memberikan tampilan yang megah dan artistik. Warna putih yang bersih dan elegan menjadikannya pilihan sempurna untuk berbagai acara spesial seperti upacara adat, pernikahan, atau sebagai elemen dekoratif di rumah. Payung Dekorasi Khas Bali ini tidak hanya menambah estetika ruang Anda, tetapi juga menciptakan suasana yang sakral dan penuh makna. Tambahkan sentuhan budaya Bali yang indah dengan Payung Dekorasi Tingkat ini, dan bawa kesan eksklusif serta spiritual ke dalam setiap acara atau ruangan Anda!",
+            "price": 159500,
+            "picture": "images/7a6b94a0-4d47-49a2-a969-e702cb360867.jpg",
+            "category": "Dekorasi",
+            "location": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15780.281834311441!2d115.2742973!3d-8.5892245!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd23fc4a0338a33%3A0x52032f376ce22cd3!2sSukawati%20mesari!5e0!3m2!1sen!2sid!4v1729789628133!5m2!1sen!2sid",
+            "date_created": "2018-11-20T15:58:44.767594-06:65"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "2262b7eb-129d-4092-9827-b3a903c8df54",
+        "fields": {
+            "name": "Ukir Sudut 1 pasang kanan dan kiri Ornamen Dekorasi Terbaru Model Bali",
+            "description": "Ukir Sudut 1 Pasang Kanan dan Kiri Ornamen Dekorasi Terbaru Model Bali adalah dekorasi ukiran kayu yang memukau, dirancang untuk mempercantik sudut ruangan Anda dengan sentuhan artistik khas Bali. Set ini terdiri dari sepasang ukiran yang cocok dipasang di kanan dan kiri, menampilkan motif tradisional Bali yang rumit dan indah. Terbuat dari kayu berkualitas tinggi, ukiran ini tidak hanya menambah keindahan visual tetapi juga membawa nuansa budaya yang kaya ke dalam rumah atau tempat usaha Anda. Cocok untuk berbagai jenis interior, baik klasik maupun modern, Ukir Sudut Model Bali ini adalah pilihan dekoratif yang elegan untuk memberikan kesan mewah dan eksotis. Hiasi sudut ruangan Anda dengan ornamen ukiran terbaru ini dan biarkan keanggunan Bali terpancar di setiap sudut!",
+            "price": 14000,
+            "picture": "images/75066460_04606a30-0450-4aab-b605-555343764cf9_300_300",
+            "category": "Dekorasi",
+            "location": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15780.281834311441!2d115.2742973!3d-8.5892245!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd23fc4a0338a33%3A0x52032f376ce22cd3!2sSukawati%20mesari!5e0!3m2!1sen!2sid!4v1729789628133!5m2!1sen!2sid",
+            "date_created": "2018-11-20T15:58:44.767594-06:66"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "f094662c-8f5e-4a88-90c5-27a1625e1481",
+        "fields": {
+            "name": "Dekorasi Payung Bali Tingkat 3 - Kuning",
+            "description": "Dekorasi Payung Bali Tingkat 3 - Kuning adalah hiasan yang memukau dan penuh warna, ideal untuk menambahkan nuansa tropis dan eksotis di ruang Anda. Dengan desain bertingkat yang elegan, payung ini terbuat dari bahan berkualitas tinggi, menghadirkan kombinasi sempurna antara keindahan dan keanggunan. Warna kuning yang cerah melambangkan keceriaan dan kebahagiaan, menjadikannya pilihan yang sempurna untuk acara-acara spesial seperti pernikahan, festival, atau bahkan sebagai dekorasi sehari-hari di rumah. Payung Bali Tingkat 3 ini tidak hanya berfungsi sebagai elemen dekoratif tetapi juga membawa sentuhan budaya Bali yang kaya ke dalam ruangan Anda. Ciptakan suasana yang hangat dan menarik dengan Dekorasi Payung Bali Tingkat 3 yang memikat ini!",
+            "price": 215000,
+            "picture": "images/205663_612b37b6-4d9c-11e5-9fc0-ad7087772fba.jpg",
+            "category": "Dekorasi",
+            "location": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15780.281834311441!2d115.2742973!3d-8.5892245!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd23fc4a0338a33%3A0x52032f376ce22cd3!2sSukawati%20mesari!5e0!3m2!1sen!2sid!4v1729789628133!5m2!1sen!2sid",
+            "date_created": "2018-11-20T15:58:44.767594-06:67"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "b364c266-53c2-4bd6-9580-a08a3ebdc343",
+        "fields": {
+            "name": "TOPENG RANGDA BALI/RANGDA/TOPENG LEAK BALI/TAPEL RANGDA/DEKORASI BALI - Hitam",
+            "description": "Topeng Rangda Bali adalah karya seni yang kaya makna dan simbolisme, menggambarkan karakter mistis dalam budaya Bali. Terbuat dengan tangan oleh pengrajin lokal, topeng ini memiliki detail yang rumit dan warna hitam yang kuat, menciptakan kesan dramatis dan menakutkan. Topeng Rangda sering kali digunakan dalam pertunjukan tari tradisional Bali, melambangkan kekuatan dan keangkuhan, serta sebagai penangkal roh jahat. Sebagai dekorasi, Topeng Rangda ini akan menjadi pusat perhatian di rumah Anda, membawa nuansa budaya Bali yang kaya ke dalam ruangan. Cocok sebagai hiasan dinding atau pajangan di ruang tamu, topeng ini juga bisa menjadi hadiah istimewa bagi pecinta seni dan budaya. Tambahkan keunikan dan karakter dengan Topeng Rangda Bali ini dan ciptakan suasana yang penuh inspirasi dan makna!",
+            "price": 252000,
+            "picture": "images/52e8195c-cc7b-4bad-8e87-629e8e25396b.png",
+            "category": "Dekorasi",
+            "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3945.819552152943!2d115.26134497444508!3d-8.516894086254785!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd23d72436335ff%3A0x8c40ce66883913ba!2sBALI%20MIHO%20Suvenir!5e0!3m2!1sen!2sid!4v1729789893472!5m2!1sen!2sid",
+            "date_created": "2018-11-20T15:58:44.767594-06:68"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "bbab6192-0c61-4469-af2f-18bbc06f3c63",
+        "fields": {
+            "name": "Kerajinan panil kayu Hiasan dekorasi dinding ukiran bali - Pohon 3, Diameter 20cm",
+            "description": "Kerajinan Panil Kayu Hiasan Dekorasi Dinding Ukiran Bali - Pohon 3, Diameter 20cm adalah karya seni yang memukau dan penuh karakter, dirancang untuk mempercantik dinding Anda dengan sentuhan budaya Bali yang kaya. Terbuat dari kayu berkualitas tinggi, ukiran ini menampilkan motif pohon yang indah dan detail yang halus, menciptakan tampilan yang elegan dan artistik. Dengan diameter 20 cm, hiasan ini ideal untuk dijadikan focal point di ruang tamu, kamar tidur, atau bahkan ruang kerja, menambah kehangatan dan keindahan pada interior Anda. Panil Kayu Hiasan ini tidak hanya berfungsi sebagai dekorasi, tetapi juga membawa makna mendalam tentang kehidupan dan alam. Dapatkan Kerajinan Panil Kayu ini untuk menghadirkan nuansa tradisional yang memikat dan keindahan alami ke dalam rumah Anda!",
+            "price": 78000,
+            "picture": "images/fd84e899-e5a9-489c-91e4-11189f00b250.jpg",
+            "category": "Dekorasi",
+            "location": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15780.185925088357!2d115.2761164!3d-8.5915297!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd23f98f9732fbd%3A0xc58c8fad2635a322!2sMade%20Sukawati!5e0!3m2!1sen!2sid!4v1729789919607!5m2!1sen!2sid",
+            "date_created": "2018-11-20T15:58:44.767594-06:69"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "6603954d-803c-4bb5-bce5-875bfe6f860e",
+        "fields": {
+            "name": "Hiasan Dinding Bali Pantai Pemandangan Desa Dekorasi Rumah Vintage",
+            "description": "Hiasan Dinding Bali Pantai Pemandangan Desa adalah karya seni yang memukau dan membawa keindahan alam Bali ke dalam rumah Anda. Dengan desain vintage yang memikat, hiasan ini menggambarkan pemandangan indah desa Bali yang dikelilingi oleh pantai yang menawan, memberikan nuansa tenang dan damai. Terbuat dari bahan berkualitas tinggi, hiasan dinding ini sangat cocok untuk menambah karakter pada ruang tamu, kamar tidur, atau ruang santai Anda. Gambar yang detail dan warna yang cerah akan membuat setiap sudut ruangan terasa lebih hidup dan penuh inspirasi. Dekorasi Rumah Vintage ini adalah pilihan sempurna untuk menciptakan suasana Bali yang hangat dan memikat. Tambahkan keindahan alam dan budaya Bali ke dalam interior Anda dengan Hiasan Dinding Pantai Pemandangan Desa ini!",
+            "price": 135000,
+            "picture": "images/10c157af-de96-46d0-ab38-21639366fa9a.jpg",
+            "category": "Dekorasi",
+            "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3945.5918192356967!2d115.34068707444558!3d-8.53894768653971!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd216ed5e5ae0ad%3A0x6f33a7f81f1e3d8c!2sFlora%20Bali!5e0!3m2!1sen!2sid!4v1729789555395!5m2!1sen!2sid",
+            "date_created": "2018-11-20T15:58:44.767594-06:70"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "bc0f75b6-6455-4b5d-b6f6-d3c05090c844",
+        "fields": {
+            "name": "Satu set patung white stone dekorasi Bali 10 cm / DAISJG10",
+            "description": "Satu Set Patung White Stone Dekorasi Bali 10 cm (DAISJG10) adalah koleksi hiasan yang elegan dan artistik, dirancang untuk menambah sentuhan keindahan Bali dalam dekorasi rumah Anda. Terbuat dari batu putih berkualitas tinggi, patung ini menampilkan detail yang halus dan desain yang mencerminkan keanggunan budaya Bali. Dengan ukuran 10 cm, set patung ini ideal untuk dipajang di meja, rak, atau sudut ruangan, memberikan nuansa yang menenangkan dan estetik. Cocok sebagai hadiah istimewa atau koleksi pribadi, Patung White Stone ini tidak hanya berfungsi sebagai dekorasi, tetapi juga sebagai simbol keindahan dan tradisi Bali. Hiasi ruang Anda dengan Satu Set Patung White Stone dan ciptakan suasana yang memukau dan penuh inspirasi!",
+            "price": 160000,
+            "picture": "images/12982097_37ca5413-5964-4b85-b5f7-01e6c8326aad_2000_2000",
+            "category": "Dekorasi",
+            "location": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15775.19464183944!2d115.2276192!3d-8.7106607!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd241a189cc02b1%3A0x3f0617eaae4ba5ac!2sLeolle%20Bali%20Shop!5e0!3m2!1sen!2sid!4v1729790005276!5m2!1sen!2sid",
+            "date_created": "2018-11-20T15:58:44.767594-06:71"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "bf3b4dc2-b0cc-4153-b032-bdec3f414930",
+        "fields": {
+            "name": "Patung Kayu Gadis Bali / Interior SPA / Dekorasi Rumah",
+            "description": "Patung Kayu Gadis Bali adalah karya seni yang mempesona, ideal untuk menambah keindahan dan nuansa budaya Bali di interior rumah Anda. Terbuat dari kayu berkualitas tinggi dan dipahat dengan detail yang menawan, patung ini menampilkan sosok gadis Bali yang anggun, mencerminkan keindahan dan kelembutan budaya lokal. Cocok digunakan sebagai dekorasi di ruang tamu, kamar tidur, atau bahkan di area SPA, patung ini menciptakan suasana yang tenang dan damai, membawa elemen alami ke dalam ruang Anda. Patung Kayu Gadis Bali juga merupakan pilihan hadiah yang sempurna bagi pecinta seni dan budaya, menjadikannya sebagai tambahan yang berharga dalam koleksi dekorasi rumah. Ciptakan suasana yang harmonis dan estetis dengan kehadiran Patung Kayu Gadis Bali yang memikat ini!",
+            "price": 2241000,
+            "picture": "images/3bba5c0b-a256-478e-a12c-9e412b850917.jpg",
+            "category": "Dekorasi",
+            "location": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15775.19464183944!2d115.2276192!3d-8.7106607!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd241a189cc02b1%3A0x3f0617eaae4ba5ac!2sLeolle%20Bali%20Shop!5e0!3m2!1sen!2sid!4v1729790005276!5m2!1sen!2sid",
+            "date_created": "2018-11-20T15:58:44.767594-06:72"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "965c0e63-0d99-4408-a0fb-b455add42118",
+        "fields": {
+            "name": "Dekorasi Lonceng Angin Bambu Batok Kelapa 40cm Hiasan Souvenir Bali - polos",
+            "description": "Dekorasi Lonceng Angin Bambu Batok Kelapa 40cm adalah hiasan yang indah dan unik, terinspirasi oleh keindahan alam Bali. Dengan ukuran 40 cm, lonceng angin ini terbuat dari bahan bambu dan batok kelapa berkualitas tinggi, menghasilkan suara yang lembut dan menenangkan saat angin berhembus. Desain polosnya memberikan kesan sederhana namun elegan, membuatnya mudah dipadukan dengan berbagai jenis dekorasi rumah. Cocok sebagai souvenir khas Bali, lonceng ini dapat digunakan sebagai pajangan di teras, taman, atau ruang dalam rumah, membawa nuansa tropis yang segar. Dekorasi Lonceng Angin Bambu ini tidak hanya berfungsi sebagai elemen dekoratif tetapi juga membawa kedamaian dan harmoni ke dalam lingkungan Anda. Dapatkan Lonceng Angin Bambu Batok Kelapa ini dan nikmati suasana Bali yang menenangkan setiap hari!",
+            "price": 34800,
+            "picture": "images/6dcf36a6-125b-43bf-b535-dc319d007ac4.jpg",
+            "category": "Dekorasi",
+            "location": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15780.281834311441!2d115.2742973!3d-8.5892245!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd23fc4a0338a33%3A0x52032f376ce22cd3!2sSukawati%20mesari!5e0!3m2!1sen!2sid!4v1729789628133!5m2!1sen!2sid",
+            "date_created": "2018-11-20T15:58:44.767594-06:73"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "fe364420-e5b2-4c46-94af-b72e76eb50a1",
+        "fields": {
+            "name": "Patung Pajangan Batu Dekorasi Kepala Barong Bali",
+            "description": "Patung Pajangan Batu Dekorasi Kepala Barong Bali adalah karya seni yang menakjubkan, menangkap keanggunan dan kekuatan simbolis dari Barong, makhluk mitologis yang melambangkan kebaikan dalam budaya Bali. Terbuat dari batu berkualitas tinggi, patung ini menampilkan detail yang rumit dan ekspresi yang mendalam, menciptakan daya tarik visual yang kuat. Sebagai pajangan, patung kepala Barong ini sangat cocok untuk menghiasi ruang tamu, ruang kerja, atau sudut khusus di rumah Anda, memberikan sentuhan budaya yang kaya dan karakter yang unik. Patung Dekorasi Kepala Barong ini juga merupakan pilihan hadiah yang sempurna untuk pecinta seni dan budaya, menambahkan nilai estetika dan makna ke dalam koleksi dekorasi rumah. Ciptakan suasana yang berkesan dan penuh inspirasi dengan Patung Pajangan Batu Kepala Barong Bali yang menawan ini!",
+            "price": 225000,
+            "picture": "images/79c31c92-53be-4286-b505-caafc6ddff3c.jpg",
+            "category": "Dekorasi",
+            "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3943.7987164715196!2d115.22504427444856!3d-8.710655388784968!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd241a189cc02b1%3A0x3f0617eaae4ba5ac!2sLeolle%20Bali%20Shop!5e0!3m2!1sen!2sid!4v1729790144649!5m2!1sen!2sid",
+            "date_created": "2018-11-20T15:58:44.767594-06:74"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "0e643c94-1784-456d-bf99-b56ffe5bab5e",
+        "fields": {
+            "name": "Dekorasi Pajangan meja Panel ukiran Kayu Bali motif Bunga - S",
+            "description": "Dekorasi Pajangan Meja Panel Ukiran Kayu Bali Motif Bunga - S adalah sentuhan artistik yang indah untuk mempercantik meja Anda. Terbuat dari kayu berkualitas tinggi, panel ini menampilkan ukiran tangan yang detail dengan motif bunga yang elegan, menciptakan kesan natural dan artistik. Ukuran kecil (S) membuatnya ideal untuk dijadikan aksesoris di ruang tamu, meja kerja, atau bahkan di area dapur, memberikan nuansa segar dan alami di setiap sudut. Dekorasi Pajangan Ukiran Kayu ini tidak hanya berfungsi sebagai elemen dekoratif, tetapi juga mencerminkan keindahan dan keterampilan seni tradisional Bali. Tambahkan keanggunan dan karakter pada interior Anda dengan Dekorasi Pajangan Meja Panel Ukiran Kayu Bali ini!",
+            "price": 195000,
+            "picture": "images/124d689c-9540-46ce-a9b5-fead9dffde8f.jpg",
+            "category": "Dekorasi",
+            "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3943.7987164715196!2d115.22504427444856!3d-8.710655388784968!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd241a189cc02b1%3A0x3f0617eaae4ba5ac!2sLeolle%20Bali%20Shop!5e0!3m2!1sen!2sid!4v1729790144649!5m2!1sen!2sid",
+            "date_created": "2018-11-20T15:58:44.767594-06:75"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "1910c9d8-e15c-40ef-87c4-5469d0c1e024",
+        "fields": {
+            "name": "Patung Bali Model Barong Ket 20cm Dekorasi",
+            "description": "Patung Bali Model Barong Ket 20cm adalah hiasan yang memukau dan kaya makna, menggambarkan Barong Ket, simbol kekuatan dan perlindungan dalam budaya Bali. Dengan tinggi 20 cm, patung ini dibuat dengan detail yang rumit dan penuh warna, menangkap keanggunan dan pesona karakter mitologis yang terkenal ini. Cocok untuk dijadikan dekorasi di ruang tamu, meja kerja, atau sebagai koleksi seni, Patung Barong Ket ini tidak hanya berfungsi sebagai elemen dekoratif, tetapi juga membawa nuansa budaya Bali yang kaya ke dalam rumah Anda. Sebagai pilihan hadiah yang unik bagi pecinta seni dan budaya, patung ini menjadi cara yang sempurna untuk menambahkan sentuhan magis dan tradisional dalam setiap ruangan. Hiasi ruang Anda dengan Patung Bali Model Barong Ket dan nikmati keindahan serta kekuatan simbolisnya!",
+            "price": 495000,
+            "picture": "images/3e14464d-426c-464c-a908-e561053a3c98.jpg",
+            "category": "Dekorasi",
+            "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3943.8187979409936!2d115.21798257444846!3d-8.708750988759821!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd241203f02147f%3A0xe709e386fb3fc0ca!2sBali%20Decoration%20Shop!5e0!3m2!1sen!2sid!4v1729790253551!5m2!1sen!2sid",
+            "date_created": "2018-11-20T15:58:44.767594-06:76"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "8499f02a-8d75-4571-a034-ec0746c9931d",
+        "fields": {
+            "name": "Hiasan dinding lukisan cetak tradisi Bali plus bingkai ukuran 65x45",
+            "description": "Hiasan dinding ukuran 65x45 plus bingkai. Bahan flexy, bahan awet mengkilap dan tahan lama. Bahan bingkai terbuat dari kayu berkualitas warna bingkai hitam gold",
+            "price": 63000,
+            "picture": "images/3eab520e02b0d17fb78635dc75909653@resize_w900_nl.webp",
+            "category": "Dekorasi",
+            "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3943.8187979409936!2d115.21798257444846!3d-8.708750988759821!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd241203f02147f%3A0xe709e386fb3fc0ca!2sBali%20Decoration%20Shop!5e0!3m2!1sen!2sid!4v1729790253551!5m2!1sen!2sid",
+            "date_created": "2018-11-20T15:58:44.767594-06:77"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "d2603c41-c8ae-43b6-912d-5818af20e763",
+        "fields": {
+            "name": "Topeng Kayu Hiasan Dinding Wall decoration Dekorasi Souvenir Bali",
+            "description": "Topeng Kayu Hiasan Dinding adalah karya seni yang memikat, dirancang khusus untuk menambah keindahan dan karakter pada dinding rumah Anda. Terbuat dari kayu berkualitas tinggi, topeng ini menampilkan detail yang rumit dan penuh warna, mencerminkan kekayaan budaya dan tradisi Bali. Sebagai dekorasi dinding, topeng ini bukan hanya sekadar hiasan, tetapi juga simbol dari seni dan spiritualitas lokal, menjadikannya pilihan yang sempurna untuk menciptakan suasana yang unik dan menarik. Cocok sebagai souvenir khas Bali, topeng ini dapat dipajang di ruang tamu, kamar tidur, atau ruang santai, memberikan nuansa eksotis dan artistik. Tambahkan sentuhan budaya yang kaya dan inspirasi visual dengan Topeng Kayu Hiasan Dinding ini, dan ciptakan atmosfer yang memukau di setiap sudut rumah Anda!",
+            "price": 350000,
+            "picture": "images/32bd5a25714b634c44c9f40bccb6f429@resize_w900_nl.webp",
+            "category": "Dekorasi",
+            "location": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15782.884801276175!2d115.262755!3d-8.5264254!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd23d9fcc79e8f1%3A0xad32c6a3eb39d101!2sAdis's%20Shop!5e0!3m2!1sen!2sid!4v1729790415139!5m2!1sen!2sid",
+            "date_created": "2018-11-20T15:58:44.767594-06:78"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "9df1cb48-9b46-48c6-8d73-4e7bbc6d673c",
+        "fields": {
+            "name": "Patung Garuda Wisnu Kencana Kayu",
+            "description": "Patung tersebut berwujud Dewa Wisnu yang dalam agama Hindu adalah Dewa Pemelihara (Sthiti), mengendarai burung Garuda. Tokoh Garuda dapat dilihat di kisah Garuda & Kerajaannya yang berkisah mengenai rasa bakti dan pengorbanan burung Garuda untuk menyelamatkan ibunya dari perbudakan yang akhirnya dilindungi oleh Dewa Wisnu.",
+            "price": 350000,
+            "picture": "images/sg-11134201-22100-k14k48ljyjiv91@resize_w900_nl.webp",
+            "category": "Dekorasi",
+            "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3945.8195521529333!2d115.26134497444508!3d-8.516894086254785!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd23d72436335ff%3A0x8c40ce66883913ba!2sBALI%20MIHO%20Suvenir!5e0!3m2!1sen!2sid!4v1729790475292!5m2!1sen!2sid",
+            "date_created": "2018-11-20T15:58:44.767594-06:79"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "93e7d8b2-acfe-4a9a-beeb-d201652274e3",
+        "fields": {
+            "name": "Conditioner Pelembut Santan 250ml",
+            "description": "Herbalove Santan Conditioner 250ml. Terbuat dari bahan alami tradisional asli dari Indonesia. Untuk melembutkan dan melembabkan rambut agar mudah diatur dan membuat rambut lebih wangi dangan aroma yang menenangkan.",
+            "price": 111500,
+            "picture": "images/Herbalove-Santan-Conditioner-250ml.jpg",
+            "category": "Lulur & Aromateraphy",
+            "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.441744842428!2d115.2310244744475!3d-8.649467987979367!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd240802db988af%3A0xdbffe01fbd635128!2sKrisna%20Oleh%20-%20Oleh%20Bali%20Nusa%20Indah!5e0!3m2!1sen!2sid!4v1729789406153!5m2!1sen!2sid",
+            "date_created": "2018-11-20T15:58:44.767594-06:80"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "34e0f920-31e6-4980-9b32-2da28a0e1865",
+        "fields": {
+            "name": "Herbalove Minyak Kemiri 60ml",
+            "description": "Herbalove Minyak Kemiri 60ml. Terbuat dari kemiri asli yang diambil minyaknya dengan teknik khusus. Minyak Kemiri asli yang berkhasiat untuk merangsang pertumbuhan rambut, menghitamkan rambut, mencegah timbulnya uban, memberikan nutrisi pada akar rambut, membuat akar rambut menjadi lebih kuat",
+            "price": 136500,
+            "picture": "images/Herbalove-Minyak-Kemiri-60ml.jpg",
+            "category": "Lulur & Aromateraphy",
+            "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.441744842428!2d115.2310244744475!3d-8.649467987979367!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd240802db988af%3A0xdbffe01fbd635128!2sKrisna%20Oleh%20-%20Oleh%20Bali%20Nusa%20Indah!5e0!3m2!1sen!2sid!4v1729789406153!5m2!1sen!2sid",
+            "date_created": "2018-11-20T15:58:44.767594-06:81"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "16b68475-504c-462e-b3a7-1f4493f4a6ca",
+        "fields": {
+            "name": "Sabun 40 Gr Bar",
+            "description": "Sabun ini terbuat dari bahan alami, mengadung gliserin alami yang baik bagi kelembapan kulit,Tekstur sabun unik, dengan tambahan bunga kering dan bubuk rempah sebagai scrub alami .Tidak membuat kulit kering dan aman untuk kulit sensitif.",
+            "price": 11500,
+            "picture": "images/Sabun-40-Gr-Bar-2.jpg",
+            "category": "Lulur & Aromateraphy",
+            "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.441744842428!2d115.2310244744475!3d-8.649467987979367!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd240802db988af%3A0xdbffe01fbd635128!2sKrisna%20Oleh%20-%20Oleh%20Bali%20Nusa%20Indah!5e0!3m2!1sen!2sid!4v1729789406153!5m2!1sen!2sid",
+            "date_created": "2018-11-20T15:58:44.767594-06:82"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "fc76b2a2-f8ca-4e6e-8c09-2a1517f004b5",
+        "fields": {
+            "name": "Dupa Stik Isi 20",
+            "description": "Terbuat dari bahan dasar tepung kayu jati dan kayu sintok/gemor, serta aromatik khusus peruntukan dupa bakar.",
+            "price": 13500,
+            "picture": "images/Dupa-Stik-2.jpg",
+            "category": "Lulur & Aromateraphy",
+            "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.441744842428!2d115.2310244744475!3d-8.649467987979367!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd240802db988af%3A0xdbffe01fbd635128!2sKrisna%20Oleh%20-%20Oleh%20Bali%20Nusa%20Indah!5e0!3m2!1sen!2sid!4v1729789406153!5m2!1sen!2sid",
+            "date_created": "2018-11-20T15:58:44.767594-06:83"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "5f17da50-ada7-436c-8386-2b7ca8cc5e34",
+        "fields": {
+            "name": "Body Wash 100ml Chamomile",
+            "description": "Sabun mandi cair yang terbuat dari minyak kelapa murni dan bahan bahan pilihan yang bermanfaat untuk membersihkan, menutrisi dan melembutkan kulit. Kaya akan moisturizer sehingga mampu melembabkan kulit sepanjang hari, tidak menjadikan kulit kering untuk pemakaian sehari hari, tidak mengandung bahan detergen atau SLS",
+            "price": 15000,
+            "picture": "images/1-26.jpg",
+            "category": "Lulur & Aromateraphy",
+            "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.441744842428!2d115.2310244744475!3d-8.649467987979367!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd240802db988af%3A0xdbffe01fbd635128!2sKrisna%20Oleh%20-%20Oleh%20Bali%20Nusa%20Indah!5e0!3m2!1sen!2sid!4v1729789406153!5m2!1sen!2sid",
+            "date_created": "2018-11-20T15:58:44.767594-06:84"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "85f0bddf-79cd-490b-8953-86ef0566f4c0",
+        "fields": {
+            "name": "Shampoo 100ml Chamomile",
+            "description": "Shampoo alami yang terbuat dari minyak kelapa murni dan bahan bahan pilihan yang bermanfaat untuk membersihkan, menjaga kelembaban alami, menjadikan rambut mudah disisir dan tidak kusut. Dengan bahan aktif Creatin, protein yang efektif untuk membantu menguatkan akar rambut dan merawat rambut dari kerusakan, sehingga rambut nampak lembut dan berkilau. Sampo ini tidak mengandung bahan detergen atau SLS",
+            "price": 17000,
+            "picture": "images/1-24.jpg",
+            "category": "Lulur & Aromateraphy",
+            "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.441744842428!2d115.2310244744475!3d-8.649467987979367!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd240802db988af%3A0xdbffe01fbd635128!2sKrisna%20Oleh%20-%20Oleh%20Bali%20Nusa%20Indah!5e0!3m2!1sen!2sid!4v1729789406153!5m2!1sen!2sid",
+            "date_created": "2018-11-20T15:58:44.767594-06:85"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "7167ffcc-175e-4549-9f1c-c0193201cb3e",
+        "fields": {
+            "name": "Bath Salt 110ml",
+            "description": "Bath salt ini dibuat dengan garam laut alami dari laut Bali yang diperkaya dengan minyak wewangian eksotis yang memberikan rasa nyaman dan relaks pada saat melakukan rendaman. Membantu pengelupasan sel kulit mati dan memberikan rasa nyaman dan rileks dari aromanya. Efektif juga untuk menghilangkan capek dan lelah pada kaki dan badan.",
+            "price": 24000,
+            "picture": "images/Bath-Salt-110-Ml-2.jpg",
+            "category": "Lulur & Aromateraphy",
+            "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.441744842428!2d115.2310244744475!3d-8.649467987979367!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd240802db988af%3A0xdbffe01fbd635128!2sKrisna%20Oleh%20-%20Oleh%20Bali%20Nusa%20Indah!5e0!3m2!1sen!2sid!4v1729789406153!5m2!1sen!2sid",
+            "date_created": "2018-11-20T15:58:44.767594-06:86"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "80026ce9-1262-4d4c-9ebd-16ce9bc3655d",
+        "fields": {
+            "name": "Sabun Kesima 45gr",
+            "description": "Terbuat dari bahan alami tradisional asli dari Indonesia. Untuk kesehatan dan kebersihan area kewanitaan. Berkhasiat untuk mengencangkan area kewanitaan, membersihkan organ intim wanita, membuat lebih wangi dan harum sepanjang hari",
+            "price": 16000,
+            "picture": "images/Herbalove-Sabun-KESIMA-Kesed-Sirih-Majakani2.jpg",
+            "category": "Lulur & Aromateraphy",
+            "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.441744842428!2d115.2310244744475!3d-8.649467987979367!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd240802db988af%3A0xdbffe01fbd635128!2sKrisna%20Oleh%20-%20Oleh%20Bali%20Nusa%20Indah!5e0!3m2!1sen!2sid!4v1729789406153!5m2!1sen!2sid",
+            "date_created": "2018-11-20T15:58:44.767594-06:87"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "9584c00e-7a5c-48ed-abca-160644fa7d29",
+        "fields": {
+            "name": "Sabun Lulur Kopi 100gr",
+            "description": "Herbalove Sabun lulur Kopi mengandung kafein, asam buah, organik, lemak, alkoloid, mineral, potasium, magnesium, dan besi yang bermanfaat untuk mengencangkan kulit, menghilangkan selulit dan stretchmark, menjadikan kulit lebih sehat, tidak kusam, dan tidak kering, menghilangkan jerawat dan sel kulit mati. Membantu peremajaan kulit, dan menghilangkan bau badan yang tidak sedap.",
+            "price": 29000,
+            "picture": "images/Herbalove-Sabun-lulur-Kopi2.jpg",
+            "category": "Lulur & Aromateraphy",
+            "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.441744842428!2d115.2310244744475!3d-8.649467987979367!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd240802db988af%3A0xdbffe01fbd635128!2sKrisna%20Oleh%20-%20Oleh%20Bali%20Nusa%20Indah!5e0!3m2!1sen!2sid!4v1729789406153!5m2!1sen!2sid",
+            "date_created": "2018-11-20T15:58:44.767594-06:88"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "a7657a7d-6816-46a4-8525-d390194ae9f6",
+        "fields": {
+            "name": "Sabun Lulur Putih 100gr",
+            "description": "Herbalove sabun lulur putih terbuat dan bahan ekstrak temu giring yang mengandung minyak atsiri sangat tinggi dan rempah herbal tradisional, beras organik, bermanfaat untuk menjadikan kulit putih bersih, mencerahkan kulit, menghaluskan dan menghilangkan flek \u2013 flek hitam dan sel kulit mati. Mencegah dan mengobati jerawat, serta menghilangkan bau badan yang tidak sedap.",
+            "price": 29000,
+            "picture": "images/Herbalove-Sabun-lulur-Putih2-1.jpg",
+            "category": "Lulur & Aromateraphy",
+            "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.441744842428!2d115.2310244744475!3d-8.649467987979367!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd240802db988af%3A0xdbffe01fbd635128!2sKrisna%20Oleh%20-%20Oleh%20Bali%20Nusa%20Indah!5e0!3m2!1sen!2sid!4v1729789406153!5m2!1sen!2sid",
+            "date_created": "2018-11-20T15:58:44.767594-06:89"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "05a8dc66-111b-4331-be52-76c427e83538",
+        "fields": {
+            "name": "Coco Dish 2X40gr",
+            "description": "Sabun batang yang di kemas special dengan alas kayu kelapa cocok digunakan sebagai tatakan sabun dengan isi 2 pcs berat per pcs 40 gram, Terbuat dari bahan alami dan wangi yang menyegarkan serta membantu merawat dan melembabkan kulit, cocok di gunakan sendiri ataupun gift set atau hadiah untuk teman dan keluarga.",
+            "price": 32500,
+            "picture": "images/Coco-Dish-2X40Gr-2.jpg",
+            "category": "Lulur & Aromateraphy",
+            "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.441744842428!2d115.2310244744475!3d-8.649467987979367!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd240802db988af%3A0xdbffe01fbd635128!2sKrisna%20Oleh%20-%20Oleh%20Bali%20Nusa%20Indah!5e0!3m2!1sen!2sid!4v1729789406153!5m2!1sen!2sid",
+            "date_created": "2018-11-20T15:58:44.767594-06:90"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "c388f15e-a362-49a7-8747-f42c76c43c6f",
+        "fields": {
+            "name": "Body Scrub 90gr",
+            "description": "Scrub tubuh berbentuk pasta yang terinspirasi dari pengalaman spa di bali. Mengandung olive oil yang sangat baik untuk menutrisi kulit. Butiran scrub alami yang terbuat dari butiran kelapa parut, beras tumbuk dan ekstrak bengkoang. Mengangkat sel kulit mati dengan sempurna dan membuat kulit terasa begitu halus, lembut dan wangi setelahnya. Dengan kemasan yang cantik, sangat cocok sebagai hadiah. Tidak di uji coba pada hewan dan tanpa pewarna buatan.",
+            "price": 33500,
+            "picture": "images/Body-Scrub-90-Gr-2.jpg",
+            "category": "Lulur & Aromateraphy",
+            "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.441744842428!2d115.2310244744475!3d-8.649467987979367!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd240802db988af%3A0xdbffe01fbd635128!2sKrisna%20Oleh%20-%20Oleh%20Bali%20Nusa%20Indah!5e0!3m2!1sen!2sid!4v1729789406153!5m2!1sen!2sid",
+            "date_created": "2018-11-20T15:58:44.767594-06:91"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "4814253c-745c-4dc9-8787-7fe89eeae62c",
+        "fields": {
+            "name": "Body Butter 90gr",
+            "description": "Body butter ini sangat bagus sebagai pelembab untuk kulit yang sangat kering dan pecah-pecah .Diperkaya dengan kandungan minyak zaitun, cocoa butter dan ekstrak lidah buaya yang akan memberikan nutrisi pada kulit .Dengan tambahan aroma kelapa yang lembut. Body butter ini juga dapat digunakan untuk krim pijat dan mempunyai aroma yang kuat.",
+            "price": 33500,
+            "picture": "images/Body-Butter-90-Gr-1.jpg",
+            "category": "Lulur & Aromateraphy",
+            "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.441744842428!2d115.2310244744475!3d-8.649467987979367!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd240802db988af%3A0xdbffe01fbd635128!2sKrisna%20Oleh%20-%20Oleh%20Bali%20Nusa%20Indah!5e0!3m2!1sen!2sid!4v1729789406153!5m2!1sen!2sid",
+            "date_created": "2018-11-20T15:58:44.767594-06:92"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "c259ecdd-702a-4f2e-a899-a5f74f5c3321",
+        "fields": {
+            "name": "Hand Body Lotion 110ml",
+            "description": "Produk ini mengandung bahan-bahan berkualitas yg diolah berdasarkan standar Good Manufacturing Practice (GMP) Cosmetic serta menggunakan teknologi Modern & Hieginis. Telah ternotifikasi di BPOM RI. Kebaikan alami yang terkandung didalam Hand & Body Lotion diperkaya dgn Vit. E sebagai Nutrisi bagi kulit untuk tetap menjaga kulit terlihat lembut, halus & segar alami.",
+            "price": 37500,
+            "picture": "images/1-108.jpg",
+            "category": "Lulur & Aromateraphy",
+            "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.441744842428!2d115.2310244744475!3d-8.649467987979367!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd240802db988af%3A0xdbffe01fbd635128!2sKrisna%20Oleh%20-%20Oleh%20Bali%20Nusa%20Indah!5e0!3m2!1sen!2sid!4v1729789406153!5m2!1sen!2sid",
+            "date_created": "2018-11-20T15:58:44.767594-06:93"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "a243d067-ca2f-4047-b2d6-77a40770fc42",
+        "fields": {
+            "name": "Body Mist 60ml",
+            "description": "Body Mist terinspirasi dari wewangian natural, diolah berdasarkan standar Good Manufacturing Practice (GMP) Cosmetic. Menggunakan teknologi Modern & Hieginis sehingga menghasilkan wangi yang elegan, unik dan special.",
+            "price": 47000,
+            "picture": "images/1-109.jpg",
+            "category": "Lulur & Aromateraphy",
+            "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.441744842428!2d115.2310244744475!3d-8.649467987979367!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd240802db988af%3A0xdbffe01fbd635128!2sKrisna%20Oleh%20-%20Oleh%20Bali%20Nusa%20Indah!5e0!3m2!1sen!2sid!4v1729789406153!5m2!1sen!2sid",
+            "date_created": "2018-11-20T15:58:44.767594-06:94"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "6e5f4291-caef-4284-9f2d-234b8a8361c6",
+        "fields": {
+            "name": "Hand Cream Coconut 40ml",
+            "description": "Krim pelembab tangan terbuat dari bahan alami, diperkaya dengan virgin coconut oil dan juga olive oil yang sangat baik dan efektif untuk menutrisi dan melembabkan kulit. Bentuk kemasan yang cantik, kecil dan praktis sangat cocok sebagai hadiah, dapat dibawa kemana saja dan dipergunakan kapanpun saat tangan terasa kering. Cocok untuk Anda yang sering beraktifitas diruangan berAC ataupun sering mencuci tangan.",
+            "price": 48000,
+            "picture": "images/Hand-Cream-Coconut-40Ml-2.jpg",
+            "category": "Lulur & Aromateraphy",
+            "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.441744842428!2d115.2310244744475!3d-8.649467987979367!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd240802db988af%3A0xdbffe01fbd635128!2sKrisna%20Oleh%20-%20Oleh%20Bali%20Nusa%20Indah!5e0!3m2!1sen!2sid!4v1729789406153!5m2!1sen!2sid",
+            "date_created": "2018-11-20T15:58:44.767594-06:95"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "03647064-57f2-4dd9-9a3a-e6b0be3fc0f8",
+        "fields": {
+            "name": "Herbalove Lulur Kuning Kunyit",
+            "description": "Herbalove Lulur Scrub Kuning Kunyit menutrisi secara tradisional untuk merawat kulit anda. Mengangkat dan meregenerasi sel kulit mati hingga ke pori \u2013 pori. Mencegah kulit kering, kasar, dan kusam. Membuat kulit menjadi sehat,kencang, halus, dan cerah bersinar. Memperlancar peredaran darah, merelaksasi otot dan menjadikannya segar kembali.",
+            "price": 52500,
+            "picture": "images/Herbalove-Lulur-Scrub-Kuning-Kunyit2.jpg",
+            "category": "Lulur & Aromateraphy",
+            "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.441744842428!2d115.2310244744475!3d-8.649467987979367!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd240802db988af%3A0xdbffe01fbd635128!2sKrisna%20Oleh%20-%20Oleh%20Bali%20Nusa%20Indah!5e0!3m2!1sen!2sid!4v1729789406153!5m2!1sen!2sid",
+            "date_created": "2018-11-20T15:58:44.767594-06:96"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "f1d75819-b58a-4ff0-bd4c-03cc9195311b",
+        "fields": {
+            "name": "Shampoo Mm Lavender 100ml",
+            "description": "Herbalove Merang Miri Lavender Shampoo 100ml terbuat dari bahan alami tradisional asli dari Indonesia. Membersihkan serta memelihara kesehatan rambut dan membuat rambut lebih wangi, dengan aroma yang lembut dan menenangkan. Cocok digunakan untuk tipikal rambut normal.",
+            "price": 59500,
+            "picture": "images/Herbalove-Merang-Miri-Lavender-Shampoo-100ml.jpg",
+            "category": "Lulur & Aromateraphy",
+            "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.441744842428!2d115.2310244744475!3d-8.649467987979367!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd240802db988af%3A0xdbffe01fbd635128!2sKrisna%20Oleh%20-%20Oleh%20Bali%20Nusa%20Indah!5e0!3m2!1sen!2sid!4v1729789406153!5m2!1sen!2sid",
+            "date_created": "2018-11-20T15:58:44.767594-06:97"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "9782fcef-90d6-46bf-a4d3-00df33a0b93c",
+        "fields": {
+            "name": "Bali Coco Candle 10gr",
+            "description": "Lilin aroma terapi yang cocok untuk waktu bersantai, ataupun untuk mengilangkan bau tidak sedap pada ruangan Anda dan memberikan aroma yang menyenangkan. Formula lilin yang berkualitas sehingga lilin dapat terbakar sempurna hingga habis. Aroma lilin yang terinspirasi dari wewangian nusantara dengan pilihan yang beragam.",
+            "price": 95500,
+            "picture": "images/Bali-Coco-Candle-10Gr-2.jpg",
+            "category": "Lulur & Aromateraphy",
+            "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.441744842428!2d115.2310244744475!3d-8.649467987979367!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd240802db988af%3A0xdbffe01fbd635128!2sKrisna%20Oleh%20-%20Oleh%20Bali%20Nusa%20Indah!5e0!3m2!1sen!2sid!4v1729789406153!5m2!1sen!2sid",
+            "date_created": "2018-11-20T15:58:44.767594-06:98"
+        }
+    },
+    {
+        "model": "adminview.product",
+        "pk": "3dcb12ea-1f5b-463f-a5ca-7ef727035db3",
+        "fields": {
+            "name": "Bali Coco Coll Vco 100ml",
+            "description": "Bali Coco Body Oil adalah pelembab kulit dalam bentuk minyak dengan kandungan Virgin Coconut Oil, begitu kaya pelembab sehingga lebih efektif untuk kulit yang sangat kering hingga bersisik. Memberikan kilau kulit yang sehat. Tekstur minyak ringan, cepat menyerap di kulit dan tidak lengket. Dapat dipergunakan sebagai tanning oil juga. Dikemas dengan cantik dan cocok sebagai hadiah.",
+            "price": 100000,
+            "picture": "images/Bali-Coco-Coll-Vco-100Ml-2.jpg",
+            "category": "Lulur & Aromateraphy",
+            "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.441744842428!2d115.2310244744475!3d-8.649467987979367!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd240802db988af%3A0xdbffe01fbd635128!2sKrisna%20Oleh%20-%20Oleh%20Bali%20Nusa%20Indah!5e0!3m2!1sen!2sid!4v1729789406153!5m2!1sen!2sid",
+            "date_created": "2018-11-20T15:58:44.767594-06:99"
+        }
+    }
+]
