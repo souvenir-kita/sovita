@@ -8,21 +8,23 @@
          style="background: linear-gradient(153deg, #F09027 12.76%, #8CBEAA 71.77%)">
         <div class="w-full max-w-screen-md px-4 mx-auto mt-14">
             <div class="flex flex-col min-h-screen py-4 space-y-4">
-                <a href="{% url 'forum:create_forum_post' product_id %}"
-                   class="w-full px-4 py-2 text-base font-semibold text-white bg-[#b85c2c] hover:bg-[#f09027] border border-transparent rounded-md shadow-sm">Create a post</a>
-                <div class="border border-gray-200"></div>
+                {% if user_role == "buyer" %}
+                    <a href="{% url 'forum:create_forum_post' product.id %}"
+                       class="w-full px-4 py-2 text-base font-semibold text-white bg-[#b85c2c] hover:bg-[#f09027] border border-transparent rounded-md shadow-sm">Create a post</a>
+                    <div class="border border-gray-200"></div>
+                {% endif %}
                 {% if not posts %}
                     <div class="flex flex-col items-center justify-center flex-grow space-y-8 rounded-lg">
                         <svg class="w-20"
                              viewBox="0 0 16 16"
                              xmlns="http://www.w3.org/2000/svg"
-                             fill="none">
+                             fill="white">
                             <g id="SVGRepo_bgCarrier" stroke-width="0">
                             </g>
                             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round">
                             </g>
                             <g id="SVGRepo_iconCarrier">
-                            <g fill="#000000" fill-rule="evenodd" clip-rule="evenodd">
+                            <g fill="white" fill-rule="evenodd" clip-rule="evenodd">
                             <path d="M8.302 3.288A3.633 3.633 0 002.756 7.76c.124.237.112.49.102.61a2.984 2.984 0 01-.084.468 7.853 7.853 0 01-.2.655c.26-.09.52-.17.75-.223a.7.7 0 11.312 1.365c-.34.078-.837.258-1.278.434a23.211 23.211 0 00-.701.295l-.042.018-.01.005-.003.001a.7.7 0 01-.925-.927v-.001l.002-.004.008-.018.03-.07a21.252 21.252 0 00.43-1.047c.113-.3.211-.592.27-.822.021-.09.034-.157.041-.205a5.033 5.033 0 017.74-6.082.7.7 0 01-.896 1.076zM1.463 8.226v0z">
                             </path>
                             <path d="M4.75 9.333a5.083 5.083 0 119.657 2.221c.006.033.015.077.029.133.05.197.14.453.248.734.087.223.178.443.262.646l.06.146c.049.118.094.23.131.326.03.082.074.2.097.306a.75.75 0 01-.734.905c-.169 0-.332-.04-.447-.072a4.867 4.867 0 01-.394-.134c-.188-.072-.402-.162-.606-.248l-.216-.09a7.634 7.634 0 00-.705-.265 1.739 1.739 0 00-.095-.026A5.083 5.083 0 014.75 9.333zm1.5 0a3.583 3.583 0 116.763 1.654c-.124.239-.12.485-.11.614.01.155.043.313.08.456.054.214.132.448.216.676a7.37 7.37 0 00-.643-.231 2.456 2.456 0 00-.443-.093 1.113 1.113 0 00-.626.104 3.583 3.583 0 01-5.237-3.18zm8.15 2.16l-.001-.012v.013z">
@@ -30,7 +32,7 @@
                             </g>
                             </g>
                         </svg>
-                        <h3 class="font-sans text-xl font-semibold text-gray-800">post is empty</h3>
+                        <h3 class="font-sans text-xl font-semibold text-gray-200">tidak ada balasan</h3>
                     </div>
                 {% else %}
                     {% for post in posts %}
@@ -45,7 +47,7 @@
                                 <p class="text-sm text-gray-800">{{ post.content }}</p>
                             </div>
                             <div class="flex items-center space-x-2 text-gray-800">
-                                <a href="{% url 'forum:forum_post' product_id post.id %}"
+                                <a href="{% url 'forum:forum_post' product.id post.id %}"
                                    class="flex items-center px-3 py-1.5 space-x-2 bg-gray-200 rounded-full">
                                     <svg class="w-5"
                                          viewBox="-2.5 -2.5 30.00 30.00"
@@ -63,29 +65,31 @@
                                     </svg>
                                     <span class="text-sm">Replies</span>
                                 </a>
-                                <div class="relative">
-                                    <button class="inline-flex items-center px-2 py-2 text-gray-700 bg-gray-200 rounded-full dropdown-button hover:bg-gray-300 focus:outline-none"
-                                            aria-haspopup="true"
-                                            aria-expanded="false">
-                                        <svg class="w-5 h-5 text-gray-600"
-                                             xmlns="http://www.w3.org/2000/svg"
-                                             fill="none"
-                                             viewBox="0 0 24 24"
-                                             stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                                        </svg>
-                                    </button>
-                                    <ul class="absolute right-0 z-10 hidden w-40 mt-2 bg-white rounded-md shadow-lg dropdown-menu">
-                                        <li>
-                                            <a href="{% url 'forum:edit_forum_post' product_id post.id %}"
-                                               class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Edit</a>
-                                        </li>
-                                        <li>
-                                            <a href="{% url 'forum:delete_forum_post' product_id post.id %}"
-                                               class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Delete</a>
-                                        </li>
-                                    </ul>
-                                </div>
+                                {% if user.username == post.user.username %}
+                                    <div class="relative">
+                                        <button class="inline-flex items-center px-2 py-2 text-gray-700 bg-gray-200 rounded-full dropdown-button hover:bg-gray-300 focus:outline-none"
+                                                aria-haspopup="true"
+                                                aria-expanded="false">
+                                            <svg class="w-5 h-5 text-gray-600"
+                                                 xmlns="http://www.w3.org/2000/svg"
+                                                 fill="none"
+                                                 viewBox="0 0 24 24"
+                                                 stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                            </svg>
+                                        </button>
+                                        <ul class="absolute right-0 z-10 hidden w-40 mt-2 bg-white rounded-md shadow-lg dropdown-menu">
+                                            <li>
+                                                <a href="{% url 'forum:edit_forum_post' product.id post.id %}"
+                                                   class="block px-4 py-2 text-sm text-gray-700 dropdown-item hover:bg-gray-100">Edit</a>
+                                            </li>
+                                            <li>
+                                                <a href="{% url 'forum:delete_forum_post' product.id post.id %}"
+                                                   class="block px-4 py-2 text-sm text-gray-700 dropdown-item hover:bg-gray-100">Delete</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                {% endif %}
                             </div>
                         </div>
                     {% endfor %}
@@ -99,6 +103,14 @@
                 event.stopPropagation(); // Prevent the click from bubbling up
                 const dropdownMenu = this.nextElementSibling; // Get the corresponding dropdown menu
                 dropdownMenu.classList.toggle('hidden');
+            });
+        });
+        document.querySelectorAll('.dropdown-item').forEach(link => {
+            link.addEventListener('click', function(event) {
+                // Close the dropdown menu
+                const dropdownMenu = this.closest('.dropdown-menu');
+                dropdownMenu.classList.add('hidden');
+                event.stopPropagation(); // Prevent event bubbling
             });
         });
     </script>
