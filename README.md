@@ -1,5 +1,7 @@
 # Sovita (Souvenir Kita): Our Souvenirs, Your Unforgettable Memories! 🏝️⛅
 ---
+![logo](https://github.com/user-attachments/assets/048d5af6-dabe-45b0-b05d-23394960aa59)
+---
 
 ## Anggota Kelompok D-06 TK PBP 2024/2025 🧑
 * [**Arzaka Raffan Mawardi**](https://github.com/ArzakaRaffan) - 2306152393
@@ -24,22 +26,22 @@
 ---
 ## Modul-modul SOVITA 📢📌
 
-1. **Display Produk**\
+1. **Display Produk dan Admin View (Arzaka)🥼**\
 Modul untuk menampilkan produk-produk yang sudah dipersonalisasi. Pada display, terdapat <em>card</em> produk yang bisa di interaksi oleh pengguna.
 
-2. **Review Produk**\
+2. **Review Produk (Zufar)🔗**\
 Modul untuk menambahkan ulasan dan penilaian kepada produk tertentu.
 
-3. **Wishlist**\
+3. **Wishlist (Reyhan)🏝️**\
 Modul untuk menyimpan barang yang sedang sedang menjadi <em>wishlist</em> oleh pengguna.
 
-4. **Cart**\
+4. **Cart (Maulana)💻**\
 Modul untuk menyimpan produk yang ingin dibeli pengguna.
 
-5. **Forum**\
+5. **Forum (Wisnu)📢**\
 Modul untuk diskusi pengguna mengenai suatu produk
 
-6. **Promo**\
+6. **Promo (Rafli)📚**\
 Modul untuk melakukan CRUD pada promo-promo yang berlaku.
 
 ---
