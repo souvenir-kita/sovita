@@ -11,7 +11,7 @@ from .models import UserProfile
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 import json
-
+from django.contrib.auth import logout as auth_logout
 
 def register(request):
     form = CustomUserCreationForm()
@@ -117,3 +117,21 @@ def api_register(request):
             "status": False,
             "message": "Invalid request method."
         }, status=400)
+        
+        
+@csrf_exempt
+def api_logout(request):
+    username = request.user.username
+
+    try:
+        auth_logout(request)
+        return JsonResponse({
+            "username": username,
+            "status": True,
+            "message": "Logout berhasil!"
+        }, status=200)
+    except:
+        return JsonResponse({
+        "status": False,
+        "message": "Logout gagal."
+        }, status=401)
