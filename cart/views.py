@@ -11,6 +11,9 @@ from django.views.decorators.http import require_POST
 import json
 from django.db.models import Q
 from django.template.loader import render_to_string
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from .serializer import CartProductSerializer
 
 @login_required
 def show_cart(request):
@@ -178,3 +181,15 @@ def sort_cart(request):
         return JsonResponse({'error': 'Invalid JSON data'}, status=400)
     except Exception as e:
         return JsonResponse({'error': str(e)}, status=400)
+    
+    
+
+
+@api_view(['GET'])
+def get_cart_products(request, cart_id):
+    try:
+        cart_products = CartProduct.objects.filter(cart_id=cart_id)
+        serializer = CartProductSerializer(cart_products, many=True)
+        return Response(serializer.data, status=200)
+    except Cart.DoesNotExist:
+        return Response({"error": "Cart not found"}, status=404)
