@@ -9,4 +9,5 @@ urlpatterns = [
     path("login/", login_user, name="login"),
     path("logout/", logout_user, name="logout"),
     # path("landing/", landing_page, name="landing_page"),
+    path('api-login/', api_login, name='api-login'),
 ]

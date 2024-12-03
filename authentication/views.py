@@ -8,6 +8,8 @@ from django.urls import reverse
 from django.contrib.auth.models import User
 from authentication.forms import CustomUserCreationForm
 from .models import UserProfile
+from django.views.decorators.csrf import csrf_exempt
+from django.http import JsonResponse
 
 
 def register(request):
@@ -48,3 +50,31 @@ def logout_user(request):
     response = HttpResponseRedirect(reverse('authentication:login'))
     response.delete_cookie('last_login')
     return response
+
+
+@csrf_exempt
+def api_login(request):
+    username = request.POST['username']
+    password = request.POST['password']
+    user = authenticate(username=username, password=password)
+    if user is not None:
+        if user.is_active:
+            login(request, user)
+            # Status login sukses.
+            return JsonResponse({
+                "username": user.username,
+                "status": True,
+                "message": "Login sukses!"
+                # Tambahkan data lainnya jika ingin mengirim data ke Flutter.
+            }, status=200)
+        else:
+            return JsonResponse({
+                "status": False,
+                "message": "Login gagal, akun dinonaktifkan."
+            }, status=401)
+
+    else:
+        return JsonResponse({
+            "status": False,
+            "message": "Login gagal, periksa kembali email atau kata sandi."
+        }, status=401)

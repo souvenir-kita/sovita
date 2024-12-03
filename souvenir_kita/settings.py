@@ -28,7 +28,7 @@ SECRET_KEY = "django-insecure-9x!8p2o1_q!%0uh-ik_!!kb!d&t!e!(=rs5b$eg5o==nm9*np&
 PRODUCTION = os.getenv("PRODUCTION", False)
 DEBUG = not PRODUCTION
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", "muhammad-rafli33-souvenirkita.pbp.cs.ui.ac.id"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "muhammad-rafli33-souvenirkita.pbp.cs.ui.ac.id", "10.0.2.2"]
 
 
 # Application definition
@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     "promo", #rafli
     "wishlist", # Reyhan
     "adminview", #Arzaka
+    "corsheaders",
 ]
 
 MIDDLEWARE = [
@@ -66,6 +67,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
 ]
 
 ROOT_URLCONF = "souvenir_kita.urls"
@@ -152,3 +154,10 @@ else:
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 CSRF_TRUSTED_ORIGINS = ["http://localhost","http://127.0.0.1","http://http://muhammad-rafli33-souvenirkita.pbp.cs.ui.ac.id/", "https://http://muhammad-rafli33-souvenirkita.pbp.cs.ui.ac.id/"]
+
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SAMESITE = 'None'
+SESSION_COOKIE_SAMESITE = 'None'

@@ -6,3 +6,4 @@ requests
 urllib3
 pillow
 pytz
+django-cors-headers
