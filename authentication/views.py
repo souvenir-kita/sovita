@@ -87,6 +87,10 @@ def api_register(request):
         username = data['username']
         password1 = data['password1']
         password2 = data['password2']
+        role = data['role']
+        address = data['address']
+        age = data['age']
+        phone_number = data['phone_number']
 
         # Check if the passwords match
         if password1 != password2:
@@ -105,6 +109,15 @@ def api_register(request):
         # Create the new user
         user = User.objects.create_user(username=username, password=password1)
         user.save()
+
+        UserProfile.objects.create(
+            user=user, 
+            role=role, 
+            address=address, 
+            age=age, 
+            phone_number=phone_number
+        )
+
         
         return JsonResponse({
             "username": user.username,

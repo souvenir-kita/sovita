@@ -12,4 +12,8 @@ urlpatterns = [
     path('delete/<uuid:id>', delete_promo, name='delete_promo'),
     path('edit_promo/<uuid:pk>/', edit_promo, name='edit_promo'),
     path('json/kode/<str:kode>/', show_json_by_kode, name='show_json_by_kode'),
+    path('json_api/', json_api, name='json_api'),
+    path('create-flutter/', create_promo_flutter, name='create_flutter'),
+    path('edit-flutter/<uuid:pk>/',edit_promo_flutter, name='edit_flutter'),
+    path('delete-flutter/<uuid:pk>/',delete_promo_flutter, name='delete_flutter')
 ]
