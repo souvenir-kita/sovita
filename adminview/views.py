@@ -7,6 +7,8 @@ from django.urls import reverse
 from django.core import serializers
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
+import json
+from django.http import JsonResponse
 
 @admin_required
 def show_admin(request):
@@ -77,3 +79,21 @@ def create_product_ajax(request):
     new_product.save()
 
     return HttpResponse(b"CREATED", status=201)
+
+@csrf_exempt
+def create_product_flutter(request):
+    if request.method == 'POST':
+
+        data = json.loads(request.body)
+        new_product = Product.objects.create(
+            name=data["name"],
+            price=int(data["price"]),
+            description=data["description"],
+            category=data["category"],
+            location=data["location"],
+        )
+        new_product.save()
+
+        return JsonResponse({"status": "success"}, status=200)
+    else:
+        return JsonResponse({"status": "error"}, status=401)
