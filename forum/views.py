@@ -1,3 +1,5 @@
+import json
+
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
@@ -23,7 +25,9 @@ def get_forum_post(request, product_id, post_id):
     post = Post.objects.get(pk=post_id)
     replies = Reply.objects.filter(post=post_id)
     return render(
-        request, "forum_post.html", {"user": request.user, "post": post, "replies": replies}
+        request,
+        "forum_post.html",
+        {"user": request.user, "post": post, "replies": replies},
     )
 
 
@@ -162,3 +166,123 @@ def delete_forum_post_reply(request, product_id, post_id, reply_id):
             },
             status=500,
         )
+
+
+def get_posts_flutter(request, product_id):
+    posts = (
+        Post.objects.filter(product_id=product_id)
+        .prefetch_related("reply_set")
+        .select_related("user")
+    )
+
+    posts_data = []
+    for post in posts:
+        post_data = {
+            "id": str(post.id),
+            "user": post.user.username,
+            "title": post.title,
+            "content": post.content,
+            "created_at": post.created_at,
+            "updated_at": post.updated_at,
+            "replies": [
+                {
+                    "id": str(reply.id),
+                    "user": reply.user.username,
+                    "content": reply.content,
+                    "created_at": reply.created_at,
+                    "updated_at": reply.updated_at,
+                }
+                for reply in post.reply_set.all()
+            ],
+        }
+        posts_data.append(post_data)
+
+    return JsonResponse(
+        {"status": 200, "message": "success", "data": {"posts": posts_data}}
+    )
+
+
+@csrf_exempt
+def create_post_flutter(request, product_id):
+    if request.method == "POST":
+        data = json.loads(request.body)
+
+        product = Product.objects.get(pk=product_id)
+        new_post = Post.objects.create(
+            user=request.user,
+            product=product,
+            title=data["title"],
+            content=data["content"],
+        )
+
+        new_post.save()
+
+        try:
+            new_post.save()
+            return JsonResponse(
+                {"status": "success", "message": "post saved", "data": {}},
+                status=200
+            )
+        except Exception as e:
+            return JsonResponse(
+                {
+                    "status": "failed",
+                    "message": str(e),
+                    "data": {},
+                },
+                status=500,
+            )
+
+
+@csrf_exempt
+def update_post_flutter(request, product_id, post_id):
+    if request.method == "POST":
+        data = json.loads(request.body)
+
+        post = Post.objects.get(pk=post_id)
+        post.title = data["title"]
+        post.content = data["content"]
+
+        try:
+            post.save()
+            return JsonResponse(
+                {
+                    "status": "success",
+                    "message": "post updated succesfully",
+                    "data": {},
+                },
+                status=201,
+            )
+        except Exception as e:
+            return JsonResponse(
+                {
+                    "status": "failed",
+                    "message": str(e),
+                    "data": {},
+                },
+                status=500,
+            )
+
+
+@csrf_exempt
+def delete_post_flutter(request, product_id, post_id):
+    if request.method == "POST":
+        post = Post.objects.get(pk=post_id)
+        try:
+            post.delete()
+            return JsonResponse(
+                {
+                    "status": "success",
+                    "message": "post deleted succesfully",
+                    "data": {},
+                },
+                status=201,
+            )
+        except Exception as e:
+            return JsonResponse(
+                {
+                    "status": "failed",
+                    "message": str(e),
+                },
+                status=500,
+            )
