@@ -61,11 +61,13 @@ def api_login(request):
     if user is not None:
         if user.is_active:
             login(request, user)
+            is_admin = UserProfile.objects.get(user=user).role == "admin"
             # Status login sukses.
             return JsonResponse({
                 "username": user.username,
                 "status": True,
-                "message": "Login sukses!"
+                "message": "Login sukses!",
+                "isAdmin": is_admin
                 # Tambahkan data lainnya jika ingin mengirim data ke Flutter.
             }, status=200)
         else:
