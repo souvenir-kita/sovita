@@ -120,3 +120,7 @@ def update_flutter(request, id):
             return JsonResponse({'error': str(e)}, status=500)
     print("Error")
     return JsonResponse({'error': 'Invalid request method'}, status=400)
+
+def show_json_random(request):
+    data = Product.objects.order_by('?')[:8]
+    return HttpResponse(serializers.serialize("json", data), content_type="application/json")
