@@ -1,5 +1,5 @@
 from django.urls import path
-from adminview.views import show_admin, edit_product, delete_product, show_xml, show_json, show_xml_by_id, show_json_by_id, create_product_ajax, create_product_flutter
+from adminview.views import show_admin, edit_product, delete_product, show_xml, show_json, show_xml_by_id, show_json_by_id, create_product_ajax, create_product_flutter, update_flutter
 
 app_name = 'adminview'
 
@@ -13,4 +13,5 @@ urlpatterns = [
     path('json/<str:id>/', show_json_by_id, name='show_json_by_id'),
     path('create-product-ajax/', create_product_ajax, name='create_product_ajax'),
     path('create-flutter/', create_product_flutter, name = "create_product_flutter"),
+    path('update-flutter/<uuid:id>/', update_flutter, name='update_flutter'),
 ]

@@ -97,3 +97,26 @@ def create_product_flutter(request):
         return JsonResponse({"status": "success"}, status=200)
     else:
         return JsonResponse({"status": "error"}, status=401)
+    
+@csrf_exempt
+def update_flutter(request, id):
+    if request.method == 'POST':  # Handle POST as update
+        try:
+            data = json.loads(request.body)
+            product = Product.objects.get(pk=id)
+            product.name = data.get('name', product.name)
+            product.price = data.get('price', product.price)
+            product.description = data.get('description', product.description)
+            product.category = data.get('category', product.category)
+            product.location = data.get('location', product.location)
+            product.save()
+            print("SUCCESS")
+            return JsonResponse({'status': 'success', 'message': 'Product updated successfully!'})
+        except Product.DoesNotExist:
+            print("doesnt exist")
+            return JsonResponse({'error': 'Product not found'}, status=404)
+        except Exception as e:
+            print("EXCEPTION")
+            return JsonResponse({'error': str(e)}, status=500)
+    print("Error")
+    return JsonResponse({'error': 'Invalid request method'}, status=400)
