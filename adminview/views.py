@@ -77,3 +77,8 @@ def create_product_ajax(request):
     new_product.save()
 
     return HttpResponse(b"CREATED", status=201)
+
+
+def show_json_random(request):
+    data = Product.objects.order_by('?')[:8]
+    return HttpResponse(serializers.serialize("json", data), content_type="application/json")
