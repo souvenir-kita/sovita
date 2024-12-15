@@ -110,17 +110,27 @@ def update_flutter(request, id):
             product.category = data.get('category', product.category)
             product.location = data.get('location', product.location)
             product.save()
-            print("SUCCESS")
             return JsonResponse({'status': 'success', 'message': 'Product updated successfully!'})
         except Product.DoesNotExist:
-            print("doesnt exist")
             return JsonResponse({'error': 'Product not found'}, status=404)
         except Exception as e:
-            print("EXCEPTION")
             return JsonResponse({'error': str(e)}, status=500)
-    print("Error")
     return JsonResponse({'error': 'Invalid request method'}, status=400)
 
 def show_json_random(request):
     data = Product.objects.order_by('?')[:8]
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+
+@csrf_exempt
+def delete_flutter(request, id):
+    if request.method == "POST":
+        try:
+            product = Product.objects.get(pk=id)
+            product.delete()
+            return JsonResponse({"status": "success"}, status=200)
+        except Product.DoesNotExist:
+            return JsonResponse({'error': 'Product not found'}, status=404)
+        except Exception as e:
+            return JsonResponse({'error': str(e)}, status=500)
+    return JsonResponse({'error': 'Invalid request method'}, status=400)
+
