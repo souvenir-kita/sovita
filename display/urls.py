@@ -2,7 +2,7 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 from display.views import display_main, view_product
-from display.views import show_xml, show_json, show_xml_by_id, show_json_by_id, search, to_landing, profile_view
+from display.views import show_xml, show_json, show_xml_by_id, show_json_by_id, search, to_landing, profile_view, search_flutter
 
 from cart.views import add_product_to_cart, show_cart
 
@@ -20,5 +20,6 @@ urlpatterns = [
     path('json/<str:id>/', show_json_by_id, name='show_json_by_id'),
     path('search/', search, name='search'),
     path('profile/', profile_view, name='profile'),
+    path('search-flutter/<str:name>', search_flutter, name='search_flutter')
 ]
 
