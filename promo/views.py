@@ -104,6 +104,7 @@ def show_json_by_kode(request, kode):
 @csrf_exempt
 def create_promo_flutter(request):
     if request.method == 'POST':
+        print(request.user)
         data = json.loads(request.body)
         new_promo = Promo.objects.create(
             user = request.user,
@@ -114,10 +115,15 @@ def create_promo_flutter(request):
             deskripsi = data["deskripsi"],
             tanggal_akhir_berlaku = data["tanggal_akhir_berlaku"]
         )
-        new_promo.save()
+        try:
+            new_promo.save()
+            print("SUKSES")
+        except:
+            print("FAIL")
 
         return JsonResponse({"status": "success"}, status=200)
     else:
+        print("ERROR")
         return JsonResponse({"status": "error"}, status=401)
 
 @csrf_exempt
@@ -144,6 +150,7 @@ def edit_promo_flutter(request, pk) :
 
         return JsonResponse({"status": "success"}, status=200)
     else:
+        
         return JsonResponse({"status": "error"}, status=401)
     
 
