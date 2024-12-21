@@ -61,11 +61,13 @@ def api_login(request):
     if user is not None:
         if user.is_active:
             login(request, user)
+            is_admin = UserProfile.objects.get(user=user).role == "admin"
             # Status login sukses.
             return JsonResponse({
                 "username": user.username,
                 "status": True,
-                "message": "Login sukses!"
+                "message": "Login sukses!",
+                "isAdmin": is_admin
                 # Tambahkan data lainnya jika ingin mengirim data ke Flutter.
             }, status=200)
         else:
@@ -87,6 +89,10 @@ def api_register(request):
         username = data['username']
         password1 = data['password1']
         password2 = data['password2']
+        role = data['role']
+        address = data['address']
+        age = data['age']
+        phone_number = data['phone_number']
 
         # Check if the passwords match
         if password1 != password2:
@@ -105,6 +111,15 @@ def api_register(request):
         # Create the new user
         user = User.objects.create_user(username=username, password=password1)
         user.save()
+
+        UserProfile.objects.create(
+            user=user, 
+            role=role, 
+            address=address, 
+            age=age, 
+            phone_number=phone_number
+        )
+
         
         return JsonResponse({
             "username": user.username,
@@ -135,3 +150,24 @@ def api_logout(request):
         "status": False,
         "message": "Logout gagal."
         }, status=401)
+    
+
+from django.http import JsonResponse
+from .models import UserProfile
+
+def user_profile_json(request):
+    try:
+        user_profile = UserProfile.objects.get(user=request.user)
+        
+        data = {
+            'username': user_profile.user.username,
+            'role': user_profile.role,
+            'address': user_profile.address,
+            'age': user_profile.age,
+            'phone_number': user_profile.phone_number,
+        }
+        
+        return JsonResponse(data)
+
+    except UserProfile.DoesNotExist:
+        return JsonResponse({'error': 'Cant fetch user :('}, status=404)

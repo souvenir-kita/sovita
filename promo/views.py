@@ -1,3 +1,4 @@
+import json
 from django.shortcuts import render
 from django.utils.html import strip_tags
 from promo.models import Promo
@@ -11,6 +12,7 @@ from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
 from adminview.decorators import admin_required
 
+
 # Yang perlu diimplement:
 # 1. Validasi tanggal, only present/past
 # 2. Kasih pesan kalau kode sudah ada
@@ -23,6 +25,7 @@ def show_promo(request):
 @require_POST
 @admin_required
 def add_promo(request):
+    user = request.user
     nama = strip_tags(request.POST.get("nama"))
     kode = strip_tags(request.POST.get("kode"))
     potongan = strip_tags(request.POST.get("potongan"))
@@ -32,7 +35,8 @@ def add_promo(request):
     new_promo = Promo(
         nama=nama, kode=kode,
         potongan=potongan, deskripsi = deskripsi,
-        stock = stock, tanggal_akhir_berlaku = tanggal_akhir_berlaku
+        stock = stock, tanggal_akhir_berlaku = tanggal_akhir_berlaku,
+        user = user
     )
     new_promo.save()
 
@@ -54,6 +58,11 @@ def show_json(request):
         param = "-" + param
     data = Promo.objects.all().order_by(param)
     
+    return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+
+def json_api(request):
+    data = Promo.objects.all()
+
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
 
 def show_json_by_id(id):
@@ -91,3 +100,66 @@ def edit_promo(request, pk):
 def show_json_by_kode(request, kode):
     data = Promo.objects.filter(kode=kode)
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+
+@csrf_exempt
+def create_promo_flutter(request):
+    if request.method == 'POST':
+        print(request.user)
+        data = json.loads(request.body)
+        new_promo = Promo.objects.create(
+            user = request.user,
+            kode = data["kode"],
+            nama = data["nama"],
+            potongan = int(data["potongan"]),
+            stock = int(data["stock"]),
+            deskripsi = data["deskripsi"],
+            tanggal_akhir_berlaku = data["tanggal_akhir_berlaku"]
+        )
+        try:
+            new_promo.save()
+            print("SUKSES")
+        except:
+            print("FAIL")
+
+        return JsonResponse({"status": "success"}, status=200)
+    else:
+        print("ERROR")
+        return JsonResponse({"status": "error"}, status=401)
+
+@csrf_exempt
+def edit_promo_flutter(request, pk) :
+    if request.method == "POST" :
+        data = json.loads(request.body)
+        promo = Promo.objects.get(pk=pk)
+
+        new_kode = data["kode"]
+        new_nama = data["nama"]
+        new_potongan = int(data["potongan"])
+        new_stock = int(data["stock"])
+        new_deskripsi = data["deskripsi"]
+        new_tanggal_akhir_berlaku = data["tanggal_akhir_berlaku"]
+
+        promo.nama = new_nama
+        promo.kode = new_kode
+        promo.potongan = new_potongan
+        promo.stock = new_stock
+        promo.deskripsi = new_deskripsi
+        promo.tanggal_akhir_berlaku = new_tanggal_akhir_berlaku
+
+        promo.save()
+
+        return JsonResponse({"status": "success"}, status=200)
+    else:
+        
+        return JsonResponse({"status": "error"}, status=401)
+    
+
+@csrf_exempt
+def delete_promo_flutter(request, pk) :
+    if request.method == "POST" :
+        promo = Promo.objects.get(pk=pk)
+        promo.delete()
+
+        return JsonResponse({"status": "success"}, status=200)
+    
+    return JsonResponse({"status": "error"}, status=401)
