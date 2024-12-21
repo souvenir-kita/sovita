@@ -150,3 +150,24 @@ def api_logout(request):
         "status": False,
         "message": "Logout gagal."
         }, status=401)
+    
+
+from django.http import JsonResponse
+from .models import UserProfile
+
+def user_profile_json(request):
+    try:
+        user_profile = UserProfile.objects.get(user=request.user)
+        
+        data = {
+            'username': user_profile.user.username,
+            'role': user_profile.role,
+            'address': user_profile.address,
+            'age': user_profile.age,
+            'phone_number': user_profile.phone_number,
+        }
+        
+        return JsonResponse(data)
+
+    except UserProfile.DoesNotExist:
+        return JsonResponse({'error': 'Cant fetch user :('}, status=404)

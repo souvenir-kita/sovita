@@ -72,3 +72,11 @@ def search(request):
     else:
         products = []
     return render(request, "search.html", {'searched': searched, 'products': products})
+
+
+def search_flutter(request, name):
+    if name:
+        products = Product.objects.filter(name__icontains=name)
+    else:
+        products = []
+    return HttpResponse(serializers.serialize("json", products), content_type="application/json")
