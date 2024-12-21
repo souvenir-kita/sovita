@@ -202,6 +202,37 @@ def get_posts_flutter(request, product_id):
     )
 
 
+def get_post_flutter(request, product_id, post_id):
+    post = (
+        Post.objects.select_related("user")
+        .prefetch_related("reply_set")
+        .get(pk=post_id)
+    )
+
+    post_data = {
+        "id": str(post.id),
+        "user": post.user.username,
+        "title": post.title,
+        "content": post.content,
+        "created_at": post.created_at,
+        "updated_at": post.updated_at,
+        "replies": [
+            {
+                "id": str(reply.id),
+                "user": reply.user.username,
+                "content": reply.content,
+                "created_at": reply.created_at,
+                "updated_at": reply.updated_at,
+            }
+            for reply in post.reply_set.all()
+        ],
+    }
+
+    return JsonResponse(
+        {"status": 200, "message": "success", "data": {"post": post_data}}
+    )
+
+
 @csrf_exempt
 def create_post_flutter(request, product_id):
     if request.method == "POST":
@@ -214,8 +245,6 @@ def create_post_flutter(request, product_id):
             title=data["title"],
             content=data["content"],
         )
-
-        new_post.save()
 
         try:
             new_post.save()
@@ -274,6 +303,84 @@ def delete_post_flutter(request, product_id, post_id):
                 {
                     "status": "success",
                     "message": "post deleted succesfully",
+                    "data": {},
+                },
+                status=201,
+            )
+        except Exception as e:
+            return JsonResponse(
+                {
+                    "status": "failed",
+                    "message": str(e),
+                },
+                status=500,
+            )
+
+
+@csrf_exempt
+def create_reply_flutter(request, product_id, post_id):
+    if request.method == "POST":
+        data = json.loads(request.body)
+
+        post = Post.objects.get(pk=post_id)
+        new_reply = Reply.objects.create(
+            user=request.user,
+            post=post,
+            content=data["content"],
+        )
+
+        try:
+            new_reply.save()
+            return JsonResponse(
+                {"status": "success", "message": "reply saved", "data": {}},
+                status=200
+            )
+        except Exception as e:
+            return JsonResponse(
+                {
+                    "status": "failed",
+                    "message": str(e),
+                    "data": {},
+                },
+                status=500,
+            )
+
+
+@csrf_exempt
+def update_reply_flutter(request, product_id, post_id, reply_id):
+    if request.method == "POST":
+        data = json.loads(request.body)
+
+        reply = Reply.objects.get(pk=reply_id)
+        reply.content = data["content"]
+
+        try:
+            reply.save()
+            return JsonResponse(
+                {"status": "success", "message": "reply updated", "data": {}},
+                status=200
+            )
+        except Exception as e:
+            return JsonResponse(
+                {
+                    "status": "failed",
+                    "message": str(e),
+                    "data": {},
+                },
+                status=500,
+            )
+
+
+@csrf_exempt
+def delete_reply_flutter(request, product_id, post_id, reply_id):
+    if request.method == "POST":
+        reply = Reply.objects.get(pk=reply_id)
+        try:
+            reply.delete()
+            return JsonResponse(
+                {
+                    "status": "success",
+                    "message": "reply deleted succesfully",
                     "data": {},
                 },
                 status=201,
