@@ -7,8 +7,10 @@ from django.urls import reverse
 from django.core import serializers
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
-import json
 from django.http import JsonResponse
+import base64
+from django.core.files.base import ContentFile
+import json
 
 @admin_required
 def show_admin(request):
@@ -83,20 +85,32 @@ def create_product_ajax(request):
 @csrf_exempt
 def create_product_flutter(request):
     if request.method == 'POST':
+        try:
+            # Get form data
+            name = request.POST.get('name')
+            price = request.POST.get('price')
+            description = request.POST.get('description')
+            category = request.POST.get('category')
+            location = request.POST.get('location')
+            image_base64 = request.POST.get('image')
+            image_data = base64.b64decode(image_base64)
+            image_file = ContentFile(image_data, name=f"product_{name}.jpg")
+            new_product = Product.objects.create(
+                name=name,
+                price=int(price),
+                description=description,
+                category=category,
+                location=location,
+                picture=image_file,
+            )
+            new_product.save()
 
-        data = json.loads(request.body)
-        new_product = Product.objects.create(
-            name=data["name"],
-            price=int(data["price"]),
-            description=data["description"],
-            category=data["category"],
-            location=data["location"],
-        )
-        new_product.save()
+            return JsonResponse({"status": "success"}, status=200)
+        except Exception as e:
+            return JsonResponse({"status": "error", "message": str(e)}, status=400)
+    
+    return JsonResponse({"status": "error", "message": "Invalid request method"}, status=400)
 
-        return JsonResponse({"status": "success"}, status=200)
-    else:
-        return JsonResponse({"status": "error"}, status=401)
     
 @csrf_exempt
 def update_flutter(request, id):
