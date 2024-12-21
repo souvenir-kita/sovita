@@ -37,6 +37,16 @@
                     <button type="submit" class="bg-[#f09027] hover:bg-[#b85c2c] text-white font-bold py-2 px-6 rounded-lg transition duration-300 ease-in-out transform hover:scale-105">Tambah ke keranjang</button>
                   </div>
                 </form>
+                <form method="POST" action="{% url 'cart:add_with_note' product.id %}">
+                  {% csrf_token %}
+                  <label for="cart_amount">Amount:</label>
+                  <input type="number" name="cart_amount" min="1" value="1" required>
+                  
+                  <label for="cart_note">Note:</label>
+                  <textarea name="cart_note" maxlength="144" placeholder="Add a note (optional)"></textarea>
+                  
+                  <button type="submit">Add to Cart</button>
+                </form>                
                 {% endif %}
                 <div class="flex">
                 <a href="{% url 'forum:forum_posts' product.id %}" class="block w-max bg-[#f09027] hover:bg-[#b85c2c] mr-6 text-white font-bold py-2 px-6 rounded-lg transition duration-300 ease-in-out transform">Lihat forum</a>
