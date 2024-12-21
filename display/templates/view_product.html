@@ -37,7 +37,7 @@
                     <button type="submit" class="bg-[#f09027] hover:bg-[#b85c2c] text-white font-bold py-2 px-6 rounded-lg transition duration-300 ease-in-out transform hover:scale-105">Tambah ke keranjang</button>
                   </div>
                 </form>
-                <form method="POST" action="{% url 'cart:add_with_note' product.id %}">
+                <form method="post" action="{% url 'cart:add_product_to_cart_with_note' product.id %}">
                   {% csrf_token %}
                   <label for="cart_amount">Amount:</label>
                   <input type="number" name="cart_amount" min="1" value="1" required>

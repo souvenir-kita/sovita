@@ -66,7 +66,6 @@ def add_product_to_cart(request, id):
 @login_required
 @csrf_exempt
 def add_product_to_cart_with_note(request, id):
-    # Ensure the request is a POST request
     if request.method != 'POST':
         return HttpResponseBadRequest("Invalid request method")
 
