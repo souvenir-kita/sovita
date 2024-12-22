@@ -9,7 +9,9 @@ from django.contrib.auth.decorators import login_required
 from review.forms import ReviewForm
 from review.models import ReviewEntry, Product
 from django.contrib import messages
+import json
 import pytz
+from authentication.models import UserProfile
 
 def show_review(request, id):
     is_buyer = False
@@ -122,3 +124,173 @@ def show_json(request, product_id):
             }
         })
     return JsonResponse(data, safe=False)
+
+def show_json_all(request):
+    reviews = ReviewEntry.objects.all()
+    data = []
+    jakarta_tz = pytz.timezone('Asia/Jakarta')
+    for review in reviews:
+        jakarta_time = review.date_create.astimezone(jakarta_tz)
+        data.append({
+            'pk': review.id,
+            'fields': {
+                'rating': review.rating,
+                'deskripsi': review.deskripsi,
+                'date_create': jakarta_time.strftime("%d %B %Y %H:%M"), 
+                'user': {
+                    'username': review.user.username  # Ambil username dari user yang membuat review
+                }
+            }
+        })
+    return JsonResponse(data, safe=False)
+
+@csrf_exempt 
+def get_product_reviews(request, product_id):
+    if request.method == 'GET':
+        try:
+            reviews = ReviewEntry.objects.filter(product_id=product_id).select_related('user')
+            review_list = []
+            jakarta_tz = pytz.timezone('Asia/Jakarta')
+            
+            for review in reviews:
+                jakarta_time = review.date_create.astimezone(jakarta_tz)
+                review_data = {
+                    'id': str(review.id),
+                    'username': review.user.username,
+                    'rating': review.rating,
+                    'review': review.deskripsi,  # Changed from 'deskripsi' to match Flutter
+                    'date_created': jakarta_time.strftime("%d %B %Y %H:%M"),
+                    'is_user_review': request.user.id == review.user.id  # Check if current user is reviewer
+                }
+                review_list.append(review_data)
+                
+            return JsonResponse({
+                'status': 'success',
+                'reviews': review_list
+            })
+        except Exception as e:
+            return JsonResponse({
+                'status': 'error',
+                'message': str(e)
+            }, status=500)
+
+def check_user_role(user):
+    try:
+        profile = UserProfile.objects.get(user=user)
+        return profile.role
+    except UserProfile.DoesNotExist:
+        return None
+
+@csrf_exempt
+def create_review_flutter(request, product_id):
+    if request.method == 'POST':
+        try:
+            # Check if user is admin
+            user_role = check_user_role(request.user)
+            if user_role == "admin":
+                return JsonResponse({
+                    'status': 'error',
+                    'message': 'Admins are not allowed to create reviews'
+                }, status=403)
+
+            data = json.loads(request.body)
+            fields = data.get('fields', {})
+            
+            new_review = ReviewEntry.objects.create(
+                product_id=product_id,
+                user=request.user,
+                rating=fields['rating'],
+                deskripsi=fields['deskripsi'],
+            )
+            
+            return JsonResponse({
+                'status': 'success',
+                'pk': str(new_review.pk),
+                'fields': {
+                    'rating': new_review.rating,
+                    'deskripsi': new_review.deskripsi,
+                    'date_create': new_review.date_create.strftime("%Y-%m-%d %H:%M:%S"),
+                    'user': {
+                        'username': new_review.user.username
+                    }
+                }
+            })
+        except Exception as e:
+            return JsonResponse({
+                'status': 'error',
+                'message': str(e)
+            }, status=400)
+
+    return JsonResponse({'status': 'error', 'message': 'Invalid method'}, status=405)
+
+@csrf_exempt
+def edit_review_flutter(request, product_id):
+    if request.method == "POST":
+        try:
+            # Check if user is admin
+            user_role = check_user_role(request.user)
+            if user_role == "admin":
+                return JsonResponse({
+                    'status': 'error',
+                    'message': 'Admins are not allowed to edit reviews'
+                }, status=403)
+
+            review = ReviewEntry.objects.get(pk=product_id)
+            # Check if the current user is the owner of the review
+            if request.user != review.user:
+                return JsonResponse(
+                    {"status": "error", "message": "Not authorized"}, 
+                    status=403
+                )
+                
+            data = json.loads(request.body)
+            review.rating = data["rating"]
+            review.deskripsi = data["deskripsi"]
+            review.save()
+
+            return JsonResponse({"status": "success"}, status=200)
+        except ReviewEntry.DoesNotExist:
+            return JsonResponse(
+                {"status": "error", "message": "Review not found"}, 
+                status=404
+            )
+        except Exception as e:
+            return JsonResponse(
+                {"status": "error", "message": str(e)}, 
+                status=400
+            )
+    return JsonResponse({"status": "error", "message": "Invalid method"}, status=405)
+
+@csrf_exempt
+def delete_review_flutter(request, product_id):
+    if request.method == "POST":
+        try:
+            # Check if user is admin
+            user_role = check_user_role(request.user)
+            if user_role == "admin":
+                return JsonResponse({
+                    'status': 'error',
+                    'message': 'Admins are not allowed to delete reviews'
+                }, status=403)
+
+            review = ReviewEntry.objects.get(pk=product_id)
+            # Check if the current user is the owner of the review
+            if request.user != review.user:
+                return JsonResponse(
+                    {"status": "error", "message": "Not authorized"}, 
+                    status=403
+                )
+                
+            review.delete()
+            return JsonResponse({"status": "success"}, status=200)
+        except ReviewEntry.DoesNotExist:
+            return JsonResponse(
+                {"status": "error", "message": "Review not found"}, 
+                status=404
+            )
+        except Exception as e:
+            return JsonResponse(
+                {"status": "error", "message": str(e)}, 
+                status=400
+            )
+    return JsonResponse({"status": "error", "message": "Invalid method"}, status=405)

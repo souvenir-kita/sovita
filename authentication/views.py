@@ -13,6 +13,7 @@ from django.http import JsonResponse
 import json
 from django.contrib.auth import logout as auth_logout
 
+
 def register(request):
     form = CustomUserCreationForm()
     if request.method == "POST":
