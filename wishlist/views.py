@@ -91,7 +91,7 @@ def update_wishlist_flutter(request):
             data = json.loads(request.body)
             product = get_object_or_404(Product, id=data.get("productId"))
             wishlist = Wishlist.objects.get(user=request.user, product=product)
-            wishlist.description = data.get("description", ""),
+            wishlist.description = data.get("description")
             wishlist.priority = int(data.get("priority", 2))
             wishlist.save()
             return JsonResponse({'status': 'success', 'message': 'Wishlist updated successfully!'})
