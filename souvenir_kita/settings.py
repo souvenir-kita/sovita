@@ -153,7 +153,7 @@ else:
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-CSRF_TRUSTED_ORIGINS = ["http://localhost","http://127.0.0.1", "https://muhammad-rafli33-souvenirkita.pbp.cs.ui.ac.id"]
+CSRF_TRUSTED_ORIGINS = ["http://localhost","http://127.0.0.1", "https://muhammad-rafli33-souvenirkita.pbp.cs.ui.ac.id","http://muhammad-rafli33-souvenirkita.pbp.cs.ui.ac.id"]
 
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
