@@ -23,7 +23,6 @@ def toggle_wishlist(request, product_id):
         product = get_object_or_404(Product, id=product_id)
         data = json.loads(request.body) if request.body else {}
         wishlist_item, created = Wishlist.objects.get_or_create(user=request.user, product=product)
-
         if created:
             wishlist_item.priority = data.get('priority', 2)
             wishlist_item.description = data.get('description', '')
@@ -63,45 +62,37 @@ def remove_wishlist_flutter(request, product_id):
             return JsonResponse({'error': str(e)}, status=500)
     return JsonResponse({'error': 'Invalid request method'}, status=400)
 
-    # try:
-    #     product = Product.objects.get(id=product_id)
-    # except Product.DoesNotExist:
-    #     return Response({'error': 'Product not found'}, status=404)
-
-    # wishlist_item = Wishlist.objects.filter(user=user, product=product).first()
-
-    # if wishlist_item:
-    #     wishlist_item.delete()
-    #     return Response({'message': 'Product removed from wishlist'}, status=200)
-    # else:
-    #     Wishlist.objects.create(user=user, product=product)
-    #     return Response({'message': 'Product added to wishlist'}, status=201)
-
 @csrf_exempt
-def add_wishlist_flutter(request, product_id):
+def add_wishlist_flutter(request):
+    user = request.user
+    if not request.user.is_authenticated:
+        return JsonResponse({'error': user}, status=401)
     if request.method == 'POST':
         data = json.loads(request.body)
-        product =get_object_or_404(Product, product_id)
-        wishlist = Wishlist.objects.create(
-            user = request.user,
-            product = product.pk,
-            description = data["description"],
-            priority = int(data["priority"]),
-        )
-        wishlist.save()
-
-        return JsonResponse({"status": "success"}, status=200)
+        try:
+             wishlist = Wishlist.objects.get(user=request.user, product=get_object_or_404(Product, id=data.get("productId")))
+             return JsonResponse({"status": "error"}, status=402)
+        except: 
+            wishlist = Wishlist.objects.create(
+            user = user,
+            product =  get_object_or_404(Product, id=data.get("productId")),
+            description=data.get("description", ""),
+            priority=int(data.get("priority", 2))
+            )
+            wishlist.save()
+            return JsonResponse({"status": "success"}, status=200)
     else:
-        return JsonResponse({"status": "error"}, status=401)
+        return JsonResponse({"status": "error"}, status=402)
     
 @csrf_exempt
 def update_wishlist_flutter(request):
-    if request.method == 'POST':  # Handle POST as update
+    if request.method == 'POST':
         try:
             data = json.loads(request.body)
-            wishlist = Wishlist.objects.get(data["productId"])
-            wishlist.description = data["description"],
-            wishlist.priority = data["priority"],
+            product = get_object_or_404(Product, id=data.get("productId"))
+            wishlist = Wishlist.objects.get(user=request.user, product=product)
+            wishlist.description = data.get("description", ""),
+            wishlist.priority = int(data.get("priority", 2))
             wishlist.save()
             return JsonResponse({'status': 'success', 'message': 'Wishlist updated successfully!'})
         except Wishlist.DoesNotExist:
