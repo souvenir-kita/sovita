@@ -14,6 +14,7 @@ urlpatterns = [
     path('add_product_to_cart_with_note/<uuid:id>/', add_product_to_cart_with_note, name='add_product_to_cart_with_note'),
     path('edit/<uuid:id>/', edit_cart_product, name='edit_cart_product'),
     path('delete/<uuid:id>/', delete_cart_product, name='delete_cart_product'),
+    path('delete_cart_product_flutter/<uuid:id>/', delete_cart_product_flutter, name='delete_cart_product_flutter'),
     path('inc_amount/<uuid:id>/', inc_amount, name='inc_amount'),
     path('dec_amount/<uuid:id>/', dec_amount, name='dec_amount'),
     path('update_note/<uuid:id>/', update_note, name='update_note'),

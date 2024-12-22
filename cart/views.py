@@ -63,37 +63,41 @@ def add_product_to_cart(request, id):
 
     return redirect('display:display_main')
 
-@login_required
+import logging
+import traceback
+
 @csrf_exempt
 def add_product_to_cart_with_note(request, id):
-    if request.method != 'POST':
-        return HttpResponseBadRequest("Invalid request method")
+    try:
+        if request.method != 'POST':
+            return HttpResponseBadRequest("Invalid request method")
 
-    # Get the product object
-    product = get_object_or_404(Product, id=id)
+        data = json.loads(request.body)
+        logging.info(f"Received data: {data}")
+        
+        product = get_object_or_404(Product, id=id)
+        cart, _ = Cart.objects.get_or_create(user=request.user)
 
-    # Retrieve or create a cart for the current user
-    cart, _ = Cart.objects.get_or_create(user=request.user)
+        cart_product, created = CartProduct.objects.get_or_create(
+            cart=cart,
+            product=product,
+            defaults={
+                "amount": data["amount"],
+                "note": data["note"],
+            }
+        )
+        
+        if not created:
+            cart_product.amount = data["amount"]
+            cart_product.note = data["note"]
+            cart_product.save()
 
-    # Get the amount and note from the POST request
-    amount = int(request.POST.get('cart_amount', 1))  # Default to 1 if not provided
-    note = request.POST.get('cart_note', None)  # Optional note field
+        return JsonResponse({"status": "success"}, status=200)
+    except Exception as e:
+        logging.error(f"Error in add_product_to_cart_with_note: {e}")
+        logging.error(traceback.format_exc())
+        return JsonResponse({"status": "error", "message": str(e)}, status=500)
 
-    # Retrieve or create a CartProduct object
-    cart_product, created = CartProduct.objects.get_or_create(
-        cart=cart,
-        product=product,
-        defaults={'amount': amount, 'note': note}  # Add note to defaults
-    )
-
-    # If the CartProduct already exists, update the amount and optionally the note
-    if not created:
-        cart_product.amount += amount
-        if note:  # Update the note if a new one is provided
-            cart_product.note = note
-        cart_product.save()
-
-    return redirect('display:display_main')
 
 @login_required
 def edit_cart_product(request, id):
@@ -124,9 +128,22 @@ def delete_cart_product(request, id):
 
     return render(request, "confirm_delete_cart_product.html", {'cart_product': cart_product})
 
+@csrf_exempt
+def delete_cart_product_flutter(request, id):
+    # Ensure the method is DELETE
+    if request.method != "POST":
+        return JsonResponse({'success': False, 'error': 'Invalid request method'}, status=400)
 
+    # Retrieve the cart product
+    cart_product = get_object_or_404(CartProduct, id=id)
+
+    # Delete the cart product
+    cart_product.delete()
+
+    return JsonResponse({'success': True, 'message': 'Cart product deleted successfully'})
 
 @require_POST
+@csrf_exempt
 def update_note(request, id):
     try:
         cart_product = CartProduct.objects.get(id=id, cart__user=request.user)
@@ -157,12 +174,14 @@ def update_note(request, id):
             'error': str(e)
         }, status=500)
 
+@csrf_exempt
 def inc_amount(request, id):
     cart_item = get_object_or_404(CartProduct, id=id)
     cart_item.amount += 1
     cart_item.save()
     return JsonResponse({'success': True, 'new_amount': cart_item.amount, 'new_total_price': cart_item.amount * cart_item.product.price})
 
+@csrf_exempt
 def dec_amount(request, id):
     cart_item = get_object_or_404(CartProduct, id=id)
     if cart_item.amount > 1:
