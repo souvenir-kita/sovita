@@ -131,10 +131,12 @@ def update_flutter(request, id):
             return JsonResponse({'error': str(e)}, status=500)
     return JsonResponse({'error': 'Invalid request method'}, status=400)
 
+@csrf_exempt
 def show_json_random(request):
     data = Product.objects.order_by('?')[:8]
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
 
+@csrf_exempt
 @csrf_exempt
 def delete_flutter(request, id):
     if request.method == "POST":

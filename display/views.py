@@ -4,7 +4,7 @@ from adminview.models import Product
 from django.contrib.auth.decorators import login_required
 from django.core import serializers
 from authentication.models import UserProfile
-
+from django.views.decorators.csrf import csrf_exempt
 # @login_required(login_url='authentication:login')
 def display_main(request):
     productEntry = Product.objects.all()
@@ -64,7 +64,7 @@ def show_json_by_id(request, id):
     data = Product.objects.filter(pk=id)
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
 
-
+@csrf_exempt
 def search(request):
     searched = request.GET.get('searched', '')
     if searched:
@@ -74,6 +74,7 @@ def search(request):
     return render(request, "search.html", {'searched': searched, 'products': products})
 
 
+@csrf_exempt
 def search_flutter(request, name):
     if name:
         products = Product.objects.filter(name__icontains=name)
