@@ -1,6 +1,7 @@
 import json
 
 from django.contrib.auth.decorators import login_required
+from django.db.models import Prefetch
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.views.decorators.csrf import csrf_exempt
@@ -171,8 +172,14 @@ def delete_forum_post_reply(request, product_id, post_id, reply_id):
 def get_posts_flutter(request, product_id):
     posts = (
         Post.objects.filter(product_id=product_id)
-        .prefetch_related("reply_set")
         .select_related("user")
+        .prefetch_related(
+            Prefetch(
+                'reply_set',
+                queryset=Reply.objects.order_by('-created_at')
+            )
+        )
+        .order_by("-created_at")
     )
 
     posts_data = []
@@ -205,7 +212,13 @@ def get_posts_flutter(request, product_id):
 def get_post_flutter(request, product_id, post_id):
     post = (
         Post.objects.select_related("user")
-        .prefetch_related("reply_set")
+        .prefetch_related(
+            Prefetch(
+                'reply_set',
+                queryset=Reply.objects.order_by('-created_at')
+            )
+        )
+        .order_by("-created_at")
         .get(pk=post_id)
     )
 
